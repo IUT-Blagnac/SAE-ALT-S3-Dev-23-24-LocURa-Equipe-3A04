@@ -14,6 +14,13 @@ $port     = 1883;
 
 $mqtt = new MQTTClient($server, $port);
 $mqtt->connect();
+if($mqtt->isConnected()) {
+    echo "Error connecting to the broker";
+}else {
+    exit(1);
+    echo "Connectionne marche pas";
+}
+
 
 $mqtt->subscribe('#', function ($topic, $message, $retained, $matchedWildcards) {
     echo sprintf("Received message on topic [%s]: %s\n", $topic, $message);
