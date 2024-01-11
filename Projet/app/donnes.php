@@ -2,7 +2,8 @@
 
 // Exemple de données à renvoyer au format JSON
 $donnees = [
-    ["x" => 100, "y" => 200],
+    ["x" => 342, "y" => 34],
+    ["x" => 234, "y" => 234],
     ["x" => -50, "y" => 100]
 ];
 

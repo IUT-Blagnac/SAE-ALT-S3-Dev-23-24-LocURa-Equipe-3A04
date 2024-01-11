@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Utiliser AJAX pour récupérer les données du serveur
     $.ajax({
-        url: 'donnees.php', // Remplacez 'donnees.php' par le chemin correct vers votre script PHP
+        url: 'donnes.php', // Remplacez 'donnees.php' par le chemin correct vers votre script PHP
         method: 'GET',
         dataType: 'json',
         success: function (data) {
