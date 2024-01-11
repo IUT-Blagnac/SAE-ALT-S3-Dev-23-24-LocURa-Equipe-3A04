@@ -4,6 +4,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 EXPOSE 80 1883
 WORKDIR /app
+COPY app/ /app/
 
 # git, unzip & zip are for composer
 RUN apt-get update -qq && \
@@ -25,7 +26,6 @@ RUN composer require php-mqtt/client
 COPY errors /errors
 COPY conf/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY conf/apache.conf /etc/apache2/conf-available/z-app.conf
-COPY index.php /app/index.php
 
 RUN a2enmod rewrite remoteip && \
     a2enconf z-app
