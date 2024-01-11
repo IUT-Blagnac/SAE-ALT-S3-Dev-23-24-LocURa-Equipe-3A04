@@ -58,9 +58,9 @@ Projet est réalisé par::
 
 [cols="1,2,2,5",options=header]
 |===
-| Date    | Nom         |  Lien                             
-| Sem.2  | Cours Moodle      |        https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE]             
-|        | Backlog Produit |  https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit]
+| Date    | Nom         |  Lien  |                           
+| Sem.2  | Cours Moodle      |        https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE]    |         
+|        | Backlog Produit |  https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit] |
 
 
 == Réalisations 
