@@ -19,7 +19,6 @@ RUN apt-get update -qq && \
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache
 COPY conf/php.ini /usr/local/etc/php/conf.d/app.ini
-
 RUN composer require php-mqtt/client
 
 # Apache
