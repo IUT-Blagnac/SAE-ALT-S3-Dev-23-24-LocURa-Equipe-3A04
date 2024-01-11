@@ -1,35 +1,59 @@
-<?php
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Points Dynamiques avec Origine à 500, 500</title>
-    <style>
-        #map {
-            width: 1000px;
-            height: 1000px;
-            position: relative;
-        }
-
-        .point {
-            width: 10px;
-            height: 10px;
-            position: absolute;
-            border-radius: 50%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="map"></div>
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
 
-    <!-- Inclure jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Inclure le fichier JavaScript pour AJAX -->
-    <script src="scriptRecupererDonnes.js"></script>
-    <!-- Inclure le fichier JavaScript pour créer les points -->
-    <script src="scriptCreerPoint.js"></script>
+    <div class="dropdown">
+        <button class="dropbtn"> Nods
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Information 1</label>
+            <label><input type="checkbox" name="info2"> Information 2</label>
+            <label><input type="checkbox" name="info3"> Information 3</label>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn"> Layers
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="firstLayer"> First Layer </label>
+            <label><input type="checkbox" name="secondLayer"> Second Layer </label>
+            <label><input type="checkbox" name="thirdLayer"> Third Layer </label>
+        </div>
+    </div>
 </body>
 </html>
