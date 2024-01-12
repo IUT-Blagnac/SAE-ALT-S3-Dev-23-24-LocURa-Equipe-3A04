@@ -4,8 +4,6 @@
 
 = Documentation Utilisateur
 
-== Sommaire
-
 :sectnums:
 toc::[Sommaire]
 
