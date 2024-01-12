@@ -3,7 +3,8 @@
 const servername = "BaseDeDonnes"; 
 const username = "UserBd"; 
 const password = "MotDePasseBD";
-const dbname = "Donnes";   
+const dbname = "Donnes";
+const table_name = "DonneesCapteurs";   
 
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
@@ -21,15 +22,14 @@ function InitBase()
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
-    $table_name = "DonneesCapteurs";
-    $requete = "CREATE TABLE IF NOT EXISTS $table_name (
+    $requete = "CREATE TABLE IF NOT EXISTS ".table_name." (
         idCapteur VARCHAR(30) PRIMARY KEY,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL
-    )";
+    );";
     $conn ->execute_query($requete);
     $conn->close();
 }
@@ -44,8 +44,6 @@ function InitBase()
 function EnvoyerDonnesNoeud($topic,$message)
 {
 
-    $table_name = "DonneesCapteurs";
-
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -59,26 +57,24 @@ function EnvoyerDonnesNoeud($topic,$message)
     $z = $data["z"];
     $orientation = $data["orientation"];
     $color = $data["color"];
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
-    $table_name = "DonneesCapteurs";
-    $requete = "INSERT INTO $table_name (
-        idCapteur,
-        x,
-        y,
-        z,
-        orientation,
-        color
-    )
-    VALUES (
-        $idCapteur,
-        $x,
-        $y,
-        $z,
-        $orientation,
-        $color
-    );";
-    $conn ->execute_query($requete);
+    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color) VALUES (?, ?, ?, ?, ?, ?)";
+
+    // Préparation de la requête
+    $statement = $conn->prepare($requete);
+
+    $statement->bind_param("sdddds", $idCapteur, $x, $y, $z, $orientation, $color);
+
+    // Exécution de la requête
+    $resultat = $statement->execute();
+
+    // Vérifier l'exécution de la requête
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    // Fermer la connexion et le statement
+    $statement->close();
     $conn->close();
 }
 
@@ -102,19 +98,15 @@ function afficherDonnees()
     
     $table_name = "DonneesCapteurs";
     $requete = "SELECT * FROM $table_name";
-    echo "REQUETE 1";
     $resultat = $conn->query($requete);
-    echo "REQUETE 2";
     // Vérifier si la requête a réussi
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-    echo "REQUETE 3";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-        echo var_dump($row). "<br>";
+        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur <br>" ;
     }
-    echo "REQUETE 4";
     $conn->close();
 }
 ?>
