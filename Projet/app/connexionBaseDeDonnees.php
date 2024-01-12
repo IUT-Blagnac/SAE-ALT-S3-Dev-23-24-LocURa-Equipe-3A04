@@ -52,13 +52,13 @@ function EnvoyerDonnesNoeud($topic,$message)
     if ($conn->connect_error) {
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
-    $data = json_decode($message);
-    $idCapteur = $topic; // Assuming the topic is the sensor ID
-    $x = $data['x'];
-    $y = $data['y'];
-    $z = $data['z'];
-    $orientation = $data['orientation'];
-    $color = $data['color'];
+    $data = json_decode($message,true);
+    $idCapteur = explode("/",$topic)[1];
+    $x = $data["x"];
+    $y = $data["y"];
+    $z = $data["z"];
+    $orientation = $data["orientation"];
+    $color = $data["color"];
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
     $table_name = "DonneesCapteurs";
@@ -77,8 +77,44 @@ function EnvoyerDonnesNoeud($topic,$message)
         $z,
         $orientation,
         $color
-    )";
+    );";
     $conn ->execute_query($requete);
+    $conn->close();
+}
+
+/**
+ * Fonction qui selectionne toutes les données et les dump dans un echo
+ * Pour debug uniquement
+ */
+function afficherDonnees()
+{
+    $table_name = "DonneesCapteurs";
+
+    
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    
+    $table_name = "DonneesCapteurs";
+    $requete = "SELECT * FROM $table_name";
+    echo "REQUETE 1";
+    $resultat = $conn->query($requete);
+    echo "REQUETE 2";
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    echo "REQUETE 3";
+    // Afficher les résultats
+    while ($row = $resultat->fetch_assoc()) {
+        echo var_dump($row). "<br>";
+    }
+    echo "REQUETE 4";
     $conn->close();
 }
 ?>
