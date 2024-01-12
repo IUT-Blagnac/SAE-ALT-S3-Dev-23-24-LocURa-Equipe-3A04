@@ -14,7 +14,7 @@ function createPoint(coordX, coordY, couleur) {
     let point = document.createElement("div");
     point.className = "point";
 
-    let origine = 250; // Origine de la carte
+    let origine = 100; // Origine de la carte
 
     // Positionnement du point aux coordonnées spécifiées avec translation
     point.style.left = coordX + origine + "px";
