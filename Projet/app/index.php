@@ -1,66 +1,36 @@
-<?php
-
-require('vendor/autoload.php');
-
-use \PhpMqtt\Client\MqttClient;
-
-// phpinfo();
-echo "<a href='Page2.php'>Page 2</a>";
-
-// Listener
-
-$server   = 'lab.iut-blagnac.fr';
-$port     = 1883;
-
-$mqtt = new MQTTClient($server, $port);
-$mqtt->connect();
-if($mqtt->isConnected()) {
-    echo "Error connecting to the broker";
-}else {
-    exit(1);
-    echo "Connectionne marche pas";
-}
-
-
-$mqtt->subscribe('#', function ($topic, $message, $retained, $matchedWildcards) {
-    echo sprintf("Received message on topic [%s]: %s\n", $topic, $message);
-}, 0);
-
-// Attendez un certain temps pour que le listener puisse recevoir le message
-$mqtt->loop(true);
-
-$mqtt->disconnect();
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Points Dynamiques avec Origine à 500, 500</title>
-    <style>
-        #map {
-            width: 1000px;
-            height: 1000px;
-            position: relative;
-        }
-
-        .point {
-            width: 10px;
-            height: 10px;
-            position: absolute;
-            border-radius: 50%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="map"></div>
+<div class="navbar">
+    <a href="https://www.irit.fr/plateformes/plateforme-locura4iot/">Informations</a>
+    <div class="dropdown">
+        <button class="dropbtn"> Noeuds
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="info1"> Noeud 1</label>
+            <label><input type="checkbox" name="info2"> Noeud 2</label>
+            <label><input type="checkbox" name="info3"> Noeud 3</label>
+        </div>
+    </div>
 
-    <!-- Inclure jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Inclure le fichier JavaScript pour AJAX -->
-    <script src="scriptRecupererDonnes.js"></script>
-    <!-- Inclure le fichier JavaScript pour créer les points -->
-    <script src="scriptCreerPoint.js"></script>
+    <div class="dropdown">
+        <button class="dropbtn"> Couches
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="firstLayer"> Première couche </label>
+            <label><input type="checkbox" name="secondLayer"> Deuxième couche </label>
+            <label><input type="checkbox" name="thirdLayer"> Troisième couche </label>
+        </div>
+    </div>
+
+</div>
+
+<img src="Images/map.png" class="map-image">
+
 </body>
 </html>

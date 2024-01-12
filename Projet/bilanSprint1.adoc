@@ -1,0 +1,64 @@
+= SAÉ 3.01 Alt 2023-2024 - Bilan de fin de sprint
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+== Progrès accompli
+
+=== Objectifs
+- [x] Page web : La page web index.html est fonctionnelle et renseigne des points sur une image.
+- [x] Style CSS : Le style CSS de la page est implémenté conformément au design convenu.
+- [x] Menu header : Le menu header est fonctionnel et permet de sélectionner une ou plusieurs couches.
+- [x] Compatibilité Navigateurs : Les tests ont été réalisés sur différents navigateurs pour assurer une compatibilité adéquate.
+- [x] Docker : Le docker est fonctionnel et permet de lancer le serveur en local et de s'y connecter.
+- [x] Php : On arrive à se connecter à MQTT et à récupérer les données.
+- [x] Php : On arrive à se connecter à la base de données et à écrire les données.
+- [x] Javascript : On arrive à créer des images dynamiques
+- [ ] Javascript : Relier à la base de données pour faire une maquette simpliste
+
+=== Points Forts
+- La page web est fonctionnelle et permet de sélectionner des points sur une image et affiche les informations du point.
+- Le style CSS est conforme au design convenu et garanti une expérience utilisateur agréable.
+- Le menu header est fonctionnel et permet de sélectionner une ou plusieurs couches ainsi qu'un ou plusieurs points.
+- Nous connaissons désormais la hiérachie des topics du broker MQTT et leur utilisation qui nous permettra de récupérer les données.
+- Le docker est fonctionnel et nous permet de facilement déployer notre application.
+
+=== Problèmes rencontrés
+- La page web n'est pas responsive et ne s'adapte pas à la taille de l'écran.
+- Mise en place du docker problématique dû au manque de connaissance de l'outil.
+- Utilisation de javascript nouvelle pour nous
+- Le choix des outils nous a été difficile car nous n'avions pas assez de connaissances sur les outils disponibles.
+- L'utilisation de php-mqtt avec le fait qu'Eduroam bloque le port mqtt 1883 nous a retardé
+
+== Prochain sprint
+
+=== Améliorations à apporter
+- Relier le javascript du site au php pour avoir une page qui met à jour les données en temps réél
+- Améliorer le site html et css
+
+=== Nouvelles fonctionnalités
+- Implémentations des autres fonctionnalités souhaités
+- Système de couches pour les différentes hauteurs des capteurs
+- Adapter plus de données MQTT avec le javascript
+
+
+=== Leçons apprises
+- Fonctionnement de MQTT notamment du broker que l'on utilise
+- Utilisation de docker et des volumes pour faciliter le travail
+- Coder en javascript
+- Mieux coder en HTML et CSS
+
+=== Résumé du sprint
+
+Pour ce premier sprint nous avons mis en place les bases dont nous aurons besoin pour les sprints suivant, et même si nous n'avons pas réaliser l'ensemble des objectifs que nous nous étions fixés, nous avons pu commencer à comprendre les différents languages que nous utilisons ainsi que l'outil docker, ce qui nous permettra de mieux les utiliser dans le futur.
+
+Nous n'avons pas pu finir notre dernier objectif parce que nous avons passé beaucoup de temps à essayer de résoudre les problèmes et comprendre comment fonctionner les languages
+
+Date de fin de sprint: 12/01/2024
