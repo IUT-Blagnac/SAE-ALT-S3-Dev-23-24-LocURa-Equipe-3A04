@@ -54,13 +54,13 @@ Projet est réalisé par::
 [[liensUtiles]]
 === Liens utiles
 
-[cols="1,2,3",options="header"]
+[cols="1,2,3,4",options="header"]
 |===
 | Date    | Nom              | Lien | Description
 |    | Cours Moodle     | https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE]
 |   Sem.2      | Backlog Produit  | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit] | Vous trouverez les priorités, critères d’acceptabilité et évaluation de compléxité dans le premier commentaire de chaque User Story 
 
-|         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc[Bilan Sprint 1]
+|         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc[Bilan Sprint 1] |
 |===
 
 == Réalisations 
