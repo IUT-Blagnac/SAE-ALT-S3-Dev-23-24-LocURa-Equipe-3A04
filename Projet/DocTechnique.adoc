@@ -56,4 +56,7 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 
 * Consulter le Contenu du Site Web
 ** Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
- 
+
+== Diagrammes des classes 
+Celui-ci présente le diagramme des classes de notre projet : 
+https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/diagrammeClasse.png
