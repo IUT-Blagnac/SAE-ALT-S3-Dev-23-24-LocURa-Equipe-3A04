@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
 }
 
 .navbar a {
@@ -27,16 +28,16 @@ body {
     font-size: 16px;
     border: none;
     outline: none;
-    color: #f2f2f2; /* Change this to match your design */
+    color: #f2f2f2;
     padding: 14px 16px;
-    background-color: #333; /* Change this to match your design */
-    font-family: Arial, sans-serif; /* Change this to match your design */
+    background-color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #ddd; /* Change this to match your design */
-    color: black; /* Change this to match your design */
+    background-color: #ddd; 
+    color: black; 
 }
 
 .dropdown-content {
@@ -47,13 +48,13 @@ body {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    max-height: 500px; /* Set this to the maximum height you want for your dropdown */
-    overflow-y: auto; /* This will add a scrollbar when the content is taller than the element */
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .dropdown-content label {
     float: none;
-    color: black; /* Change this to match your design */
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -61,7 +62,7 @@ body {
 }
 
 .dropdown-content label:hover {
-    background-color: #ddd; /* Change this to match your design */
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
@@ -70,6 +71,7 @@ body {
      font-family: Arial, sans-serif;
      margin: 0;
      padding: 0;
+     background-color: #f5f5f5;
  }
 
 .navbar {
@@ -101,16 +103,16 @@ body {
     font-size: 16px;
     border: none;
     outline: none;
-    color: #f2f2f2; /* Change this to match your design */
+    color: #f2f2f2;
     padding: 14px 16px;
-    background-color: #333; /* Change this to match your design */
-    font-family: Arial, sans-serif; /* Change this to match your design */
+    background-color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #ddd; /* Change this to match your design */
-    color: black; /* Change this to match your design */
+    background-color: #ddd;
+    color: black;
 }
 
 .dropdown-content {
@@ -121,13 +123,13 @@ body {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    max-height: 500px; /* Set this to the maximum height you want for your dropdown */
-    overflow-y: auto; /* This will add a scrollbar when the content is taller than the element */
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .dropdown-content label {
     float: none;
-    color: black; /* Change this to match your design */
+    color: black; 
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -135,7 +137,7 @@ body {
 }
 
 .dropdown-content label:hover {
-    background-color: #ddd; /* Change this to match your design */
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
@@ -149,7 +151,6 @@ body {
     width: 50%;
 }
 
-
 .map-image {
     width: 1000px;
     height: auto;
@@ -157,8 +158,8 @@ body {
     top: 400px;
     left: 750px;
     transform: translate(-50%, -50%);
-    z-index: -9999; /* Set a very low z-index value to place it below all other elements */
-    user-select: none; /* Make the map unselectable */
+    z-index: -9999;
+    user-select: none;
 }
 
 
@@ -173,16 +174,16 @@ body {
     height: 10px;
     position: absolute;
     border-radius: 50%;
-    z-index: 9999; /* Set a higher z-index value than the image */
+    z-index: 9999;
 }
 
 .id-label {
     position: absolute;
-    top: 100%; /* Position en dessous du point */
-    left: 50%; /* Centrage par rapport au point */
-    transform: translateX(-50%); /* Ajustement pour centrer correctement */
-    font-size: 12px; /* Taille de la police */
-    color: #000; /* Couleur du texte */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; 
+    color: #000;
 }
 
 /* Ajoutez ces styles pour la boîte de dialogue */
@@ -195,8 +196,7 @@ body {
     z-index: 10000;
 }
 
-
 /* Styles pour les points transparents */
 .transparent {
-    opacity: 0.1; /* Vous pouvez ajuster l'opacité selon vos besoins */
+    opacity: 0.1; /* Opacité des points transparents */
 }

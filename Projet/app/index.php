@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,7 +74,5 @@
             <!-- Le contenu de la boîte de dialogue sera affiché ici -->
         </div>
     </div>
-
-    
 </body>
 </html>
