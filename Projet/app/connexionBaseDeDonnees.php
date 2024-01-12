@@ -1,19 +1,18 @@
 <?php
-
 //On se connecte a la base de données mariaDB
-
+const servername = "BaseDeDonnes"; 
+const username = "UserBd"; 
+const password = "MotDePasseBD";
+const dbname = "Donnes";   
 
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
  */
 function InitBase()
 {
-    $servername = "BaseDeDonnes"; // Remplacez par l'adresse IP ou le nom du conteneur Docker de votre base de données
-    $username = "UserBd"; 
-    $password = "MotDePasseBD";
-    $dbname = "Donnes";   
+    
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
     if ($conn->connect_error) {
@@ -31,7 +30,7 @@ function InitBase()
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL
     )";
-
+    $conn ->execute_query($requete);
     $conn->close();
 }
 
@@ -44,14 +43,10 @@ function InitBase()
 
 function EnvoyerDonnesNoeud($topic,$message)
 {
-    $servername = "BaseDeDonnes"; // Remplacez par l'adresse IP ou le nom du conteneur Docker de votre base de données
-    $username = "UserBd"; 
-    $password = "MotDePasseBD";
-    $dbname = "Donnes";
 
     $table_name = "DonneesCapteurs";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
     if ($conn->connect_error) {
@@ -83,7 +78,7 @@ function EnvoyerDonnesNoeud($topic,$message)
         $orientation,
         $color
     )";
-
+    $conn ->execute_query($requete);
     $conn->close();
 }
 ?>
