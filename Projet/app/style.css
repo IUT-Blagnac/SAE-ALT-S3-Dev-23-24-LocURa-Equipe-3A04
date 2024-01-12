@@ -28,16 +28,16 @@ body {
     font-size: 16px;
     border: none;
     outline: none;
-    color: #f2f2f2; /* Change this to match your design */
+    color: #f2f2f2;
     padding: 14px 16px;
-    background-color: #333; /* Change this to match your design */
-    font-family: Arial, sans-serif; /* Change this to match your design */
+    background-color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #ddd; /* Change this to match your design */
-    color: black; /* Change this to match your design */
+    background-color: #ddd; 
+    color: black; 
 }
 
 .dropdown-content {
@@ -48,13 +48,13 @@ body {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    max-height: 500px; /* Set this to the maximum height you want for your dropdown */
-    overflow-y: auto; /* This will add a scrollbar when the content is taller than the element */
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .dropdown-content label {
     float: none;
-    color: black; /* Change this to match your design */
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -62,7 +62,7 @@ body {
 }
 
 .dropdown-content label:hover {
-    background-color: #ddd; /* Change this to match your design */
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
@@ -77,6 +77,7 @@ body {
 .navbar {
     overflow: hidden;
     background-color: #333;
+    z-index: 1000;
 }
 
 .navbar a {
@@ -102,16 +103,16 @@ body {
     font-size: 16px;
     border: none;
     outline: none;
-    color: #f2f2f2; /* Change this to match your design */
+    color: #f2f2f2;
     padding: 14px 16px;
-    background-color: #333; /* Change this to match your design */
-    font-family: Arial, sans-serif; /* Change this to match your design */
+    background-color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #ddd; /* Change this to match your design */
-    color: black; /* Change this to match your design */
+    background-color: #ddd;
+    color: black;
 }
 
 .dropdown-content {
@@ -122,13 +123,13 @@ body {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    max-height: 500px; /* Set this to the maximum height you want for your dropdown */
-    overflow-y: auto; /* This will add a scrollbar when the content is taller than the element */
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .dropdown-content label {
     float: none;
-    color: black; /* Change this to match your design */
+    color: black; 
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -136,7 +137,7 @@ body {
 }
 
 .dropdown-content label:hover {
-    background-color: #ddd; /* Change this to match your design */
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
@@ -157,4 +158,45 @@ body {
     top: 400px;
     left: 750px;
     transform: translate(-50%, -50%);
+    z-index: -9999;
+    user-select: none;
+}
+
+
+.map {
+    width: 1000px;
+    height: 1000px;
+    position: relative;
+}
+
+.point {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+.id-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; 
+    color: #000;
+}
+
+/* Ajoutez ces styles pour la boîte de dialogue */
+.popup {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    padding: 10px;
+    z-index: 10000;
+}
+
+/* Styles pour les points transparents */
+.transparent {
+    opacity: 0.1; /* Opacité des points transparents */
 }
