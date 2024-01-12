@@ -1,16 +1,18 @@
 <?php
 
 //On se connecte a la base de données mariaDB
-$servername = "BaseDeDonnes"; // Remplacez par l'adresse IP ou le nom du conteneur Docker de votre base de données
-$username = "UserBd"; 
-$password = "MotDePasseBD";
-$dbname = "Donnes";
+
 
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
  */
 function InitBase()
 {
+    $servername = "BaseDeDonnes"; // Remplacez par l'adresse IP ou le nom du conteneur Docker de votre base de données
+    $username = "UserBd"; 
+    $password = "MotDePasseBD";
+    $dbname = "Donnes";   
+
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Vérifier la connexion
@@ -21,7 +23,7 @@ function InitBase()
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
     $table_name = "DonneesCapteurs";
-    $requete = "CREATE TABLE IF NOT EXISTS $tableName (
+    $requete = "CREATE TABLE IF NOT EXISTS $table_name (
         idCapteur VARCHAR(30) PRIMARY KEY,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
@@ -42,17 +44,30 @@ function InitBase()
 
 function EnvoyerDonnesNoeud($topic,$message)
 {
+    $servername = "BaseDeDonnes"; // Remplacez par l'adresse IP ou le nom du conteneur Docker de votre base de données
+    $username = "UserBd"; 
+    $password = "MotDePasseBD";
+    $dbname = "Donnes";
+
+    $table_name = "DonneesCapteurs";
+
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Vérifier la connexion
     if ($conn->connect_error) {
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
-    
+    $data = json_decode($message);
+    $idCapteur = $topic; // Assuming the topic is the sensor ID
+    $x = $data['x'];
+    $y = $data['y'];
+    $z = $data['z'];
+    $orientation = $data['orientation'];
+    $color = $data['color'];
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
     $table_name = "DonneesCapteurs";
-    $requete = "INSERT INTO $tableName (
+    $requete = "INSERT INTO $table_name (
         idCapteur,
         x,
         y,
@@ -61,15 +76,14 @@ function EnvoyerDonnesNoeud($topic,$message)
         color
     )
     VALUES (
-        $topic,
-        $message[0],
-        $message[1],
-        $message[2],
-        $message[3],
-        $message[4]
+        $idCapteur,
+        $x,
+        $y,
+        $z,
+        $orientation,
+        $color
     )";
 
     $conn->close();
 }
-
 ?>
