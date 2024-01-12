@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "MotDePasseBD"
+      MYSQL_DATABASE: "Donnes"
+      MYSQL_USER: "UserBd"
+      MYSQL_PASSWORD: "MotDePasseBD"
+
+  php-apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    volumes:
+      - ./app:/app
+      - ./errors:/errors
+      - ./conf/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./conf/apache.conf:/etc/apache2/conf-available/z-app.conf
+      - ./conf/php.ini:/usr/local/etc/php/conf.d/app.ini
+    ports:
+      - "8080:80" 
+      - "1883:1883"
