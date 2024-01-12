@@ -1,6 +1,4 @@
-:toc-title: Sommaire
-:toc: macro
-:toclevels: 3
+
 
 = Documentation Technique SAE-ALT-S3-Dev-23-24-LocURa
 
