@@ -1,0 +1,51 @@
+= SAÉ 3.01 Alt 2023-2024 - Bilan de fin de sprint
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+== Progrès accomplis
+
+=== Tâches accomplies
+- [ ] Page web : La page web index.html est fonctionnelle et renseigne des points sur une image.
+- [ ] Style CSS : Le style CSS de la page est implémenté conformément au design convenu.
+- [ ] Menu header : Le menu header est fonctionnel et permet de sélectionner une ou plusieurs couches.
+- [ ] Compatibilité Navigateurs : Les tests ont été réalisés sur différents navigateurs pour assurer une compatibilité adéquate.
+
+=== Points Forts
+- La page web est fonctionnelle et permet de sélectionner des points sur une image et affiche les informations du point.
+- Le style CSS est conforme au design convenu et garanti une expérience utilisateur agréable.
+- Le menu header est fonctionnel et permet de sélectionner une ou plusieurs couches ainsi qu'un ou plusieurs points.
+
+=== Problèmes rencontrés
+- La page web n'est pas responsive et ne s'adapte pas à la taille de l'écran.
+- Problèmes Docker? (à expliquer)
+
+
+== Prochain sprint
+
+=== Améliorations à apporter
+- [ ] Blablabla.
+
+=== Nouvelles fonctionnalités
+- [ ] Blablabla.
+
+=== Leçons apprises
+- Blablabla.
+
+=== Remarques générales
+- Blablabla.
+
+=== Objectifs pour la prochaine période
+- Blablabla.
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Date de fin de sprint: 12/01/2024

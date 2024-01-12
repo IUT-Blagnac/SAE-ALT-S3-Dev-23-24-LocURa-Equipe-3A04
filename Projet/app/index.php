@@ -5,56 +5,29 @@
 </head>
 <body>
 <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-
+    <a href="https://www.irit.fr/plateformes/plateforme-locura4iot/">Informations</a>
     <div class="dropdown">
-        <button class="dropbtn"> Nods
+        <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
-            <label><input type="checkbox" name="info1"> Information 1</label>
-            <label><input type="checkbox" name="info2"> Information 2</label>
-            <label><input type="checkbox" name="info3"> Information 3</label>
+            <label><input type="checkbox" name="info1"> Noeud 1</label>
+            <label><input type="checkbox" name="info2"> Noeud 2</label>
+            <label><input type="checkbox" name="info3"> Noeud 3</label>
         </div>
     </div>
 
     <div class="dropdown">
-        <button class="dropbtn"> Layers
+        <button class="dropbtn"> Couches
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <label><input type="checkbox" name="firstLayer"> First Layer </label>
-            <label><input type="checkbox" name="secondLayer"> Second Layer </label>
-            <label><input type="checkbox" name="thirdLayer"> Third Layer </label>
+            <label><input type="checkbox" name="firstLayer"> Première couche </label>
+            <label><input type="checkbox" name="secondLayer"> Deuxième couche </label>
+            <label><input type="checkbox" name="thirdLayer"> Troisième couche </label>
         </div>
     </div>
+
 </div>
 
 <img src="Images/map.png" class="map-image">
