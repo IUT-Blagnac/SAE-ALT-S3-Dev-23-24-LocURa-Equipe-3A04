@@ -197,7 +197,6 @@ body {
 
 
 /* Styles pour les points transparents */
-.point.transparent {
+.transparent {
     opacity: 0.1; /* Vous pouvez ajuster l'opacité selon vos besoins */
-    pointer-events: none; /* Empêche les événements de souris sur les points transparents */
 }

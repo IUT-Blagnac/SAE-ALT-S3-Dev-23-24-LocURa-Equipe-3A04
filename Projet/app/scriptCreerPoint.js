@@ -30,10 +30,7 @@ function createPoint(coordX, coordY, couleur, id) {
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(id, coordX, coordY);
-
-        // Ajouter la classe transparent aux autres points
-        toggleOtherPointsTransparency(point);
+        togglePopup(point, id, coordX, coordY);
     });
 
     // Ajout de l'id en dessous du point
@@ -41,22 +38,27 @@ function createPoint(coordX, coordY, couleur, id) {
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
-
-    
 }
 
 // Fonction pour afficher ou masquer la boîte de dialogue
-function togglePopup(id, coordX, coordY) {
+function togglePopup(clickedPoint, id, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
 
-    // Si la boîte de dialogue est déjà affichée, la masquer
-    if (popup.style.display === "block") {
+    // Vérifier si la boîte de dialogue est déjà affichée pour le même point
+    if (clickedPoint.classList.contains("selected")) {
+        // Cacher la boîte de dialogue
         popup.style.display = "none";
+        // Réinitialiser la transparence de tous les points
+        resetPointsTransparency();
     } else {
         // Sinon, afficher les informations du point dans la boîte de dialogue
         showPopup(id, coordX, coordY);
+        // Mettre à jour les classes des points pour indiquer la sélection
+        updatePointSelection(clickedPoint);
+        // Ajouter la classe transparent aux autres points
+        toggleOtherPointsTransparency(clickedPoint);
     }
 }
 
@@ -85,6 +87,42 @@ function showPopup(id, coordX, coordY) {
     popup.style.display = "block";
 }
 
+// Fonction pour réinitialiser la transparence de tous les points
+function resetPointsTransparency() {
+    let allPoints = document.querySelectorAll(".point");
+
+    // Parcourir tous les points
+    allPoints.forEach(function (point) {
+        // Supprimer la classe selected de tous les points
+        point.classList.remove("selected");
+        // Supprimer la classe transparent de tous les points
+        point.classList.remove("transparent");
+    });
+}
+
+// Fonction pour mettre à jour les classes des points pour indiquer la sélection
+function updatePointSelection(clickedPoint) {
+    let allPoints = document.querySelectorAll(".point");
+
+    // Parcourir tous les points
+    allPoints.forEach(function (point) {
+        // Ajouter ou supprimer la classe selected en fonction du clic
+        point.classList.toggle("selected", point === clickedPoint);
+    });
+}
+
+// Fonction pour basculer la transparence des autres points
+function toggleOtherPointsTransparency(clickedPoint) {
+    let allPoints = document.querySelectorAll(".point");
+
+    // Parcourir tous les points
+    allPoints.forEach(function (point) {
+        // Ajouter ou supprimer la classe transparent en fonction du clic
+        point.classList.toggle("transparent", point !== clickedPoint);
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Utiliser AJAX pour récupérer les données du serveur
     $.ajax({
@@ -103,16 +141,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-// Fonction pour basculer la transparence des autres points
-function toggleOtherPointsTransparency(clickedPoint) {
-    let allPoints = document.querySelectorAll(".point");
-
-    // Parcourir tous les points
-    allPoints.forEach(function (point) {
-        if (point !== clickedPoint) {
-            // Ajouter ou supprimer la classe transparent en fonction du clic
-            point.classList.toggle("transparent");
-        }
-    });
-}
