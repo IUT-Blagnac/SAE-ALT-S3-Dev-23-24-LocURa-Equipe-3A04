@@ -1,0 +1,70 @@
+@startuml Diagramme de classe locur4iot
+
+package php 
+{
+    class connexionBaseDeDonnees
+    {
+        "La classe qui gère la connexion a la base de données MariaDB"
+    }
+
+    class connexionMQTT
+    {
+        "La classe qui gère la connexion au broker MQTT"
+    }
+
+    class donnees
+    {
+        "Classe temporaire pour stocker les données"
+    }
+
+    class index
+    {
+        "La page d'accueil"
+    }
+}
+
+package css
+{
+    class style
+    {
+        "Stocke les styles des différents éléments"
+    }
+}
+
+package JavaScript
+{
+    class scriptCreerPoint
+    {
+        "Script qui gère les fonctions pour créer les points"
+    }
+
+    class scriptRecupererDonnes
+    {
+        "Script qui gère la récupération des données"
+    }
+}
+
+
+index -> style
+
+index -> scriptCreerPoint
+
+index -> scriptRecupererDonnes
+
+index --> donnees
+
+connexionMQTT-->connexionBaseDeDonnees
+
+scriptCreerPoint --> donnees
+
+scriptRecupererDonnes --> donnees
+
+hide members
+show index attributes
+show connexionBaseDeDonnees attributes
+show connexionMQTT attributes
+show donnees attributes
+show scriptCreerPoint attributes
+show scriptRecupererDonnes attributes
+show style attributes
+@enduml
