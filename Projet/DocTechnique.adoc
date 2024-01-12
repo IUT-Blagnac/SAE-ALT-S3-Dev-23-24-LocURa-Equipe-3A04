@@ -61,3 +61,35 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 Celui-ci présente le diagramme des classes de notre projet :
 
 image::diagrammeClasse.png[]
+
+== Fonctionnalités
+
+=== Utilisation de Docker
+Cette application est conçue pour fonctionner dans un environnement Dockerisé, garantissant une gestion efficace des dépendances et une portabilité accrue entre différentes configurations. Docker simplifie le déploiement de l'application en encapsulant tous les composants nécessaires dans des conteneurs isolés, assurant ainsi une cohérence et une facilité de gestion pour les chercheurs du laboratoire.
+
+=== Présentation des Fichiers Clés
+==== docker-compose.yml
+Le fichier docker-compose.yml configure les services et les dépendances nécessaires à l'exécution de l'application dans un environnement Docker. Il définit les conteneurs, les réseaux, et d'autres paramètres essentiels.
+
+==== connexionMQTT.php
+Le fichier connexionMQTT.php gère la connexion à un broker MQTT, permettant la communication entre les capteurs et l'application. Il établit les paramètres de connexion et détaille les topics MQTT utilisés.
+
+==== connexionBaseDeDonnees.php
+Le fichier database.php gère l'interaction avec la base de données MariaDB. Il comprend la configuration des paramètres de base de données ainsi que les requêtes SQL nécessaires pour interagir avec la base de données.
+
+==== index.php
+Le fichier index.php représente la page d'accueil de l'application. Il est lié à tous les autres fichiers pour récupérer et afficher les données. La structure de la page est détaillée, mettant en évidence les éléments clés.
+
+==== donnees.php
+Le fichier donnees.php contient une classe utilisée pour le stockage temporaire de données. 
+
+==== scriptRecupererDonnes.js
+Le script scriptRecupererDonnes.js est responsable de la récupération des données côté client. Il assure la communication avec le backend.
+
+==== scriptCreerPoint.js
+Le script scriptCreerPoint.js est chargé de créer des points graphiques sur la page web, offrant une représentation visuelle des données récupérées. Il peut utiliser des bibliothèques ou frameworks pour la visualisation.
+
+==== styles.css
+Le fichier styles.css contient les styles CSS utilisés pour la mise en page et la présentation graphique des éléments sur la page web.
+
+Ces fichiers essentiels, associés à la configuration Docker, forment la base de l'application, permettant aux chercheurs d'interagir efficacement avec les données de localisation dans le laboratoire.
