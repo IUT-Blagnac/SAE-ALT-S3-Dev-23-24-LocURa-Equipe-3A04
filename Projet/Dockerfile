@@ -30,5 +30,5 @@ COPY conf/apache.conf /etc/apache2/conf-available/z-app.conf
 RUN a2enmod rewrite remoteip && \
     a2enconf z-app
 
-# On lance le script de connexion au broker MQTT
-RUN php -f /app/connexionMQTT.php &
+# On lance le script de connexion au broker MQTT MARCHE PAS
+# CMD ["sh", "-c", "php -f /app/connexionMQTT.php &"]

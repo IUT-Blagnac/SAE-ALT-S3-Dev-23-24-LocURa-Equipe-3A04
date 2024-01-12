@@ -24,7 +24,12 @@ Dans ce contexte nous avons pour mission de créer une application web permettan
 
 == Installation
 ****
-Pour pouvoir utiliser le site web il y a juste besoin d'une connexion internet et d'un navigateur web. Il n'y a pas besoin d'installer de logiciel supplémentaire.
+En tant qu'utilisateur il y a juste besoin d'une connexion internet et d'un navigateur web. Il n'y a pas besoin d'installer de logiciel supplémentaire.
+
+En tant que propriétaire du serveur il faut suivre les étapes suivantes : 
+
+- Installer docker
+- Lancer le create.bat pour un serveur windows ou le create.sh pour un serveur unix
 ****
 
 == Fonctionnalités de l'application
