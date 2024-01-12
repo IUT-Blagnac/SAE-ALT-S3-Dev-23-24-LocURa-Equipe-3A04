@@ -58,5 +58,6 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 ** Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
 
 == Diagrammes des classes 
-Celui-ci présente le diagramme des classes de notre projet : 
+Celui-ci présente le diagramme des classes de notre projet :
+
 image::Projet/diagrammeClasse.png[]
