@@ -7,7 +7,7 @@
 == Sommaire
 
 :sectnums:
-toc::[Sommaire]
+toc
 
 == Présentation Application
 
