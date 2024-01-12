@@ -5,11 +5,6 @@ body {
     background-color: #f5f5f5;
 }
 
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-}
-
 .navbar a {
     float: left;
     display: block;
@@ -146,4 +141,20 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.map-image {
+    width: 1000px;
+    height: auto;
+    position: absolute;
+    top: 400px;
+    left: 750px;
+    transform: translate(-50%, -50%);
 }

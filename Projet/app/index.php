@@ -55,5 +55,9 @@
             <label><input type="checkbox" name="thirdLayer"> Third Layer </label>
         </div>
     </div>
+</div>
+
+<img src="Images/map.png" class="map-image">
+
 </body>
 </html>
