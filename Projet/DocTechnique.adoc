@@ -32,7 +32,7 @@
 *** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/DocTechnique.adoc#427-scriptcreerpointjs[4.2.7. scriptCreerPoint.js]
 *** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/DocTechnique.adoc#428-stylescss[4.2.8. styles.css]
 
-
+:toc: macro
 
 == Présentation du projet
 
