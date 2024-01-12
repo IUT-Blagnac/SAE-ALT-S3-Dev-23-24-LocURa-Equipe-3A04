@@ -61,6 +61,7 @@ Projet est réalisé par::
 |      | Backlog Produit  | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit] | Vous trouverez les priorités, critères d’acceptabilité et évaluation de compléxité dans le premier commentaire de chaque User Story 
 |         | Sprint 1 | https://github.com/orgs/IUT-Blagnac/projects/171[Sprint 1] | La colonne User Stories représente les User stories à développer durant le sprint
 |         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc[Bilan Sprint 1] | Contient aussi la prévision du prochain https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc#2-prochain-sprint[Sprint]
+|         | Doc Utilisateur | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/DocUtilisateur.adoc[Documentation Utilisateur] | Montre comment installer l'application et la présente avec ses fonctionnalités
 |===
 
 == Réalisations 
