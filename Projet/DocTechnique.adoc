@@ -36,24 +36,24 @@ Les technologies au cœur de ce projet sont le web, JavaScript (JS), Scalable Ve
 
 Cette application, conçue exclusivement pour les chercheurs du laboratoire, propose les cas d'utilisation suivants :
 
-=== Consulter les Mesures de Distance
-Consulter les mesures de distance sur le site web pour visualiser les distances entre les points dans le laboratoire.
+* Consulter les Mesures de Distance
+** Consulter les mesures de distance sur le site web pour visualiser les distances entre les points dans le laboratoire.
 
-=== Accéder à l'Historique des Points
-Accéder à la base de données pour consulter l'historique de chaque point. Analyser les données passées pour obtenir un aperçu temporel.
+* Accéder à l'Historique des Points
+** Accéder à la base de données pour consulter l'historique de chaque point. Analyser les données passées pour obtenir un aperçu temporel.
 
-=== Visualiser les Mesures de Distance
-Visualiser les mesures de distance sur le site web pour une représentation graphique claire des distances entre les points dans le laboratoire.
+* Visualiser les Mesures de Distance
+** Visualiser les mesures de distance sur le site web pour une représentation graphique claire des distances entre les points dans le laboratoire.
 
-=== Explorer la Localisation des Capteurs
-Accéder au plan et à la localisation des capteurs sur le site web pour améliorer la visualisation des expériences.
+* Explorer la Localisation des Capteurs
+** Accéder au plan et à la localisation des capteurs sur le site web pour améliorer la visualisation des expériences.
 
-=== Filtrer les Layers pour Localiser les Objets Connectés
-Filtrer l'affichage des layers sur le site web pour localiser les étages des objets connectés dans le laboratoire.
+* Filtrer les Layers pour Localiser les Objets Connectés
+** Filtrer l'affichage des layers sur le site web pour localiser les étages des objets connectés dans le laboratoire.
 
-=== Filtrer l'Affichage des IDs Objets
-Filtrer l'affichage des IDs objets sur le site web pour identifier des informations spécifiques dans le laboratoire.
+* Filtrer l'Affichage des IDs Objets
+** Filtrer l'affichage des IDs objets sur le site web pour identifier des informations spécifiques dans le laboratoire.
 
-=== Consulter le Contenu du Site Web
-Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
+* Consulter le Contenu du Site Web
+** Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
  
