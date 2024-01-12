@@ -2,6 +2,8 @@
 
 require('vendor/autoload.php');
 
+include('connexionBaseDeDonnees.php');
+
 //Logger 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -14,9 +16,11 @@ $logger->pushHandler(new StreamHandler('log.txt', Logger::INFO));
 $server   = 'lab.iut-blagnac.fr';
 $port     = 1883;
 
+InitBase();
+
 $mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttClient::MQTT_3_1,null,$logger);
 $mqtt->connect();
-$mqtt->subscribe('#', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+$mqtt->subscribe('localisation/#/setup', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
     $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
 }, 0);
 $mqtt->loop(true);

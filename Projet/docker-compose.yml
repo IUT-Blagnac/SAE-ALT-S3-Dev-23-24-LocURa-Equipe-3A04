@@ -2,6 +2,7 @@ version: '3'
 
 services:
   mariadb:
+    container_name: BaseDeDonnes
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: "MotDePasseBD"
@@ -10,6 +11,7 @@ services:
       MYSQL_PASSWORD: "MotDePasseBD"
 
   php-apache:
+    container_name: ServeurWeb
     build:
       context: .
       dockerfile: Dockerfile

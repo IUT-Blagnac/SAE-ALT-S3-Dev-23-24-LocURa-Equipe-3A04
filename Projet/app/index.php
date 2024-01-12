@@ -5,6 +5,8 @@ echo "<a href='Page2.php'>Page 2</a>";
 
 echo "<br>";
 
+echo "<a href='connexionBaseDeDonnees.php'>PageDonnes</a>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
