@@ -10,6 +10,17 @@
         'dev' => true,
     ),
     'versions' => array(
+        'monolog/monolog' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '479c936d2c230d8c467bdb3882afab45a6e6b8ad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../monolog/monolog',
+            'aliases' => array(
+                0 => '3.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
         'myclabs/php-enum' => array(
             'pretty_version' => '1.8.4',
             'version' => '1.8.4.0',
@@ -40,6 +51,12 @@
                 0 => '3.x-dev',
             ),
             'dev_requirement' => false,
+        ),
+        'psr/log-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '3.0.0',
+            ),
         ),
         'root/app' => array(
             'pretty_version' => '1.0.0+no-version-set',

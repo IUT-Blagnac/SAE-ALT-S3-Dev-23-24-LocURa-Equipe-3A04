@@ -3,7 +3,8 @@
     "description": "Test",
     "type": "project",
     "require": {
-        "php-mqtt/client": "dev-master"
+        "php-mqtt/client": "dev-master",
+        "monolog/monolog": "^3.0@dev"
     },
     "license": "?",
     "minimum-stability": "dev"

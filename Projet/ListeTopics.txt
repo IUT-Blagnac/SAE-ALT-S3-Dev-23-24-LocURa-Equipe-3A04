@@ -1,0 +1,5 @@
+Les topics que l'on veut traiter sont : 
+
+testbed/node/#idNode/state
+localisation/#idNode/setup -> Positions + couleurs orientation type
+localisation/#idNode/mobile -> Position des trucs mobiles
