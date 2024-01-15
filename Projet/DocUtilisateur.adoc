@@ -1,14 +1,6 @@
-:toc-title: Sommaire
-:toc: macro
-:toclevels: 3
+
 
 = Documentation Utilisateur SAE-ALT-S3-Dev-23-24-LocURa
-
-
-
-
-:sectnums:
-toc::[Sommaire]
 == CHAROUKI Aymen		
 
 == PAGNUCCO Nathan
@@ -20,6 +12,14 @@ toc::[Sommaire]
 = Groupe 4
 
 = Années 2023-2024 
+
+:toc-title: Sommaire
+:toc: macro
+:toclevels: 3
+
+:sectnums:
+toc::[Sommaire]
+
 == Présentation Application
 
 ===  *Contexte Général*
