@@ -4,17 +4,17 @@
 
 = Documentation Utilisateur SAE-ALT-S3-Dev-23-24-LocURa
 
-=== CHAROUKI Aymen		
+== CHAROUKI Aymen		
 
-=== PAGNUCCO Nathan
+== PAGNUCCO Nathan
 
-=== FONTANILLES Alexi
+== FONTANILLES Alexi
 
-=== PICUIRA Tanguy
+== PICUIRA Tanguy
 
-== Groupe 4
+= Groupe 4
 
-== Années 2023-2024 
+= Années 2023-2024 
 
 
 :sectnums:
