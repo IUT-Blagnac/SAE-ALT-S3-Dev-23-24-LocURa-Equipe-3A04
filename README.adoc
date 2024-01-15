@@ -69,3 +69,10 @@ Projet est réalisé par::
 
 Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V0.1[0.1]
 
+== Evaluation hebdo
+
+ifdef::env-github[]
+image:https://docs.google.com/spreadsheets/d/e/2PACX-1vRtGk-4u-mv4RE4q76-qFY-Iy48o1WzcqSP-upBv9doa23kDXzFfHmnZaux3pDt5g/pubchart?oid=212909595&format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vRtGk-4u-mv4RE4q76-qFY-Iy48o1WzcqSP-upBv9doa23kDXzFfHmnZaux3pDt5g/pubchart?oid=212909595&format=image]
+endif::[]
+
+Sprint 1 : Release à commenter ! Il manque les finalités dans les US/issue. Penser à mettre un label dans les tâches (doc, test, orga ...) en milestone on met le sprint. Je n'ai pas le backlog sprint 2 de prêt dans projet. Je n'ai pas de cahier de tests. DOC : préciser projet, version, date, équipe. DOC TECH :  faire un UC , commenter le diagramme des classes. bilan OK.
