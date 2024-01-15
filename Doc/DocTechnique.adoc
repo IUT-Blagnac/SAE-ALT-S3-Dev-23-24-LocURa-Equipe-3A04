@@ -71,10 +71,17 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 * Consulter le Contenu du Site Web
 ** Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
 
+== Diagrammes des cas d'utilisation
+Celui-ci présente le diagramme des cas d'utilisation de notre projet :
+
+image::Doc/img/DiagrammeUseCase.png[]
+
 == Diagrammes des classes 
 Celui-ci présente le diagramme des classes de notre projet :
 
-image::diagrammeClasse.png[]
+image::Doc/img/diagrammeDeClasses.png[]
+
+Comme vous pouvez voir sur le diagramme des classes, nous utilisons 3 langage de programmation différents : PHP, JavaScript et CSS.
 
 == Fonctionnalités
 
