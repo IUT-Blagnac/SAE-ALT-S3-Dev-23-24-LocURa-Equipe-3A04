@@ -27,9 +27,9 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <label><input type="checkbox" name="Noeud1"> Noeud 1</label>
-                <label><input type="checkbox" name="Noeud2"> Noeud 2</label>
-                <label><input type="checkbox" name="Noeud3"> Noeud 3</label>
+                <label><input type="checkbox" name="Noeud1" id="Noeud1"> Noeud 1</label>
+                <label><input type="checkbox" name="Noeud2" id="Noeud2"> Noeud 2</label>
+                <label><input type="checkbox" name="Noeud3" id="Noeud3"> Noeud 3</label>
             </div>
         </div>
 
@@ -38,9 +38,9 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <label><input type="checkbox" name="firstLayer"> Couche 1 </label>
-                <label><input type="checkbox" name="secondLayer"> Couche 2 </label>
-                <label><input type="checkbox" name="thirdLayer"> Couche 3 </label>
+                <label><input type="checkbox" name="firstLayer" id="firstLayer"> Couche 1 </label>
+                <label><input type="checkbox" name="secondLayer" id="secondLayer"> Couche 2 </label>
+                <label><input type="checkbox" name="thirdLayer" id="thirdLayer"> Couche 3 </label>
             </div>
         </div>
     </div>
@@ -51,8 +51,10 @@
     <script src="scriptRecupererDonnes.js"></script>
     <!-- Inclure le fichier JavaScript pour créer les points -->
     <script src="scriptCreerPoint.js" ></script>
+    <!-- Inclure le fichier JavaScript pour les couches -->
+    <script src="ajaxRequestToDataPHP.js" ></script>
 
-    <img src="Images/map.png" class="map-image">
+    <img id="map-image" src="Images/blank.png" class="map-image">
     
     <div id="map"></div>
 
