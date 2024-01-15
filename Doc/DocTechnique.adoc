@@ -71,10 +71,30 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 * Consulter le Contenu du Site Web
 ** Accéder au site web pour consulter son contenu, y compris les informations, résultats de recherche et démonstrations.
 
+== Diagrammes des cas d'utilisation
+Celui-ci présente le diagramme des cas d'utilisation de notre projet :
+
+image::img/DiagrammeUseCase.png[]
+
+Comme vous pouvez voir sur le diagramme des cas d'utilisation, nous avons 7 cas d'utilisation différents : 
+
+- Consulter le Contenu du Site Web.
+- Accéder au plan de l'étage des chercheurs 
+- Accéder à l'Historique des Points
+- Visualiser les Mesures de Distance
+- Explorer la Localisation des Capteurs
+- Filtrer l'affichages de Layers pour les futurs différents étages
+- Filtrer l'Affichage des capteurs 
+ 
+
+Ces cas d'utilisation sont tous liés à la classe *index* qui représente la page d'acceuil.
+
 == Diagrammes des classes 
 Celui-ci présente le diagramme des classes de notre projet :
 
-image::diagrammeClasse.png[]
+image::img/diagrammeDeClasses.png[]
+
+Comme vous pouvez voir sur le diagramme des classes, nous utilisons 3 langage de programmation différents : PHP, JavaScript et CSS. La classe *index* représente la page d'acceuil et accède à la classe *style* où il y a les styles CSS. La classe *index* accède aussi à la classe *scriptRecupererDonnes* qui permet de récupérer les données des capteurs. La classe *scriptRecupererDonnes* accède à la classe *donnes* qui stocke temporairement des donnés au format JSON. La classe *index* accède aussi à la classe *scriptCreerPoint* qui permet de créer les points sur la page web. La classe *scriptCreerPoint* accède à la classe *donnees* qui permet de stocker temporairement les données. La classe *index* accède aussi à la classe *connexionMQTT* qui permet de se connecter au broker MQTT. Et enfin la classe *connexionMQTT* accède à la classe *connexionBaseDeDonnees* qui permet de se connecter à la base de données pour pouvoir stocké les donnés récupérés dans la base de données.
 
 == Fonctionnalités
 

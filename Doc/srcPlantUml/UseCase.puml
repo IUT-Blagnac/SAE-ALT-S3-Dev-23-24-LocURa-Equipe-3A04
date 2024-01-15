@@ -1,0 +1,26 @@
+@startuml
+
+left to right direction
+
+actor User as "Chercheur" #orange
+
+rectangle SiteWeb {
+    usecase (Accéder au site) as UC
+    usecase (Accéder au plan de l'étage des chercheurs) as UC0
+    usecase (Voir la localisation des capteurs) as UC1
+    usecase (Filtrer l'affichage des capteurs) as UC2
+    usecase (Filtrer l'affichage des le layer) as UC3
+    usecase (Voir l'historique des points) as UC4
+    usecase (Filtrer les cercles de mesure) as UC5
+    usecase (Voir les mesures des distances) as UC6
+}
+User ---> UC
+User ---> UC0
+User ---> UC1 
+User ---> UC2
+User ---> UC3
+User ---> UC4
+User ---> UC5
+User ---> UC6
+
+@enduml
