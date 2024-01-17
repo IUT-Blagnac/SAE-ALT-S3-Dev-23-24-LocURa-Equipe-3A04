@@ -12,7 +12,7 @@ RUN apt-get update -qq && \
     git \
     gnupg \
     unzip \
-    zip && \
+    zip &&\
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -31,4 +31,4 @@ RUN a2enmod rewrite remoteip && \
     a2enconf z-app
 
 # On lance le script de connexion au broker MQTT MARCHE PAS
-CMD ["sh", "-c", "php -f /app/connexionMQTT.php & tail -f /dev/null"]
+# CMD ["sh", "-c", "php -f /app/connexionMQTT.php & tail -f /dev/null"]
