@@ -19,16 +19,18 @@ function createPoint(coordX, coordY, couleur, id) {
     point.style.left = coordX * (-40.5) + originex + "px";
     point.style.top = coordY * 37 + originey + "px";
 
-    console.log("couleur : " + couleur);
-    if(couleur!=null || couleur!="")
+    
+    if(couleur!=null && couleur!="")
     {
-        point.style.backgroundColor = couleur;
+        point.style.backgroundColor = "#"+couleur;
     }
     else 
     {
         point.style.backgroundColor = "red";
     }
-   
+    console.log("Style : " + point.style.left);
+    console.log("Style : " + point.style.top);
+    console.log("Style : " + point.style.backgroundColor);
 
     // Ajout de l'id en dessous du point
     // let idLabel = document.createElement("div");
@@ -40,7 +42,6 @@ function createPoint(coordX, coordY, couleur, id) {
     point.addEventListener("click", function () {
         togglePopup(point, id, coordX, coordY);
     });
-    console.log("point : " + point);  
     // Ajout de l'id en dessous du point
     // point.appendChild(idLabel);
 
