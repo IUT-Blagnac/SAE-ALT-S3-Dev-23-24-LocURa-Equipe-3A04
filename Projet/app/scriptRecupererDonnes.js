@@ -12,9 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // Appeler une fonction pour créer les points avec les données
             createPoints(data);
         },
-        
         error: function(error) {
-            console.error('AJAX :', error);
+            console.error('Ouais :', error);
         }
     });
 });

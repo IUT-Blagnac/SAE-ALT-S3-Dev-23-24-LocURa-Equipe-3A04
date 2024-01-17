@@ -2,7 +2,7 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].couleur, data[i].id);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
     }
 }
 
@@ -19,22 +19,30 @@ function createPoint(coordX, coordY, couleur, id) {
     point.style.left = coordX * (-40.5) + originex + "px";
     point.style.top = coordY * 37 + originey + "px";
 
-    // Définir la couleur du point
-    point.style.backgroundColor = couleur;
+    console.log("couleur : " + couleur);
+    if(couleur!=null || couleur!="")
+    {
+        point.style.backgroundColor = couleur;
+    }
+    else 
+    {
+        point.style.backgroundColor = "red";
+    }
+   
 
     // Ajout de l'id en dessous du point
-    let idLabel = document.createElement("div");
-    idLabel.className = "id-label";
-    idLabel.innerText = id ? id : "";
-    idLabel.style.userSelect = "none";
+    // let idLabel = document.createElement("div");
+    // idLabel.className = "id-label";
+    // idLabel.innerText = id ? id : "";
+    // idLabel.style.userSelect = "none";
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
         togglePopup(point, id, coordX, coordY);
     });
-
+    console.log("point : " + point);  
     // Ajout de l'id en dessous du point
-    point.appendChild(idLabel);
+    // point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
