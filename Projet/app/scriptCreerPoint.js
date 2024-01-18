@@ -122,7 +122,6 @@ function toggleOtherPointsTransparency(clickedPoint) {
     });
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
     // Utiliser AJAX pour récupérer les données du serveur
     $.ajax({
@@ -141,3 +140,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+

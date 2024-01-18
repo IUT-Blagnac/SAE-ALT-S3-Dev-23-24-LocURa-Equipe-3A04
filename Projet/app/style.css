@@ -200,3 +200,22 @@ body {
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
 }
+
+.map-container {
+    width: 1000px;
+    height: auto;
+    position: absolute;
+    top: 400px;
+    left: 750px;
+    transform: translate(-50%, -50%);
+    z-index: -9999;
+    user-select: none;
+}
+
+.navbar .node {
+    display: none;
+}
+
+.navbar .node.selected {
+    display: block;
+}
