@@ -22,6 +22,10 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 COPY conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
+#Python
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN pip3 install paho-mqtt
+
 # Apache
 COPY errors /errors
 COPY conf/vhost.conf /etc/apache2/sites-available/000-default.conf
@@ -31,4 +35,4 @@ RUN a2enmod rewrite remoteip && \
     a2enconf z-app
 
 # On lance le script de connexion au broker MQTT MARCHE PAS
-# CMD ["sh", "-c", "php -f /app/connexionMQTT.php &"]
+CMD ["sh", "-c", "/app/MQTTPython/mqttmobile.py &"]
