@@ -57,10 +57,14 @@ function togglePopup(clickedPoint, id, coordX, coordY) {
         showPopup(id, coordX, coordY);
         // Mettre à jour les classes des points pour indiquer la sélection
         updatePointSelection(clickedPoint);
+        // Retirer la classe transparent du point sélectionné
+        clickedPoint.classList.remove("transparent");
         // Ajouter la classe transparent aux autres points
         toggleOtherPointsTransparency(clickedPoint);
     }
 }
+
+
 
 // Fonction pour afficher la boîte de dialogue
 function showPopup(id, coordX, coordY) {
@@ -126,9 +130,17 @@ function toggleOtherPointsTransparency(clickedPoint) {
 
     // Parcourir tous les points
     allPoints.forEach(function (point) {
+        
         // Ajouter ou supprimer la classe transparent en fonction du clic
-        point.classList.toggle("transparent", point !== clickedPoint);
+        if (point !== clickedPoint) {
+            point.classList.add("transparent");
+            point.classList.remove("opacity");
+        } else {
+            point.classList.remove("transparent");
+            point.classList.add("opacity");
+        }
     });
+
 }
 
 
