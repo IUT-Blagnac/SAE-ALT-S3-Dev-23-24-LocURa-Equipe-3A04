@@ -24,7 +24,8 @@ RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
 # Installation de paho-mqtt dans l'environnement virtuel
-RUN pip install paho-mqtt
+RUN pip install paho-mqtt 
+RUN pip install mysql-connector-python
 
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache

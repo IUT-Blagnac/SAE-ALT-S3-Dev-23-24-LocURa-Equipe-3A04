@@ -1,12 +1,13 @@
 import json
 import paho.mqtt.client as mqtt
+import mysql.connector 
+
 
 # Détails du courtier MQTT
 broker_address = "lab.iut-blagnac.fr"
 broker_port = 1883
 
 file_object  = open("log.txt", "w")
-
 
 
 # Fonction de rappel lorsque le client se connecte au courtier
@@ -33,7 +34,15 @@ def on_message(client, userdata, msg):
         
         # Print the extracted data
         print(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color}")
-        file_object.write(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color} TEST \n")
+        file_object.write(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color} TEST! \n")
+        
+        # Insert the data into the database
+        baseDeDonnees = mysql.connector.connect(host="BaseDeDonnes",user="UserBd",password="MotDePasseBD", database="Donnes")
+        curseur = baseDeDonnees.cursor()
+        curseur.execute("INSERT INTO DonneesCapteurs (idCapteur, x, y, z, orientation, color) VALUES (%s, %s, %s, %s, %s, %s)", (idCapteur, x, y, z, orientation, color))
+        baseDeDonnees.commit()
+        curseur.close()
+        baseDeDonnees.close()
     except Exception as e:
         print(f"Error decoding JSON: {e}")
 
