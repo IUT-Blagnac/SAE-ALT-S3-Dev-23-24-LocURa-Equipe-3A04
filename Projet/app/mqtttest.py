@@ -5,6 +5,8 @@ import paho.mqtt.client as mqtt
 broker_address = "lab.iut-blagnac.fr"
 broker_port = 1883
 
+file_object  = open("log.txt", "w")
+
 
 
 # Fonction de rappel lorsque le client se connecte au courtier
@@ -31,6 +33,7 @@ def on_message(client, userdata, msg):
         
         # Print the extracted data
         print(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color}")
+        file_object.write(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color} TEST \n")
     except Exception as e:
         print(f"Error decoding JSON: {e}")
 

@@ -1,104 +1,96 @@
-[2024-01-17T08:22:26.839203+01:00] mqtt.ERROR: MQTT [{host}:{port}] [{clientId}] Establishing a connection with the broker using the connection string [{connectionString}] failed: {error} {"host":"lab.iut-blagnac.fr","port":1883,"clientId":"f69eb53686620eba5fe3","connectionString":"tcp://lab.iut-blagnac.fr:1883","error":"Connection refused","code":111} []
-[2024-01-17T09:20:36.311965+01:00] mqtt.INFO: MQTT [{host}:{port}] [{clientId}] Connection with broker established successfully. {"host":"lab.iut-blagnac.fr","port":1883,"clientId":"f315fda46afefe5638be","errorCode":"0x00"} []
-[2024-01-17T09:20:36.794882+01:00] mqtt.INFO: Received message on topic [localisation/261/setup]: {"x":14.797, "y":4.779, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.809119+01:00] mqtt.INFO: Received message on topic [localisation/258/setup]: {"x":14.522, "y":8.849, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.815396+01:00] mqtt.INFO: Received message on topic [localisation/257/setup]: {"x":12.362, "y":8.999, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.827442+01:00] mqtt.INFO: Received message on topic [localisation/256/setup]: {"x":13.292, "y":6.860, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.833021+01:00] mqtt.INFO: Received message on topic [localisation/254/setup]: {"x":11.752, "y":4.829, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.871856+01:00] mqtt.INFO: Received message on topic [localisation/266/setup]: {"x":15.780, "y":2.209, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.877573+01:00] mqtt.INFO: Received message on topic [localisation/265/setup]: {"x":12.530, "y":2.409, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.886618+01:00] mqtt.INFO: Received message on topic [localisation/264/setup]: {"x":13.320, "y":2.234, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.892139+01:00] mqtt.INFO: Received message on topic [localisation/263/setup]: {"x":11.540, "y":-0.321, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.898867+01:00] mqtt.INFO: Received message on topic [localisation/262/setup]: {"x":8.980, "y":1.029, "z":0.035, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.906117+01:00] mqtt.INFO: Received message on topic [localisation/273/setup]: {"x":7.584, "y":-2.172, "z":2.110, "orientation":90.0, "type":"setup", "color":"00FFFF"} [] []
-[2024-01-17T09:20:36.911742+01:00] mqtt.INFO: Received message on topic [localisation/171/setup]: {"x":-1.190, "y":4.578, "z":2.658, "orientation":0.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:36.917553+01:00] mqtt.INFO: Received message on topic [localisation/170/setup]: {"x":-1.187, "y":8.649, "z":2.650, "orientation":0.0, "type":"setup", "color":"0000FF"} [] []
-[2024-01-17T09:20:36.922872+01:00] mqtt.INFO: Received message on topic [localisation/111/setup]: {"x":6.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.930205+01:00] mqtt.INFO: Received message on topic [localisation/110/setup]: {"x":5.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.937541+01:00] mqtt.INFO: Received message on topic [localisation/109/setup]: {"x":4.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.943423+01:00] mqtt.INFO: Received message on topic [localisation/108/setup]: {"x":3.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.955555+01:00] mqtt.INFO: Received message on topic [localisation/107/setup]: {"x":2.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.960761+01:00] mqtt.INFO: Received message on topic [localisation/106/setup]: {"x":1.339, "y":8.565, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.968272+01:00] mqtt.INFO: Received message on topic [localisation/105/setup]: {"x":0.734, "y":-2.438, "z":2.650, "orientation":90.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.973837+01:00] mqtt.INFO: Received message on topic [localisation/104/setup]: {"x":-4.005, "y":-1.674, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.981260+01:00] mqtt.INFO: Received message on topic [localisation/103/setup]: {"x":-3.860, "y":3.484, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.986791+01:00] mqtt.INFO: Received message on topic [localisation/102/setup]: {"x":-0.591, "y":3.487, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.992093+01:00] mqtt.INFO: Received message on topic [localisation/101/setup]: {"x":-3.132, "y":4.339, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:36.999643+01:00] mqtt.INFO: Received message on topic [localisation/100/setup]: {"x":-3.962, "y":7.931, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.005888+01:00] mqtt.INFO: Received message on topic [localisation/153/setup]: {"x":8.237, "y":2.395, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.011012+01:00] mqtt.INFO: Received message on topic [localisation/152/setup]: {"x":8.112, "y":5.613, "z":2.650, "orientation":90.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.016183+01:00] mqtt.INFO: Received message on topic [localisation/151/setup]: {"x":11.442, "y":4.900, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.021437+01:00] mqtt.INFO: Received message on topic [localisation/150/setup]: {"x":11.442, "y":9.249, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.026759+01:00] mqtt.INFO: Received message on topic [localisation/149/setup]: {"x":15.204, "y":7.775, "z":2.650, "orientation":180.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.033593+01:00] mqtt.INFO: Received message on topic [localisation/148/setup]: {"x":15.312, "y":4.930, "z":2.650, "orientation":180.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.039251+01:00] mqtt.INFO: Received message on topic [localisation/147/setup]: {"x":17.925, "y":1.714, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.044434+01:00] mqtt.INFO: Received message on topic [localisation/146/setup]: {"x":17.917, "y":-2.415, "z":2.650, "orientation":180.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.054783+01:00] mqtt.INFO: Received message on topic [localisation/145/setup]: {"x":14.850, "y":-2.715, "z":2.650, "orientation":180.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.060013+01:00] mqtt.INFO: Received message on topic [localisation/144/setup]: {"x":12.137, "y":1.078, "z":2.650, "orientation":0.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.065479+01:00] mqtt.INFO: Received message on topic [localisation/143/setup]: {"x":11.204, "y":-1.677, "z":2.650, "orientation":90.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.070635+01:00] mqtt.INFO: Received message on topic [localisation/142/setup]: {"x":10.357, "y":0.481, "z":2.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.077233+01:00] mqtt.INFO: Received message on topic [localisation/184/setup]: {"x":2.120, "y":2.793, "z":2.650, "orientation":119.0, "type":"setup", "color":"FF00FF"} [] []
-[2024-01-17T09:20:37.082858+01:00] mqtt.INFO: Received message on topic [localisation/182/setup]: {"x":1.311, "y":8.989, "z":2.650, "orientation":270.0, "type":"setup", "color":"0000FF"} [] []
-[2024-01-17T09:20:37.087910+01:00] mqtt.INFO: Received message on topic [localisation/181/setup]: {"x":7.382, "y":8.565, "z":2.653, "orientation":180.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.094592+01:00] mqtt.INFO: Received message on topic [localisation/180/setup]: {"x":6.352, "y":6.959, "z":2.663, "orientation":90.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:37.100200+01:00] mqtt.INFO: Received message on topic [localisation/179/setup]: {"x":5.092, "y":6.587, "z":2.658, "orientation":180.0, "type":"setup", "color":"00FFFF"} [] []
-[2024-01-17T09:20:37.105606+01:00] mqtt.INFO: Received message on topic [localisation/178/setup]: {"x":5.071, "y":5.290, "z":2.625, "orientation":180.0, "type":"setup", "color":"FF0000"} [] []
-[2024-01-17T09:20:37.112332+01:00] mqtt.INFO: Received message on topic [localisation/177/setup]: {"x":5.057, "y":2.714, "z":2.650, "orientation":180.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.118806+01:00] mqtt.INFO: Received message on topic [localisation/176/setup]: {"x":4.358, "y":1.331, "z":2.623, "orientation":90.0, "type":"setup", "color":"0000FF"} [] []
-[2024-01-17T09:20:37.124479+01:00] mqtt.INFO: Received message on topic [localisation/175/setup]: {"x":1.687, "y":1.327, "z":2.652, "orientation":90.0, "type":"setup", "color":"FFFF00"} [] []
-[2024-01-17T09:20:37.129976+01:00] mqtt.INFO: Received message on topic [localisation/174/setup]: {"x":0.773, "y":0.364, "z":2.631, "orientation":180.0, "type":"setup", "color":"FF00FF"} [] []
-[2024-01-17T09:20:37.135187+01:00] mqtt.INFO: Received message on topic [localisation/173/setup]: {"x":0.336, "y":0.890, "z":2.620, "orientation":0.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.141955+01:00] mqtt.INFO: Received message on topic [localisation/172/setup]: {"x":0.347, "y":3.294, "z":2.650, "orientation":0.0, "type":"setup", "color":"FFFF00"} [] []
-[2024-01-17T09:20:37.150638+01:00] mqtt.INFO: Received message on topic [localisation/185/setup]: {"x":5.339, "y":7.565, "z":2.650, "orientation":270.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.155788+01:00] mqtt.INFO: Received message on topic [localisation/186/setup]: {"x":4.339, "y":7.565, "z":2.650, "orientation":270.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.161068+01:00] mqtt.INFO: Received message on topic [localisation/187/setup]: {"x":3.339, "y":7.565, "z":2.650, "orientation":270.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.168040+01:00] mqtt.INFO: Received message on topic [localisation/189/setup]: {"x":3.339, "y":6.565, "z":2.650, "orientation":270.0, "type":"setup", "color":"00FF00"} [] []
-[2024-01-17T09:20:37.174616+01:00] mqtt.INFO: Received message on topic [localisation/154/setup]: {"x":2.339, "y":7.565, "z":1.650, "orientation":270.0, "type":"setup", "color":""} [] []
-[2024-01-17T09:20:37.179793+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-95/setup]: {"x": 15.78, "y": 2.209, "z": 0.035, "orientation": 0.0, "type": "setup", "color": "FF0000"} [] []
-[2024-01-17T09:20:37.186390+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-65/setup]: {"x": 12.53, "y": 2.409, "z": 0.035, "orientation": 0.0, "type": "setup", "color": "FF0000", "UID": "86CF"} [] []
-[2024-01-17T09:20:37.191878+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-86/setup]: {"x": 13.32, "y": 2.234, "z": 0.035, "orientation": 0.0, "type": "setup", "color": "FF0000", "UID": "91A3"} [] []
-[2024-01-17T09:20:37.198850+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-82/setup]: {"x": 11.54, "y": -0.321, "z": 0.035, "orientation": 0.0, "type": "setup", "color": "FF0000", "UID": "E32F"} [] []
-[2024-01-17T09:20:37.206341+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-63/setup]: {"x": 8.98, "y": 1.029, "z": 0.035, "orientation": 0.0, "type": "setup", "color": "FF0000", "UID": "CFCE"} [] []
-[2024-01-17T09:20:37.211683+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-14/setup]: {"x": -1.19, "y": 4.578, "z": 2.658, "orientation": 0.0, "type": "setup", "color": "FF0000", "UID": "F621"} [] []
-[2024-01-17T09:20:37.217068+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-13/setup]: {"x": -1.187, "y": 8.649, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "0000FF", "UID": "CD6B"} [] []
-[2024-01-17T09:20:37.222442+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-39/setup]: {"x": 6.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "DA12"} [] []
-[2024-01-17T09:20:37.229781+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-38/setup]: {"x": 5.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "D269"} [] []
-[2024-01-17T09:20:37.236844+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-37/setup]: {"x": 4.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "AB20"} [] []
-[2024-01-17T09:20:37.245652+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-35/setup]: {"x": 3.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "65A5"} [] []
-[2024-01-17T09:20:37.251155+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-34/setup]: {"x": 2.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "BE66"} [] []
-[2024-01-17T09:20:37.256334+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-33/setup]: {"x": 1.339, "y": 8.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "D9C7"} [] []
-[2024-01-17T09:20:37.263308+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-10/setup]: {"x": 0.734, "y": -2.438, "z": 2.65, "orientation": 90.0, "type": "setup", "color": "", "UID": "B834"} [] []
-[2024-01-17T09:20:37.270233+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-9/setup]: {"x": -4.005, "y": -1.674, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "8C1F"} [] []
-[2024-01-17T09:20:37.275448+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-6/setup]: {"x": -3.86, "y": 3.484, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "0D81"} [] []
-[2024-01-17T09:20:37.282341+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-5/setup]: {"x": -0.591, "y": 3.487, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "CC6C"} [] []
-[2024-01-17T09:20:37.287462+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-2/setup]: {"x": -3.132, "y": 4.339, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "A55E"} [] []
-[2024-01-17T09:20:37.294265+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-1/setup]: {"x": -3.962, "y": 7.931, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "8C30"} [] []
-[2024-01-17T09:20:37.299400+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-62/setup]: {"x": 8.237, "y": 2.395, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "F80F"} [] []
-[2024-01-17T09:20:37.304601+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-61/setup]: {"x": 8.112, "y": 5.613, "z": 2.65, "orientation": 90.0, "type": "setup", "color": "", "UID": "98C0"} [] []
-[2024-01-17T09:20:37.309305+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-74/setup]: {"x": 11.442, "y": 4.9, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "DECD"} [] []
-[2024-01-17T09:20:37.316295+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-73/setup]: {"x": 11.442, "y": 9.249, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "AAC0"} [] []
-[2024-01-17T09:20:37.323380+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-70/setup]: {"x": 15.204, "y": 7.775, "z": 2.65, "orientation": 180.0, "type": "setup", "color": "", "UID": "B779"} [] []
-[2024-01-17T09:20:37.333637+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-69/setup]: {"x": 15.312, "y": 4.93, "z": 2.65, "orientation": 180.0, "type": "setup", "color": "", "UID": "F180"} [] []
-[2024-01-17T09:20:37.339637+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-94/setup]: {"x": 17.925, "y": 1.714, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "DDD6"} [] []
-[2024-01-17T09:20:37.345027+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-93/setup]: {"x": 17.917, "y": -2.415, "z": 2.65, "orientation": 180.0, "type": "setup", "color": "", "UID": "F977"} [] []
-[2024-01-17T09:20:37.350308+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-89/setup]: {"x": 14.85, "y": -2.715, "z": 2.65, "orientation": 180.0, "type": "setup", "color": "", "UID": "4BF3"} [] []
-[2024-01-17T09:20:37.357457+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-85/setup]: {"x": 12.137, "y": 1.078, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "", "UID": "E3A5"} [] []
-[2024-01-17T09:20:37.364535+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-81/setup]: {"x": 11.204, "y": -1.677, "z": 2.65, "orientation": 90.0, "type": "setup", "color": "", "UID": "BD3C"} [] []
-[2024-01-17T09:20:37.369941+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-77/setup]: {"x": 10.357, "y": 0.481, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "AE2B"} [] []
-[2024-01-17T09:20:37.375117+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-50/setup]: {"x": 2.12, "y": 2.793, "z": 2.65, "orientation": 119.0, "type": "setup", "color": "FF00FF", "UID": "399C"} [] []
-[2024-01-17T09:20:37.380404+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-45/setup]: {"x": 1.311, "y": 8.989, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "0000FF", "UID": "6FA5"} [] []
-[2024-01-17T09:20:37.387771+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-29/setup]: {"x": 7.382, "y": 8.565, "z": 2.653, "orientation": 180.0, "type": "setup", "color": "00FF00", "UID": "C0E2"} [] []
-[2024-01-17T09:20:37.393452+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-55/setup]: {"x": 6.352, "y": 6.959, "z": 2.663, "orientation": 90.0, "type": "setup", "color": "FF0000", "UID": "CD4A"} [] []
-[2024-01-17T09:20:37.398546+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-54/setup]: {"x": 5.092, "y": 6.587, "z": 2.658, "orientation": 180.0, "type": "setup", "color": "00FFFF", "UID": "CEC0"} [] []
-[2024-01-17T09:20:37.404101+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-25/setup]: {"x": 5.071, "y": 5.29, "z": 2.625, "orientation": 180.0, "type": "setup", "color": "FF0000", "UID": "75AA"} [] []
-[2024-01-17T09:20:37.409368+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-53/setup]: {"x": 5.057, "y": 2.714, "z": 2.65, "orientation": 180.0, "type": "setup", "color": "00FF00", "UID": "DDA5"} [] []
-[2024-01-17T09:20:37.415247+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-21/setup]: {"x": 4.358, "y": 1.331, "z": 2.623, "orientation": 90.0, "type": "setup", "color": "0000FF", "UID": "8DDA"} [] []
-[2024-01-17T09:20:37.422297+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-19/setup]: {"x": 1.687, "y": 1.327, "z": 2.652, "orientation": 90.0, "type": "setup", "color": "FFFF00", "UID": "A221"} [] []
-[2024-01-17T09:20:37.433499+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-18/setup]: {"x": 0.773, "y": 0.364, "z": 2.631, "orientation": 180.0, "type": "setup", "color": "FF00FF", "UID": "437C"} [] []
-[2024-01-17T09:20:37.440047+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-17/setup]: {"x": 0.336, "y": 0.89, "z": 2.62, "orientation": 0.0, "type": "setup", "color": "00FF00", "UID": "A26F"} [] []
-[2024-01-17T09:20:37.445702+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-49/setup]: {"x": 0.347, "y": 3.294, "z": 2.65, "orientation": 0.0, "type": "setup", "color": "FFFF00", "UID": "62A0"} [] []
-[2024-01-17T09:20:37.451646+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-30/setup]: {"x": 5.339, "y": 7.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "00FF00", "UID": "E930"} [] []
-[2024-01-17T09:20:37.456997+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-42/setup]: {"x": 4.339, "y": 7.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "00FF00", "UID": "E6E2"} [] []
-[2024-01-17T09:20:37.464053+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-43/setup]: {"x": 3.339, "y": 7.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "00FF00", "UID": "D243"} [] []
-[2024-01-17T09:20:37.470003+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-26/setup]: {"x": 3.339, "y": 6.565, "z": 2.65, "orientation": 270.0, "type": "setup", "color": "00FF00", "UID": "C736"} [] []
-[2024-01-17T09:20:37.475555+01:00] mqtt.INFO: Received message on topic [localisation/dwm1001-41/setup]: {"x": 2.339, "y": 7.565, "z": 1.65, "orientation": 270.0, "type": "setup", "color": "", "UID": "EEE6"} [] []
+idCapteur: 261, x: 14.797, y: 4.779, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 258, x: 14.522, y: 8.849, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 257, x: 12.362, y: 8.999, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 256, x: 13.292, y: 6.86, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 254, x: 11.752, y: 4.829, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 266, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 265, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 264, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 263, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 262, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 273, x: 7.584, y: -2.172, z: 2.11, orientation: 90.0, color: 00FFFF TEST 
+idCapteur: 171, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000 TEST 
+idCapteur: 170, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF TEST 
+idCapteur: 111, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 110, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 109, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 108, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 107, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 106, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 105, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: 104, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 103, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 102, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 101, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 100, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 153, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 152, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: 151, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 150, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 149, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: 148, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: 147, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 146, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: 145, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: 144, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: 143, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: 142, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: 184, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF TEST 
+idCapteur: 182, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF TEST 
+idCapteur: 181, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00 TEST 
+idCapteur: 180, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000 TEST 
+idCapteur: 179, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF TEST 
+idCapteur: 178, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000 TEST 
+idCapteur: 177, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00 TEST 
+idCapteur: 176, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF TEST 
+idCapteur: 175, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00 TEST 
+idCapteur: 174, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF TEST 
+idCapteur: 173, x: 0.336, y: 0.89, z: 2.62, orientation: 0.0, color: 00FF00 TEST 
+idCapteur: 172, x: 0.347, y: 3.294, z: 2.65, orientation: 0.0, color: FFFF00 TEST 
+idCapteur: 185, x: 5.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST 
+idCapteur: 186, x: 4.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST 
+idCapteur: 187, x: 3.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST 
+idCapteur: 189, x: 3.339, y: 6.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST 
+idCapteur: 154, x: 2.339, y: 7.565, z: 1.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-95, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-65, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-86, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-82, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-63, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-14, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000 TEST 
+idCapteur: dwm1001-13, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF TEST 
+idCapteur: dwm1001-39, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-38, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-37, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-35, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-34, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-33, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-10, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: dwm1001-9, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-6, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-5, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-2, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-1, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-62, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-61, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: dwm1001-74, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-73, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-70, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: dwm1001-69, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: dwm1001-94, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-93, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: dwm1001-89, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color:  TEST 
+idCapteur: dwm1001-85, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color:  TEST 
+idCapteur: dwm1001-81, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color:  TEST 
+idCapteur: dwm1001-77, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color:  TEST 
+idCapteur: dwm1001-50, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF TEST 
+idCapteur: dwm1001-45, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF TEST 
+idCapteur: dwm1001-29, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00 TEST 
+idCapteur: dwm1001-55, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000 TEST 
+idCapteur: dwm1001-54, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF TEST 
+idCapteur: dwm1001-25, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000 TEST 
+idCapteur: dwm1001-53, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00 TEST 
+idCapteur: dwm1001-21, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF TEST 
+idCapteur: dwm1001-19, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00 TEST 
+idCapteur: dwm1001-18, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF TEST 
+idCapteur: dwm1001-17, x: 0.336, y: 0.89, z: 2.62, orientation: 0.0, color: 00FF00 TEST 
