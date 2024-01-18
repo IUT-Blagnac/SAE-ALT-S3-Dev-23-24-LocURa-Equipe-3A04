@@ -13,11 +13,11 @@
         </button>
         <div class="dropdown-content" id="nodes">
             <label><input type="checkbox" id="node0"> Origine</label>
-            <label><input type="checkbox" id="node1"> Noeud 17</label>
-            <label><input type="checkbox" id="node2"> Noeud 18</label>
-            <label><input type="checkbox" id="node3"> Noeud 25</label>
-            <label><input type="checkbox" id="node4"> Noeud 69</label>
-            <label><input type="checkbox" id="node5"> Noeud 177</label>
+            <label><input type="checkbox" id="node17"> Noeud 17</label>
+            <label><input type="checkbox" id="node18"> Noeud 18</label>
+            <label><input type="checkbox" id="node25"> Noeud 25</label>
+            <label><input type="checkbox" id="node69"> Noeud 69</label>
+            <label><input type="checkbox" id="node177"> Noeud 177</label>
         </div>
     </div>
 
@@ -41,25 +41,16 @@
 <script src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
-<!-- Inclure le fichier JavaScript pour les nœuds -->
-<script src="scriptAfficherPoints.js"></script>
 
 <img id="map-image" class="map-image">
 
-<div id="map-container"></div>
+<div id="map-container" class="map-container"></div>
 
 <div id="map"></div>
 
-<!-- Ajoutez cette balise div à l'endroit où vous souhaitez afficher la boîte de dialogue -->
+<!-- Afficher la popup du noeud -->
 <div id="popup" class="popup">
-    <div id="popup-content" class="popup-content">
-        <!-- Le contenu de la boîte de dialogue sera affiché ici -->
-    </div>
+    <div id="popup-content" class="popup-content"></div>
 </div>
-
-<script>
-    // Attendre que le document soit prêt
-
-</script>
 </body>
 </html>

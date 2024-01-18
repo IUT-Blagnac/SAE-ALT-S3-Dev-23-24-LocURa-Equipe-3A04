@@ -202,7 +202,7 @@ body {
 }
 
 .map-container {
-    width: 1000px;
+    width: 100%;
     height: auto;
     position: absolute;
     top: 400px;

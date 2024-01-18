@@ -24,3 +24,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('secondLayer').onchange = changeImage;
     document.getElementById('thirdLayer').onchange = changeImage;
 });
+
