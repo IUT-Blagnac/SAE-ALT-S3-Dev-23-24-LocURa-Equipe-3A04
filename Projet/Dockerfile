@@ -6,15 +6,18 @@ EXPOSE 80 1883
 WORKDIR /app
 COPY app/ /app/
 
-# git, unzip & zip are for composer
+# Installer dépendances de base pr composer
 RUN apt-get update -qq && \
     apt-get install -qy \
     git \
     gnupg \
     unzip \
-    zip && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    zip
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache
