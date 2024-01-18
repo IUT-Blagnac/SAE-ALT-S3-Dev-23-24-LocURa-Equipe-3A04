@@ -11,7 +11,7 @@
 //     // Ajoutez d'autres données ici
 // ];
 
-include("connexionBaseDeDonnees.php");
+include_once("connexionBaseDeDonnees.php");
 
 if(isset($_POST["request"]))
 {

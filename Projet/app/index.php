@@ -1,17 +1,5 @@
 
 <?php
-
-//include("connexionBaseDeDonnees.php");
-// phpinfo();
-//echo "<a href='Page2.php'>Page 2</a>";
-
-//echo "<br>";
-
-// DEBUG
-//echo "<a href='connexionMQTT.php'>PageDonnes</a>";
-
-// afficherDonnees();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,12 +43,5 @@
     <img src="Images/map.png" class="map-image">
     
     <div id="map"></div>
-
-    <!-- Ajoutez cette balise div à l'endroit où vous souhaitez afficher la boîte de dialogue -->
-    <div id="popup" class="popup">
-        <div id="popup-content" class="popup-content">
-            <!-- Le contenu de la boîte de dialogue sera affiché ici -->
-        </div>
-    </div>
 </body>
 </html>
