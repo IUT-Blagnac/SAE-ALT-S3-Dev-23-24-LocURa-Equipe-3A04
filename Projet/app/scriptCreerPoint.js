@@ -97,7 +97,16 @@ function resetPointsTransparency() {
         point.classList.remove("selected");
         // Supprimer la classe transparent de tous les points
         point.classList.remove("transparent");
+
+        if (!point.clickHandler) {
+            let clickHandler = function () {
+                togglePopup(point, id, coordX, coordY);
+            };
+            point.addEventListener("click", clickHandler);
+            point.clickHandler = clickHandler;
+        }
     });
+    
 }
 
 // Fonction pour mettre à jour les classes des points pour indiquer la sélection
@@ -122,6 +131,46 @@ function toggleOtherPointsTransparency(clickedPoint) {
     });
 }
 
+
+// Fonction pour basculer la transparence des autres points
+function toggleOtherPointsTransparencyTotal(clickedPoint) {
+    let allPoints = document.querySelectorAll(".point");
+
+    // Parcourir tous les points
+    allPoints.forEach(function (point) {
+        // Ajouter ou supprimer la classe transparent en fonction du clic
+        point.classList.toggle("transparenttotal", point !== clickedPoint);
+        point.removeEventListener('click', function () {
+            togglePopup(point, id, coordX, coordY);
+        });
+    });
+}
+
+// Fonction pour mettre à jour la transparence en fonction des cases cochées
+function updateTransparencyBasedOnCheckboxes() {
+    // Sélectionnez toutes les cases à cocher dans le menu déroulant
+    var checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+    
+    // Récupérez les points associés à chaque case à cocher
+    var points = [];
+    checkboxes.forEach(function (checkbox, index) {
+        if (checkbox.checked) {
+            // Ajoutez le point correspondant à la liste
+            points.push(index);
+        }
+    });
+
+    // Sélectionnez tous les points sur la carte
+    var allPoints = document.querySelectorAll(".point");
+
+    // Parcourir tous les points
+    allPoints.forEach(function (point, index) {
+        // Vérifiez si le point doit être transparent ou non
+        var shouldBeTransparent = points.length > 0 && points.indexOf(index) === -1;
+        point.classList.toggle("transparenttotal", shouldBeTransparent);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Utiliser AJAX pour récupérer les données du serveur
     $.ajax({
@@ -138,6 +187,17 @@ document.addEventListener("DOMContentLoaded", function () {
         error: function (error) {
             console.error('Erreur de requête AJAX :', error);
         }
+    });
+
+    // Sélectionnez toutes les cases à cocher dans le menu déroulant
+    var checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+
+    // Ajoutez un écouteur d'événements à chaque case à cocher
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            // Appelez toggleOtherPointsTransparencyTotal en fonction des cases cochées
+            updateTransparencyBasedOnCheckboxes();
+        });
     });
 });
 
