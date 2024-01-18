@@ -15,17 +15,18 @@ RUN apt-get update -qq && \
     python3 \
     python3-pip \
     python3-venv \
-    zip &&\
+    zip \
+    libmariadb-dev &&\
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # Création et activation d'un environnement virtuel Python
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-# Installation de paho-mqtt dans l'environnement virtuel
+# Installation de paho-mqtt et mariadb
 RUN pip install paho-mqtt 
-RUN pip install mysql-connector-python
+RUN pip install mariadb
 
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache

@@ -1,6 +1,7 @@
 import json
 import paho.mqtt.client as mqtt
-import mysql.connector 
+import mariadb
+import sys
 
 
 # Détails du courtier MQTT
@@ -8,6 +9,19 @@ broker_address = "lab.iut-blagnac.fr"
 broker_port = 1883
 
 file_object  = open("log.txt", "w")
+
+try:
+    conn = mariadb.connect(
+        user="UserBd",
+        password="MotDePasseBD",
+        host="BaseDeDonnes",
+        port=3306,
+        database="Donnes"
+    )
+except mariadb.Error as e:
+    print(f"Error connecting to MariaDB Platform: {e}")
+    sys.exit(1)
+
 
 
 # Fonction de rappel lorsque le client se connecte au courtier
@@ -33,16 +47,18 @@ def on_message(client, userdata, msg):
         
         
         # Print the extracted data
-        print(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color}")
+        # print(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color}")
         file_object.write(f"idCapteur: {idCapteur}, x: {x}, y: {y}, z: {z}, orientation: {orientation}, color: {color} TEST! \n")
         
         # Insert the data into the database
-        baseDeDonnees = mysql.connector.connect(host="BaseDeDonnes",user="UserBd",password="MotDePasseBD", database="Donnes")
-        curseur = baseDeDonnees.cursor()
-        curseur.execute("INSERT INTO DonneesCapteurs (idCapteur, x, y, z, orientation, color) VALUES (%s, %s, %s, %s, %s, %s)", (idCapteur, x, y, z, orientation, color))
-        baseDeDonnees.commit()
-        curseur.close()
-        baseDeDonnees.close()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO DonneesCapteurs (idCapteur, x, y, z, orientation, color) VALUES (%s, %s, %s, %s, %s, %s)", (idCapteur, x, y, z, orientation, color))
+        conn.commit()
+        cursor.close()
+    except mariadb.Error as err:
+        print(f"Erreur MariaDB : {err}")
+        # Gérer l'erreur ici, par exemple, en annulant la transaction
+        conn.rollback()
     except Exception as e:
         print(f"Error decoding JSON: {e}")
 
