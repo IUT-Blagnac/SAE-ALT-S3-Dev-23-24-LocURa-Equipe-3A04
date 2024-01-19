@@ -1,0 +1,784 @@
+2024-01-19 09:48:59.017728 - idCapteur: 183, x: 1.407, y: 4.078, z: 2.65, orientation: None, color: FFFFFF
+2024-01-19 09:48:59.085732 - idCapteur: dwm1001-57, x: 1.407, y: 4.078, z: 2.65, orientation: None, color: FFFFFF
+2024-01-19 09:49:31.142566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.143566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.144566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.144566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.145565 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.147567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.148571 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.149569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.149569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.150569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.151568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.152566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.152566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.153571 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.154566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.155567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.157569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.158573 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.159572 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.160585 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.161570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.162140 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.162566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.163569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.164568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.164568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.165570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.166568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.167568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.167568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.168569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.169569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.169569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.170569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.172567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.173569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.174568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.175571 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.176566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.176566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.177571 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.178565 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.179567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.180567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.181585 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.181585 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.182570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.183573 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.184566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.185569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.186570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.187567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.188568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.189570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.190568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.191569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.193568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.194567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.196518 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.197570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.197570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.198571 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.199568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.200567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.201568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.202566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.203567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.204567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.205567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.206587 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.207570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.208570 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.209568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.209568 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.210569 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.211567 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.212566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.212566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.213566 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.214815 - idCapteur: node, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.216568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.217568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.218566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.219567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.221566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.223570 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.224568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.225568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.226567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.227567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.228566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.230586 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.231571 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.232570 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.233567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.234566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.235565 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.236566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.238568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.239568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.240567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.241566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.243567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.244567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.245568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.246567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.248568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.249568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.250568 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.251570 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.252566 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.253569 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.254567 - idCapteur: controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.256571 - idCapteur: bylabel, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.257568 - idCapteur: bylabel, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.258567 - idCapteur: bylabel, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.259567 - idCapteur: rpitb83_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.260567 - idCapteur: rpitb83_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.260567 - idCapteur: rpitb76_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.261571 - idCapteur: rpitb76_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.262574 - idCapteur: rpitb76_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.263577 - idCapteur: rpitb79_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.264574 - idCapteur: rpitb79_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.265569 - idCapteur: rpitb79_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.265569 - idCapteur: rpitb79_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.266579 - idCapteur: rpitb153_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.267570 - idCapteur: rpitb155_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.267570 - idCapteur: rpitb155_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.268571 - idCapteur: rpitb155_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.269572 - idCapteur: rpitb47_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.269572 - idCapteur: rpitb154_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.270573 - idCapteur: rpitb154_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.271573 - idCapteur: rpitb154_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.272593 - idCapteur: rpitb68_Controller, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.273575 - idCapteur: 183, x: 1.407, y: 4.078, z: 2.65, orientation: None, color: FFFFFF
+2024-01-19 09:49:31.274573 - idCapteur: 261, x: 14.797, y: 4.779, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.275377 - idCapteur: 258, x: 14.522, y: 8.849, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.275566 - idCapteur: 257, x: 12.362, y: 8.999, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.276567 - idCapteur: 256, x: 13.292, y: 6.86, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.277566 - idCapteur: 254, x: 11.752, y: 4.829, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.277566 - idCapteur: 266, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.278566 - idCapteur: 265, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.279570 - idCapteur: 264, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.280569 - idCapteur: 263, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.281567 - idCapteur: 262, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.282567 - idCapteur: 273, x: 7.584, y: -2.172, z: 2.11, orientation: 90.0, color: 00FFFF
+2024-01-19 09:49:31.282567 - idCapteur: 171, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.283568 - idCapteur: 170, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF
+2024-01-19 09:49:31.284566 - idCapteur: 111, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.284566 - idCapteur: 110, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.285566 - idCapteur: 109, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.286567 - idCapteur: 108, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.287568 - idCapteur: 107, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.288567 - idCapteur: 106, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.289568 - idCapteur: 105, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.290567 - idCapteur: 104, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.290567 - idCapteur: 103, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.291566 - idCapteur: 102, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.292567 - idCapteur: 101, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.293566 - idCapteur: 100, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.294567 - idCapteur: 153, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.294567 - idCapteur: 152, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.295567 - idCapteur: 151, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.296568 - idCapteur: 150, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.297764 - idCapteur: 149, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.298568 - idCapteur: 148, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.298568 - idCapteur: 147, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.300571 - idCapteur: 146, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.300571 - idCapteur: 145, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.301578 - idCapteur: 144, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.302566 - idCapteur: 143, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.303566 - idCapteur: 142, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.303566 - idCapteur: 184, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF
+2024-01-19 09:49:31.304569 - idCapteur: 182, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF
+2024-01-19 09:49:31.305567 - idCapteur: 181, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00
+2024-01-19 09:49:31.306585 - idCapteur: 180, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000
+2024-01-19 09:49:31.307568 - idCapteur: 179, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF
+2024-01-19 09:49:31.308572 - idCapteur: 178, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000
+2024-01-19 09:49:31.309568 - idCapteur: 177, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00
+2024-01-19 09:49:31.309568 - idCapteur: 176, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF
+2024-01-19 09:49:31.310567 - idCapteur: 175, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00
+2024-01-19 09:49:31.311573 - idCapteur: 174, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF
+2024-01-19 09:49:31.312570 - idCapteur: 173, x: 0.336, y: 0.89, z: 2.62, orientation: 0.0, color: 00FF00
+2024-01-19 09:49:31.313569 - idCapteur: 172, x: 0.347, y: 3.294, z: 2.65, orientation: 0.0, color: FFFF00
+2024-01-19 09:49:31.314566 - idCapteur: 185, x: 5.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.314566 - idCapteur: 186, x: 4.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.315566 - idCapteur: 187, x: 3.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.316566 - idCapteur: 189, x: 3.339, y: 6.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.316566 - idCapteur: 154, x: 2.339, y: 7.565, z: 1.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.317567 - idCapteur: dwm1001-95, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.318567 - idCapteur: dwm1001-65, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.319566 - idCapteur: dwm1001-86, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.319566 - idCapteur: dwm1001-82, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.320566 - idCapteur: dwm1001-63, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.321567 - idCapteur: dwm1001-14, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000
+2024-01-19 09:49:31.322586 - idCapteur: dwm1001-13, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF
+2024-01-19 09:49:31.323570 - idCapteur: dwm1001-39, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.324569 - idCapteur: dwm1001-38, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.325569 - idCapteur: dwm1001-37, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.325569 - idCapteur: dwm1001-35, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.326568 - idCapteur: dwm1001-34, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.327566 - idCapteur: dwm1001-33, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.328566 - idCapteur: dwm1001-10, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.328566 - idCapteur: dwm1001-9, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.329567 - idCapteur: dwm1001-6, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.330568 - idCapteur: dwm1001-5, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.331567 - idCapteur: dwm1001-2, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.331567 - idCapteur: dwm1001-1, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.332566 - idCapteur: dwm1001-62, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.333567 - idCapteur: dwm1001-61, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.334568 - idCapteur: dwm1001-74, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.334568 - idCapteur: dwm1001-73, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.335567 - idCapteur: dwm1001-70, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.336566 - idCapteur: dwm1001-69, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.336566 - idCapteur: dwm1001-94, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.337566 - idCapteur: dwm1001-93, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.338568 - idCapteur: dwm1001-89, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color: 
+2024-01-19 09:49:31.339735 - idCapteur: dwm1001-85, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color: 
+2024-01-19 09:49:31.340587 - idCapteur: dwm1001-81, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color: 
+2024-01-19 09:49:31.341567 - idCapteur: dwm1001-77, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.342569 - idCapteur: dwm1001-50, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF
+2024-01-19 09:49:31.343570 - idCapteur: dwm1001-45, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF
+2024-01-19 09:49:31.343570 - idCapteur: dwm1001-29, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00
+2024-01-19 09:49:31.344574 - idCapteur: dwm1001-55, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000
+2024-01-19 09:49:31.345569 - idCapteur: dwm1001-54, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF
+2024-01-19 09:49:31.346571 - idCapteur: dwm1001-25, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000
+2024-01-19 09:49:31.347572 - idCapteur: dwm1001-53, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00
+2024-01-19 09:49:31.348567 - idCapteur: dwm1001-21, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF
+2024-01-19 09:49:31.349567 - idCapteur: dwm1001-19, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00
+2024-01-19 09:49:31.349567 - idCapteur: dwm1001-18, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF
+2024-01-19 09:49:31.350566 - idCapteur: dwm1001-17, x: 0.336, y: 0.89, z: 2.62, orientation: 0.0, color: 00FF00
+2024-01-19 09:49:31.351565 - idCapteur: dwm1001-49, x: 0.347, y: 3.294, z: 2.65, orientation: 0.0, color: FFFF00
+2024-01-19 09:49:31.351565 - idCapteur: dwm1001-30, x: 5.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.352565 - idCapteur: dwm1001-42, x: 4.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.353567 - idCapteur: dwm1001-43, x: 3.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.354566 - idCapteur: dwm1001-26, x: 3.339, y: 6.565, z: 2.65, orientation: 270.0, color: 00FF00
+2024-01-19 09:49:31.355569 - idCapteur: dwm1001-41, x: 2.339, y: 7.565, z: 1.65, orientation: 270.0, color: 
+2024-01-19 09:49:31.356584 - idCapteur: dwm1001-57, x: 1.407, y: 4.078, z: 2.65, orientation: None, color: FFFFFF
+2024-01-19 09:49:31.357567 - idCapteur: 1, x: 1.407, y: 4.078, z: 2.65, orientation: None, color: FFFFFF
+2024-01-19 09:49:31.358567 - idCapteur: 1, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.360566 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.360566 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.362567 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.363569 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.364569 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.365566 - idCapteur: discovery, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:31.369566 - idCapteur: 1, x: -6.455, y: 12.080, z: 0.077 , orientation: 176.171, color: FF6600
+2024-01-19 09:49:48.153862 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:48.325450 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:48.325865 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:48.459863 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:48.710652 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:49:49.549302 - idCapteur: byserial, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:50:00.197872 - idCapteur: 1, x: None, y: None, z: None, orientation: None, color: None
+2024-01-19 09:50:00.322877 - idCapteur: 1, x: None, y: None, z: None, orientation: None, color: None
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:49', 'payload': 'ON'}
+{'timestamp': '2023-11-04 13:35:11', 'payload': 'ON'}
+{'timestamp': '2023-07-24 15:40:45', 'payload': 'OFF'}
+{'timestamp': '2023-03-01 10:50:10', 'payload': 'ON'}
+{'timestamp': '2023-11-23 11:02:28', 'payload': 'ON'}
+{'timestamp': '2023-03-09 15:24:47', 'payload': 'ON'}
+{'timestamp': '2023-03-01 10:50:10', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:51', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:32', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:19:19', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:33:42', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:33:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:02', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:49', 'payload': 'ON'}
+{'timestamp': '2023-04-14 07:52:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:32', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:51', 'payload': 'ON'}
+{'timestamp': '2021-08-14 12:17:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:27', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:15', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:11', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:14', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:15', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:04', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:04', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:50:41', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:10', 'payload': 'ON'}
+{'timestamp': '2023-04-13 15:03:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:50', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:57', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:17:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:50', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:17:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:57', 'payload': 'ON'}
+{'timestamp': '2023-04-13 15:03:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:02', 'payload': 'ON'}
+{'timestamp': '2023-11-04 13:35:12', 'payload': 'ON'}
+{'timestamp': '2024-01-15 13:25:01', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:37', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:38', 'payload': 'ON'}
+{'timestamp': '2022-05-11 13:54:34', 'payload': 'OFF'}
+{'timestamp': '2022-04-05 08:22:35', 'payload': 'OFF'}
+{'timestamp': '2022-03-22 10:39:11', 'payload': 'OFF'}
+{'timestamp': '2022-04-05 08:48:40', 'payload': 'ON'}
+{'timestamp': '2022-04-05 08:22:35', 'payload': 'OFF'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2022-03-23 11:09:31', 'payload': 'OFF'}
+{'timestamp': '2022-03-23 10:18:31', 'payload': 'OFF'}
+{'timestamp': '2022-03-31 09:54:22', 'payload': 'ON'}
+{'timestamp': '2022-09-27 10:20:06', 'payload': 'OFF'}
+{'timestamp': '2022-06-09 14:48:52', 'payload': 'OFF'}
+{'timestamp': '2022-06-07 14:11:14', 'payload': 'ON'}
+{'timestamp': '2023-02-20 15:13:49', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 15:13:36', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 15:13:43', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 08:27:04', 'payload': 'OFF'}
+{'timestamp': '2023-03-01 10:50:09', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:24', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:23', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:00', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:01', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:35', 'payload': 'ON'}
+{'timestamp': '2023-04-14 07:52:11', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:55', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:30', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:21', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:25', 'payload': 'ON'}
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2022-03-10 09:18:26', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:26', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:20', 'payload': 'ON'}
+{'timestamp': '2022-02-14 14:17:11', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:10', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:16', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:21', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:09', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:02', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:22', 'payload': 'ON'}
+{'timestamp': '2022-03-28 12:59:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:14', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:20', 'payload': 'ON'}
+{'timestamp': '2024-01-17 09:26:54', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:37', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:47:35', 'payload': 'ON'}
+{'timestamp': '2022-01-14 15:07:49', 'payload': 'ON'}
+{'token': 293, 'txInfo': {'mac': '108aed0093', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'token': 293, 'txInfo': {'mac': 'c9', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'token': 293, 'txInfo': {'mac': 'c7', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'x': 14.797, 'y': 4.779, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 14.522, 'y': 8.849, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.362, 'y': 8.999, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 13.292, 'y': 6.86, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 11.752, 'y': 4.829, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 15.78, 'y': 2.209, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.53, 'y': 2.409, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 13.32, 'y': 2.234, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 11.54, 'y': -0.321, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 8.98, 'y': 1.029, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 7.584, 'y': -2.172, 'z': 2.11, 'orientation': 90.0, 'type': 'setup', 'color': '00FFFF'}
+{'x': -1.19, 'y': 4.578, 'z': 2.658, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': -1.187, 'y': 8.649, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 6.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 5.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 4.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 3.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 2.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 1.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 0.734, 'y': -2.438, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': -4.005, 'y': -1.674, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -3.86, 'y': 3.484, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -0.591, 'y': 3.487, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': -3.132, 'y': 4.339, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -3.962, 'y': 7.931, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 8.237, 'y': 2.395, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 8.112, 'y': 5.613, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': 11.442, 'y': 4.9, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 11.442, 'y': 9.249, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 15.204, 'y': 7.775, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 15.312, 'y': 4.93, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 17.925, 'y': 1.714, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 17.917, 'y': -2.415, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 14.85, 'y': -2.715, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 12.137, 'y': 1.078, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 11.204, 'y': -1.677, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': 10.357, 'y': 0.481, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 2.12, 'y': 2.793, 'z': 2.65, 'orientation': 119.0, 'type': 'setup', 'color': 'FF00FF'}
+{'x': 1.311, 'y': 8.989, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 7.382, 'y': 8.565, 'z': 2.653, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 6.352, 'y': 6.959, 'z': 2.663, 'orientation': 90.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 5.092, 'y': 6.587, 'z': 2.658, 'orientation': 180.0, 'type': 'setup', 'color': '00FFFF'}
+{'x': 5.071, 'y': 5.29, 'z': 2.625, 'orientation': 180.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 5.057, 'y': 2.714, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 4.358, 'y': 1.331, 'z': 2.623, 'orientation': 90.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 1.687, 'y': 1.327, 'z': 2.652, 'orientation': 90.0, 'type': 'setup', 'color': 'FFFF00'}
+{'x': 0.773, 'y': 0.364, 'z': 2.631, 'orientation': 180.0, 'type': 'setup', 'color': 'FF00FF'}
+{'x': 0.336, 'y': 0.89, 'z': 2.62, 'orientation': 0.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 0.347, 'y': 3.294, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': 'FFFF00'}
+{'x': 5.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 4.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 3.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 3.339, 'y': 6.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 2.339, 'y': 7.565, 'z': 1.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 15.78, 'y': 2.209, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.53, 'y': 2.409, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': '86CF'}
+{'x': 13.32, 'y': 2.234, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': '91A3'}
+{'x': 11.54, 'y': -0.321, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'E32F'}
+{'x': 8.98, 'y': 1.029, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'CFCE'}
+{'x': -1.19, 'y': 4.578, 'z': 2.658, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'F621'}
+{'x': -1.187, 'y': 8.649, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '0000FF', 'UID': 'CD6B'}
+{'x': 6.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'DA12'}
+{'x': 5.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'D269'}
+{'x': 4.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'AB20'}
+{'x': 3.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': '65A5'}
+{'x': 2.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'BE66'}
+{'x': 1.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'D9C7'}
+{'x': 0.734, 'y': -2.438, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': 'B834'}
+{'x': -4.005, 'y': -1.674, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': '8C1F'}
+{'x': -3.86, 'y': 3.484, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': '0D81'}
+{'x': -0.591, 'y': 3.487, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'CC6C'}
+{'x': -3.132, 'y': 4.339, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'A55E'}
+{'x': -3.962, 'y': 7.931, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': '8C30'}
+{'x': 8.237, 'y': 2.395, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'F80F'}
+{'x': 8.112, 'y': 5.613, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': '98C0'}
+{'x': 11.442, 'y': 4.9, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'DECD'}
+{'x': 11.442, 'y': 9.249, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'AAC0'}
+{'x': 15.204, 'y': 7.775, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'B779'}
+{'x': 15.312, 'y': 4.93, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'F180'}
+{'x': 17.925, 'y': 1.714, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'DDD6'}
+{'x': 17.917, 'y': -2.415, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'F977'}
+{'x': 14.85, 'y': -2.715, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': '4BF3'}
+{'x': 12.137, 'y': 1.078, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'E3A5'}
+{'x': 11.204, 'y': -1.677, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': 'BD3C'}
+{'x': 10.357, 'y': 0.481, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'AE2B'}
+{'x': 2.12, 'y': 2.793, 'z': 2.65, 'orientation': 119.0, 'type': 'setup', 'color': 'FF00FF', 'UID': '399C'}
+{'x': 1.311, 'y': 8.989, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '0000FF', 'UID': '6FA5'}
+{'x': 7.382, 'y': 8.565, 'z': 2.653, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00', 'UID': 'C0E2'}
+{'x': 6.352, 'y': 6.959, 'z': 2.663, 'orientation': 90.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'CD4A'}
+{'x': 5.092, 'y': 6.587, 'z': 2.658, 'orientation': 180.0, 'type': 'setup', 'color': '00FFFF', 'UID': 'CEC0'}
+{'x': 5.071, 'y': 5.29, 'z': 2.625, 'orientation': 180.0, 'type': 'setup', 'color': 'FF0000', 'UID': '75AA'}
+{'x': 5.057, 'y': 2.714, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00', 'UID': 'DDA5'}
+{'x': 4.358, 'y': 1.331, 'z': 2.623, 'orientation': 90.0, 'type': 'setup', 'color': '0000FF', 'UID': '8DDA'}
+{'x': 1.687, 'y': 1.327, 'z': 2.652, 'orientation': 90.0, 'type': 'setup', 'color': 'FFFF00', 'UID': 'A221'}
+{'x': 0.773, 'y': 0.364, 'z': 2.631, 'orientation': 180.0, 'type': 'setup', 'color': 'FF00FF', 'UID': '437C'}
+{'x': 0.336, 'y': 0.89, 'z': 2.62, 'orientation': 0.0, 'type': 'setup', 'color': '00FF00', 'UID': 'A26F'}
+{'x': 0.347, 'y': 3.294, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': 'FFFF00', 'UID': '62A0'}
+{'x': 5.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'E930'}
+{'x': 4.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'E6E2'}
+{'x': 3.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'D243'}
+{'x': 3.339, 'y': 6.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'C736'}
+{'x': 2.339, 'y': 7.565, 'z': 1.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'EEE6'}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'timestamp': 1705647321.5, 'course': 1.47}
+{'ip': '192.168.77.220', 'dn': 'bouilloire', 'fn': ['bouilloire', None, None, None, None, None, None, None], 'hn': 'PowerPlug-1', 'mac': '4CEBD60FF59D', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/1', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T07:59:29', 'ENERGY': {'TotalStartTime': '2022-10-18T10:07:14', 'Total': 0.48, 'Yesterday': 0.306, 'Today': 0.004, 'Power': 11, 'ApparentPower': 1151, 'ReactivePower': 1151, 'Factor': 0.01, 'Voltage': 280, 'Current': 4.116}}, 'ver': 1}
+{'ip': '192.168.77.218', 'dn': 'SERVER fit-dev', 'fn': ['SERVER fit-dev', None, None, None, None, None, None, None], 'hn': 'PowerPlug-2', 'mac': '4CEBD60FF409', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/server-fit-dev', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T15:48:35', 'ENERGY': {'TotalStartTime': '2022-10-18T10:05:42', 'Total': 1.072, 'Yesterday': 0.527, 'Today': 0.347, 'Power': 22, 'ApparentPower': 33, 'ReactivePower': 25, 'Factor': 0.66, 'Voltage': 278, 'Current': 0.119}}, 'ver': 1}
+{'ip': '192.168.77.231', 'dn': 'SWITCH fit-dev', 'fn': ['SWITCH fit-dev', None, None, None, None, None, None, None], 'hn': 'PowerPlug-3', 'mac': '4CEBD60FF367', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/switch-fit-dev', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T15:49:03', 'ENERGY': {'TotalStartTime': '2022-10-18T10:00:00', 'Total': 1.584, 'Yesterday': 0.785, 'Today': 0.518, 'Power': 33, 'ApparentPower': 60, 'ReactivePower': 51, 'Factor': 0.54, 'Voltage': 288, 'Current': 0.21}}, 'ver': 1}
+{'timestamp': 1705335059.9347699, 'x': '-6.455', 'y': '12.080', 'z': '0.077 ', 'orientation': '176.171', 'battery': '15', 'dock': True, 'type': 'mobile', 'color': 'FF6600'}
+{'serial_number': 707690, 'timestamp': 1705654217.7390804, 'data': {'message_type': 'LoRaED_stats', 'message': {'mac': '50', 'time': '-1617799716', 'rxPacketsReceived': 1, 'rxPacketsReceivedOK': 1, 'txPacketsReceived': 0, 'txPacketsEmitted': 0}}}
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:49', 'payload': 'ON'}
+{'timestamp': '2023-11-04 13:35:11', 'payload': 'ON'}
+{'timestamp': '2023-07-24 15:40:45', 'payload': 'OFF'}
+{'timestamp': '2023-03-01 10:50:10', 'payload': 'ON'}
+{'timestamp': '2023-11-23 11:02:28', 'payload': 'ON'}
+{'timestamp': '2023-03-09 15:24:47', 'payload': 'ON'}
+{'timestamp': '2023-03-01 10:50:10', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:51', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:32', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:19:19', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:33:42', 'payload': 'ON'}
+{'timestamp': '2023-11-20 10:33:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:02', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:49', 'payload': 'ON'}
+{'timestamp': '2023-04-14 07:52:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:32', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:03:51', 'payload': 'ON'}
+{'timestamp': '2021-08-14 12:17:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:27', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:15', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:11', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:36', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:14', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2022-03-09 13:37:15', 'payload': 'ON'}
+{'timestamp': '2023-11-20 16:26:54', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:45', 'payload': 'ON'}
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:04', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:07:11', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:59:29', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:04', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:50:41', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:10', 'payload': 'ON'}
+{'timestamp': '2023-04-13 15:03:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:50', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:57', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:17:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:50', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:17:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:48:57', 'payload': 'ON'}
+{'timestamp': '2023-04-13 15:03:42', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:57:02', 'payload': 'ON'}
+{'timestamp': '2023-11-04 13:35:12', 'payload': 'ON'}
+{'timestamp': '2024-01-15 13:25:01', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:37', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:38', 'payload': 'ON'}
+{'timestamp': '2022-05-11 13:54:34', 'payload': 'OFF'}
+{'timestamp': '2022-04-05 08:22:35', 'payload': 'OFF'}
+{'timestamp': '2022-03-22 10:39:11', 'payload': 'OFF'}
+{'timestamp': '2022-04-05 08:48:40', 'payload': 'ON'}
+{'timestamp': '2022-04-05 08:22:35', 'payload': 'OFF'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2023-04-11 09:54:27', 'payload': 'ON'}
+{'timestamp': '2022-03-23 11:09:31', 'payload': 'OFF'}
+{'timestamp': '2022-03-23 10:18:31', 'payload': 'OFF'}
+{'timestamp': '2022-03-31 09:54:22', 'payload': 'ON'}
+{'timestamp': '2022-09-27 10:20:06', 'payload': 'OFF'}
+{'timestamp': '2022-06-09 14:48:52', 'payload': 'OFF'}
+{'timestamp': '2022-06-07 14:11:14', 'payload': 'ON'}
+{'timestamp': '2023-02-20 15:13:49', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 15:13:36', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 15:13:43', 'payload': 'OFF'}
+{'timestamp': '2023-02-20 08:27:04', 'payload': 'OFF'}
+{'timestamp': '2023-03-01 10:50:09', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:24', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:23', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:00', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:01', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:35', 'payload': 'ON'}
+{'timestamp': '2023-04-14 07:52:11', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:55', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:30', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:21', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:46:25', 'payload': 'ON'}
+{'timestamp': '2023-04-07 12:59:12', 'payload': 'ON'}
+{'timestamp': '2022-03-10 09:18:26', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:26', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:20', 'payload': 'ON'}
+{'timestamp': '2022-02-14 14:17:11', 'payload': 'ON'}
+{'timestamp': '2022-03-18 08:28:10', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:22', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:16', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:21', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:03:54', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:09', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:02', 'payload': 'ON'}
+{'timestamp': '2023-04-13 16:04:22', 'payload': 'ON'}
+{'timestamp': '2022-03-28 12:59:03', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:14', 'payload': 'ON'}
+{'timestamp': '2023-04-11 10:06:20', 'payload': 'ON'}
+{'timestamp': '2024-01-17 09:26:54', 'payload': 'ON'}
+{'timestamp': '2022-08-26 14:29:37', 'payload': 'ON'}
+{'timestamp': '2024-01-12 12:47:35', 'payload': 'ON'}
+{'timestamp': '2022-01-14 15:07:49', 'payload': 'ON'}
+{'token': 293, 'txInfo': {'mac': '108aed0093', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'token': 293, 'txInfo': {'mac': 'c9', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'token': 293, 'txInfo': {'mac': 'c7', 'immediately': True, 'frequency': 867300000, 'power': 23, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 12, 'bandwidth': 125}, 'codeRate': '4/5', 'iPol': True, 'board': 0, 'antenna': 0}, 'phyPayload': '8AAPAADK/u5JhIMvQiQKpT9g='}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'payload': 'OFF', 'qos': 0, 'retain': True, 'timestamp': True}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'x': 14.797, 'y': 4.779, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 14.522, 'y': 8.849, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.362, 'y': 8.999, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 13.292, 'y': 6.86, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 11.752, 'y': 4.829, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 15.78, 'y': 2.209, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.53, 'y': 2.409, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 13.32, 'y': 2.234, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 11.54, 'y': -0.321, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 8.98, 'y': 1.029, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 7.584, 'y': -2.172, 'z': 2.11, 'orientation': 90.0, 'type': 'setup', 'color': '00FFFF'}
+{'x': -1.19, 'y': 4.578, 'z': 2.658, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': -1.187, 'y': 8.649, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 6.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 5.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 4.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 3.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 2.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 1.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 0.734, 'y': -2.438, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': -4.005, 'y': -1.674, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -3.86, 'y': 3.484, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -0.591, 'y': 3.487, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': -3.132, 'y': 4.339, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': -3.962, 'y': 7.931, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 8.237, 'y': 2.395, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 8.112, 'y': 5.613, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': 11.442, 'y': 4.9, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 11.442, 'y': 9.249, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 15.204, 'y': 7.775, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 15.312, 'y': 4.93, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 17.925, 'y': 1.714, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 17.917, 'y': -2.415, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 14.85, 'y': -2.715, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': ''}
+{'x': 12.137, 'y': 1.078, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': ''}
+{'x': 11.204, 'y': -1.677, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': ''}
+{'x': 10.357, 'y': 0.481, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 2.12, 'y': 2.793, 'z': 2.65, 'orientation': 119.0, 'type': 'setup', 'color': 'FF00FF'}
+{'x': 1.311, 'y': 8.989, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 7.382, 'y': 8.565, 'z': 2.653, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 6.352, 'y': 6.959, 'z': 2.663, 'orientation': 90.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 5.092, 'y': 6.587, 'z': 2.658, 'orientation': 180.0, 'type': 'setup', 'color': '00FFFF'}
+{'x': 5.071, 'y': 5.29, 'z': 2.625, 'orientation': 180.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 5.057, 'y': 2.714, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 4.358, 'y': 1.331, 'z': 2.623, 'orientation': 90.0, 'type': 'setup', 'color': '0000FF'}
+{'x': 1.687, 'y': 1.327, 'z': 2.652, 'orientation': 90.0, 'type': 'setup', 'color': 'FFFF00'}
+{'x': 0.773, 'y': 0.364, 'z': 2.631, 'orientation': 180.0, 'type': 'setup', 'color': 'FF00FF'}
+{'x': 0.336, 'y': 0.89, 'z': 2.62, 'orientation': 0.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 0.347, 'y': 3.294, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': 'FFFF00'}
+{'x': 5.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 4.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 3.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 3.339, 'y': 6.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00'}
+{'x': 2.339, 'y': 7.565, 'z': 1.65, 'orientation': 270.0, 'type': 'setup', 'color': ''}
+{'x': 15.78, 'y': 2.209, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000'}
+{'x': 12.53, 'y': 2.409, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': '86CF'}
+{'x': 13.32, 'y': 2.234, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': '91A3'}
+{'x': 11.54, 'y': -0.321, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'E32F'}
+{'x': 8.98, 'y': 1.029, 'z': 0.035, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'CFCE'}
+{'x': -1.19, 'y': 4.578, 'z': 2.658, 'orientation': 0.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'F621'}
+{'x': -1.187, 'y': 8.649, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '0000FF', 'UID': 'CD6B'}
+{'x': 6.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'DA12'}
+{'x': 5.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'D269'}
+{'x': 4.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'AB20'}
+{'x': 3.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': '65A5'}
+{'x': 2.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'BE66'}
+{'x': 1.339, 'y': 8.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'D9C7'}
+{'x': 0.734, 'y': -2.438, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': 'B834'}
+{'x': -4.005, 'y': -1.674, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': '8C1F'}
+{'x': -3.86, 'y': 3.484, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': '0D81'}
+{'x': -0.591, 'y': 3.487, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'CC6C'}
+{'x': -3.132, 'y': 4.339, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'A55E'}
+{'x': -3.962, 'y': 7.931, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': '8C30'}
+{'x': 8.237, 'y': 2.395, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'F80F'}
+{'x': 8.112, 'y': 5.613, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': '98C0'}
+{'x': 11.442, 'y': 4.9, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'DECD'}
+{'x': 11.442, 'y': 9.249, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'AAC0'}
+{'x': 15.204, 'y': 7.775, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'B779'}
+{'x': 15.312, 'y': 4.93, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'F180'}
+{'x': 17.925, 'y': 1.714, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'DDD6'}
+{'x': 17.917, 'y': -2.415, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': 'F977'}
+{'x': 14.85, 'y': -2.715, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '', 'UID': '4BF3'}
+{'x': 12.137, 'y': 1.078, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': '', 'UID': 'E3A5'}
+{'x': 11.204, 'y': -1.677, 'z': 2.65, 'orientation': 90.0, 'type': 'setup', 'color': '', 'UID': 'BD3C'}
+{'x': 10.357, 'y': 0.481, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'AE2B'}
+{'x': 2.12, 'y': 2.793, 'z': 2.65, 'orientation': 119.0, 'type': 'setup', 'color': 'FF00FF', 'UID': '399C'}
+{'x': 1.311, 'y': 8.989, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '0000FF', 'UID': '6FA5'}
+{'x': 7.382, 'y': 8.565, 'z': 2.653, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00', 'UID': 'C0E2'}
+{'x': 6.352, 'y': 6.959, 'z': 2.663, 'orientation': 90.0, 'type': 'setup', 'color': 'FF0000', 'UID': 'CD4A'}
+{'x': 5.092, 'y': 6.587, 'z': 2.658, 'orientation': 180.0, 'type': 'setup', 'color': '00FFFF', 'UID': 'CEC0'}
+{'x': 5.071, 'y': 5.29, 'z': 2.625, 'orientation': 180.0, 'type': 'setup', 'color': 'FF0000', 'UID': '75AA'}
+{'x': 5.057, 'y': 2.714, 'z': 2.65, 'orientation': 180.0, 'type': 'setup', 'color': '00FF00', 'UID': 'DDA5'}
+{'x': 4.358, 'y': 1.331, 'z': 2.623, 'orientation': 90.0, 'type': 'setup', 'color': '0000FF', 'UID': '8DDA'}
+{'x': 1.687, 'y': 1.327, 'z': 2.652, 'orientation': 90.0, 'type': 'setup', 'color': 'FFFF00', 'UID': 'A221'}
+{'x': 0.773, 'y': 0.364, 'z': 2.631, 'orientation': 180.0, 'type': 'setup', 'color': 'FF00FF', 'UID': '437C'}
+{'x': 0.336, 'y': 0.89, 'z': 2.62, 'orientation': 0.0, 'type': 'setup', 'color': '00FF00', 'UID': 'A26F'}
+{'x': 0.347, 'y': 3.294, 'z': 2.65, 'orientation': 0.0, 'type': 'setup', 'color': 'FFFF00', 'UID': '62A0'}
+{'x': 5.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'E930'}
+{'x': 4.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'E6E2'}
+{'x': 3.339, 'y': 7.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'D243'}
+{'x': 3.339, 'y': 6.565, 'z': 2.65, 'orientation': 270.0, 'type': 'setup', 'color': '00FF00', 'UID': 'C736'}
+{'x': 2.339, 'y': 7.565, 'z': 1.65, 'orientation': 270.0, 'type': 'setup', 'color': '', 'UID': 'EEE6'}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'timestamp': 1705647321.5062323, 'x': 1.407, 'y': 4.078, 'z': 2.65, 'type': 'mobile', 'color': 'FFFFFF', 'UID': 'DD94'}
+{'timestamp': 1705647321.5, 'course': 1.47}
+[{'mainTextSize': 'MEDIUM', 'postfix': '', 'prefix': '', 'textColor': -1, 'enableIntermediateState': True, 'enablePub': False, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '$.course', 'lastJsonPathValue': '0.07826', 'lastPayload': '{ "timestamp": 1696425597.04, "course": 0.07826 }', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/indication', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': 'a8b810db-904b-4cfb-8b4b-0679ea25d6de', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425596, 'longId': 1, 'name': 'course', 'type': 1}, {'mainTextSize': 'MEDIUM', 'postfix': '', 'prefix': '', 'textColor': -1, 'enableIntermediateState': True, 'enablePub': False, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '13400', 'qos': 0, 'retained': False, 'topic': 'rail/1/speed/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': 'cc9e48f0-05dd-4513-9f47-3b921463537c', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696423569, 'longId': 8, 'name': 'speed', 'type': 1}, {'decimalPrecision': 2, 'displayPayloadValue': True, 'maxValue': 7.0, 'minValue': 0.0, 'postfix': '', 'prefix': '', 'progressColor': -1, 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '$.course', 'lastJsonPathValue': '0.07826', 'lastPayload': '{ "timestamp": 1696425597.04, "course": 0.07826 }', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/indication', 'topicPub': 'rail/1/course/request', 'updateLastPayloadOnPub': True, 'id': '6393daa7-2286-42a9-814c-ed9a7aca2e36', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425596, 'longId': 3, 'name': 'course request', 'type': 3}, {'decimalPrecision': 0, 'displayPayloadValue': True, 'maxValue': 20000.0, 'minValue': 0.0, 'postfix': '', 'prefix': '', 'progressColor': -1, 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '13400', 'qos': 0, 'retained': False, 'topic': 'rail/1/speed/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': '0e6fc452-5e72-4994-a00a-e6282dc7d800', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696423569, 'longId': 9, 'name': 'speed request ', 'type': 3}, {'iconOff': 'ic_fast_rewind', 'iconOn': 'ic_fast_rewind', 'offColor': -1, 'onColor': -1, 'payloadOff': '0', 'payloadOn': '0', 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '0', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/request', 'topicPub': '', 'updateLastPayloadOnPub': False, 'id': 'b9e447d9-cd6a-4f71-88a5-696f7ae44a00', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425591, 'longId': 4, 'name': '0m', 'type': 2}, {'iconOff': 'ic_fast_forward', 'iconOn': 'ic_fast_forward', 'offColor': -1, 'onColor': -1, 'payloadOff': '7', 'payloadOn': '7', 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '7', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': 'e4f4bdcf-18a9-45ee-a41b-954abc6bf0d7', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696423565, 'longId': 6, 'name': '7m', 'type': 2}, {'iconOff': 'ic_skip_previous', 'iconOn': 'ic_skip_previous', 'offColor': -1, 'onColor': -1, 'payloadOff': '-0.25', 'payloadOn': '-0.25', 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '-0.25', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': '97d0a0eb-227a-49e3-8cfa-a586eb3dbd40', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425502, 'longId': 12, 'name': '-25cm', 'type': 2}, {'iconOff': 'ic_skip_next', 'iconOn': 'ic_skip_next', 'offColor': -1, 'onColor': -1, 'payloadOff': '+0.25', 'payloadOn': '+0.25', 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '+0.25', 'qos': 0, 'retained': False, 'topic': 'rail/1/course/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': '69271998-3d1e-41fc-b828-2ab702fd21a4', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425273, 'longId': 11, 'name': '+25cm', 'type': 2}, {'iconOff': 'ic_build', 'iconOn': 'ic_build', 'offColor': -65472, 'onColor': -65472, 'payloadOff': '1', 'payloadOn': '1', 'enableIntermediateState': True, 'enablePub': True, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': '1', 'qos': 0, 'retained': False, 'topic': 'rail/1/init/request', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': 'e426cac4-66b7-48ca-87e9-d0aa3d9a84d9', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696423562, 'longId': 2, 'name': 'init', 'type': 2}, {'mainTextSize': 'LARGE', 'postfix': '', 'prefix': '', 'textColor': -1, 'enableIntermediateState': True, 'enablePub': False, 'enteredIntermediateStateAt': 0, 'intermediateStateTimeout': 0, 'jsOnReceive': '', 'jsonPath': '', 'lastPayload': 'done', 'qos': 0, 'retained': False, 'topic': 'rail/1/status/indication', 'topicPub': '', 'updateLastPayloadOnPub': True, 'id': 'dafb054d-e397-4c75-ae8d-6e9ed0d634ae', 'jsBlinkExpression': '', 'jsOnDisplay': '', 'jsOnTap': '', 'lastActivity': 1696425503, 'longId': 7, 'name': 'status', 'type': 1}]
+{'ip': '192.168.77.220', 'dn': 'bouilloire', 'fn': ['bouilloire', None, None, None, None, None, None, None], 'hn': 'PowerPlug-1', 'mac': '4CEBD60FF59D', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/1', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T07:59:29', 'ENERGY': {'TotalStartTime': '2022-10-18T10:07:14', 'Total': 0.48, 'Yesterday': 0.306, 'Today': 0.004, 'Power': 11, 'ApparentPower': 1151, 'ReactivePower': 1151, 'Factor': 0.01, 'Voltage': 280, 'Current': 4.116}}, 'ver': 1}
+{'ip': '192.168.77.218', 'dn': 'SERVER fit-dev', 'fn': ['SERVER fit-dev', None, None, None, None, None, None, None], 'hn': 'PowerPlug-2', 'mac': '4CEBD60FF409', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/server-fit-dev', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T15:48:35', 'ENERGY': {'TotalStartTime': '2022-10-18T10:05:42', 'Total': 1.072, 'Yesterday': 0.527, 'Today': 0.347, 'Power': 22, 'ApparentPower': 33, 'ReactivePower': 25, 'Factor': 0.66, 'Voltage': 278, 'Current': 0.119}}, 'ver': 1}
+{'ip': '192.168.77.231', 'dn': 'SWITCH fit-dev', 'fn': ['SWITCH fit-dev', None, None, None, None, None, None, None], 'hn': 'PowerPlug-3', 'mac': '4CEBD60FF367', 'md': 'Athom Power Monitoring Plug', 'ty': 0, 'if': 0, 'ofln': 'Offline', 'onln': 'Online', 'state': ['OFF', 'ON', 'TOGGLE', 'HOLD'], 'sw': '10.1.0', 't': 'energy/plug/switch-fit-dev', 'ft': '%topic%/%prefix%/', 'tp': ['cmnd', 'stat', 'tele'], 'rl': [1, 0, 0, 0, 0, 0, 0, 0], 'swc': [-1, -1, -1, -1, -1, -1, -1, -1], 'swn': [None, None, None, None, None, None, None, None], 'btn': [0, 0, 0, 0, 0, 0, 0, 0], 'so': {'4': 0, '11': 0, '13': 0, '17': 0, '20': 0, '30': 0, '68': 0, '73': 0, '82': 0, '114': 0, '117': 0}, 'lk': 0, 'lt_st': 0, 'sho': [0, 0, 0, 0], 'ver': 1}
+{'sn': {'Time': '2022-10-20T15:49:03', 'ENERGY': {'TotalStartTime': '2022-10-18T10:00:00', 'Total': 1.584, 'Yesterday': 0.785, 'Today': 0.518, 'Power': 33, 'ApparentPower': 60, 'ReactivePower': 51, 'Factor': 0.54, 'Voltage': 288, 'Current': 0.21}}, 'ver': 1}
+{'timestamp': 1705335059.9347699, 'x': '-6.455', 'y': '12.080', 'z': '0.077 ', 'orientation': '176.171', 'battery': '15', 'dock': True, 'type': 'mobile', 'color': 'FF6600'}
+43
+33
+39
+35
+24.0
+29.899999618530273
+{'serial_number': 1595190, 'timestamp': 1705654241.1614575, 'data': {'message_type': 'LoRaED_stats', 'message': {'mac': 'c9', 'time': '-1295276359', 'rxPacketsReceived': 1, 'rxPacketsReceivedOK': 1, 'txPacketsReceived': 0, 'txPacketsEmitted': 0}}}
+24.0
+29.899999618530273
+24.0
+29.899999618530273
+24.0
+29.899999618530273
+24.0
+29.899999618530273
+{'timestamp': 1705654262.6918387, 'payload': '{"type": "status", "moving": false,"angle": 0.00, "requested": 0.00, "uncertainty": 0.00, "version": "2.0.2"}\r\n'}
+{'timestamp': 1705654262.6918387, 'payload': {'type': 'status', 'moving': False, 'angle': 0.0, 'requested': 0.0, 'uncertainty': 0.0, 'version': '2.0.2'}}
+24.0
+29.899999618530273
+24.0
+29.899999618530273
+{'serial_number': 1595190, 'timestamp': 1705654270.1445332, 'data': {'message_type': 'LoRaED_log', 'message': 'Frame received'}}
+{'serial_number': 707690, 'timestamp': 1705654270.187496, 'data': {'message_type': 'LoRaED_log', 'message': 'Frame received'}}
+{'serial_number': 1595190, 'timestamp': 1705654270.2636945, 'data': {'message_type': 'LoRaED_rx', 'message': {'rxInfo': {'mac': 'c9', 'timestamp': 1832858100, 'frequency': 867300000, 'channel': 0, 'rfChain': 0, 'crcStatus': 1, 'codeRate': '4/5', 'rssi': -79, 'loRaSNR': 9, 'frequencyError': -2373, 'size': 53, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 7, 'bandwidth': 125.0}, 'board': 0, 'antenna': 0}, 'phyPayload': 'QK5lPACAzAF9/MRnq933FiqQDry0PZgyH7ZvvTMrpZyv57gopbV35CADXPMK/UIeJ2r/uws='}}}
+{'serial_number': 707690, 'timestamp': 1705654270.302609, 'data': {'message_type': 'LoRaED_rx', 'message': {'rxInfo': {'mac': '50', 'timestamp': 1455533191, 'frequency': 867300000, 'channel': 0, 'rfChain': 0, 'crcStatus': 1, 'codeRate': '4/5', 'rssi': -65, 'loRaSNR': 9, 'frequencyError': -947, 'size': 53, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 7, 'bandwidth': 125.0}, 'board': 0, 'antenna': 0}, 'phyPayload': 'QK5lPACAzAF9/MRnq933FiqQDry0PZgyH7ZvvTMrpZyv57gopbV35CADXPMK/UIeJ2r/uws='}}}
+{'serial_number': 1599260, 'timestamp': 1705654270.7195244, 'data': {'message_type': 'LoRaED_log', 'message': 'Frame received'}}
+{'serial_number': 1599260, 'timestamp': 1705654271.4878883, 'data': {'message_type': 'LoRaED_rx', 'message': {'rxInfo': {'mac': 'c7', 'timestamp': -537081256, 'frequency': 867300000, 'channel': 0, 'rfChain': 0, 'crcStatus': 1, 'codeRate': '4/5', 'rssi': -81, 'loRaSNR': 9, 'frequencyError': -1451, 'size': 53, 'dataRate': {'modulation': 'LORA', 'spreadFactor': 7, 'bandwidth': 125.0}, 'board': 0, 'antenna': 0}, 'phyPayload': 'QK5lPACAzAF9/MRnq933FiqQDry0PZgyH7ZvvTMrpZyv57gopbV35CADXPMK/UIeJ2r/uws='}}}
+24.0
+29.899999618530273
+24.0
+29.899999618530273
