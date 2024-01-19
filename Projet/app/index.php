@@ -12,7 +12,6 @@
         <div class="dropdown-content" id="environment">
             <label><input type="checkbox" name="batA" id="batA"> Bâtiment A </label>
             <label><input type="checkbox" name="batB" id="batB"> Bâtiment B </label>
-            <label><input type="checkbox" name="batC" id="batC"> Bâtiment C </label>
         </div>
     </div>
 
