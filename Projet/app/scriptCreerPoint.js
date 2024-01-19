@@ -57,6 +57,7 @@ function togglePopup(clickedPoint, id, coordX, coordY) {
         resetPointsTransparency();
     } else {
         // Sinon, afficher les informations du point dans la boîte de dialogue
+
         showPopup(id, coordX, coordY);
         // Mettre à jour les classes des points pour indiquer la sélection
         updatePointSelection(clickedPoint);
@@ -141,7 +142,6 @@ function toggleOtherPointsTransparency(clickedPoint) {
             point.classList.remove("opacity");
         } else {
             point.classList.remove("transparent");
-            point.classList.add("opacity");
         }
     });
 
@@ -169,6 +169,7 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
 }
 
 function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
+
     let allPoints = document.querySelectorAll(".point");
 
     if (checkedCheckboxIds.length === 0) {
