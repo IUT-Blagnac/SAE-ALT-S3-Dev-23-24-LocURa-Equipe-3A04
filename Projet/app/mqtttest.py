@@ -7,7 +7,7 @@ import sys
 # Détails du courtier MQTT
 broker_address = "lab.iut-blagnac.fr"
 broker_port = 1883
-
+table_name= "DonneesCapteurs"
 file_object  = open("log.txt", "w")
 
 try:
@@ -18,6 +18,27 @@ try:
         port=3306,
         database="Donnes"
     )
+
+    # Créer un curseur pour exécuter des requêtes SQL
+    cursor = conn.cursor()
+
+    # Requête SQL pour créer la table
+    create_table_query = f"""
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            idCapteur VARCHAR(30) PRIMARY KEY,
+            x DECIMAL(5,3) NOT NULL,
+            y DECIMAL(5,3) NOT NULL,
+            z DECIMAL(5,3) NOT NULL,
+            orientation DECIMAL(4,1) NOT NULL,
+            color CHAR(6) NULL
+        );
+    """
+    
+    # Exécuter la requête SQL
+    cursor.execute(create_table_query)
+
+    # Valider les modifications dans la base de données
+    conn.commit()
 except mariadb.Error as e:
     print(f"Error connecting to MariaDB Platform: {e}")
     sys.exit(1)
@@ -52,7 +73,7 @@ def on_message(client, userdata, msg):
         
         # Insert the data into the database
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO DonneesCapteurs (idCapteur, x, y, z, orientation, color) VALUES (%s, %s, %s, %s, %s, %s)", (idCapteur, x, y, z, orientation, color))
+        cursor.execute("INSERT INTO "+table_name +"(idCapteur, x, y, z, orientation, color) VALUES (%s, %s, %s, %s, %s, %s)", (idCapteur, x, y, z, orientation, color))
         conn.commit()
         cursor.close()
     except mariadb.Error as err:

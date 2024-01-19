@@ -1,0 +1,95 @@
+idCapteur: 261, x: 14.797, y: 4.779, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 258, x: 14.522, y: 8.849, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 257, x: 12.362, y: 8.999, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 256, x: 13.292, y: 6.86, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 254, x: 11.752, y: 4.829, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 266, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 265, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 264, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 263, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 262, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 273, x: 7.584, y: -2.172, z: 2.11, orientation: 90.0, color: 00FFFF TEST! 
+idCapteur: 171, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: 170, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF TEST! 
+idCapteur: 111, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 110, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 109, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 108, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 107, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 106, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 105, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: 104, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 103, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 102, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 101, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 100, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 153, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 152, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: 151, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 150, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 149, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: 148, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: 147, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 146, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: 145, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: 144, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: 143, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: 142, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: 184, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF TEST! 
+idCapteur: 182, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF TEST! 
+idCapteur: 181, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00 TEST! 
+idCapteur: 180, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000 TEST! 
+idCapteur: 179, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF TEST! 
+idCapteur: 178, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000 TEST! 
+idCapteur: 177, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00 TEST! 
+idCapteur: 176, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF TEST! 
+idCapteur: 175, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00 TEST! 
+idCapteur: 174, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF TEST! 
+idCapteur: 173, x: 0.336, y: 0.89, z: 2.62, orientation: 0.0, color: 00FF00 TEST! 
+idCapteur: 172, x: 0.347, y: 3.294, z: 2.65, orientation: 0.0, color: FFFF00 TEST! 
+idCapteur: 185, x: 5.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST! 
+idCapteur: 186, x: 4.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST! 
+idCapteur: 187, x: 3.339, y: 7.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST! 
+idCapteur: 189, x: 3.339, y: 6.565, z: 2.65, orientation: 270.0, color: 00FF00 TEST! 
+idCapteur: 154, x: 2.339, y: 7.565, z: 1.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-95, x: 15.78, y: 2.209, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-65, x: 12.53, y: 2.409, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-86, x: 13.32, y: 2.234, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-82, x: 11.54, y: -0.321, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-63, x: 8.98, y: 1.029, z: 0.035, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-14, x: -1.19, y: 4.578, z: 2.658, orientation: 0.0, color: FF0000 TEST! 
+idCapteur: dwm1001-13, x: -1.187, y: 8.649, z: 2.65, orientation: 0.0, color: 0000FF TEST! 
+idCapteur: dwm1001-39, x: 6.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-38, x: 5.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-37, x: 4.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-35, x: 3.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-34, x: 2.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-33, x: 1.339, y: 8.565, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-10, x: 0.734, y: -2.438, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: dwm1001-9, x: -4.005, y: -1.674, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-6, x: -3.86, y: 3.484, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-5, x: -0.591, y: 3.487, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-2, x: -3.132, y: 4.339, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-1, x: -3.962, y: 7.931, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-62, x: 8.237, y: 2.395, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-61, x: 8.112, y: 5.613, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: dwm1001-74, x: 11.442, y: 4.9, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-73, x: 11.442, y: 9.249, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-70, x: 15.204, y: 7.775, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: dwm1001-69, x: 15.312, y: 4.93, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: dwm1001-94, x: 17.925, y: 1.714, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-93, x: 17.917, y: -2.415, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: dwm1001-89, x: 14.85, y: -2.715, z: 2.65, orientation: 180.0, color:  TEST! 
+idCapteur: dwm1001-85, x: 12.137, y: 1.078, z: 2.65, orientation: 0.0, color:  TEST! 
+idCapteur: dwm1001-81, x: 11.204, y: -1.677, z: 2.65, orientation: 90.0, color:  TEST! 
+idCapteur: dwm1001-77, x: 10.357, y: 0.481, z: 2.65, orientation: 270.0, color:  TEST! 
+idCapteur: dwm1001-50, x: 2.12, y: 2.793, z: 2.65, orientation: 119.0, color: FF00FF TEST! 
+idCapteur: dwm1001-45, x: 1.311, y: 8.989, z: 2.65, orientation: 270.0, color: 0000FF TEST! 
+idCapteur: dwm1001-29, x: 7.382, y: 8.565, z: 2.653, orientation: 180.0, color: 00FF00 TEST! 
+idCapteur: dwm1001-55, x: 6.352, y: 6.959, z: 2.663, orientation: 90.0, color: FF0000 TEST! 
+idCapteur: dwm1001-54, x: 5.092, y: 6.587, z: 2.658, orientation: 180.0, color: 00FFFF TEST! 
+idCapteur: dwm1001-25, x: 5.071, y: 5.29, z: 2.625, orientation: 180.0, color: FF0000 TEST! 
+idCapteur: dwm1001-53, x: 5.057, y: 2.714, z: 2.65, orientation: 180.0, color: 00FF00 TEST! 
+idCapteur: dwm1001-21, x: 4.358, y: 1.331, z: 2.623, orientation: 90.0, color: 0000FF TEST! 
+idCapteur: dwm1001-19, x: 1.687, y: 1.327, z: 2.652, orientation: 90.0, color: FFFF00 TEST! 
+idCapteur: dwm1001-18, x: 0.773, y: 0.364, z: 2.631, orientation: 180.0, color: FF00FF TEST! 

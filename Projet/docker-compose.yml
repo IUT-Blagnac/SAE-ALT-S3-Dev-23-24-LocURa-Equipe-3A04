@@ -28,4 +28,3 @@ services:
     ports:
       - "8080:80" 
       - "1883:1883"
-    # command: sh -c "php -f /app/connexionMQTT.php && tail -f /dev/null"
