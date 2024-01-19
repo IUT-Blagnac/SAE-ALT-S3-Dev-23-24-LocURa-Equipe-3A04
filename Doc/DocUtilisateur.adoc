@@ -2,9 +2,21 @@
 :toc: macro
 :toclevels: 3
 
-= Documentation Utilisateur
+= Documentation Utilisateur SAE-ALT-S3-Dev-23-24-LocURa
 
-== Sommaire
+ CHAROUKI Aymen		
+
+ PAGNUCCO Nathan
+
+ FONTANILLES Alexi
+
+ PICUIRA Tanguy
+
+ Groupe 4
+
+ Années 2023-2024 
+
+
 
 :sectnums:
 toc::[Sommaire]

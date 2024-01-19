@@ -1,5 +1,7 @@
 @startuml Diagramme de classe locur4iot
 
+left to right direction
+
 package php 
 {
     class connexionBaseDeDonnees

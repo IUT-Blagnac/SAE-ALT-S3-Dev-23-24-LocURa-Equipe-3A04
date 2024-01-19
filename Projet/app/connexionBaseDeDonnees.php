@@ -84,9 +84,6 @@ function EnvoyerDonnesNoeud($topic,$message)
  */
 function afficherDonnees()
 {
-    $table_name = "DonneesCapteurs";
-
-    
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -96,8 +93,7 @@ function afficherDonnees()
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
-    $table_name = "DonneesCapteurs";
-    $requete = "SELECT * FROM $table_name";
+    $requete = "SELECT * FROM ".table_name;
     $resultat = $conn->query($requete);
     // Vérifier si la requête a réussi
     if ($resultat === false) {
@@ -109,4 +105,40 @@ function afficherDonnees()
     }
     $conn->close();
 }
+
+function recupererDonneesCapteurs()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    
+    $requete = "SELECT * FROM ".table_name;
+    $resultat = $conn->query($requete);
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    $data = array();
+
+    // Parcourir les résultats de la requête
+    while ($row = $resultat->fetch_assoc()) {
+        // Ajouter chaque ligne au tableau
+        $data[] = array(
+            'idCapteur' => $row['idCapteur'],
+            'x' => $row['x'],
+            'y' => $row['y'],
+            'z' => $row['z'],
+            'orientation' => $row['orientation'],
+            'color' => $row['color']
+        );
+    }
+    $conn->close();
+    return $data;    
+}
+
 ?>

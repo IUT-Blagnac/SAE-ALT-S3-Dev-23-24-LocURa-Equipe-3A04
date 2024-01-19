@@ -2,7 +2,7 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].couleur, data[i].id);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
     }
 }
 
@@ -19,22 +19,31 @@ function createPoint(coordX, coordY, couleur, id) {
     point.style.left = coordX * (-40.5) + originex + "px";
     point.style.top = coordY * 37 + originey + "px";
 
-    // Définir la couleur du point
-    point.style.backgroundColor = couleur;
+    
+    if(couleur!=null && couleur!="")
+    {
+        point.style.backgroundColor = "#"+couleur;
+    }
+    else 
+    {
+        point.style.backgroundColor = "red";
+    }
+    console.log("Style : " + point.style.left);
+    console.log("Style : " + point.style.top);
+    console.log("Style : " + point.style.backgroundColor);
 
     // Ajout de l'id en dessous du point
-    let idLabel = document.createElement("div");
-    idLabel.className = "id-label";
-    idLabel.innerText = id ? id : "";
-    idLabel.style.userSelect = "none";
+    // let idLabel = document.createElement("div");
+    // idLabel.className = "id-label";
+    // idLabel.innerText = id ? id : "";
+    // idLabel.style.userSelect = "none";
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
         togglePopup(point, id, coordX, coordY);
     });
-
     // Ajout de l'id en dessous du point
-    point.appendChild(idLabel);
+    // point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
@@ -121,23 +130,3 @@ function toggleOtherPointsTransparency(clickedPoint) {
         point.classList.toggle("transparent", point !== clickedPoint);
     });
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Utiliser AJAX pour récupérer les données du serveur
-    $.ajax({
-        url: 'donnes.php', // Remplacez 'donnees.php' par le chemin correct vers votre script PHP
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            console.log('Données récupérées avec succès :', data);
-
-            // Les données sont récupérées avec succès
-            // Appeler une fonction pour créer les points avec les données
-            createPoints(data);
-        },
-        error: function (error) {
-            console.error('Erreur de requête AJAX :', error);
-        }
-    });
-});
