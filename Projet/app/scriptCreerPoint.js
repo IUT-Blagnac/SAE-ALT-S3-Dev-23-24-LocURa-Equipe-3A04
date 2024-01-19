@@ -161,7 +161,7 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
 // Fonction pour mettre à jour la transparence en fonction des cases cochées
 function updateTransparencyBasedOnCheckboxes() {
     // Sélectionnez toutes les cases à cocher dans le menu déroulant
-    var checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
     
     // Récupérez les points associés à chaque case à cocher
     var points = [];
