@@ -25,11 +25,11 @@ def on_message(client, userdata, msg):
             # color = data.get('color')
 
             # Print the extracted data
-            print(f"{data}")
+            print(f"{msg.topic}{data}")
 
             # Write the extracted data to the log file
             with open(log_file_name, 'a') as log_file:
-                log_file.write(f"{data}\n")
+                log_file.write(f"{msg.topic}{data}\n")
 
         except Exception as e:
             print(f"Error decoding JSON: {e}")
