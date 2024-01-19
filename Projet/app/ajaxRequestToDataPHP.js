@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const images = {
-        'firstLayer': 'Images/map.png',
-        'secondLayer': 'Images/google.png',
-        'thirdLayer': 'Images/google1.png'
+        'premierEtage': 'Images/map.png',
+        'deuxiemeEtage': 'Images/google.png',
+        'troisiemeEtage': 'Images/google1.png'
     };
 
     function changeImage() {
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // Attach an onchange event listener to each checkbox
-    document.getElementById('firstLayer').onchange = changeImage;
-    document.getElementById('secondLayer').onchange = changeImage;
-    document.getElementById('thirdLayer').onchange = changeImage;
+    document.getElementById('premierEtage').onchange = changeImage;
+    document.getElementById('deuxiemeEtage').onchange = changeImage;
+    document.getElementById('troisiemeEtage').onchange = changeImage;
 });
 

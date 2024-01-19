@@ -156,18 +156,6 @@ body {
     width: 50%;
 }
 
-.map-image {
-    width: 1000px;
-    height: auto;
-    position: absolute;
-    top: 400px;
-    left: 750px;
-    transform: translate(-50%, -50%);
-    z-index: -9999;
-    user-select: none;
-}
-
-
 .map {
     width: 1000px;
     height: 1000px;
@@ -214,16 +202,7 @@ body {
     opacity: 1; /* Opacité des points transparents */
 }
 
-.map-container {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 400px;
-    left: 750px;
-    transform: translate(-50%, -50%);
-    z-index: -9999;
-    user-select: none;
-}
+
 
 .navbar .node {
     display: none;
@@ -231,4 +210,27 @@ body {
 
 .navbar .node.selected {
     display: block;
+}
+
+.navbar .label {
+    position: absolute;
+    left: 45%;
+    top: 12px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navbar .button {
+    position: absolute;
+    border: none;
+    outline: none;
+    right: 0;
+    top: 0;
+    color: #f2f2f2;
+    background-color: #333333;
+    font-size: 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }

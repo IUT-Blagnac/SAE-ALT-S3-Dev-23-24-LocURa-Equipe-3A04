@@ -20,7 +20,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="premiereEtage" id="premiereEtage"> Etage 1 </label>
+            <label><input type="checkbox" name="premierEtage" id="premierEtage"> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
@@ -39,6 +39,17 @@
             <label><input type="checkbox" id="node177"> Noeud 177</label>
         </div>
     </div>
+
+    <div class="label">
+        Laboratory Map
+    </div>
+
+    <!-- Futur boutons pour range nodes
+    <div class="button">
+        <button>Activer cercles</button>
+        <button>Activer remplissage</button>
+    </div>
+    -->
 </div>
 
 <!-- Inclure jQuery -->
