@@ -5,7 +5,27 @@
 </head>
 <body>
 <div class="navbar">
-    <a href="https://www.irit.fr/plateformes/plateforme-locura4iot/">A propos</a>
+    <div class="dropdown">
+        <button class="dropbtn"> Environnement
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="environment">
+            <label><input type="checkbox" name="batA" id="batA"> Bâtiment A </label>
+            <label><input type="checkbox" name="batB" id="batB"> Bâtiment B </label>
+            <label><input type="checkbox" name="batC" id="batC"> Bâtiment C </label>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn"> Couches
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="layers">
+            <label><input type="checkbox" name="firstLayer" id="firstLayer"> Couche 1 </label>
+            <label><input type="checkbox" name="secondLayer" id="secondLayer"> Couche 2 </label>
+            <label><input type="checkbox" name="thirdLayer" id="thirdLayer"> Couche 3 </label>
+        </div>
+    </div>
 
     <div class="dropdown">
         <button class="dropbtn"> Noeuds
@@ -18,17 +38,6 @@
             <label><input type="checkbox" id="node25"> Noeud 25</label>
             <label><input type="checkbox" id="node69"> Noeud 69</label>
             <label><input type="checkbox" id="node177"> Noeud 177</label>
-        </div>
-    </div>
-
-    <div class="dropdown">
-        <button class="dropbtn"> Couches
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="firstLayer" id="firstLayer"> Couche 1 </label>
-            <label><input type="checkbox" name="secondLayer" id="secondLayer"> Couche 2 </label>
-            <label><input type="checkbox" name="thirdLayer" id="thirdLayer"> Couche 3 </label>
         </div>
     </div>
 </div>

@@ -95,7 +95,7 @@ body {
 }
 
 .dropdown {
-    float: right;
+    float: left;
     overflow: hidden;
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .dropdown-content {
-    right: 0;
+    right: auto;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -125,6 +125,10 @@ body {
     z-index: 1;
     max-height: 500px;
     overflow-y: auto;
+}
+
+.nodes .dropdown-content {
+    right: 0;
 }
 
 .dropdown-content label {
