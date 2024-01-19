@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Sélectionnez toutes les cases à cocher dans le menu déroulant
-    var checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
     // Ajoutez un écouteur d'événements à chaque case à cocher
     checkboxes.forEach(function (checkbox) {
