@@ -6,7 +6,7 @@ EXPOSE 80 1883
 WORKDIR /app
 COPY app/ /app/
 
-# git, unzip & zip are for composer
+# Installer dépendances de base pr composer
 RUN apt-get update -qq && \
     apt-get install -qy \
     git \
@@ -16,9 +16,7 @@ RUN apt-get update -qq && \
     python3-pip \
     python3-venv \
     zip \
-    libmariadb-dev &&\
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+    libmariadb-dev
 
 # Création et activation d'un environnement virtuel Python
 RUN python3 -m venv /venv
@@ -27,6 +25,11 @@ ENV PATH="/venv/bin:$PATH"
 # Installation de paho-mqtt et mariadb
 RUN pip install paho-mqtt 
 RUN pip install mariadb
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache
