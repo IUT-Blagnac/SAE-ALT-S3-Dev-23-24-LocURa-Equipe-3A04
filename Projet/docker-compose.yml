@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: "Donnes"
       MYSQL_USER: "UserBd"
       MYSQL_PASSWORD: "MotDePasseBD"
+    ports:
+      - "3306:3306"
 
   php-apache:
     container_name: ServeurWeb
