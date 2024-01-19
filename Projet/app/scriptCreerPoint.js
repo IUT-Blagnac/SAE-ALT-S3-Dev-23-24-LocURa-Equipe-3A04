@@ -11,6 +11,9 @@ function createPoint(coordX, coordY, couleur, id) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
+    
+    // Ajout de l'ID comme attribut au point
+    point.setAttribute("id", id);
 
     let originex = 1045; // Origine de la carte en x
     let originey = 250; // Origine de la carte en y
@@ -101,6 +104,7 @@ function resetPointsTransparency() {
         point.classList.remove("selected");
         // Supprimer la classe transparent de tous les points
         point.classList.remove("transparent");
+        point.classList.remove("transparenttotal");
 
         if (!point.clickHandler) {
             let clickHandler = function () {
@@ -137,42 +141,58 @@ function toggleOtherPointsTransparency(clickedPoint) {
             point.classList.remove("opacity");
         } else {
             point.classList.remove("transparent");
-            
+            point.classList.add("opacity");
         }
     });
 
 }
 
 
-// Fonction pour basculer la transparence des autres points
 function toggleOtherPointsTransparencyTotal(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
+    var clickedPointID = clickedPoint.replace("node", "");
+
     // Parcourir tous les points
     allPoints.forEach(function (point) {
+        // Récupérer l'ID du point en cours
+        let currentPointID = point.id;
         // Ajouter ou supprimer la classe transparent en fonction du clic
-        point.classList.toggle("transparenttotal", point !== clickedPoint);
-        point.removeEventListener('click', function () {
-            togglePopup(point, id, coordX, coordY);
-        });
+        if (currentPointID !== clickedPointID) {
+            point.classList.add("transparenttotal");
+            point.classList.remove("opacity");
+        } else {
+            point.classList.add("opacity");
+            point.classList.remove("transparenttotal");
+        }
     });
 }
 
-// Fonction pour mettre à jour la transparence en fonction des cases cochées
-function updateTransparencyBasedOnCheckboxes() {
-    // Sélectionnez toutes les cases à cocher dans le menu déroulant
-    var checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
-    
-    // Sélectionnez tous les points sur la carte
-    var allPoints = document.querySelectorAll(".point");
+function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
+    let allPoints = document.querySelectorAll(".point");
+
+    if (checkedCheckboxIds.length === 0) {
+        // Si aucune case n'est cochée, réinitialiser la transparence de tous les points
+        resetPointsTransparency();
+        return;
+    }
 
     // Parcourir tous les points
-    allPoints.forEach(function (point, index) {
-        // Vérifiez si le point doit être transparent ou non
-        var shouldBeTransparent = !checkboxes[index].checked;
-        point.classList.toggle("transparenttotal", shouldBeTransparent);
+    allPoints.forEach(function (point) {
+        let pointID = point.id;
+        // Vérifier si le point est associé à une case cochée
+        let isAssociated = checkedCheckboxIds.includes(pointID);
+        console.log("Point ID:", pointID, "Is Associated:", isAssociated);
+        if (isAssociated) {
+            // Si associé, afficher le point en supprimant la classe transparenttotal
+            point.classList.remove("transparenttotal");
+        } else {
+            // Sinon, appliquer la classe transparenttotal
+            point.classList.add("transparenttotal");
+        }
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Utiliser AJAX pour récupérer les données du serveur
@@ -198,8 +218,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ajoutez un écouteur d'événements à chaque case à cocher
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
-            // Appelez toggleOtherPointsTransparencyTotal en fonction des cases cochées
-            updateTransparencyBasedOnCheckboxes();
+            let checkedCheckboxIds = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.id.replace("node", ""));
+
+            // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
+            updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
         });
     });
 });
