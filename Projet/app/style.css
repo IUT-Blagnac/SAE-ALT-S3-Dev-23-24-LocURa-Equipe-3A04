@@ -202,7 +202,11 @@ body {
     opacity: 1; /* Opacité des points transparents */
 }
 
-
+.map-container {
+    position: absolute;
+    max-width: 50%;
+    height: 50%;
+}
 
 .navbar .node {
     display: none;
