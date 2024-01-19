@@ -1,6 +1,10 @@
 Les topics que l'on veut traiter sont : 
 
-testbed/node/#idNode/state
 localisation/#idNode/setup -> Positions + couleurs orientation type
 localisation/#idNode/mobile -> Position des trucs mobiles
-
+testbed/node/[idNode]/state -> timestamp + payload -> time, On/Off
+testbed/controller/[idController]/state ->  timestamp + payload -> time, On/Off
+testbed/node/[idnode]/out -> timestamp + node_id (celui qui envoie le msg) + payload (contient le target noeud et le range)
+rail/1/ranging/indication -> initiator + target + protocol + range + localisation (ceux qui sont sur la rail)
+ranging/idnode envoie/idnode recoit/indication -> initiator + traget + protocol + range
+testbed/node/183/out_json (??)  -> timestamp + node_id + payload
