@@ -205,6 +205,14 @@ body {
     opacity: 0.1; /* Opacité des points transparents */
 }
 
+.transparenttotal {
+    opacity: 0; /* Opacité des points transparents */
+}
+
+.opacity {
+    opacity: 1; /* Opacité des points transparents */
+}
+
 .map-container {
     width: 100%;
     height: auto;
