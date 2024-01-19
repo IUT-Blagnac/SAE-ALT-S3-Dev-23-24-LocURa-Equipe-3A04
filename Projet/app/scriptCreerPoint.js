@@ -137,7 +137,7 @@ function toggleOtherPointsTransparency(clickedPoint) {
             point.classList.remove("opacity");
         } else {
             point.classList.remove("transparent");
-            point.classList.add("opacity");
+            
         }
     });
 
@@ -161,24 +161,15 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
 // Fonction pour mettre à jour la transparence en fonction des cases cochées
 function updateTransparencyBasedOnCheckboxes() {
     // Sélectionnez toutes les cases à cocher dans le menu déroulant
-    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
+    var checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
     
-    // Récupérez les points associés à chaque case à cocher
-    var points = [];
-    checkboxes.forEach(function (checkbox, index) {
-        if (checkbox.checked) {
-            // Ajoutez le point correspondant à la liste
-            points.push(index);
-        }
-    });
-
     // Sélectionnez tous les points sur la carte
     var allPoints = document.querySelectorAll(".point");
 
     // Parcourir tous les points
     allPoints.forEach(function (point, index) {
         // Vérifiez si le point doit être transparent ou non
-        var shouldBeTransparent = points.length > 0 && points.indexOf(index) === -1;
+        var shouldBeTransparent = !checkboxes[index].checked;
         point.classList.toggle("transparenttotal", shouldBeTransparent);
     });
 }

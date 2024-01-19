@@ -32,7 +32,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="nodes">
-            <label><input type="checkbox" id="node0"> Origine</label>
+            <label><input type="checkbox" id="nodeOrigine"> Origine</label>
             <label><input type="checkbox" id="node17"> Noeud 17</label>
             <label><input type="checkbox" id="node18"> Noeud 18</label>
             <label><input type="checkbox" id="node25"> Noeud 25</label>
