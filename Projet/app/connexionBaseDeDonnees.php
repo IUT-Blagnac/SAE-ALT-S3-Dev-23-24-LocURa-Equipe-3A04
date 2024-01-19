@@ -40,7 +40,6 @@ function InitBase()
  * @param string $topic Le topic du message
  * @param string $message Le message reçu sous format json
  */
-
 function EnvoyerDonnesNoeud($topic,$message)
 {
 

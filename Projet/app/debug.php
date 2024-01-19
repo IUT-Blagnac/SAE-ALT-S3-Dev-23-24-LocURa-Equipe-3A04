@@ -1,18 +1,11 @@
-
 <?php
 
-include("connexionBaseDeDonnees.php");
-// phpinfo();
-//echo "<a href='Page2.php'>Page 2</a>";
+session_start();
 
-//echo "<br>";
-
-// DEBUG
-//echo "<a href='connexionMQTT.php'>PageDonnes</a>";
-
-afficherDonnees();
-
-recupererDonneesCapteurs();
-
-?>
+if(isset($_SESSION["DonneesSetup"])){
+    print_r($_SESSION["DonneesSetup"]);
+}
+else{
+    echo "Pas de données";
+}
 
