@@ -11,18 +11,18 @@
         </button>
         <div class="dropdown-content" id="environment">
             <label><input type="checkbox" name="batA" id="batA"> Bâtiment A </label>
-            <label><input type="checkbox" name="batB" id="batB"> Bâtiment B </label>
+            <label><input type="checkbox" name="batC" id="batC"> Bâtiment C </label>
         </div>
     </div>
 
     <div class="dropdown">
-        <button class="dropbtn"> Couches
+        <button class="dropbtn"> Etages
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="firstLayer" id="firstLayer"> Couche 1 </label>
-            <label><input type="checkbox" name="secondLayer" id="secondLayer"> Couche 2 </label>
-            <label><input type="checkbox" name="thirdLayer" id="thirdLayer"> Couche 3 </label>
+            <label><input type="checkbox" name="premiereEtage" id="premiereEtage"> Etage 1 </label>
+            <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
+            <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
     </div>
 
