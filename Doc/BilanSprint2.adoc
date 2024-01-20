@@ -16,13 +16,14 @@
 
 = Progrès Accompli
 == Objectifs
-- [x] Relier le javascript à la base de données
-- [x] [Bug]: Problème avec la liaison à la base de données 
-- [x] [Bug]: Problème lié au log dans docker
-- [x] Analyse : Les différents topics disponible au broker ont été analysé et stockeé
-- [x] Diversité : Changement du script php de MQTT vers un script python
-- [x] Base de données : Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience, Permettre la connexion à la base   de données par le script python
-- [x] Organisation : Prise d'un rendez-vous avec le chercheur afin de comparer notre produit à l'existant et le démarrage d'une expérience
-- [x] Automatisation : Les scripts Python se lancent avec le lancement du Docker
-- [x] Controle des données : Récupération des données setup et mobile
+- [X] Docker : le Docker est maintenant complet et on rencontra aucun problème dessous.
+- [x] Relier le javascript à la base de données.
+- [x] [Bug]: Problème avec la liaison à la base de données.
+- [x] [Bug]: Problème lié au log dans docker.
+- [x] Analyse : Les différents topics disponible au broker ont été analysé et stockeé.
+- [x] Diversité : Changement du script php de MQTT vers un script python.
+- [x] Base de données : Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience, Permettre la connexion à la base   de données par le script python.
+- [x] Organisation : Prise d'un rendez-vous avec le chercheur afin de comparer notre produit à l'existant et le démarrage d'une expérience.
+- [x] Automatisation : Les scripts Python se lancent avec le lancement du Docker.
+- [x] Controle des données : Récupération des données setup et mobile.
 
