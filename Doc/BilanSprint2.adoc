@@ -17,22 +17,15 @@
 = Progrès Accompli
 == Objectifs
 - [x] Relier le javascript à la base de données
-- [x] [Bug]: Problème avec la liaison à la base de données
+- [x] [Bug]: Problème avec la liaison à la base de données 
 - [x] [Bug]: Problème lié au log dans docker
-- [x] Permettre la connexion au site sur une autre machine
-- [x] Analyser les différents topics disponibles du broker
-- [x] Changement du script php de MQTT vers un script python
-- [x] Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience
-- [x] Modifier scriptCreerPoint.js pour prendre en compte les points qui reçoivent le message (Clignotement)
-- [x] Ajouter les infos de chaque bouton et le faire clignoter s'il reçoit un message
-- [x] Permettre la connexion à la base de données par le script python
-- [x] Prendre un rendez-vous avec le chercheur afin de comparer notre produit à l'existant
-- [x] Rajout des fonctionnalités en python
-- [x] Demander de démarrer une expérience afin de voir le changement de distances (Tout point est fixe pour le moment et on obtient les mêmes données à chaque fois)
+- [x] Analyse : Les différents topics disponible au broker ont été analysé et stockeé
+- [x] Diversité : Changement du script php de MQTT vers un script python
+- [x] Base de données : Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience, Permettre la connexion à la base   de données par le script python
+- [x] Organisation : Prise d'un rendez-vous avec le chercheur afin de comparer notre produit à l'existant et le démarrage d'une expérience
 - [x] Retravailler les livrables du premier sprint en fonction des remarques obtenues et les considérer pendant les prochains
 - [x] Prise en compte des remarques
 - [x] Rajout de connexion entre le JS et la base de données
-- [x] Lancer le script pythonMQTTSetup pour que ça se lance en boucle avec le docker
-- [x] Lancer le script pythonMQTTMobile pour que ça se lance en boucle avec le Docker
-- [x] Récupérer les informations du setup (points immobiles)
-- [x] Récupérer les informations pour le mobile
+- [x] Automatisation : Les scripts Python se lancent avec le lancement du Docker
+- [x] Controle des données : Récupération des données setup et mobile
+
