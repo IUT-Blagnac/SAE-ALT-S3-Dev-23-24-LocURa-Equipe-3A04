@@ -196,6 +196,7 @@ body {
     z-index: 10000;
 }
 
+
 /* Styles pour les points transparents */
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
