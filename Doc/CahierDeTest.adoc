@@ -159,7 +159,7 @@ Pour les données du topic localisation/+/setup :
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés de s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
+^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
 
 |====
 
@@ -171,4 +171,4 @@ Pour les données du topic localisation/+/setup :
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
+^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
