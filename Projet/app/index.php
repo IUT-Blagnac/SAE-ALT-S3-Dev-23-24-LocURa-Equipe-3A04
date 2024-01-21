@@ -43,5 +43,7 @@
     <img src="Images/map.png" class="map-image">
     
     <div id="map"></div>
+    <div id="popup"></div>
+    <div id="popup-content"></div>
 </body>
 </html>

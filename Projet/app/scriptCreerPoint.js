@@ -3,6 +3,7 @@ function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
+        console.log("point crée");
     }
 }
 
@@ -40,6 +41,7 @@ function createPoint(coordX, coordY, couleur, id) {
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
+        console.log("click");
         togglePopup(point, id, coordX, coordY);
     });
     // Ajout de l'id en dessous du point
