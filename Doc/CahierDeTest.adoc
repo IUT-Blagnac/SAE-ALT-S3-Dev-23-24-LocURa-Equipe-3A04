@@ -136,6 +136,39 @@ Pour les données du topic localisation/+/setup :
 |====
 
 
-=== 3. Tests Divers :
+=== 3. Tests HTML :
 [.text-justify]
 
+|====
+
+>|Cas de test 4+|Test-01-03-01
+>|Titre 4+| Affichage la page index.html
+>|Objectif 4+| Vérifier si la page index.html s'affiche correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.1 ^| Se rendre sur la page index.html ^| La page ainsi que le header s'affichent ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-02
+>|Titre 4+| Affichage des environnements
+>|Objectif 4+| Vérifier si les environnements sélectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés de s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+| Affichage des étages
+>|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
