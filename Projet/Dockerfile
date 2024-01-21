@@ -6,15 +6,18 @@ EXPOSE 80 1883
 WORKDIR /app
 COPY app/ /app/
 
-# git, unzip & zip are for composer
+# Installer dépendances de base pr composer
 RUN apt-get update -qq && \
     apt-get install -qy \
     git \
     gnupg \
     unzip \
-    zip && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    zip
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # PHP Extensions
 RUN docker-php-ext-install -j$(nproc) opcache
@@ -22,9 +25,6 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 COPY conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
-#Python
-RUN apt-get update && apt-get install -y python3 python3-pip
-RUN pip3 install paho-mqtt
 
 # Apache
 COPY errors /errors
@@ -33,6 +33,3 @@ COPY conf/apache.conf /etc/apache2/conf-available/z-app.conf
 
 RUN a2enmod rewrite remoteip && \
     a2enconf z-app
-
-# On lance le script de connexion au broker MQTT MARCHE PAS
-CMD ["sh", "-c", "/app/MQTTPython/mqttmobile.py &"]

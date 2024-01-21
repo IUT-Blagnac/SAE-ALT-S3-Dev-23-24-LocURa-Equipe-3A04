@@ -9,7 +9,7 @@ rectangle SiteWeb {
     usecase (Accéder au plan de l'étage des chercheurs) as UC0
     usecase (Voir la localisation des capteurs) as UC1
     usecase (Filtrer l'affichage des capteurs) as UC2
-    usecase (Filtrer l'affichage des le layer) as UC3
+    usecase (Filtrer l'affichage des couches) as UC3
     usecase (Voir l'historique des points) as UC4
     usecase (Filtrer les cercles de mesure) as UC5
     usecase (Voir les mesures des distances) as UC6

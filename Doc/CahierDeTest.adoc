@@ -1,0 +1,221 @@
+= Cahier De Recette - Locur4iot
+:toc:
+:toc-title: Sommaire
+
+:Equipe:  Equipe 4
+
+Créé par : 
+- Aymen Charouki
+- Alexi Fontanilles
+- Nathan Pagnucco
+- Tanguy Picuira
+
+Créé pour :  
+- L'équipe LocuRa de l'irit
+
+
+== I. Introduction
+=== 1. Objet :
+[.text-justify]
+Ce document a pour but de décrire les tests réalisés sur le site web.
+
+
+== II. Pre-Requis :
+[.text-justify]
+
+Pour réaliser les tests, il faut avoir accès à ce dépôt et à la release.
+
+== III. Tests Serveur :
+
+=== 1. Tests php :
+[.text-justify]
+
+==== 1.1. Test de connexion au broker MQTT :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-01-01
+>|Titre 4+| Connexion au broker MQTT
+>|Objectif 4+| Vérifier qu'il est possible de recevoir des messages du broker MQTT
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PHP_MQTT.1 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| Le script écoute les données importantes et les écrit en base de données et dans les logs ^| Abonnement a un topic d'un broker valide ^|OK
+^|PHP_MQTT.2 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| Le script différencie les données du retain des autres ^| Abonnement à un topic d'un broker valide ^|OK
+^|PHP_MQTT.4 ^|Lancer le script connexionMQTT.php puis voir la page DEBUG.php ^| Le script écoute les données concernant la communication entre capteurs ^| Abonnement à un topic d'un broker valide ^| OK
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-01-02
+>|Titre 4+| Format des données reçues
+>|Objectif 4+| Vérifier la validité des données reçues
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PHP_MQTT.3 ^|Comparer les contenus du topic localisation/+/setup avec les types de données ^| Les contenus sont conformes ^| aucune ^|OK
+^|PHP_MQTT.5 ^|Comparer les contenus du topic testbed/node/+/out avec les types de données de la table CommCapteurs ^| Les contenus sont conformes ^| Avoir l'expérience en cours ^| OK
+|====
+
+*Type de données reçues :*
+
+Pour les données du topic localisation/+/setup : 
+
+- Type A : {"x": double, "y": double, "z": double, "orientation": double , "type": "setup", "color": string de couleur possiblement vide}
+
+- Type B : {"x": double, "y": double, "z": double, "orientation": double , "type": "setup", "color": string de couleur possiblement vide, "UID": string}
+
+- Type C : {'timestamp': double, 'node_id': string, 'payload': '{"initiator": string, "target": string, "protocol": string, "t1": int, "t2": int, "t3": int, "t4": int, "skew": double, "skewRequest": double, "skewAck": double, "skewData": double, "nlosIndicator": double, "tof": int, "tofSkew": double, "tof3Skew": double, "range": double, "rangeSkew": double, "range3Skew": double, "rangeNoSkew": double, "ranging unit": string, "seqnum": int, "rssiRequest": double, "rssiData": double, "rssiAck": double, "fp_powerRequest": double, "fp_powerAck": double, "fp_powerData": double, "pa_powerRequest": double, "pa_powerAck": double, "pa_powerData": double, "temperature": double}'}
+
+==== 1.2. Test de connexion à la base de données :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-01-03
+>|Titre 4+| Connexion à la base de données
+>|Objectif 4+| Vérifier si la connexion à la base de données est possible
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PHP_SQL.1 ^|Appeler la fonction InitBase() de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "La connexion à la base de données a échoué :" ne s'affiche pas" ^| aucune ^|OK
+
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-01-04
+>|Titre 4+| Connexion à la base de données
+>|Objectif 4+| Vérifier si on peut intéragir avec la base de données
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PHP_SQL.2 ^|Appeler la fonction  EnvoyerDonnesNoeud($topic,$message) de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "La connexion à la base de données a échoué :" ne s'affiche pas", et la phrase "Erreur d'exécution de la requête : " ne s'affiche pas non plus ^| On a intialisé la base de données et on envoie un dans $topic un string comme : "localisation/112/setup " et dans $message un json conforme au type de données reçus ^|OK
+^|PHP_SQL.3 ^|Appeler la fonction  EnvoyerDonnesNoeud($topic,$message) de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "Erreur d'exécution de la requête : " s'affiche ^| On a intialisé la base de données et on modifie la requete pour qu'elle soit incorrecte ^|OK
+^|PHP_SQL.4 ^|Appeler la fonction afficherDonnees() de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| On voit alors un print simpliste du contenu de la table ^| On a intialisé la base de données et la table DonneesCapteurs contient des données ^|OK
+^|PHP_SQL.4 ^|Appeler la fonction UpdateDonneesNoeud($topic,$message) de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "La connexion à la base de données a échoué :" ne s'affiche pas", et la phrase "Erreur d'exécution de la requête : " ne s'affiche pas non plus ^| On a intialisé la base de données et on envoie un dans $topic un string comme : "localisation/112/setup " et dans $message un json conforme au type de données reçus ^|OK
+
+
+|====
+
+
+=== 2. Tests javascript :
+[.text-justify]
+
+==== 2.1. Récupération des données du serveur :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-02-01
+>|Titre 4+| Récupération des données du serveur
+>|Objectif 4+| Vérifier si la récupération des données de php est possible
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_RECUP.1 ^| Lancer ou inclure le script scriptRecupererDonnes.js  ^| La phrase 'Données récupérées avec succès :' s'écrit dans la console du navigateur ^| aucune ^|OK
+^|JS_RECUP.2 ^| Lancer ou inclure le script scriptRecupererDonnes.js  ^| La phrase 'Erreur de requête AJAX :' s'écrit dans la console du navigateur ^|  Supprimer ou tronquer les données de donnees.php ^|OK
+
+|====
+
+==== 2.2. Affichage des données du serveur :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-02-01
+>|Titre 4+| Affichage des données du serveur
+>|Objectif 4+| Vérifier si l'affichage des données de php est correcte
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptRecupererDonnes.js  ^| La phrase 'Données récupérées avec succès :' s'écrit dans la console du navigateur et tous les points en base sont inclus dans la page ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+==== 2.3. Création des points :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-02-02
+>|Titre 4+| Création des points repésentant l'emplacement des capteurs
+>|Objectif 4+| Vérifier si l'affichage des points est correcte
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| La phrase 'Point "idCapteur" crée avec succès' s'écrit dans la console du navigateur et tous les points en base sont inclus dans la page ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+==== 2.4. Voir les donnés des points et transparence des autres points :
+
+
+|====
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+| Voir les donnés des points et transparence des autres points
+>|Objectif 4+| Vérifier si lors du clique sur un point, les autres points deviennent transparents et que les données du point cliqué s'affichent
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| Les donnés du point s'affichent à coté et les autres points deviennent transparent ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+=== 3. Tests python :
+[.text-justify]
+
+==== 3.1. Test de connexion au broker MQTT :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+| Test de connexion au broker MQTT
+>|Objectif 4+| Vérifier lors du lancement du script python, si la connexion au broker MQTT est possible et si les données sont bien envoyées dans log.txt
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PY_AFF.1 ^| Lancer le script mqtttest.py  ^| Dans le fichier log.txt il y a bien toutes les donnés des points et si il s'affiche bien dans la console ^|Avoir python sur sa machine et ne pas bloquer le port 1883 ^|OK
+
+|====
+
+=== 4. Tests HTML :
+[.text-justify]
+
+
+>|Cas de test 4+|Test-01-03-01
+>|Titre 4+| Affichage la page index.html
+>|Objectif 4+| Vérifier si la page index.html s'affiche correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.1 ^| Se rendre sur la page index.html ^| La page ainsi que le header s'affichent ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-02
+>|Titre 4+| Affichage des environnements
+>|Objectif 4+| Vérifier si les environnements sélectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+| Affichage des étages
+>|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
+
+|====
