@@ -30,9 +30,7 @@ function createPoint(coordX, coordY, couleur, id,target) {
     {
         point.style.backgroundColor = "red";
     }
-    console.log("Style : " + point.style.left);
-    console.log("Style : " + point.style.top);
-    console.log("Style : " + point.style.backgroundColor);
+   
 
     // Ajout de l'id en dessous du point
     let idLabel = document.createElement("div");
@@ -92,8 +90,17 @@ function showPopup(id, coordX, coordY) {
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
 
+    let idNumber;
+    if (id.startsWith("dwm1001-")) {
+        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
+        idNumber = id.replace("dwm1001-", "");
+    } else {
+        // Si non, utiliser directement l'ID comme le nombre
+        idNumber = id;
+    }
+    
     // Remplacer le contenu de la boîte de dialogue avec les informations du point
-    popupContent.innerHTML = "ID: " + id + "<br>X: " + coordX + "<br>Y: " + coordY;
+    popupContent.innerHTML = "ID: " + idNumber + "<br>X: " + coordX + "<br>Y: " + coordY;
 
     // Positionner la boîte de dialogue à côté du point cliqué
     let originex = 1045; // Origine de la carte en x
