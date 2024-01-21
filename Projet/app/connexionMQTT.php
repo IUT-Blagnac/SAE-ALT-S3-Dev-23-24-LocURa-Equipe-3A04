@@ -31,6 +31,11 @@ $mqtt->subscribe('localisation/+/setup', function ($topic, $message, $retained, 
         UpdateDonneesNoeud($topic,$message);
     }
 }, 0);
+$mqtt->subscribe('testbed/node/+/out', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    envoyerDonneesComm($topic,$message);
+
+}, 0);
 $mqtt->loop(true);
 $mqtt->disconnect();
 
