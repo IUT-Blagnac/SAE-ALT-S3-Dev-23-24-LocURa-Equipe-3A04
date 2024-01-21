@@ -1,11 +1,7 @@
 <?php
 
-session_start();
+include("connexionBaseDeDonnees.php");
 
-if(isset($_SESSION["DonneesSetup"])){
-    print_r($_SESSION["DonneesSetup"]);
-}
-else{
-    echo "Pas de données";
-}
+afficherDonnees();
 
+recupererDonneesCapteurs();
