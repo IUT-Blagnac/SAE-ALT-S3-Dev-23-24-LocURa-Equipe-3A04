@@ -55,7 +55,7 @@ Pour réaliser les tests, il faut avoir accès à ce dépôt et à la release.
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|PHP_MQTT.3 ^|Comparer les contenus du topic localisation/+/setup avec les types de données ^| Les contenus sont conformes ^| aucune ^|OK
-^|PHP_MQTT.5 ^|Comparer les contenus du topic testbed/node/+/out avec les types de données de la table CommCapteurs ^| Les contenus sont conformes ^| aucune ^| OK
+^|PHP_MQTT.5 ^|Comparer les contenus du topic testbed/node/+/out avec les types de données de la table CommCapteurs ^| Les contenus sont conformes ^| Avoir l'éxperience en cours ^| OK
 |====
 
 *Type de données reçues :*
