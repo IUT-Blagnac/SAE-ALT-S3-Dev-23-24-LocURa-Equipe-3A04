@@ -71,7 +71,7 @@ Projet est réalisé par::
 
 == Réalisations 
 
-Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V0.2[0.2]
+Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V1.0[1.0]
 
 == Evaluation hebdo
 
