@@ -1,4 +1,4 @@
-= Documentation Technique SAE-ALT-S3-Dev-23-24-LocURa
+= BILAN DU SPRINT 2 SAE-ALT-S3-Dev-23-24-LocURa
 
 == CHAROUKI Aymen		
 
