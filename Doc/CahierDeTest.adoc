@@ -185,6 +185,9 @@ Pour les données du topic localisation/+/setup :
 === 4. Tests HTML :
 [.text-justify]
 
+==== 4.1. Affichage de la page index.html :
+[.text-justify]
+
 |====
 >|Cas de test 4+|Test-01-03-01
 >|Titre 4+| Affichage la page index.html
@@ -195,6 +198,9 @@ Pour les données du topic localisation/+/setup :
 ^|HTML.1 ^| Se rendre sur la page index.html ^| La page ainsi que le header s'affichent ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
 
 |====
+
+==== 4.2. Affichage des environnements :
+[.text-justify]
 
 |====
 
@@ -207,6 +213,9 @@ Pour les données du topic localisation/+/setup :
 ^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
 
 |====
+
+==== 4.3. Affichage des étages :
+[.text-justify]
 
 |====
 
