@@ -30,8 +30,12 @@ function InitBase()
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL
-    );\n".
-    "CREATE TABLE ".table_name2." (
+    );";
+    
+
+    $conn ->execute_query($requete);
+
+    $requete = "CREATE TABLE ".table_name2." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
         timestmp DOUBLE NOT NULL,
@@ -39,15 +43,14 @@ function InitBase()
         target VARCHAR(50),
         protocol VARCHAR(50),
         tof FLOAT,
-        range FLOAT,
+        `range` FLOAT,
         rssiRequest FLOAT,
         rssiData FLOAT,
         temperature FLOAT
     );";
-
     $conn ->execute_query($requete);
     $conn->close();
-    
+
 } catch(PDOException $e) {
 
     echo $e->getMessage();
@@ -251,7 +254,7 @@ function recupererDonneesCapteurs()
     // Parcourir les résultats de la requête
     while ($row = $resultat->fetch_assoc()) {
 
-        $requete = "SELECT * FROM ".table_name2." WHERE target = ".$row['idCapteur']." ORDER BY timestamp DESC LIMIT 1";
+        $requete = "SELECT * FROM ".table_name2." WHERE target = '".$row['idCapteur']."' ORDER BY timestmp DESC LIMIT 1";
         $resultat2 = $conn->query($requete);
         // Vérifier si la requête a réussi
         if ($resultat2 === false) {
@@ -266,7 +269,7 @@ function recupererDonneesCapteurs()
             'z' => $row['z'],
             'orientation' => $row['orientation'],
             'color' => $row['color'],
-            'timestamp' => $row2['timestamp'],
+            'timestamp' => $row2['timestmp'],
             'initiator' => $row2['initiator'],
             'target' => $row2['target'],
             'protocol' => $row2['protocol'],
@@ -285,7 +288,7 @@ function recupererDonneesCapteurs()
 
     echo $e->getMessage();
     $conn->close();
-
+    return array();
 }
 }
 
