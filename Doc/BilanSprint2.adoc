@@ -14,14 +14,74 @@
 
 === Sommaire
 
-= Progrès Accompli
-== Objectifs
-- [x] Docker : le Docker est maintenant complet et on rencontra aucun problème dessous.
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+== Progrès Accompli
+
+=== Objectifs
+
+- [x] Docker : le Docker est maintenant complet et nous ne rencontrons aucun problème dessous.
 - [x] JavaScript : Relier le javascript à la base de données.
 - [x] [Bug]: Problème avec la liaison à la base de données.
 - [x] [Bug]: Problème lié au log dans docker.
-- [x] Analyse : Les différents topics disponible au broker ont été analysé et stockeé.
-- [x] Base de données : Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience.
+- [x] Analyse : Les différents topics disponibles au broker ont été analysés et stockés.
+- [x] PHP : Création d'une nouvelle table dans la base de données pour stocker les communications entre nœuds pendant une expérience.
 - [x] Organisation : Prise d'un rendez-vous avec le chercheur afin de comparer notre produit à l'existant et le démarrage d'une expérience.
-- [x] Controle des données : Récupération des données setup, mobile et communications.
+- [x] Contrôle des données : Récupération des données setup, mobile et communications.
 
+=== Points Forts
+
+- La page web permet de créer les points dès le lancement du script.
+- Le style CSS est conforme au design convenu et garantit une expérience utilisateur agréable.
+- De nouvelles fonctionnalités ont été ajoutées au menu header.
+- Nous maîtrisons l'utilisation des topics du broker MQTT et la récupération des données d'après ce dernier.
+- Maîtrise du Docker qui n'est plus problématique.
+
+=== Problèmes rencontrés
+
+- La taille des images des couches sur la page web n'est pas responsive et ne s'adapte pas à la taille de l'écran.
+- Des fichiers perdus à cause du gitignore.
+- Hésitation entre Python et PHP pour la récupération des données, donc nous avons fini par faire les deux.
+- Des problèmes liés au CSS (parfois nous n'obtenons pas les résultats attendus).
+- Nous n'avons pas pu automatiser le lancement des scripts avec le docker.
+
+== Prochain sprint
+
+=== Améliorations à apporter
+
+- Améliorer le site HTML et CSS.
+- Automatiser les scripts avec le lancement du docker.
+- Amélioration au niveau de la visualisation des différentes données.
+
+=== Nouvelles fonctionnalités
+
+- Implémentations des autres fonctionnalités souhaitées
+- Ajouter la visualisation de mesure des distances entre capteurs
+- Choisir la forme des visualisation de mesure (au minimum : cercles et traits droits).
+- Optimiser les fonctionnalités actuelles du menu header avant d'introduire de nouvelles options.
+
+=== Leçons apprises
+
+- Définition des problémes et la capacité de les résoudre.
+- Etre très décisif dans les choix des technologies. 
+- Maitrise du Docker.
+- Maitrise du protocol MQTT
+
+=== Résumé du sprint
+
+Pendant ce deuxième sprint, nous avons repris les bases établies lors du premier sprint et nous avons cherché à améliorer notre compréhension des langages de programmation choisis afin de progresser dans notre projet. Bien que tous les objectifs initiaux n'aient pas été atteints, nous avons consacré un temps significatif à la résolution de problèmes et à la compréhension des subtilités des langages que nous utilisons, ainsi qu'à la familiarisation avec l'outil Docker. Cet effort contribuera sans aucun doute à notre efficacité future.
+
+Bien que nous n'ayons pas pu accomplir notre dernier objectif en raison du temps consacré à la résolution des défis et à l'approfondissement de notre compréhension des langages, nous croyons avoir réalisé des progrès substantiels. L'application actuelle répond désormais aux exigences de base, démontrant le travail préliminaire réalisé lors des sprints précédents.
+
+En prévision du prochain sprint, nous sommes optimistes quant aux possibilités d'amélioration. Notre objectif n'est pas seulement de livrer un produit fonctionnel, mais de l'élever à un niveau supérieur. Nous avons l'intention d'incorporer de nouvelles fonctionnalités et des améliorations au-delà de nos objectifs initiaux. Cette approche aboutira non seulement à un produit entièrement opérationnel, mais aussi à un produit plus sophistiqué, offrant des fonctionnalités supplémentaires que nous pensons amélioreront l'expérience globale des utilisateurs.
+
+Date de fin de sprint : 21/01/2024
