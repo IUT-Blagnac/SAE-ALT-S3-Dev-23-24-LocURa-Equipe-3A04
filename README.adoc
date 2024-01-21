@@ -57,14 +57,15 @@ Projet est réalisé par::
 [cols="1,2,3,4",options="header"]
 |===
 | Date    | Nom              | Lien | Description
-|  Sem.2 (8/1 - 12/1 )  | Cours Moodle     | https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE] | Contient toute information concernant le sujet et l'organisation de notre dépôt
+|  Sem.2 (8/1 - 14/1 )  | Cours Moodle     | https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE] | Contient toute information concernant le sujet et l'organisation de notre dépôt
 |      | Backlog Produit  | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit] | Vous trouverez les priorités, critères d’acceptabilité et évaluation de compléxité dans le premier commentaire de chaque User Story 
 |         | Sprint 1 | https://github.com/orgs/IUT-Blagnac/projects/171[Sprint 1] | La colonne User Stories représente les User stories à développer durant le sprint
 |         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/bilanSprint1.adoc[Bilan Sprint 1] | Contient aussi la prévision du prochain https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc#2-prochain-sprint[Sprint]
 |         | Doc Utilisateur | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocUtilisateur.adoc[Documentation Utilisateur] | Montre comment installer l'application et la présente avec ses fonctionnalités
 |         | Doc Technique | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc[Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
-|         | Cahier de tests | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/CahierDeTest.adoc[Cahier de tests] | Donne les différents tests que l'on a pu effectuer
+| Sem.3 (15/1 - 21/1 )        | Cahier de tests | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/CahierDeTest.adoc[Cahier de tests] | Donne les différents tests que l'on a pu effectuer
 |         | Sprint 2 | https://github.com/orgs/IUT-Blagnac/projects/173[Sprint 2] | La colonne User Stories représente les User stories à développer durant le sprint
+|         | Prévision Sprint 3 |
 |===
 
 == Réalisations 

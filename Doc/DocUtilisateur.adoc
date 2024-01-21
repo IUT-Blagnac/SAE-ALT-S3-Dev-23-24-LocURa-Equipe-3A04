@@ -26,19 +26,19 @@ toc::[Sommaire]
 ===  *Contexte Général*
 
 ****
-Nom du projet : Locur4Iot
+Nom du projet : LocURa4IoT
 
-Lien : https://locura4iot.irit.fr[Locur4Iot]
+Lien : https://locura4iot.irit.fr[LocURa4IoT]
 ****
 
 ****
-La localisation d'engins immobiles ou mobiles à l'intérieur des entrepots est un enjeu de plus en plus grandissant. En effet, les entrepots sont de plus en plus grands et les engins mobiles de plus en plus nombreux. Il est donc nécessaire de pouvoir localiser ces engins afin de pouvoir les retrouver rapidement et de pouvoir optimiser leur utilisation. Pour faire ces recherche, une équipe de chercheurs est présentes à l'IUT de Blagnac dans une salle prévu à cette effet contenant plus de 5à capteurs. Ces capteurs sont répartis dans la salle et permettent de simuler la localisation des engins avec la présence d'un rail simulant un objet mobiles. Pour voir leur localisation les chercheurs utilisent un site web qui affichent en temps réel la position des capteurs. Cependant, ce site web est assez ancien et peut être mieux optimiser. 
+La localisation d'engins immobiles ou mobiles à l'intérieur des entrepots est un enjeu de plus en plus grandissant. En effet, les entrepots sont de plus en plus grands et les engins mobiles de plus en plus nombreux. Il est donc nécessaire de pouvoir localiser ces engins afin de pouvoir les retrouver rapidement et de pouvoir optimiser leur utilisation. Pour faire ces recherches, une équipe de chercheurs est présentes à l'IUT de Blagnac dans une salle prévu à cet effet contenant plus de 5à capteurs. Ces capteurs sont répartis dans la salle et permettent de simuler la localisation des engins avec la présence d'un rail simulant un objet mobiles. Pour voir leur localisation, les chercheurs utilisent un site web qui affiche en temps réel la position des capteurs. Cependant, ce site web est assez ancien et peut être mieux optimisé.
 ****
 
 === *Sujet et Présentation*
 
 ****
-Dans ce contexte nous avons pour mission de créer une application web permettant de visualiser la position des capteurs en temps réel. Cette application devra être plus ergonomique et plus facile d'utilisation que l'application actuelle. Elle devra également permettre de visualiser l'historique des positions des capteurs. Pour cela nous avons décidé de créer une application web en utilisant du JavaScript pour pouvoir avoir des page qui se mettent à jour en temps réel. Cette application devra être relié à une base de données qui contiendra les informations des capteurs. Pour cela nous avons décidé d'utiliser une base de données MariaDB. Il y a également les fonctionnalités présentes sur l'ancienne application, c'est à dire la possibilité de visualiser ou non les cercles représentants la vision des capteurs.
+Dans ce contexte, nous avons pour mission de créer une application web permettant de visualiser la position des capteurs en temps réel. Cette application devra être plus ergonomique et plus facile d'utilisation que l'application actuelle. Elle devra également permettre de visualiser l'historique des positions des capteurs. Pour cela, nous avons décidé de créer une application web en utilisant du JavaScript pour pouvoir avoir des pages qui se mettent à jour en temps réel. Cette application devra être reliée à une base de données qui contiendra les informations des capteurs. Pour cela, nous avons décidé d'utiliser une base de données MariaDB. Il y a aussi les fonctionnalités présentes sur l'ancienne application, c'est-à-dire la possibilité de visualiser ou non les cercles représentants la vision des capteurs.
 ****
 
 === Installation
@@ -66,5 +66,4 @@ Pour que le serveur puisse correctement récupérer les données MQTT il faut s'
 
 L'application représente une maquette simpliste de test qui permet de vérifier la connexion au brocker MQTT, le placement de points sur une carte.
 
-Il n'y a pas encore de fonctionnalités réellement disponible pour l'utilisateur
-
+Il n'y a pas encore de fonctionnalités réellement disponibles pour l'utilisateur.

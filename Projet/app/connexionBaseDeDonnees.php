@@ -29,7 +29,8 @@ function InitBase()
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
-        color CHAR(6) NULL
+        color CHAR(6) NULL,
+        UID VARCHAR(30) NULL
     );";
     
 
@@ -64,11 +65,9 @@ function InitBase()
  * @param string $topic Le topic du message
  * @param string $message Le message reçu sous format json
  */
-
 function EnvoyerDonnesNoeud($topic,$message)
 {
     try{
-
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -82,13 +81,51 @@ function EnvoyerDonnesNoeud($topic,$message)
     $z = $data["z"];
     $orientation = $data["orientation"];
     $color = $data["color"];
+    $uid = isset($data["UID"]) ? $data["UID"] : null;
     
-    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color) VALUES (?, ?, ?, ?, ?, ?)";
+    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("sdddds", $idCapteur, $x, $y, $z, $orientation, $color);
+    $statement->bind_param("sddddss", $idCapteur, $x, $y, $z, $orientation, $color,$uid);
+
+    // Exécution de la requête
+    $resultat = $statement->execute();
+
+    // Vérifier l'exécution de la requête
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    // Fermer la connexion et le statement
+    $statement->close();
+    $conn->close();
+}
+
+function UpdateDonneesNoeud($topic,$message)
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    $data = json_decode($message,true);
+    $idCapteur = explode("/",$topic)[1];
+    $x = $data["x"];
+    $y = $data["y"];
+    $z = $data["z"];
+    $orientation = $data["orientation"];
+    $color = $data["color"];
+    $uid = isset($data["UID"]) ? $data["UID"] : null;
+    
+    $requete = "UPDATE ".table_name." SET x = ?, y=?, z=?, orientation=?, color=?,UID=? WHERE idCapteur=?";
+
+    // Préparation de la requête
+    $statement = $conn->prepare($requete);
+
+    $statement->bind_param("dddsdss", $x, $y, $z, $orientation, $color, $uid, $idCapteur);
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -178,7 +215,7 @@ function afficherDonnees()
     }
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur <br>" ;
+        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur". $row['UID']."<br>" ;
     }
     $conn->close();
 
@@ -278,6 +315,7 @@ function recupererDonneesCapteurs()
             'rssiRequest' => $row2['rssiRequest'],
             'rssiData' => $row2['rssiData'],
             'temperature' => $row2['temperature']
+            'UID' => $row['UID']   
         );
     }
 
@@ -293,3 +331,4 @@ function recupererDonneesCapteurs()
 }
 
 ?>
+
