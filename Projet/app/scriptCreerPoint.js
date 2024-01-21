@@ -83,7 +83,7 @@ function showPopup(id, coordX, coordY) {
         // Si non, utiliser directement l'ID comme le nombre
         idNumber = id;
     }
-
+    
     // Remplacer le contenu de la boîte de dialogue avec les informations du point
     popupContent.innerHTML = "ID: " + idNumber + "<br>X: " + coordX + "<br>Y: " + coordY;
 
