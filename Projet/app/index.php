@@ -1,5 +1,5 @@
+<?php namespace ClassesPHP;
 
-<?php
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,9 @@
     <img src="Images/map.png" class="map-image">
     
     <div id="map"></div>
-    <div id="popup"></div>
-    <div id="popup-content"></div>
+    <div id="popup" class="popup">
+        <div id="popup-content" class="popup-content"></div>
+    </div>
+
 </body>
 </html>
