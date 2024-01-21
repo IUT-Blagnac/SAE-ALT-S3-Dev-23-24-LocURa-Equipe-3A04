@@ -3,7 +3,8 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].target);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
+        console.log("Point : " + data[i].idCapteur+ " crée avec succès");
     }
 }
 

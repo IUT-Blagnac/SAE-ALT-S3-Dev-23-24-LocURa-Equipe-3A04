@@ -135,11 +135,56 @@ Pour les données du topic localisation/+/setup :
 
 |====
 
-
-=== 3. Tests HTML :
+==== 2.3. Création des points :
 [.text-justify]
 
 |====
+
+>|Cas de test 4+|Test-01-02-02
+>|Titre 4+| Création des points repésentant l'emplacement des capteurs
+>|Objectif 4+| Vérifier si l'affichage des points est correcte
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| La phrase 'Point "idCapteur" crée avec succès' s'écrit dans la console du navigateur et tous les points en base sont inclus dans la page ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+==== 2.4. Voir les donnés des points et transparence des autres points :
+
+
+|====
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+| Voir les donnés des points et transparence des autres points
+>|Objectif 4+| Vérifier si lors du clique sur un point, les autres points deviennent transparents et que les données du point cliqué s'affichent
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| Les donnés du point s'affichent à coté et les autres points deviennent transparent ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+=== 3. Tests python :
+[.text-justify]
+
+==== 3.1. Test de connexion au broker MQTT :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+| Test de connexion au broker MQTT
+>|Objectif 4+| Vérifier lors du lancement du script python, si la connexion au broker MQTT est possible et si les données sont bien envoyées dans log.txt
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PY_AFF.1 ^| Lancer le script mqtttest.py  ^| Dans le fichier log.txt il y a bien toutes les donnés des points et si il s'affiche bien dans la console ^|Avoir python sur sa machine et ne pas bloquer le port 1883 ^|OK
+
+|====
+
+=== 4. Tests HTML :
+[.text-justify]
+
 
 >|Cas de test 4+|Test-01-03-01
 >|Titre 4+| Affichage la page index.html
@@ -172,3 +217,5 @@ Pour les données du topic localisation/+/setup :
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
+
+|====
