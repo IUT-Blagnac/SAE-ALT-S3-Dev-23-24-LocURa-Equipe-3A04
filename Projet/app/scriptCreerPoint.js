@@ -1,17 +1,14 @@
-let signalingStates = {};
-
 
 // Fonction pour créer les points à partir des données récupérées
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].target);
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id) {
-    signalingStates[id] = false;
+function createPoint(coordX, coordY, couleur, id,target) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
@@ -44,17 +41,18 @@ function createPoint(coordX, coordY, couleur, id) {
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(point, id, coordX, coordY);
+        togglePopup(point, id, coordX, coordY,target);
     });
     // Ajout de l'id en dessous du point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
+    
 }
 
 // Fonction pour afficher ou masquer la boîte de dialogue
-function togglePopup(clickedPoint, id, coordX, coordY) {
+function togglePopup(clickedPoint, id, coordX, coordY,target) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
@@ -72,14 +70,15 @@ function togglePopup(clickedPoint, id, coordX, coordY) {
         updatePointSelection(clickedPoint);
         // Ajouter la classe transparent aux autres points
         toggleOtherPointsTransparency(clickedPoint);
+        toggleSignaling(id,target);
     }
 }
 
-function toggleSignaling(id) {
+function toggleSignaling(id,target) {
     let clickedPoint = document.getElementById(id);
 
     // Vérifier si le point cliqué est le point spécifique que vous souhaitez signaler
-    if (id === 'specific_point_id') {
+    if (id === target) {
         isSignaling = !isSignaling;
 
         // Si le signal est activé, ajouter une classe pour indiquer l'état de signalisation

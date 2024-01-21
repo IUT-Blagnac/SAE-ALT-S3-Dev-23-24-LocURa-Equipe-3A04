@@ -5,13 +5,14 @@ const username = "UserBd";
 const password = "MotDePasseBD";
 const dbname = "Donnes";
 const table_name = "DonneesCapteurs";   
-
+const table_name2 = "CommCapteurs";
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
  */
 function InitBase()
 {
-    
+    try{
+
 
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -29,9 +30,29 @@ function InitBase()
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL
+    );\n".
+    "CREATE TABLE ".table_name2." (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        node_id VARCHAR(50) NOT NULL,
+        timestmp DOUBLE NOT NULL,
+        initiator VARCHAR(50),
+        target VARCHAR(50),
+        protocol VARCHAR(50),
+        tof FLOAT,
+        range FLOAT,
+        rssiRequest FLOAT,
+        rssiData FLOAT,
+        temperature FLOAT
     );";
+
     $conn ->execute_query($requete);
     $conn->close();
+    
+} catch(PDOException $e) {
+
+    echo $e->getMessage();
+    $conn->close();
+}
 }
 
 /**
@@ -43,6 +64,7 @@ function InitBase()
 
 function EnvoyerDonnesNoeud($topic,$message)
 {
+    try{
 
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -68,6 +90,7 @@ function EnvoyerDonnesNoeud($topic,$message)
     // Exécution de la requête
     $resultat = $statement->execute();
 
+    
     // Vérifier l'exécution de la requête
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $statement->error);
@@ -76,6 +99,54 @@ function EnvoyerDonnesNoeud($topic,$message)
     // Fermer la connexion et le statement
     $statement->close();
     $conn->close();
+
+} catch(PDOException $e) {  
+
+    echo $e->getMessage();
+    $conn->close();
+}
+}
+function envoyerDonneesComm($topic,$message){
+    try{
+
+    $conn = new mysqli(servername, username, password, dbname);
+
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    $donneespayld = json_decode($message, true);
+    $timestamp = $donneespayld['timestamp'];
+    $node_id = $donneespayld['node_id'];
+    $donnesexplicit = json_decode($donneespayld['payload'], true);
+    $initiator = $donnesexplicit['initiator'];
+    $target = $donnesexplicit['target'];
+    $protocol = $donnesexplicit['protocol'];
+    $tof = $donnesexplicit['tof'];
+    $range = $donnesexplicit['range'];
+    $rssiRequest = $donnesexplicit['rssiRequest'];
+    $rssiData = $donnesexplicit['rssiData'];
+    $temperature = $donnesexplicit['temperature'];
+
+    $sql = "INSERT INTO ".table_name2." (node_id, timestamp, initiator, target, protocol, tof, range, rssiRequest, rssiData, temperature) VALUES ('?', '?', '?', '?', '?', '?', '?', '?', '?', '?')";
+
+    $statement = $conn->prepare($sql);
+    $statement -> bind_param("sdsdddddd", $node_id, $timestamp, $initiator, $target, $protocol, $tof, $range, $rssiRequest, $rssiData, $temperature);
+    
+    $resultat = $statement->execute();
+
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    $statement->close();
+    $conn->close();
+
+} catch(PDOException $e) {
+
+    echo $e->getMessage();
+    $conn->close();
+
+}
 }
 
 /**
@@ -84,6 +155,9 @@ function EnvoyerDonnesNoeud($topic,$message)
  */
 function afficherDonnees()
 {
+    try{
+
+    
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -104,10 +178,58 @@ function afficherDonnees()
         echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur <br>" ;
     }
     $conn->close();
+
+    }
+    catch(PDOException $e) {
+
+        echo $e->getMessage();
+        $conn->close();
+
+    }
 }
 
+function verifier_tablecapteurs(){
+    try {
+
+        $conn = new mysqli(servername, username, password, dbname);
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("La connexion à la base de données a échoué : " . $conn->connect_error);
+        }
+        
+        $requete = "SELECT COUNT(*) FROM ".table_name2;
+        
+        $resultat = $conn->query($requete);
+        // Vérifier si la requête a réussi
+        if ($resultat === false) {
+            die("Erreur d'exécution de la requête : " . $conn->error);
+        }
+        
+        // Récupérer le nombre de lignes
+        $count = $resultat->fetch_row()[0];
+        
+        $conn->close();
+        
+        return $count == 0;
+
+    } catch(PDOException $e) {
+
+        echo $e->getMessage();
+        $conn->close();
+        
+    }
+}
+
+/**
+ * Fonction qui récupère les données de la base de données et les retourne sous forme de tableau
+ * @return array $data Tableau contenant les données
+ */
 function recupererDonneesCapteurs()
 {
+    try{
+
+    
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -123,22 +245,48 @@ function recupererDonneesCapteurs()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+
     $data = array();
 
     // Parcourir les résultats de la requête
     while ($row = $resultat->fetch_assoc()) {
-        // Ajouter chaque ligne au tableau
+
+        $requete = "SELECT * FROM ".table_name2." WHERE target = ".$row['idCapteur']." ORDER BY timestamp DESC LIMIT 1";
+        $resultat2 = $conn->query($requete);
+        // Vérifier si la requête a réussi
+        if ($resultat2 === false) {
+            die("Erreur d'exécution de la requête : " . $conn->error);
+        }
+
+        $row2 = $resultat2->fetch_assoc();
         $data[] = array(
             'idCapteur' => $row['idCapteur'],
             'x' => $row['x'],
             'y' => $row['y'],
             'z' => $row['z'],
             'orientation' => $row['orientation'],
-            'color' => $row['color']
+            'color' => $row['color'],
+            'timestamp' => $row2['timestamp'],
+            'initiator' => $row2['initiator'],
+            'target' => $row2['target'],
+            'protocol' => $row2['protocol'],
+            'tof' => $row2['tof'],
+            'range' => $row2['range'],
+            'rssiRequest' => $row2['rssiRequest'],
+            'rssiData' => $row2['rssiData'],
+            'temperature' => $row2['temperature']
         );
     }
+
     $conn->close();
     return $data;    
+
+} catch(PDOException $e) {
+
+    echo $e->getMessage();
+    $conn->close();
+
+}
 }
 
 ?>

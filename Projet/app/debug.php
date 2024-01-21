@@ -11,7 +11,12 @@ include("connexionBaseDeDonnees.php");
 //echo "<a href='connexionMQTT.php'>PageDonnes</a>";
 
 afficherDonnees();
-
+if(verifier_tablecapteurs()){
+    echo "La table Capteurs existe";
+}
+else{
+    echo "La table n'existe pas";
+}
 recupererDonneesCapteurs();
 
 ?>
