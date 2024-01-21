@@ -1,5 +1,5 @@
+<?php namespace ClassesPHP;
 
-<?php
 ?>
 <!DOCTYPE html>
 <html>

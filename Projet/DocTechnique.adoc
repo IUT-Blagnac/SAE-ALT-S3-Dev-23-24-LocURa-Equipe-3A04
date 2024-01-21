@@ -1,0 +1,35 @@
+
+
+= Documentation Technique SAE-ALT-S3-Dev-23-24-LocURa
+
+== CHAROUKI Aymen		
+
+== PAGNUCCO Nathan
+
+== FONTANILLES Alexi
+
+== PICUIRA Tanguy
+
+== Groupe 4
+
+== Années 2023-2024
+
+=== Sommaire
+
+:sectnums:
+toc::[Sommaire]
+
+
+== Présentation du projet
+
+===  *Contexte Générale*
+
+La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise actuellement un outil de visualisation des positions de tags mobiles dans l’environnement du laboratoire. Cette visualisation est essentielle à des fins de compréhension des résultats de recherche ainsi que pour des démonstrations pédagogiques. Concrètement, l'outil représente les différents éléments du système de localisation, tels que les ancres/références, les tags/mobiles, les murs, etc., sur une carte interactive.
+
+=== Objectif du Projet :
+L'objectif principal de ce projet est d'améliorer l'interface actuelle en ajoutant des fonctionnalités cruciales pour une expérience utilisateur plus avancée. Ces fonctionnalités comprennent la possibilité d'activer/désactiver certains éléments à afficher, la sélection d'éléments avec des options de filtrage, et l'affichage de la trace des mobiles, incluant les mouvements et l'historique des positions.
+
+=== Technologies Utilisées :
+Les technologies au cœur de ce projet sont le web, JavaScript (JS), Scalable Vector Graphics (SVG), MQTT (Message Queuing Telemetry Transport), et les WebSockets. Ces technologies offrent une base solide pour la création d'une interface interactive et en temps réel.
+
+ 

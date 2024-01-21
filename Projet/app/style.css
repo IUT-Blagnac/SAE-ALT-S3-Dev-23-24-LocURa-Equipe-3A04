@@ -201,3 +201,9 @@ body {
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
 }
+.signaling{
+    display: none;
+    position: absolute;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
+}
