@@ -65,7 +65,8 @@ Projet est réalisé par::
 |         | Doc Technique | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc[Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
 | Sem.3 (15/1 - 21/1 )        | Cahier de tests | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/CahierDeTest.adoc[Cahier de tests] | Donne les différents tests que l'on a pu effectuer
 |         | Sprint 2 | https://github.com/orgs/IUT-Blagnac/projects/173[Sprint 2] | La colonne User Stories représente les User stories à développer durant le sprint
-|         | Prévision Sprint 3 |
+|         | Bilan Sprint 2 | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/BilanSprint2.adoc[Bilan Sprint 2] | Le bilan du deuxième Sprint
+|         | Prévision Sprint 3 | https://github.com/orgs/IUT-Blagnac/projects/174[Prévision Sprint 3] | Prévision du prochain Sprint (3) 
 |===
 
 == Réalisations 
