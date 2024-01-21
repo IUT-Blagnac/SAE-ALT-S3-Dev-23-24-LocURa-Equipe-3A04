@@ -13,18 +13,8 @@
 = Années 2023-2024
 
 === Sommaire
-
-:icons: font
-:models: models
-:experimental:
-:incremental:
-:numbered:
-:toc: macro
-:window: _blank
-:correction!:
-
-toc::[]
-
+* https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/BilanSprint2.adoc#1-progrès-accompli[1. Progrès Accompli]
+** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/BilanSprint2.adoc#11-objectifs[1.1. Objectifs]
 == Progrès Accompli
 
 === Objectifs
