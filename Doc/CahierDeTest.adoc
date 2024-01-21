@@ -66,6 +66,7 @@ Pour les données du topic localisation/+/setup :
 
 - Type B : {"x": double, "y": double, "z": double, "orientation": double , "type": "setup", "color": string de couleur possiblement vide, "UID": string}
 
+- Type C : {'timestamp': double, 'node_id': string, 'payload': '{"initiator": string, "target": string, "protocol": string, "t1": int, "t2": int, "t3": int, "t4": int, "skew": double, "skewRequest": double, "skewAck": double, "skewData": double, "nlosIndicator": double, "tof": int, "tofSkew": double, "tof3Skew": double, "range": double, "rangeSkew": double, "range3Skew": double, "rangeNoSkew": double, "ranging unit": string, "seqnum": int, "rssiRequest": double, "rssiData": double, "rssiAck": double, "fp_powerRequest": double, "fp_powerAck": double, "fp_powerData": double, "pa_powerRequest": double, "pa_powerAck": double, "pa_powerData": double, "temperature": double}'}
 
 ==== 1.2. Test de connexion à la base de données :
 [.text-justify]
