@@ -6,14 +6,13 @@ const password = "MotDePasseBD";
 const dbname = "Donnes";
 const table_name = "DonneesCapteurs";   
 const table_name2 = "CommCapteurs";
+
+#region Intialisation de la base de données
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
  */
 function InitBase()
 {
-    try{
-
-
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -23,7 +22,7 @@ function InitBase()
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
-    $requete = "CREATE TABLE IF NOT EXISTS ".table_name." (
+    $requete = "CREATE OR REPLACE TABLE ".table_name." (
         idCapteur VARCHAR(30) PRIMARY KEY,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
@@ -36,7 +35,7 @@ function InitBase()
 
     $conn ->execute_query($requete);
 
-    $requete = "CREATE TABLE ".table_name2." (
+    $requete = "CREATE OR REPLACE TABLE ".table_name2." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
         timestmp DOUBLE NOT NULL,
@@ -51,23 +50,20 @@ function InitBase()
     );";
     $conn ->execute_query($requete);
     $conn->close();
-
-} catch(PDOException $e) {
-
-    echo $e->getMessage();
-    $conn->close();
-}
 }
 
+#endregion
+
+
+#region Fonctions DonneesSetup
 /**
  * Fonction qui envoie les données reçues du noeud dans la base de données
  * La fonction parse les données reçues sous format json
  * @param string $topic Le topic du message
  * @param string $message Le message reçu sous format json
  */
-function EnvoyerDonnesNoeud($topic,$message)
+function EnvoyerDonnesNoeudSetup($topic,$message)
 {
-    try{
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -101,14 +97,14 @@ function EnvoyerDonnesNoeud($topic,$message)
     // Fermer la connexion et le statement
     $statement->close();
     $conn->close();
-} catch(PDOException $e) {
-
-    echo $e->getMessage();
-    $conn->close();
-}
 }
 
-function UpdateDonneesNoeud($topic,$message)
+/**
+ * Update les données des noeuds dans la base de données
+ * @param string $topic Le topic du message
+ * @param string $message Le message reçu sous format json
+ */
+function UpdateDonneesNoeudSetup($topic,$message)
 {
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -146,9 +142,52 @@ function UpdateDonneesNoeud($topic,$message)
     $conn->close();
 }
 
-function envoyerDonneesComm($topic,$message){
-    try{
+/**
+ * Fonction qui récupère les données de la base de données et les retourne sous forme de tableau
+ * @return array $data Tableau contenant les données
+ */
+function RecupererDonneesSetup()
+{    
+    $conn = new mysqli(servername, username, password, dbname);
 
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    
+    $requete = "SELECT * FROM ".table_name;
+    $resultat = $conn->query($requete);
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    $data = array();
+
+    // Parcourir les résultats de la requête
+    while ($row = $resultat->fetch_assoc()) {
+        // Ajouter chaque ligne au tableau
+        $data[] = array(
+            'idCapteur' => $row['idCapteur'],
+            'x' => $row['x'],
+            'y' => $row['y'],
+            'z' => $row['z'],
+            'orientation' => $row['orientation'],
+            'color' => $row['color'],
+            'UID' => $row['UID']   
+        );
+    }
+    $conn->close();
+    return $data;      
+}
+
+
+
+#endregion
+
+#region Fonctions DonneesComm
+function envoyerDonneesComm($topic,$message){
     $conn = new mysqli(servername, username, password, dbname);
 
     if($conn->connect_error){
@@ -180,96 +219,14 @@ function envoyerDonneesComm($topic,$message){
 
     $statement->close();
     $conn->close();
-
-} catch(PDOException $e) {
-
-    echo $e->getMessage();
-    $conn->close();
-
-}
-}
-
-/**
- * Fonction qui selectionne toutes les données et les dump dans un echo
- * Pour debug uniquement
- */
-function afficherDonnees()
-{
-    try{
-
-    
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-    
-    $requete = "SELECT * FROM ".table_name;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-    // Afficher les résultats
-    while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur". $row['UID']."<br>" ;
-    }
-    $conn->close();
-
-    }
-    catch(PDOException $e) {
-
-        echo $e->getMessage();
-        $conn->close();
-
-    }
-}
-
-function verifier_tablecapteurs(){
-    try {
-
-        $conn = new mysqli(servername, username, password, dbname);
-
-        // Vérifier la connexion
-        if ($conn->connect_error) {
-            die("La connexion à la base de données a échoué : " . $conn->connect_error);
-        }
-        
-        $requete = "SELECT COUNT(*) FROM ".table_name2;
-        
-        $resultat = $conn->query($requete);
-        // Vérifier si la requête a réussi
-        if ($resultat === false) {
-            die("Erreur d'exécution de la requête : " . $conn->error);
-        }
-        
-        // Récupérer le nombre de lignes
-        $count = $resultat->fetch_row()[0];
-        
-        $conn->close();
-        
-        return $count == 0;
-
-    } catch(PDOException $e) {
-
-        echo $e->getMessage();
-        $conn->close();
-        
-    }
 }
 
 /**
  * Fonction qui récupère les données de la base de données et les retourne sous forme de tableau
  * @return array $data Tableau contenant les données
  */
-function recupererDonneesCapteurs()
-{
-    try{
-
-    
+function RecupererDonneesComm()
+{    
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -321,14 +278,66 @@ function recupererDonneesCapteurs()
 
     $conn->close();
     return $data;    
+}
 
-} catch(PDOException $e) {
 
-    echo $e->getMessage();
+
+#endregion
+
+#region Debug
+
+/**
+ * Fonction qui selectionne toutes les données et les dump dans un echo
+ * Pour debug uniquement
+ */
+function afficherDonnees()
+{
+    
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    
+    $requete = "SELECT * FROM ".table_name;
+    $resultat = $conn->query($requete);
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    // Afficher les résultats
+    while ($row = $resultat->fetch_assoc()) {
+        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID <br>" ;
+    }
     $conn->close();
-    return array();
-}
 }
 
-?>
+function verifier_tablecapteurs(){
+        $conn = new mysqli(servername, username, password, dbname);
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("La connexion à la base de données a échoué : " . $conn->connect_error);
+        }
+        
+        $requete = "SELECT COUNT(*) FROM ".table_name2;
+        
+        $resultat = $conn->query($requete);
+        // Vérifier si la requête a réussi
+        if ($resultat === false) {
+            die("Erreur d'exécution de la requête : " . $conn->error);
+        }
+        
+        // Récupérer le nombre de lignes
+        $count = $resultat->fetch_row()[0];
+        
+        $conn->close();
+        
+        return $count == 0;
+}
+
+#endregion
 

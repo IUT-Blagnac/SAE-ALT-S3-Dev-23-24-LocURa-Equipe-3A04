@@ -23,12 +23,12 @@ $mqtt->subscribe('localisation/+/setup', function ($topic, $message, $retained, 
     if($retained)
     {
         $logger->info(sprintf("Received retained message on topic [%s]: %s", $topic, $message));
-        EnvoyerDonnesNoeud($topic,$message);
+        EnvoyerDonnesNoeudSetup($topic,$message);
     }
     else
     {
         $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
-        UpdateDonneesNoeud($topic,$message);
+        UpdateDonneesNoeudSetup($topic,$message);
     }
 }, 0);
 $mqtt->subscribe('testbed/node/+/out', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
