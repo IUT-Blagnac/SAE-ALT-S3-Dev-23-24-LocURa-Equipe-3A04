@@ -95,7 +95,7 @@ body {
 }
 
 .dropdown {
-    float: right;
+    float: left;
     overflow: hidden;
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .dropdown-content {
-    right: 0;
+    right: auto;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -125,6 +125,11 @@ body {
     z-index: 1;
     max-height: 500px;
     overflow-y: auto;
+}
+
+
+.nodes .dropdown-content {
+    right: 0;
 }
 
 .dropdown-content label {
@@ -150,18 +155,6 @@ body {
     margin-right: auto;
     width: 50%;
 }
-
-.map-image {
-    width: 1000px;
-    height: auto;
-    position: absolute;
-    top: 400px;
-    left: 750px;
-    transform: translate(-50%, -50%);
-    z-index: -9999;
-    user-select: none;
-}
-
 
 .map {
     width: 1000px;
@@ -200,6 +193,56 @@ body {
 /* Styles pour les points transparents */
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
+}
+
+.transparenttotal {
+    opacity: 0; /* Opacité des points transparents */
+}
+
+.opacity {
+    opacity: 1; /* Opacité des points transparents */
+}
+
+.map-container {
+    width: 1000px;
+    height: auto;
+    position: absolute;
+    top: 200px;
+    left: 620px;
+    transform: translate(-50%, -50%);
+    z-index: -9999;
+    user-select: none;
+}
+
+.navbar .node {
+    display: none;
+}
+
+.navbar .node.selected {
+    display: block;
+}
+
+.navbar .label {
+    position: absolute;
+    left: 45%;
+    top: 12px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navbar .button {
+    position: absolute;
+    border: none;
+    outline: none;
+    right: 0;
+    top: 0;
+    color: #f2f2f2;
+    background-color: #333333;
+    font-size: 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 .signaling{
     display: none;
