@@ -49,8 +49,8 @@ Projet est réalisé par::
 - https://github.com/tanguypcr[Tanguy Picuira]
 
 
-[[Contexte Général]]
-== Contexte général
+[[ContexteGénéral]]
+=== Contexte général
 La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise actuellement un outil de visualisation des positions de tags mobiles dans l’environnement du laboratoire. Cette visualisation est essentielle à des fins de compréhension des résultats de recherche ainsi que pour des démonstrations pédagogiques. Concrètement, l’outil représente les différents éléments du système de localisation, tels que les ancres/références, les tags/mobiles, les murs, etc., sur une carte interactive.
 
 [[liensUtiles]]
