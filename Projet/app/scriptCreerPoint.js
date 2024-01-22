@@ -1,13 +1,15 @@
+
 // Fonction pour créer les points à partir des données récupérées
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].couleur, data[i].id);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
+        console.log("Point : " + data[i].idCapteur+ " crée avec succès");
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id) {
+function createPoint(coordX, coordY, couleur, id,target) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
@@ -22,8 +24,16 @@ function createPoint(coordX, coordY, couleur, id) {
     point.style.left = coordX * (-40.5) + originex + "px";
     point.style.top = coordY * 37 + originey + "px";
 
-    // Définir la couleur du point
-    point.style.backgroundColor = couleur;
+    
+    if(couleur!=null && couleur!="")
+    {
+        point.style.backgroundColor = "#"+couleur;
+    }
+    else 
+    {
+        point.style.backgroundColor = "red";
+    }
+   
 
     // Ajout de l'id en dessous du point
     let idLabel = document.createElement("div");
@@ -33,18 +43,18 @@ function createPoint(coordX, coordY, couleur, id) {
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(point, id, coordX, coordY);
+        togglePopup(point, id, coordX, coordY,target);
     });
-
     // Ajout de l'id en dessous du point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
+    
 }
 
 // Fonction pour afficher ou masquer la boîte de dialogue
-function togglePopup(clickedPoint, id, coordX, coordY) {
+function togglePopup(clickedPoint, id, coordX, coordY,target) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
@@ -65,10 +75,21 @@ function togglePopup(clickedPoint, id, coordX, coordY) {
         clickedPoint.classList.remove("transparent");
         // Ajouter la classe transparent aux autres points
         toggleOtherPointsTransparency(clickedPoint);
+        toggleSignaling(id,target);
     }
 }
 
+function toggleSignaling(id,target) {
+    let clickedPoint = document.getElementById(id);
 
+    // Vérifier si le point cliqué est le point spécifique que vous souhaitez signaler
+    if (id === target) {
+        isSignaling = !isSignaling;
+
+        // Si le signal est activé, ajouter une classe pour indiquer l'état de signalisation
+        clickedPoint.classList.toggle("signaling", isSignaling);
+    }
+}
 
 // Fonction pour afficher la boîte de dialogue
 function showPopup(id, coordX, coordY) {
@@ -76,8 +97,17 @@ function showPopup(id, coordX, coordY) {
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
 
+    let idNumber;
+    if (id.startsWith("dwm1001-")) {
+        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
+        idNumber = id.replace("dwm1001-", "");
+    } else {
+        // Si non, utiliser directement l'ID comme le nombre
+        idNumber = id;
+    }
+    
     // Remplacer le contenu de la boîte de dialogue avec les informations du point
-    popupContent.innerHTML = "ID: " + id + "<br>X: " + coordX + "<br>Y: " + coordY;
+    popupContent.innerHTML = "ID: " + idNumber + "<br>X: " + coordX + "<br>Y: " + coordY;
 
     // Positionner la boîte de dialogue à côté du point cliqué
     let originex = 1045; // Origine de la carte en x
@@ -193,39 +223,3 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
         }
     });
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Utiliser AJAX pour récupérer les données du serveur
-    $.ajax({
-        url: 'donnes.php', // Remplacez 'donnees.php' par le chemin correct vers votre script PHP
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            console.log('Données récupérées avec succès :', data);
-
-            // Les données sont récupérées avec succès
-            // Appeler une fonction pour créer les points avec les données
-            createPoints(data);
-        },
-        error: function (error) {
-            console.error('Erreur de requête AJAX :', error);
-        }
-    });
-
-    // Sélectionnez toutes les cases à cocher dans le menu déroulant
-    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
-
-    // Ajoutez un écouteur d'événements à chaque case à cocher
-    checkboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', function () {
-            let checkedCheckboxIds = Array.from(checkboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.id.replace("node", ""));
-
-            // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
-            updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
-        });
-    });
-});
-

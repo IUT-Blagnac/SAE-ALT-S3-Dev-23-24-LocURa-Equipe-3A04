@@ -189,6 +189,7 @@ body {
     z-index: 10000;
 }
 
+
 /* Styles pour les points transparents */
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
@@ -242,4 +243,10 @@ body {
     cursor: pointer;
     font-family: Arial, sans-serif;
     margin: 0;
+}
+.signaling{
+    display: none;
+    position: absolute;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
 }

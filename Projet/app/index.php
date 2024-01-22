@@ -25,7 +25,6 @@
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
     </div>
-
     <div class="dropdown">
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
@@ -50,7 +49,7 @@
     </div>
     -->
 </div>
-
+<a href="debug.php">DEBUG</a>
 <!-- Inclure jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <!-- Inclure le fichier JavaScript pour AJAX -->

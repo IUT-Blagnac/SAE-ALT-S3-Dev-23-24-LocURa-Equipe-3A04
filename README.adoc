@@ -48,8 +48,10 @@ Projet est réalisé par::
 - https://github.com/November304[Nathan Pagnucco]
 - https://github.com/tanguypcr[Tanguy Picuira]
 
-== Contexte général
 
+[[ContexteGénéral]]
+=== Contexte général
+La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise actuellement un outil de visualisation des positions de tags mobiles dans l’environnement du laboratoire. Cette visualisation est essentielle à des fins de compréhension des résultats de recherche ainsi que pour des démonstrations pédagogiques. Concrètement, l’outil représente les différents éléments du système de localisation, tels que les ancres/références, les tags/mobiles, les murs, etc., sur une carte interactive.
 
 [[liensUtiles]]
 === Liens utiles
@@ -57,17 +59,21 @@ Projet est réalisé par::
 [cols="1,2,3,4",options="header"]
 |===
 | Date    | Nom              | Lien | Description
-|  Sem.2 (8/1 - 12/1 )  | Cours Moodle     | https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE] | Contient toute information concernant le sujet et l'organisation de notre dépôt
+|  Sem.2 (8/1 - 14/1 )  | Cours Moodle     | https://webetud.iut-blagnac.fr/course/view.php?id=920[cours Moodle sur la SAE] | Contient toute information concernant le sujet et l'organisation de notre dépôt
 |      | Backlog Produit  | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/issues[Backlog produit] | Vous trouverez les priorités, critères d’acceptabilité et évaluation de compléxité dans le premier commentaire de chaque User Story 
 |         | Sprint 1 | https://github.com/orgs/IUT-Blagnac/projects/171[Sprint 1] | La colonne User Stories représente les User stories à développer durant le sprint
-|         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc[Bilan Sprint 1] | Contient aussi la prévision du prochain https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc#2-prochain-sprint[Sprint]
-|         | Doc Utilisateur | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/DocUtilisateur.adoc[Documentation Utilisateur] | Montre comment installer l'application et la présente avec ses fonctionnalités
-|         | Doc Technique | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/DocTechnique.adoc[Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
+|         | Bilan Sprint 1   | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/bilanSprint1.adoc[Bilan Sprint 1] | Contient aussi la prévision du prochain https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Projet/bilanSprint1.adoc#2-prochain-sprint[Sprint]
+|         | Doc Utilisateur | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocUtilisateur.adoc[Documentation Utilisateur] | Montre comment installer l'application et la présente avec ses fonctionnalités
+|         | Doc Technique | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc[Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
+| Sem.3 (15/1 - 21/1 )        | Cahier de tests | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/CahierDeTest.adoc[Cahier de tests] | Donne les différents tests que l'on a pu effectuer
+|         | Sprint 2 | https://github.com/orgs/IUT-Blagnac/projects/173[Sprint 2] | La colonne User Stories représente les User stories à développer durant le sprint
+|         | Bilan Sprint 2 | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/BilanSprint2.adoc[Bilan Sprint 2] | Le bilan du deuxième Sprint
+|         | Prévision Sprint 3 | https://github.com/orgs/IUT-Blagnac/projects/174[Prévision Sprint 3] | Prévision du prochain Sprint (3) 
 |===
 
 == Réalisations 
 
-Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V0.1[0.1]
+Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V1.0[1.0]
 
 == Evaluation hebdo
 

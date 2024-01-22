@@ -1,18 +1,11 @@
-import json
 import paho.mqtt.client as mqtt
-
-# Détails du courtier MQTT
-broker_address = "lab.iut-blagnac.fr"
-broker_port = 1883
-
-
-
-# Fonction de rappel lorsque le client se connecte au courtier
+import json;
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
-        print("Connected to MQTT broker")
+        print("Connexion au courtier MQTT réussie")
+        client.subscribe("localisation/+/setup")
     else:
-        print("Failed to connect to MQTT broker")
+        print("Connexion au courtier MQTT échouée")
 
 # Fonction de rappel lorsqu'un message est reçu
 def on_message(client, userdata, msg):
@@ -38,17 +31,14 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 
 # Connexion au courtier MQTT
-client.connect(broker_address, broker_port,80)
+client.connect("lab.iut-blagnac.fr",1883)
 # Configuration des fonctions de rappel
 client.on_connect = on_connect
 client.on_message = on_message
 
 # Démarrage de la boucle du client MQTT
-client.loop_start()
+client.loop_forever()
 
 # Abonnement au topic
-client.subscribe("localisation/+/setup")
 
-# Maintien de l'exécution du programme jusqu'à ce qu'il soit interrompu par Ctrl+C
-while True:
-    pass
+
