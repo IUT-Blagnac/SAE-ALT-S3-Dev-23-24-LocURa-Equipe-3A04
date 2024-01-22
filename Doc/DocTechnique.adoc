@@ -1,39 +1,21 @@
-
+:toc: macro
 
 = Documentation Technique SAE-ALT-S3-Dev-23-24-LocURa
 
-== CHAROUKI Aymen		
-
-== PAGNUCCO Nathan
-
-== FONTANILLES Alexi
-
-== PICUIRA Tanguy
-
-= Groupe 4
-
-= Années 2023-2024
-
 === Sommaire
-* https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#présentation-du-projet[1. Présentation du projet]
-** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#contexte-générale[1.1 Contexte général]
-** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#objectif-du-projet[1.2. Objectif du Projet ]
-** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#technologies-utilisées[1.3. Technologies Utilisées]
-* https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#cas-dutilisation-global[2. Cas d’Utilisation Global]
-* https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#diagrammes-des-classes[3. Diagrammes des classes]
-* https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#fonctionnalités[4. Fonctionnalités]
-** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#utilisation-de-docker[4.1. Utilisation de Docker]
-** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#présentation-des-fichiers-clés[4.2. Présentation des Fichiers Clés]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#docker-composeyml[4.2.1. docker-compose.yml]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#connexionmqttphp[4.2.2. connexionMQTT.php]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#connexionbasededonneesphp[4.2.3. connexionBaseDeDonnees.php]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#indexphp[4.2.4. index.php]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#donneesphp[4.2.5. donnees.php]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#scriptrecupererdonnesjs[4.2.6. scriptRecupererDonnes.js]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#scriptcreerpointjs[4.2.7. scriptCreerPoint.js]
-*** https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/DocTechnique.adoc#stylescss[4.2.8. styles.css]
+toc::[]
 
-:toc: macro
+
+== Equipe 2023-2024
+
+Groupe 4 :
+
+- CHAROUKI Aymen	
+- FONTANILLES Alexi
+- PAGNUCCO Nathan
+- PICUIRA Tanguy
+
+
 
 == Présentation du projet
 
