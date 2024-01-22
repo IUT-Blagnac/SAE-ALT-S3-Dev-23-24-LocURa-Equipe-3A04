@@ -9,4 +9,6 @@ if(verifier_tablecapteurs()){
 else{
     echo "La table n'existe pas";
 }
+
 // recupererDonneesCapteurs();
+?>
