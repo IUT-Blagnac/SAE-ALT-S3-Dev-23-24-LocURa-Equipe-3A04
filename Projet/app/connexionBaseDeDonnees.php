@@ -101,6 +101,11 @@ function EnvoyerDonnesNoeud($topic,$message)
     // Fermer la connexion et le statement
     $statement->close();
     $conn->close();
+} catch(PDOException $e) {
+
+    echo $e->getMessage();
+    $conn->close();
+}
 }
 
 function UpdateDonneesNoeud($topic,$message)
@@ -139,13 +144,8 @@ function UpdateDonneesNoeud($topic,$message)
     // Fermer la connexion et le statement
     $statement->close();
     $conn->close();
-
-} catch(PDOException $e) {  
-
-    echo $e->getMessage();
-    $conn->close();
 }
-}
+
 function envoyerDonneesComm($topic,$message){
     try{
 
@@ -314,7 +314,7 @@ function recupererDonneesCapteurs()
             'range' => $row2['range'],
             'rssiRequest' => $row2['rssiRequest'],
             'rssiData' => $row2['rssiData'],
-            'temperature' => $row2['temperature']
+            'temperature' => $row2['temperature'],
             'UID' => $row['UID']   
         );
     }
