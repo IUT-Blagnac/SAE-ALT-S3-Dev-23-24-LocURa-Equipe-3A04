@@ -41,6 +41,15 @@ function createPoint(coordX, coordY, couleur, id,target) {
     idLabel.innerText = id ? id : "";
     idLabel.style.userSelect = "none";
 
+    if (id.startsWith("dwm1001-")) {
+        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
+        idLabel = id.replace("dwm1001-", "");
+    } else {
+        // Si non, utiliser directement l'ID comme le nombre
+        idLabel = id;
+    }
+
+
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
         togglePopup(point, id, coordX, coordY,target);
