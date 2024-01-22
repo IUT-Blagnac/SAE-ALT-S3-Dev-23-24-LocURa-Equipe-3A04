@@ -29,7 +29,8 @@ function InitBase()
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL,
-        UID VARCHAR(30) NULL
+        UID VARCHAR(30) NULL,
+        c VARCHAR(30) NULL
     );";
     
 

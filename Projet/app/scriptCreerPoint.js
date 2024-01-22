@@ -3,17 +3,19 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
-        console.log("Point : " + data[i].idCapteur+ " crée avec succès");
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddmw);
+        X.push(data[i].x);
+        Y.push(data[i].y);
+        console.log("Point : " + data[i].idCapteur + " crée avec succès");
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id,target) {
+function createPoint(coordX, coordY, couleur, id, iddmw, target) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
-    
+
     // Ajout de l'ID comme attribut au point
     point.setAttribute("id", id);
 
@@ -24,43 +26,90 @@ function createPoint(coordX, coordY, couleur, id,target) {
     point.style.left = coordX * (-40.5) + originex + "px";
     point.style.top = coordY * 37 + originey + "px";
 
-    
-    if(couleur!=null && couleur!="")
-    {
-        point.style.backgroundColor = "#"+couleur;
-    }
-    else 
-    {
+    if (couleur != null && couleur != "") {
+        point.style.backgroundColor = "#" + couleur;
+    } else {
         point.style.backgroundColor = "red";
     }
-   
 
     // Ajout de l'id en dessous du point
     let idLabel = document.createElement("div");
     idLabel.className = "id-label";
-    idLabel.innerText = id ? id : "";
     idLabel.style.userSelect = "none";
+    idLabel.style.position = "absolute";
+    idLabel.style.top = "-1px";
+    idLabel.style.left = "+22px";
+
+    console.log("idLabelBefore : " + idLabel);
+
+    let idLabelText; // Variable pour stocker le texte de l'idLabel
 
     if (id.startsWith("dwm1001-")) {
         // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idLabel = id.replace("dwm1001-", "");
+        idLabelText = id.replace("dwm1001-", "");
     } else {
         // Si non, utiliser directement l'ID comme le nombre
-        idLabel = id;
+        idLabelText = id;
     }
 
+    console.log("idLabelAfter : " + idLabelText);
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(point, id, coordX, coordY,target);
+        togglePopup(point, id, coordX, coordY, target);
     });
-    // Ajout de l'id en dessous du point
+
+    // Créer un nouvel élément TextNode avec la valeur de idLabelText
+    var textNode = document.createTextNode(idLabelText);
+
+    console.log("textNode : " + textNode.textContent);
+    // Ajouter le TextNode à l'élément idLabel
+    idLabel.appendChild(textNode);
+
+    console.log("idLabel : " + idLabel.textContent);
+    // Ajouter l'idLabel au point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
-    
 }
+
+function createLabelDifferent(coordX, coordY, id) {
+    let label = document.createElement("div");
+    label.className = "id-label";
+    label.style.userSelect = "none";
+
+    let idLabelText; // Variable pour stocker le texte de l'idLabel
+
+    if (id.startsWith("dwm1001-")) {
+        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
+        idLabelText = id.replace("dwm1001-", "");
+    } else {
+        // Si non, utiliser directement l'ID comme le nombre
+        idLabelText = id;
+    }
+
+    // Position du point
+    let originex = 1045; // Origine de la carte en x
+    let originey = 250; // Origine de la carte en y
+
+    // Positionnement du point aux coordonnées spécifiées avec translation
+    label.style.position = "absolute";
+    label.style.left = coordX * (-40.5) + originex +22+ "px";
+    label.style.top = coordY * 37 + originey +11+ "px";
+
+    // Créer un nouvel élément TextNode avec la valeur de idLabelText
+    var textNode = document.createTextNode(idLabelText);
+
+    // Ajouter le TextNode à l'élément idLabel
+    label.appendChild(textNode);
+
+    // Ajout du label à la carte
+    document.getElementById("map").appendChild(label);
+
+}
+
+
 
 // Fonction pour afficher ou masquer la boîte de dialogue
 function togglePopup(clickedPoint, id, coordX, coordY,target) {
