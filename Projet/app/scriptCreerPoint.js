@@ -3,15 +3,13 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddmw);
-        X.push(data[i].x);
-        Y.push(data[i].y);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, "dwm1001-82");
         console.log("Point : " + data[i].idCapteur + " crée avec succès");
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id, iddmw, target) {
+function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
@@ -21,10 +19,12 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
 
     let originex = 1045; // Origine de la carte en x
     let originey = 250; // Origine de la carte en y
+    let coeffx = -40.5;
+    let coeffy = 37;
 
     // Positionnement du point aux coordonnées spécifiées avec translation
-    point.style.left = coordX * (-40.5) + originex + "px";
-    point.style.top = coordY * 37 + originey + "px";
+    point.style.left = coordX * coeffx + originex + "px";
+    point.style.top = coordY * coeffy + originey + "px";
 
     if (couleur != null && couleur != "") {
         point.style.backgroundColor = "#" + couleur;
@@ -40,19 +40,21 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
     idLabel.style.top = "-1px";
     idLabel.style.left = "+22px";
 
+    let iddwmLabel = document.createElement("div");
+    iddwmLabel.className = "id-label";
+    iddwmLabel.style.userSelect = "none";
+    iddwmLabel.style.position = "absolute";
+    iddwmLabel.style.top = "-1px";
+    iddwmLabel.style.left = "+15px";
+
+
     console.log("idLabelBefore : " + idLabel);
 
+    let iddwmLabelText; // Variable pour stocker le texte de l'idLabel
     let idLabelText; // Variable pour stocker le texte de l'idLabel
 
-    if (id.startsWith("dwm1001-")) {
-        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idLabelText = id.replace("dwm1001-", "");
-    } else {
-        // Si non, utiliser directement l'ID comme le nombre
-        idLabelText = id;
-    }
-
-    console.log("idLabelAfter : " + idLabelText);
+    iddwmLabelText = iddwm.replace("dwm1001-", "");
+    idLabelText = id;
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
@@ -62,13 +64,19 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
     // Créer un nouvel élément TextNode avec la valeur de idLabelText
     var textNode = document.createTextNode(idLabelText);
 
-    console.log("textNode : " + textNode.textContent);
     // Ajouter le TextNode à l'élément idLabel
     idLabel.appendChild(textNode);
+
+    // Créer un nouvel élément TextNode avec la valeur de iddwmLabelText
+    var textNodedwm = document.createTextNode(iddwmLabelText);
+
+    // Ajouter le TextNode à l'élément idLabel
+    iddwmLabel.appendChild(textNodedwm);
 
     console.log("idLabel : " + idLabel.textContent);
     // Ajouter l'idLabel au point
     point.appendChild(idLabel);
+    point.appendChild(iddwmLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
