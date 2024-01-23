@@ -313,7 +313,28 @@ function afficherDonnees()
     echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $row["color"] . "</td><td>". $row['UID']."UID </td></tr>" ;
+
+        if($row['color'] == null){
+
+            $color = "null";
+
+        }else{
+                
+                $color = $row['color'];
+    
+        }
+        
+        if($row['UID'] == null){
+
+            $UID = "null";
+
+        }else{
+                
+                $UID = $row['UID'];
+    
+        }
+
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td></tr>" ;
     }
     $conn->close();
 }
