@@ -316,6 +316,39 @@ function afficherDonnees()
     $conn->close();
 }
 
+function afficherIds()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+
+    $requete = "SELECT idCapteur FROM ".table_name; // Modifier la requête pour récupérer seulement l'ID
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $ids = array();
+    $prefixe = "dwm1001-";
+
+    while ($row = $resultat->fetch_assoc()) {
+        // Vérifier si la sous-chaîne "dmw1001-" existe dans l'ID
+        $id = (strpos($row["idCapteur"], $prefixe) === 0) ? substr($row["idCapteur"], strlen($prefixe)) : $row["idCapteur"];
+        $ids[] = $id;
+    }
+    $conn->close();
+
+    return $ids;
+}
+
+
 function verifier_tablecapteurs(){
         $conn = new mysqli(servername, username, password, dbname);
 

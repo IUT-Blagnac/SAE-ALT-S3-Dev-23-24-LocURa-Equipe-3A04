@@ -20,7 +20,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="premierEtage" id="premierEtage"> Etage 1 </label>
+            <label><input type="checkbox" name="premierEtage" id="premierEtage" > Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
@@ -30,11 +30,15 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="nodes">
-            <label><input type="checkbox" id="node17"> Noeud 17</label>
-            <label><input type="checkbox" id="node18"> Noeud 18</label>
-            <label><input type="checkbox" id="node25"> Noeud 25</label>
-            <label><input type="checkbox" id="node69"> Noeud 69</label>
-            <label><input type="checkbox" id="node177"> Noeud 177</label>
+            <?php
+            include 'connexionBaseDeDonnees.php';
+
+            $ids = afficherIds();
+
+            foreach ($ids as $id) {
+                echo '<input type="checkbox" id="node'.$id.'"> Noeud ' . $id . '<br>';
+            }
+            ?>
         </div>
     </div>
 
