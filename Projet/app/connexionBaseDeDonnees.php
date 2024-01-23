@@ -271,6 +271,38 @@ function RecupererDonneesSetup()
     return $data;      
 }
 
+/**
+ * Fonction qui récupère les ids des capteurs dans la base de données et les retourne sous forme de tableau
+ */
+function afficherIds()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+
+    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $ids = array();
+
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row['idCapteur'];
+    }
+    $conn->close();
+
+    return $ids;
+}
+
 #endregion
 
 #region Fonctions DonneesComm
@@ -473,11 +505,6 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-    echo $resultat->num_rows;
-    // Afficher les résultats
-    while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID, ".$row['iddwm']." DWM<br>" ;
-    }
 
     echo "<h2>Ranging : </h2><br>";
     $requete = "SELECT * FROM ".NomTableDonnesRanging;
@@ -488,7 +515,7 @@ function afficherDonnees()
     }
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th></tr>";
+    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
 
@@ -512,45 +539,15 @@ function afficherDonnees()
     
         }
 
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td></tr>" ;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
     }
 
     $conn->close();
 }
 
-function afficherIds()
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-
-    $requete = "SELECT idCapteur FROM ".table_name; // Modifier la requête pour récupérer seulement l'ID
-    $resultat = $conn->query($requete);
-
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-
-    $ids = array();
-    $prefixe = "dwm1001-";
-
-    while ($row = $resultat->fetch_assoc()) {
-        // Vérifier si la sous-chaîne "dmw1001-" existe dans l'ID
-        $id = (strpos($row["idCapteur"], $prefixe) === 0) ? substr($row["idCapteur"], strlen($prefixe)) : $row["idCapteur"];
-        $ids[] = $id;
-    }
-    $conn->close();
-
-    return $ids;
-}
-
-
+/**
+ * Fonction qui vérifie si la table capteurs existe
+ */
 function verifier_tablecapteurs(){
         $conn = new mysqli(servername, username, password, dbname);
 
@@ -575,6 +572,9 @@ function verifier_tablecapteurs(){
         return $count == 0;
 }
 
+/**
+ * Fonction de gogole a enlever
+ */
 function AjouterPointOrigine() {
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -591,7 +591,7 @@ function AjouterPointOrigine() {
     $color = "000000"; // noir en hexadécimal
     $uid = null;
 
-    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
+    $requete = "INSERT INTO ".NomTableDonneesSetup." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
