@@ -179,6 +179,9 @@ body {
     color: #000;
 }
 
+.hidden {
+    display: none;
+}
 
 /* Ajoutez ces styles pour la boîte de dialogue */
 .popup {
@@ -246,6 +249,13 @@ body {
     margin: 0;
 }
 .signaling{
+    display: none;
+    position: absolute;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
+}
+
+.node{
     display: none;
     position: absolute;
     background-color: #d1db16;

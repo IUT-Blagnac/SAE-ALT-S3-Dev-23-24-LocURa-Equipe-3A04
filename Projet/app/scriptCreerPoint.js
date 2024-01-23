@@ -4,7 +4,6 @@ function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, "dwm1001-82");
-        console.log("Point : " + data[i].idCapteur + " crée avec succès");
     }
 }
 
@@ -40,8 +39,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     idLabel.style.top = "-1px";
     idLabel.style.left = "+22px";
 
-    console.log("idLabelBefore : " + idLabel);
-
     let idLabelText; // Variable pour stocker le texte de l'idLabel
 
     if (id.startsWith("dwm1001-")) {
@@ -52,7 +49,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
         idLabelText = id;
     }
 
-    console.log("idLabelAfter : " + idLabelText);
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
@@ -65,7 +61,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Ajouter le TextNode à l'élément idLabel
     idLabel.appendChild(textNode);
 
-    console.log("idLabel : " + idLabel.textContent);
     // Ajouter l'idLabel au point
     point.appendChild(idLabel);
 
@@ -235,14 +230,10 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
         let pointID = point.id.replace("dwm1001-", "");
         // Vérifier si le point est associé à une case cochée
         let isAssociated = checkedCheckboxIds.includes(pointID);
-        console.log(checkedCheckboxIds);
-        console.log("Point ID:", pointID, "Is Associated:", isAssociated);
         if (isAssociated) {
-            console.log("Point ID:", pointID, "Is Associated:", isAssociated);
             // Si associé, afficher le point en supprimant la classe transparenttotal
             point.classList.remove("transparenttotal");
         } else {
-            console.log("Transparent");
             // Sinon, appliquer la classe transparenttotal
             point.classList.add("transparenttotal");
         }
@@ -250,22 +241,24 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 }
 
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
+// Sélectionnez toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
 // Ajoutez un écouteur d'événements à chaque case à cocher
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
-        checkbox.id = checkbox.id.replace("node", "");
+        // Extrait l'ID en utilisant l'attribut de données
+        var checkboxId = checkbox.getAttribute('data-node-id');
 
-        console.log("Checkbox changed:", checkbox.id, "Checked:", checkbox.checked);
-
+        console.log("Checkbox changed:", checkboxId, "Checked:", checkbox.checked);
 
         // Obtenez tous les identifiants des cases à cocher cochées
         let checkedCheckboxIds = Array.from(checkboxes)
             .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.id);
+            .map(checkbox => checkbox.getAttribute('data-node-id'));
 
         // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
         updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
     });
 });
+

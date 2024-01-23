@@ -4,6 +4,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+
+
+
 <div class="navbar">
     <div class="dropdown">
         <button class="dropbtn"> Environnement
@@ -30,17 +34,24 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="nodes">
+            <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
+
             <?php
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
 
             foreach ($ids as $id) {
-                echo '<input type="checkbox" id="node'.$id.'"> Noeud ' . $id . '<br>';
+                
+                echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
+                echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
+                echo '</div>';
             }
             ?>
         </div>
     </div>
+
+    <script src="rechercheParId.js" ></script>
 
     <div class="label">
         Laboratory Map
