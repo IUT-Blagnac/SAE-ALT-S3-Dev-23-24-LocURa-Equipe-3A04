@@ -41,11 +41,11 @@
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
-            echo '<label><input type="checkbox" class="select-all" id="selectAll">Select All</label>';
+            echo '<label><input type="checkbox" class="select-all" id="selectAll" checked>Select All</label>';
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
+                echo '<input type="checkbox" data-node-id="'.$id.'" checked>' . $id;
                 echo '</div>';
             }
             ?>
