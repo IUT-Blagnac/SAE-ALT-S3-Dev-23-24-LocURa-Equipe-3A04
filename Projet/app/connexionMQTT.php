@@ -17,6 +17,10 @@ $port     = 1883;
 
 InitBase();
 
+//TEMPORAIRE PR TEST
+
+
+
 $mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttClient::MQTT_3_1,null,$logger);
 $mqtt->connect();
 $mqtt->subscribe('localisation/+/setup', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
@@ -36,6 +40,14 @@ $mqtt->subscribe('testbed/node/+/out', function ($topic, $message, $retained, $m
     envoyerDonneesComm($topic,$message);
 
 }, 0);
+
+$mqtt->subscribe('ranging/+/+/indication', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    EnvoyerDonneesRanging($topic,$message);
+
+}, 0);
+
+
 $mqtt->loop(true);
 $mqtt->disconnect();
 
