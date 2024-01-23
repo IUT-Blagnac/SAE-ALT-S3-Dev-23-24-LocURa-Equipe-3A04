@@ -2,30 +2,15 @@ function filterNodes() {
     var input = document.getElementById('searchInput');
     var filter = input.value.toUpperCase();
     var nodeContainers = document.querySelectorAll('.node-container');
+    var checkedNodeId = null;
 
-    var anyContainerDisplayed = false;
-
+    // Recherche la checkbox cochée avant de filtrer
     nodeContainers.forEach(function(container) {
-        var nodeText = container.textContent || container.innerText;
-
-        if (nodeText.toUpperCase().indexOf(filter) > -1) {
-            container.style.display = '';  // Afficher le conteneur du nœud
-            anyContainerDisplayed = true;
-        } else {
-            container.style.display = 'none';  // Masquer le conteneur du nœud
+        var checkbox = container.querySelector('input[type="checkbox"]');
+        if (checkbox && checkbox.checked) {
+            checkedNodeId = checkbox.getAttribute('data-node-id');
         }
     });
-
-    // Afficher ou masquer le dropdown en fonction des résultats de la recherche
-    var dropdown = document.getElementById('nodes');
-
-    if (!anyContainerDisplayed) {
-        dropdown.innerHTML = '<br><option>Aucun point avec cette id</option>';  // Afficher le message d'aucun résultat
-    } 
-}function filterNodes() {
-    var input = document.getElementById('searchInput');
-    var filter = input.value.toUpperCase();
-    var nodeContainers = document.querySelectorAll('.node-container');
 
     var anyContainerDisplayed = false;
 

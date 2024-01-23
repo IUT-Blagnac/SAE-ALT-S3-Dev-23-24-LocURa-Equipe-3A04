@@ -251,7 +251,13 @@ checkboxes.forEach(function (checkbox) {
         // Extrait l'ID en utilisant l'attribut de données
         var checkboxId = checkbox.getAttribute('data-node-id');
 
-        console.log("Checkbox changed:", checkboxId, "Checked:", checkbox.checked);
+
+        if (this.checked) {
+            // Si la case est cochée, la remonter en haut de la dropdown list
+            console.log("Checkbox checked:", checkboxId);
+            var parent = checkbox.parentNode;
+            parent.prepend(checkbox);
+        }
 
         // Obtenez tous les identifiants des cases à cocher cochées
         let checkedCheckboxIds = Array.from(checkboxes)
