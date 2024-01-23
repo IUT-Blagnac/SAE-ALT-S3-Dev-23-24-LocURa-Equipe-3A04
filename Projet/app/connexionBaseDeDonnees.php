@@ -50,6 +50,8 @@ function InitBase()
     );";
     $conn ->execute_query($requete);
     $conn->close();
+
+    AjouterPointOrigine();
 }
 
 #endregion
@@ -337,6 +339,42 @@ function verifier_tablecapteurs(){
         $conn->close();
         
         return $count == 0;
+}
+
+function AjouterPointOrigine() {
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $idCapteur = "CapteurOrigine";
+    $x = 0;
+    $y = 0;
+    $z = 0;
+    $orientation = 0;
+    $color = "000000"; // noir en hexadécimal
+    $uid = null;
+
+    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
+
+    // Préparation de la requête
+    $statement = $conn->prepare($requete);
+
+    $statement->bind_param("sddddss", $idCapteur, $x, $y, $z, $orientation, $color,$uid);
+
+    // Exécution de la requête
+    $resultat = $statement->execute();
+
+    // Vérifier l'exécution de la requête
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    // Fermer la connexion et le statement
+    $statement->close();
+    $conn->close();
 }
 
 #endregion
