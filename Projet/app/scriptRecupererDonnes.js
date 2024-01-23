@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             createPoints(data);
         },
         error: function(error) {
-            console.error('Ouais :', error);
+            console.error(error);
         }
     });
 });

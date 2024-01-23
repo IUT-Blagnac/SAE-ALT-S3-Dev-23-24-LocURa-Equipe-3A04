@@ -20,7 +20,8 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="premierEtage" id="premierEtage"> Etage 1 </label>
+            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
+            <label><input type="checkbox" name="premierEtage" id="premierEtage" checked> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
@@ -30,11 +31,22 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="nodes">
+            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
             <label><input type="checkbox" id="node17"> Noeud 17</label>
             <label><input type="checkbox" id="node18"> Noeud 18</label>
             <label><input type="checkbox" id="node25"> Noeud 25</label>
             <label><input type="checkbox" id="node69"> Noeud 69</label>
             <label><input type="checkbox" id="node177"> Noeud 177</label>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn"> Affichage points
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="affPoints">
+            <label><input type="checkbox" id="selectID"> ID</label>
+            <label><input type="checkbox" id="selectUID"> UID</label>
         </div>
     </div>
 
@@ -58,6 +70,8 @@
 <script src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
+<!-- Inclure le script select all -->
+<script src="scriptSelectAll.js"></script>
 
 <img id="map-image" class="map-image">
 
