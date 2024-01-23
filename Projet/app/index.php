@@ -41,7 +41,7 @@
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
-            echo "<label><input type="checkbox" class="select-all" id="selectAll">Select All</label>";
+            echo "<label><input type='checkbox' class='select-all' id='selectAll'>Select All</label>";
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
