@@ -3,15 +3,13 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddmw);
-        X.push(data[i].x);
-        Y.push(data[i].y);
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, "dwm1001-82");
         console.log("Point : " + data[i].idCapteur + " crée avec succès");
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id, iddmw, target) {
+function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
@@ -21,10 +19,12 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
 
     let originex = 1045; // Origine de la carte en x
     let originey = 250; // Origine de la carte en y
+    let coeffx = -40.5;
+    let coeffy = 37;
 
     // Positionnement du point aux coordonnées spécifiées avec translation
-    point.style.left = coordX * (-40.5) + originex + "px";
-    point.style.top = coordY * 37 + originey + "px";
+    point.style.left = coordX * coeffx + originex + "px";
+    point.style.top = coordY * coeffy + originey + "px";
 
     if (couleur != null && couleur != "") {
         point.style.backgroundColor = "#" + couleur;
@@ -40,10 +40,22 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
     idLabel.style.top = "-1px";
     idLabel.style.left = "+22px";
 
+    // let iddwmLabel = document.createElement("div");
+    // iddwmLabel.className = "id-label";
+    // iddwmLabel.style.userSelect = "none";
+    // iddwmLabel.style.position = "absolute";
+    // iddwmLabel.style.top = "-1px";
+    // iddwmLabel.style.left = "+15px";
+
+    
+
+
     console.log("idLabelBefore : " + idLabel);
 
+    // let iddwmLabelText; // Variable pour stocker le texte de l'idLabel
     let idLabelText; // Variable pour stocker le texte de l'idLabel
 
+    // iddwmLabelText = iddwm.replace("dwm1001-", "");
     if (id.startsWith("dwm1001-")) {
         // Si oui, extraire le nombre de l'ID en supprimant le préfixe
         idLabelText = id.replace("dwm1001-", "");
@@ -51,8 +63,7 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
         // Si non, utiliser directement l'ID comme le nombre
         idLabelText = id;
     }
-
-    console.log("idLabelAfter : " + idLabelText);
+    
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
@@ -62,52 +73,24 @@ function createPoint(coordX, coordY, couleur, id, iddmw, target) {
     // Créer un nouvel élément TextNode avec la valeur de idLabelText
     var textNode = document.createTextNode(idLabelText);
 
-    console.log("textNode : " + textNode.textContent);
     // Ajouter le TextNode à l'élément idLabel
     idLabel.appendChild(textNode);
+
+    // Créer un nouvel élément TextNode avec la valeur de iddwmLabelText
+    // var textNodedwm = document.createTextNode(iddwmLabelText);
+
+    // Ajouter le TextNode à l'élément idLabel
+    // iddwmLabel.appendChild(textNodedwm);
 
     console.log("idLabel : " + idLabel.textContent);
     // Ajouter l'idLabel au point
     point.appendChild(idLabel);
+    // point.appendChild(iddwmLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
 }
 
-function createLabelDifferent(coordX, coordY, id) {
-    let label = document.createElement("div");
-    label.className = "id-label";
-    label.style.userSelect = "none";
-
-    let idLabelText; // Variable pour stocker le texte de l'idLabel
-
-    if (id.startsWith("dwm1001-")) {
-        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idLabelText = id.replace("dwm1001-", "");
-    } else {
-        // Si non, utiliser directement l'ID comme le nombre
-        idLabelText = id;
-    }
-
-    // Position du point
-    let originex = 1045; // Origine de la carte en x
-    let originey = 250; // Origine de la carte en y
-
-    // Positionnement du point aux coordonnées spécifiées avec translation
-    label.style.position = "absolute";
-    label.style.left = coordX * (-40.5) + originex +22+ "px";
-    label.style.top = coordY * 37 + originey +11+ "px";
-
-    // Créer un nouvel élément TextNode avec la valeur de idLabelText
-    var textNode = document.createTextNode(idLabelText);
-
-    // Ajouter le TextNode à l'élément idLabel
-    label.appendChild(textNode);
-
-    // Ajout du label à la carte
-    document.getElementById("map").appendChild(label);
-
-}
 
 
 
@@ -250,7 +233,6 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
             point.classList.add("transparenttotal");
             point.classList.remove("opacity");
         } else {
-            point.classList.add("opacity");
             point.classList.remove("transparenttotal");
         }
     });
@@ -268,16 +250,40 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 
     // Parcourir tous les points
     allPoints.forEach(function (point) {
-        let pointID = point.id;
+        let pointID = point.id.replace("dwm1001-", "");
         // Vérifier si le point est associé à une case cochée
         let isAssociated = checkedCheckboxIds.includes(pointID);
+        console.log(checkedCheckboxIds);
         console.log("Point ID:", pointID, "Is Associated:", isAssociated);
         if (isAssociated) {
+            console.log("Point ID:", pointID, "Is Associated:", isAssociated);
             // Si associé, afficher le point en supprimant la classe transparenttotal
             point.classList.remove("transparenttotal");
         } else {
+            console.log("Transparent");
             // Sinon, appliquer la classe transparenttotal
             point.classList.add("transparenttotal");
         }
     });
 }
+
+// Sélectionnez toutes les cases à cocher dans le menu déroulant
+var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
+
+// Ajoutez un écouteur d'événements à chaque case à cocher
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+        checkbox.id = checkbox.id.replace("node", "");
+
+        console.log("Checkbox changed:", checkbox.id, "Checked:", checkbox.checked);
+
+
+        // Obtenez tous les identifiants des cases à cocher cochées
+        let checkedCheckboxIds = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.id);
+
+        // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
+        updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
+    });
+});
