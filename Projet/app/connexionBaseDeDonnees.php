@@ -30,7 +30,7 @@ function InitBase()
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL,
         UID VARCHAR(30) NULL,
-        c VARCHAR(30) NULL
+        iddmw VARCHAR(30) NULL
     );";
     
 
