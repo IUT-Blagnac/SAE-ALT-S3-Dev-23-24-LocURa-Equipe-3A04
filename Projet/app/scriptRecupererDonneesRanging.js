@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         url: 'donnes.php',
         method: 'post',
         dataType: 'json',
-        data:{request: "pointsFixesData"},
+        data:{request: "ranging"},
         success: function (data) {
             console.log('Données récupérées avec succès :', data);
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             createPoints(data);
         },
         error: function(error) {
-            console.error(error);
+            console.error('Ouais :', error);
         }
     });
 });

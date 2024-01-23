@@ -22,6 +22,8 @@ body {
 .dropdown {
     float: right;
     overflow: hidden;
+    display: block;
+    z-index:100000000;
 }
 
 .dropdown .dropbtn {
@@ -33,23 +35,24 @@ body {
     background-color: #333;
     font-family: Arial, sans-serif;
     margin: 0;
+    z-index: 100000000;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #ddd; 
-    color: black; 
+    color: black;
 }
 
 .dropdown-content {
-    right: 0;
+    right: auto;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
     max-height: 500px;
     overflow-y: auto;
+    z-index: 100000000
 }
 
 .dropdown-content label {
@@ -59,6 +62,8 @@ body {
     text-decoration: none;
     display: block;
     text-align: left;
+    z-index: 100000000;
+    position: relative;
 }
 
 .dropdown-content label:hover {
@@ -115,30 +120,9 @@ body {
     color: black;
 }
 
-.dropdown-content {
-    right: auto;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-    max-height: 500px;
-    overflow-y: auto;
-}
-
 
 .nodes .dropdown-content {
     right: 0;
-}
-
-.dropdown-content label {
-    float: none;
-    color: black; 
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
 }
 
 .dropdown-content label:hover {
@@ -158,8 +142,26 @@ body {
 
 .map {
     width: 1000px;
-    height: 1000px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
     position: relative;
+}
+
+.map-container {
+    width: 1000px;
+    height: auto;
+    margin-right: auto;
+    margin-left: 125px;
+    margin-top: 22px;
+    z-index: -9999;
+    position: relative;
+}
+
+.origin {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .point {
@@ -167,16 +169,21 @@ body {
     height: 10px;
     position: absolute;
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .id-label {
-    position: absolute;
+    position: relative;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px; 
     color: #000;
+    z-index: 998;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Ajoutez ces styles pour la boîte de dialogue */
@@ -189,7 +196,6 @@ body {
     z-index: 10000;
 }
 
-
 /* Styles pour les points transparents */
 .transparent {
     opacity: 0.1; /* Opacité des points transparents */
@@ -201,17 +207,6 @@ body {
 
 .opacity {
     opacity: 1; /* Opacité des points transparents */
-}
-
-.map-container {
-    width: 1000px;
-    height: auto;
-    position: absolute;
-    top: 200px;
-    left: 620px;
-    transform: translate(-50%, -50%);
-    z-index: -9999;
-    user-select: none;
 }
 
 .navbar .node {
@@ -245,6 +240,13 @@ body {
     margin: 0;
 }
 .signaling{
+    display: none;
+    position: absolute;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
+}
+
+.node{
     display: none;
     position: absolute;
     background-color: #d1db16;
