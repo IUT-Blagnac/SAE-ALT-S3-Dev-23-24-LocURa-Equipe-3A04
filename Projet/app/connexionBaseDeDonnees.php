@@ -22,6 +22,9 @@ function InitBase()
     }
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    $requete = "DROP TABLE IF EXISTS ".NomTableDonnesRanging.",".NomTableDonnesOut. ",".NomTableDonneesSetup.";";
+    $conn->execute_query($requete);
+    
     
     $requete = "CREATE TABLE ".NomTableDonneesSetup." (
         idCapteur VARCHAR(30) PRIMARY KEY,
@@ -33,8 +36,6 @@ function InitBase()
         UID CHAR(4) NULL,
         iddwm VARCHAR(30) NULL
     );";
-    
-
     $conn ->execute_query($requete);
 
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
@@ -62,7 +63,6 @@ function InitBase()
         CONSTRAINT fk_".NomTableDonnesRanging."_initiator FOREIGN KEY (initiator) REFERENCES ".NomTableDonneesSetup." (idCapteur),
         CONSTRAINT fk_".NomTableDonnesRanging."_target FOREIGN KEY (target) REFERENCES ".NomTableDonneesSetup." (idCapteur)
     );";
-
     $conn ->execute_query($creationTableRanging);
 
     $conn->close();
@@ -106,7 +106,7 @@ function EnvoyerDonnesNoeudSetup($topic,$message)
         // Préparation de la requête
         $statement = $conn->prepare($requete);
 
-        $statement->bind_param("sddddss", $idCapteur, $x, $y, $z, $orientation, $color);
+        $statement->bind_param("sdddds", $idCapteur, $x, $y, $z, $orientation, $color);
 
         // Exécution de la requête
         $resultat = $statement->execute();
@@ -261,7 +261,8 @@ function RecupererDonneesSetup()
             'z' => $row['z'],
             'orientation' => $row['orientation'],
             'color' => $row['color'],
-            'UID' => $row['UID']   
+            'UID' => $row['UID'],
+            'iddwm' => $row['iddwm']
         );
     }
     $conn->close();
@@ -470,9 +471,10 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+    echo $resultat->num_rows;
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID <br>" ;
+        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID, ".$row['iddwm']." DWM<br>" ;
     }
 
     echo "<h2>Ranging : </h2><br>";
