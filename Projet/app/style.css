@@ -22,6 +22,7 @@ body {
 .dropdown {
     float: right;
     overflow: hidden;
+    display: block;
 }
 
 .dropdown .dropbtn {
@@ -37,7 +38,7 @@ body {
 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #ddd; 
-    color: black; 
+    color: black;
 }
 
 .dropdown-content {

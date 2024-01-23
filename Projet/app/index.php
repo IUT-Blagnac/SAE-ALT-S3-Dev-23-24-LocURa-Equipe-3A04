@@ -35,17 +35,16 @@
             <label><input type="checkbox" id="node25"> Noeud 25</label>
             <label><input type="checkbox" id="node69"> Noeud 69</label>
             <label><input type="checkbox" id="node177"> Noeud 177</label>
+        </div>
+    </div>
 
-            <div class="dropdown">
-                <button class="dropbtn"> Affichage points
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="affPoints">
-                    <label><input type="checkbox" id="selectID"> ID</label>
-                    <label><input type="checkbox" id="selectUID"> UID</label>
-                </div>
-            </div>
-
+    <div class="dropdown">
+        <button class="dropbtn"> Affichage points
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="affPoints">
+            <label><input type="checkbox" id="selectID"> ID</label>
+            <label><input type="checkbox" id="selectUID"> UID</label>
         </div>
     </div>
 
