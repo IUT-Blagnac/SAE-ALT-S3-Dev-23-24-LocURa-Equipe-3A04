@@ -24,7 +24,8 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" name="premierEtage" id="premierEtage" > Etage 1 </label>
+            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
+            <label><input type="checkbox" name="premierEtage" id="premierEtage" checked> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
@@ -40,7 +41,7 @@
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
-
+            echo "<label><input type="checkbox" class="select-all" id="selectAll">Select All</label>";
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
@@ -52,6 +53,15 @@
     </div>
 
     <script src="rechercheParId.js" ></script>
+    <div class="dropdown">
+        <button class="dropbtn"> Affichage points
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="affPoints">
+            <label><input type="checkbox" id="selectID"> ID</label>
+            <label><input type="checkbox" id="selectUID"> UID</label>
+        </div>
+    </div>
 
     <div class="label">
         Laboratory Map
@@ -73,6 +83,8 @@
 <script src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
+<!-- Inclure le script select all -->
+<script src="scriptSelectAll.js"></script>
 
 <img id="map-image" class="map-image">
 
