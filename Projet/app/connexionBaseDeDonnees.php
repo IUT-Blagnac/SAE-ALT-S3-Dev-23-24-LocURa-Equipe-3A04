@@ -311,9 +311,12 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+    //Création du tableau 
+    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID <br>" ;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $row["color"] . "</td><td>". $row['UID']."UID </td></tr>" ;
     }
     $conn->close();
 }
