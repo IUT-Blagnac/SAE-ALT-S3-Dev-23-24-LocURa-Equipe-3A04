@@ -14,3 +14,4 @@ if(isset($_POST["request"]))
         echo json_encode(RecupererDonneesRanging());
     }
 }
+

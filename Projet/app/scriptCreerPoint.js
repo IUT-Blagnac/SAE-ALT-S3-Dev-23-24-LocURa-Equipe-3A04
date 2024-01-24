@@ -1,7 +1,10 @@
 import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y } from './constantes.js';
 
-// Fonction pour créer les points à partir des données récupérées
-function createPoints(data) {
+/**
+ *  Fonction pour créer les points à partir des données récupérées
+ * @param {Array} data 
+ */
+export function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
