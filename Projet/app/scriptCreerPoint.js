@@ -1,3 +1,4 @@
+import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y } from './constantes.js';
 
 // Fonction pour créer les points à partir des données récupérées
 function createPoints(data) {
@@ -17,14 +18,9 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Ajout de l'ID comme attribut au point
     point.setAttribute("id", id);
 
-    let originex = 1045; // Origine de la carte en x
-    let originey = 250; // Origine de la carte en y
-    let coeffx = -40.5;
-    let coeffy = 37;
-
     // Positionnement du point aux coordonnées spécifiées avec translation
-    point.style.left = coordX * coeffx + originex + "px";
-    point.style.top = coordY * coeffy + originey + "px";
+    point.style.left = coordX * COEFF_X + X_ORIGINE_C + "px";
+    point.style.top = coordY * COEFF_Y + Y_ORIGINE_C + "px";
 
     if (couleur != null && couleur != "") {
         point.style.backgroundColor = "#" + couleur;
@@ -68,9 +64,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
 }
-
-
-
 
 // Fonction pour afficher ou masquer la boîte de dialogue
 function togglePopup(clickedPoint, id, coordX, coordY,target) {

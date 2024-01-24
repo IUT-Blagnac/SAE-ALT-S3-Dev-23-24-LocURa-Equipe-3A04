@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Utiliser AJAX pour récupérer les données du serveur
     $.ajax({
         url: 'donnes.php',
         method: 'post',
