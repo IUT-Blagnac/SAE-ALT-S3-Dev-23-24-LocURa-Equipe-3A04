@@ -151,8 +151,8 @@ body {
 }
 
 .map-container {
-    width: 1000px;
-    height: auto;
+    max-width: 1000px;
+    max-height: 599px;
     margin-right: auto;
     margin-left: 125px;
     margin-top: 22px;

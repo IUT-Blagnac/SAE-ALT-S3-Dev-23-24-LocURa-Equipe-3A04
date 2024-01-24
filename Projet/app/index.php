@@ -24,7 +24,6 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
             <label><input type="checkbox" name="premierEtage" id="premierEtage" checked> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
