@@ -1,5 +1,8 @@
-
-// Fonction pour créer les points à partir des données récupérées
+/**
+ * Fonction pour créer les points à partir des données récupérées
+ * 
+ * @param {*} data : Les données récupérées 
+ */
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
@@ -7,9 +10,16 @@ function createPoints(data) {
         console.log("Point : " + data[i].idCapteur+ " créé avec succès");
     }
 }
-
-// Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id, iddwm, target) {
+/**
+ * Fonction pour créer un point
+ * 
+ * @param {*} coordX : La coordonnée X du point
+ * @param {*} coordY : La coordonnée Y du point
+ * @param {*} couleur : La couleur du point
+ * @param {*} id : L'id du noeud
+ * @param {*} iddwm : Le deuxieme id du noeud
+ */
+function createPoint(coordX, coordY, couleur, id, iddwm) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
@@ -53,7 +63,7 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(point, id, coordX, coordY, target);
+        togglePopup(point, id, coordX, coordY);
     });
 
     // Créer un nouvel élément TextNode avec la valeur de idLabelText
@@ -70,9 +80,14 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
 }
 
 
-
-
-// Fonction pour afficher ou masquer la boîte de dialogue
+/**
+ * Fonction pour afficher ou masquer la boîte de dialogue
+ * 
+ * @param {*} clickedPoint : Le point cliqué 
+ * @param {*} id : l'id du noeud
+ * @param {*} coordX : Le coordonnée X du noeud
+ * @param {*} coordY : Le coordonnée Y du noeud
+ */
 function togglePopup(clickedPoint, id, coordX, coordY,target) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
@@ -97,20 +112,29 @@ function togglePopup(clickedPoint, id, coordX, coordY,target) {
         toggleSignaling(id,target);
     }
 }
-
-function toggleSignaling(id,target) {
+/**
+ * Fonction qui crée l'effet clignotant
+ * 
+ * @param {*} id L'id du noeud
+ */
+function toggleSignaling(id) {
     let clickedPoint = document.getElementById(id);
 
     // Vérifier si le point cliqué est le point spécifique que vous souhaitez signaler
     if (id === target) {
-        isSignaling = !isSignaling;
 
-        // Si le signal est activé, ajouter une classe pour indiquer l'état de signalisation
-        clickedPoint.classList.toggle("signaling", isSignaling);
+        // Si le noeud qui clignotant est visible, le rendre invisible, sinon le rendre visible
+        clickedPoint.style.visibility(clickedPoint.style.visibility === "visible" ? "hidden" : "visible");
+
     }
 }
-
-// Fonction pour afficher la boîte de dialogue
+/**
+ * Fonction pour afficher la boîte de dialogue
+ * 
+ * @param {*} id : l'id du noeud
+ * @param {*} coordX : Le coordonnée X du noeud
+ * @param {*} coordY : Le coordonnée Y du noeud
+ */
 function showPopup(id, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
@@ -144,7 +168,9 @@ function showPopup(id, coordX, coordY) {
     popup.style.display = "block";
 }
 
-// Fonction pour réinitialiser la transparence de tous les points
+/**
+ * Fonction pour réinitialiser la transparence de tous les points
+ */
 function resetPointsTransparency() {
     let allPoints = document.querySelectorAll(".point");
 
@@ -167,7 +193,11 @@ function resetPointsTransparency() {
     
 }
 
-// Fonction pour mettre à jour les classes des points pour indiquer la sélection
+/**
+ * Fonction pour mettre à jour les classes des points pour indiquer la sélection
+ * 
+ * @param {*} clickedPoint : Le point cliqué
+ */
 function updatePointSelection(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -178,7 +208,11 @@ function updatePointSelection(clickedPoint) {
     });
 }
 
-// Fonction pour basculer la transparence des autres points
+/**
+ * Fonction pour basculer la transparence des autres points
+ * 
+ * @param {*} clickedPoint : Le point cliqué
+ */
 function toggleOtherPointsTransparency(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -196,7 +230,11 @@ function toggleOtherPointsTransparency(clickedPoint) {
 
 }
 
-
+/**
+ * Fonction pour basculer la transparence des autres points
+ * 
+ * @param {*} clickedPoint : Le point cliqué
+ */
 function toggleOtherPointsTransparencyTotal(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -216,6 +254,12 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
     });
 }
 
+/**
+ * Fonction pour mettre à jour la transparence des points en fonction des cases à cocher
+ * 
+ * @param {*} checkedCheckboxIds : Les identifiants des cases cochées
+ *  
+ */
 function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 
     let allPoints = document.querySelectorAll(".point");
@@ -240,8 +284,6 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
         }
     });
 }
-
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 

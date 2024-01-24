@@ -13,4 +13,9 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesRanging());
     }
+    if($_POST["request"] == "ancrageData")
+    {
+        header('Content-Type: application/json');
+        echo json_encode(RecupererDonneesComm());
+    }
 }
