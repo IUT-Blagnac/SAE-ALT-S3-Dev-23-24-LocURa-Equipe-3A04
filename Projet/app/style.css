@@ -157,7 +157,7 @@ body {
     margin-left: 125px;
     margin-top: 22px;
     z-index: -9999;
-    position: relative;
+    position: absolute;
 }
 
 .origin {
@@ -259,4 +259,19 @@ body {
     position: absolute;
     background-color: #d1db16;
     border: 3px solid #ccc;
+}
+
+.layer1 {
+    z-index: 1;
+    opacity: 1;
+}
+
+.layer2 {
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.layer3 {
+    z-index: 3;
+    opacity: 0.3;
 }
