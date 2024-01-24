@@ -37,17 +37,24 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Ajout de l'id en dessous du point
     let idLabel = createIdLabel(); // Utiliser la fonction pour créer idLabel
 
-    // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
-    point.addEventListener("click", function () {
 
-        togglePopup(point, id, uid, iddwm, coordX, coordY);
-    });
+    if (id != "CapteurOrigine") {
+        // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
+
+         point.addEventListener("click", function () {
+
+            togglePopup(point, id, uid, iddwm, coordX, coordY);
+         });
+        
+ 
+    } 
 
     // Ajouter le idLabel au point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
+    
 }
 
 // Fonction pour créer l'élément idLabel
