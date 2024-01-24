@@ -13,7 +13,7 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesRanging());
     }
-    if($_POST["request"] == "ancrageData")
+    if($_POST["request"] == "clignoterPoints")
     {
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesComm());

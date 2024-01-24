@@ -501,7 +501,8 @@ function afficherDonnees()
         }
 
         echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td></tr>" ;
-
+    }
+    echo "</table>";
     echo $resultat->num_rows;
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
@@ -524,6 +525,10 @@ function afficherDonnees()
     $conn->close();
 }
 
+/**
+ * Fonction qui retourne tous les données 
+ * 
+ */
 function afficherIds()
 {
     $conn = new mysqli(servername, username, password, dbname);
@@ -556,7 +561,9 @@ function afficherIds()
     return $ids;
 }
 
-
+/**
+ * Fonction qui vérifie si la table des capteurs existe
+ */
 function verifier_tablecapteurs(){
         $conn = new mysqli(servername, username, password, dbname);
 
@@ -580,7 +587,9 @@ function verifier_tablecapteurs(){
         
         return $count == 0;
 }
-
+/**
+ * Fonction qui insert le point d'origine dans la table des capteurs existe
+ */
 function AjouterPointOrigine() {
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -617,4 +626,4 @@ function AjouterPointOrigine() {
     $conn->close();
 }
 
-#endregion
+#endregion 

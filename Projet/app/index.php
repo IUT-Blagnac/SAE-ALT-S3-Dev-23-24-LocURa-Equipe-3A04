@@ -85,6 +85,8 @@
 <script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
+<!-- Inclure le script JavaScript pour le clignotement des points -->
+<script src ="scriptClignoterPoints.js"></script>
 
 <img id="map-image" class="map-image">
 

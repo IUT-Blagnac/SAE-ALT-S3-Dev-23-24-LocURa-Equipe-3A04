@@ -88,7 +88,7 @@ function createPoint(coordX, coordY, couleur, id, iddwm) {
  * @param {*} coordX : Le coordonnée X du noeud
  * @param {*} coordY : Le coordonnée Y du noeud
  */
-function togglePopup(clickedPoint, id, coordX, coordY,target) {
+function togglePopup(clickedPoint, id, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
@@ -109,7 +109,7 @@ function togglePopup(clickedPoint, id, coordX, coordY,target) {
         clickedPoint.classList.remove("transparent");
         // Ajouter la classe transparent aux autres points
         toggleOtherPointsTransparency(clickedPoint);
-        toggleSignaling(id,target);
+        
     }
 }
 /**
@@ -120,13 +120,8 @@ function togglePopup(clickedPoint, id, coordX, coordY,target) {
 function toggleSignaling(id) {
     let clickedPoint = document.getElementById(id);
 
-    // Vérifier si le point cliqué est le point spécifique que vous souhaitez signaler
-    if (id === target) {
-
         // Si le noeud qui clignotant est visible, le rendre invisible, sinon le rendre visible
-        clickedPoint.style.visibility(clickedPoint.style.visibility === "visible" ? "hidden" : "visible");
-
-    }
+        clickedPoint.style.opacity(clickedPoint.style.opacity === 1 ? 0.25 : 1);
 }
 /**
  * Fonction pour afficher la boîte de dialogue
@@ -192,7 +187,6 @@ function resetPointsTransparency() {
     });
     
 }
-
 /**
  * Fonction pour mettre à jour les classes des points pour indiquer la sélection
  * 
