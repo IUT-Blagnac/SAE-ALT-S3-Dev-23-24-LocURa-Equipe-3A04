@@ -74,6 +74,7 @@
     </div>
     -->
 </div>
+
 <a href="debug.php">DEBUG</a>
 <!-- Inclure jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -85,6 +86,12 @@
 <script src="scriptChangeLayers.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
+<!-- Inclure le script pour les layers opacity -->
+<script src="scriptOpaciteLayers.js"></script>
+
+<button onclick="changeLayers('premierEtage')">Etage 1</button>
+<button onclick="changeLayers('deuxiemeEtage')">Etage 2</button>
+<button onclick="changeLayers('troisiemeEtage')">Etage 3</button>
 
 <img id="map-image" class="map-image">
 

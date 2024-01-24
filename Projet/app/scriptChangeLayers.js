@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 const img = document.createElement('img');
                 img.src = images[layer];
                 img.className = 'map-container';
+                img.style.position = 'absolute';
                 container.appendChild(img);
             }
         }

@@ -151,13 +151,11 @@ body {
 }
 
 .map-container {
-    max-width: 1000px;
-    max-height: 599px;
+    width: 1000px;
+    height: 599px;
     margin-right: auto;
     margin-left: 125px;
     margin-top: 22px;
-    z-index: -9999;
-    position: absolute;
 }
 
 .origin {
