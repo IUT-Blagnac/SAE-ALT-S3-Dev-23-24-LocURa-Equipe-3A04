@@ -54,14 +54,12 @@ function InitBase()
     $conn ->execute_query($requete);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
-        initiator VARCHAR(50),
-        target VARCHAR(50),
-        timestamp DECIMAL,
-        `range` FLOAT,
-        rangingError FLOAT,
-        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp),
-        CONSTRAINT fk_".NomTableDonnesRanging."_initiator FOREIGN KEY (initiator) REFERENCES ".NomTableDonneesSetup." (idCapteur),
-        CONSTRAINT fk_".NomTableDonnesRanging."_target FOREIGN KEY (target) REFERENCES ".NomTableDonneesSetup." (idCapteur)
+        initiator VARCHAR(50) NOT NULL,
+        target VARCHAR(50) NOT NULL,
+        timestamp DOUBLE NOT NULL,
+        `range` FLOAT NOT NULL,
+        rangingError FLOAT NOT NULL,
+        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp)
     );";
     $conn ->execute_query($creationTableRanging);
 
@@ -419,12 +417,12 @@ function EnvoyerDonneesRanging($topic,$message)
     $range = $data['range'];
     $rangingError = $data['rangingError'];
     
-    $requete = "INSERT INTO ".NomTableDonnesRanging." (initiator,target,timestamp,'range',rangingError) VALUES (?, ?, ?, ?, ?)";
+    $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `timestamp`, `range`, `rangingError`) VALUES (?, ?, ?, ?, ?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ssdff", $initiator, $target, $timestamp, $range, $rangingError);
+    $statement->bind_param("ssddd", $initiator, $target, $timestamp, $range, $rangingError);
 
     // Exécution de la requête
     $resultat = $statement->execute();
