@@ -64,7 +64,7 @@
 
     <script src="rechercheParId.js" ></script>
     <div class="dropdown">
-        <button class="dropbtn"> Affichage points
+        <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="affPoints">
