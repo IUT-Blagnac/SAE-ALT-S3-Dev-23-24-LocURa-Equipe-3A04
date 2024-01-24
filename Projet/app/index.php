@@ -42,10 +42,20 @@
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
+            var_dump($ids);
+
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
+                if($id['UID'] != null && $id['iddwm'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
+                else if($id['UID'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
+                else if($id['iddwm'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
+                else
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
+                
                 echo '</div>';
             }
             ?>
