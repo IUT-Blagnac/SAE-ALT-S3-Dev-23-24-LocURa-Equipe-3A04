@@ -36,6 +36,7 @@
         <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
 
         <div class="dropdown-content" id="nodes">
+            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
 
             <?php
             include 'connexionBaseDeDonnees.php';
@@ -81,7 +82,7 @@
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
-<script src="ajaxRequestToDataPHP.js" ></script>
+<script src="scriptChangeLayers.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
 
