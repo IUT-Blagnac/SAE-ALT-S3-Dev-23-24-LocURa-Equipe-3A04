@@ -34,14 +34,14 @@
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
         </button>
+        <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
+
         <div class="dropdown-content" id="nodes">
-            <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
 
             <?php
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
-            echo "<label><input type='checkbox' class='select-all' id='selectAll'>Select All</label>";
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
