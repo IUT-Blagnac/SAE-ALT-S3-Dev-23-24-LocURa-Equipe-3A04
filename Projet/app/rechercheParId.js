@@ -11,7 +11,6 @@ function filterNodes() {
             checkedNodeId = checkbox.getAttribute('data-node-id');
         }
     });
-
     var anyContainerDisplayed = false;
 
     nodeContainers.forEach(function(container) {

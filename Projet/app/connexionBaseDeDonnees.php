@@ -54,14 +54,12 @@ function InitBase()
     $conn ->execute_query($requete);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
-        initiator VARCHAR(50),
-        target VARCHAR(50),
-        timestamp DECIMAL,
-        `range` FLOAT,
-        rangingError FLOAT,
-        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp),
-        CONSTRAINT fk_".NomTableDonnesRanging."_initiator FOREIGN KEY (initiator) REFERENCES ".NomTableDonneesSetup." (idCapteur),
-        CONSTRAINT fk_".NomTableDonnesRanging."_target FOREIGN KEY (target) REFERENCES ".NomTableDonneesSetup." (idCapteur)
+        initiator VARCHAR(50) NOT NULL,
+        target VARCHAR(50) NOT NULL,
+        timestamp DOUBLE NOT NULL,
+        `range` FLOAT NOT NULL,
+        rangingError FLOAT NOT NULL,
+        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp)
     );";
     $conn ->execute_query($creationTableRanging);
 
@@ -71,7 +69,6 @@ function InitBase()
 }
 
 #endregion
-
 
 #region Fonctions DonneesSetup
 /**
@@ -271,6 +268,38 @@ function RecupererDonneesSetup()
     return $data;      
 }
 
+/**
+ * Fonction qui récupère les ids des capteurs dans la base de données et les retourne sous forme de tableau
+ */
+function afficherIds()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+
+    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $ids = array();
+
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row['idCapteur'];
+    }
+    $conn->close();
+
+    return $ids;
+}
+
 #endregion
 
 #region Fonctions DonneesComm
@@ -388,12 +417,12 @@ function EnvoyerDonneesRanging($topic,$message)
     $range = $data['range'];
     $rangingError = $data['rangingError'];
     
-    $requete = "INSERT INTO ".NomTableDonnesRanging." (initiator,target,timestamp,range,rangingError) VALUES (?, ?, ?, ?, ?)";
+    $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `timestamp`, `range`, `rangingError`) VALUES (?, ?, ?, ?, ?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ssdff", $initiator, $target, $timestamp, $range, $rangingError);
+    $statement->bind_param("ssddd", $initiator, $target, $timestamp, $range, $rangingError);
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -473,22 +502,9 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-    echo $resultat->num_rows;
-    // Afficher les résultats
-    while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID, ".$row['iddwm']." DWM<br>" ;
-    }
-
-    echo "<h2>Ranging : </h2><br>";
-    $requete = "SELECT * FROM ".NomTableDonnesRanging;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th></tr>";
+    echo "<tr><th>idCapteur</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
 
@@ -512,45 +528,30 @@ function afficherDonnees()
     
         }
 
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td></tr>" ;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
     }
+    echo "</table>";
 
-    $conn->close();
-}
-
-function afficherIds()
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-
-    $requete = "SELECT idCapteur FROM ".table_name; // Modifier la requête pour récupérer seulement l'ID
+    echo "<h2>Ranging : </h2><br>";
+    $requete = "SELECT * FROM ".NomTableDonnesRanging;
     $resultat = $conn->query($requete);
-
     // Vérifier si la requête a réussi
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-
-    $ids = array();
-    $prefixe = "dwm1001-";
-
+    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<tr><th>initiator</th><th>target</th><th>timestamp</th><th>range</th><th>rangingError</th></tr>";
     while ($row = $resultat->fetch_assoc()) {
-        // Vérifier si la sous-chaîne "dmw1001-" existe dans l'ID
-        $id = (strpos($row["idCapteur"], $prefixe) === 0) ? substr($row["idCapteur"], strlen($prefixe)) : $row["idCapteur"];
-        $ids[] = $id;
+        echo "<tr><td>" . $row['initiator'] . "</td><td>".  $row["target"] . "</td><td>". $row["timestamp"] ."</td><td> ". $row["range"] . "</td><td>" . $row["rangingError"] . "</td></tr>" ;
     }
-    $conn->close();
+    echo "</table>";
 
-    return $ids;
+    $conn->close();
 }
 
-
+/**
+ * Fonction qui vérifie si la table capteurs existe
+ */
 function verifier_tablecapteurs(){
         $conn = new mysqli(servername, username, password, dbname);
 
@@ -575,6 +576,9 @@ function verifier_tablecapteurs(){
         return $count == 0;
 }
 
+/**
+ * Fonction de gogole a enlever
+ */
 function AjouterPointOrigine() {
     $conn = new mysqli(servername, username, password, dbname);
 
@@ -591,7 +595,7 @@ function AjouterPointOrigine() {
     $color = "000000"; // noir en hexadécimal
     $uid = null;
 
-    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
+    $requete = "INSERT INTO ".NomTableDonneesSetup." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
