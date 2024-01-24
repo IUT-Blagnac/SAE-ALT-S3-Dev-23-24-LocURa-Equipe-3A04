@@ -529,7 +529,7 @@ function afficherIds()
 
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
 
-    $requete = "SELECT idCapteur FROM ".table_name; // Modifier la requête pour récupérer seulement l'ID
+    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
     $resultat = $conn->query($requete);
 
     // Vérifier si la requête a réussi
@@ -591,7 +591,7 @@ function AjouterPointOrigine() {
     $color = "000000"; // noir en hexadécimal
     $uid = null;
 
-    $requete = "INSERT INTO ".table_name." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
+    $requete = "INSERT INTO ".NomTableDonneesSetup." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
