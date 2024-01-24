@@ -517,6 +517,7 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+    echo $resultat->num_rows;
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
         echo $row["initiator"] . " init , ". $row["target"] . " target , ". $row["timestamp"] ." timestamp , ". $row["range"] . "range , " . $row["rangingError"] . " rangingError <br>" ;

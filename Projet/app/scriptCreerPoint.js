@@ -187,6 +187,7 @@ function resetPointsTransparency() {
     });
     
 }
+
 /**
  * Fonction pour mettre à jour les classes des points pour indiquer la sélection
  * 
