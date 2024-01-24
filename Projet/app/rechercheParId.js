@@ -22,7 +22,9 @@ function filterNodes() {
     if (!anyContainerDisplayed) {
         dropdown.innerHTML = '<br><option>Aucun point avec cette id</option>';  // Afficher le message d'aucun résultat
     } 
-}function filterNodes() {
+}
+
+function filterNodes() {
     var input = document.getElementById('searchInput');
     var filter = input.value.toUpperCase();
     var nodeContainers = document.querySelectorAll('.node-container');

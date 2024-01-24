@@ -72,7 +72,6 @@ function InitBase()
 
 #endregion
 
-
 #region Fonctions DonneesSetup
 /**
  * Fonction qui envoie les données reçues du noeud dans la base de données
@@ -420,7 +419,7 @@ function EnvoyerDonneesRanging($topic,$message)
     $range = $data['range'];
     $rangingError = $data['rangingError'];
     
-    $requete = "INSERT INTO ".NomTableDonnesRanging." (initiator,target,timestamp,range,rangingError) VALUES (?, ?, ?, ?, ?)";
+    $requete = "INSERT INTO ".NomTableDonnesRanging." (initiator,target,timestamp,'range',rangingError) VALUES (?, ?, ?, ?, ?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
@@ -505,17 +504,9 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-
-    echo "<h2>Ranging : </h2><br>";
-    $requete = "SELECT * FROM ".NomTableDonnesRanging;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
+    echo "<tr><th>idCapteur</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
 
@@ -539,8 +530,23 @@ function afficherDonnees()
     
         }
 
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
     }
+    echo "</table>";
+
+    echo "<h2>Ranging : </h2><br>";
+    $requete = "SELECT * FROM ".NomTableDonnesRanging;
+    $resultat = $conn->query($requete);
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<tr><th>initiator</th><th>target</th><th>timestamp</th><th>range</th><th>rangingError</th></tr>";
+    while ($row = $resultat->fetch_assoc()) {
+        echo "<tr><td>" . $row['initiator'] . "</td><td>".  $row["target"] . "</td><td>". $row["timestamp"] ."</td><td> ". $row["range"] . "</td><td>" . $row["rangingError"] . "</td></tr>" ;
+    }
+    echo "</table>";
 
     $conn->close();
 }
