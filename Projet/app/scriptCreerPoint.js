@@ -3,19 +3,21 @@
 function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
-        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur);
-        console.log("Point : " + data[i].idCapteur+ " créé avec succès");
+        createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddwm, data[i].UID);
+        console.log("Point : " + data[i].idCapteur+" / UID : "+data[i].UID +" / IDDWM : "+data[i].iddwm+ " créé avec succès");
     }
 }
 
 // Fonction pour créer un point
-function createPoint(coordX, coordY, couleur, id, iddwm, target) {
+function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Création du point
     let point = document.createElement("div");
     point.className = "point";
 
     // Ajout de l'ID comme attribut au point
     point.setAttribute("id", id);
+    point.setAttribute("iddwm", iddwm);
+    point.setAttribute("uid", uid);
 
     let originex = 1045; // Origine de la carte en x
     let originey = 250; // Origine de la carte en y
@@ -33,47 +35,57 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     }
 
     // Ajout de l'id en dessous du point
-    let idLabel = document.createElement("div");
-    idLabel.className = "id-label";
-    idLabel.style.userSelect = "none";
-    idLabel.style.position = "absolute";
-    idLabel.style.top = "-1px";
-    idLabel.style.left = "+22px";
-
-    let idLabelText; // Variable pour stocker le texte de l'idLabel
-
-    if (id.startsWith("dwm1001-")) {
-        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idLabelText = id.replace("dwm1001-", "");
-    } else {
-        // Si non, utiliser directement l'ID comme le nombre
-        idLabelText = id;
-    }
-
+    let idLabel = createIdLabel(); // Utiliser la fonction pour créer idLabel
 
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
-        togglePopup(point, id, coordX, coordY, target);
+
+        togglePopup(point, id, uid, iddwm, coordX, coordY);
     });
 
-    // Créer un nouvel élément TextNode avec la valeur de idLabelText
-    var textNode = document.createTextNode(idLabelText);
-
-    // Ajouter le TextNode à l'élément idLabel
-    idLabel.appendChild(textNode);
-
-    // Ajouter l'idLabel au point
+    // Ajouter le idLabel au point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
 }
 
+// Fonction pour créer l'élément idLabel
+function createIdLabel() {
+    let idLabel = document.createElement("div");
+    idLabel.className = "id-label";
+    idLabel.style.userSelect = "none";
+    idLabel.style.position = "absolute";
+    idLabel.style.top = "-1px";
+    idLabel.style.left = "+25px";
+
+    return idLabel;
+}
+
+// Fonction pour changer le contenu de l'idLabel en fonction des checkboxes
+function updateIdLabelContent(point, showID, showUID, showDWM) {
+    let idLabel = point.querySelector(".id-label");
+    if (idLabel) {
+        let content = "";
+
+        if (showID) {
+            content += point.getAttribute("id")+"\n";
+        }
+        if (showUID) {
+            content +=point.getAttribute("uid")+"\n";
+        }
+        if (showDWM) {
+            content +=point.getAttribute("iddwm")+"\n";
+        }
+
+        idLabel.textContent = content.trim();
+    }
+}
 
 
 
 // Fonction pour afficher ou masquer la boîte de dialogue
-function togglePopup(clickedPoint, id, coordX, coordY,target) {
+function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY,target) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
@@ -87,7 +99,7 @@ function togglePopup(clickedPoint, id, coordX, coordY,target) {
     } else {
         // Sinon, afficher les informations du point dans la boîte de dialogue
 
-        showPopup(id, coordX, coordY);
+        showPopup(id, uid, iddwm, coordX, coordY);
         // Mettre à jour les classes des points pour indiquer la sélection
         updatePointSelection(clickedPoint);
         // Retirer la classe transparent du point sélectionné
@@ -111,22 +123,13 @@ function toggleSignaling(id,target) {
 }
 
 // Fonction pour afficher la boîte de dialogue
-function showPopup(id, coordX, coordY) {
+function showPopup(id, uid ,iddwm , coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
 
-    let idNumber;
-    if (id.startsWith("dwm1001-")) {
-        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idNumber = id.replace("dwm1001-", "");
-    } else {
-        // Si non, utiliser directement l'ID comme le nombre
-        idNumber = id;
-    }
-    
     // Remplacer le contenu de la boîte de dialogue avec les informations du point
-    popupContent.innerHTML = "ID: " + idNumber + "<br>X: " + coordX + "<br>Y: " + coordY;
+    popupContent.innerHTML = "ID: " + id +"<br>UID: " +uid +"<br>ID dwm: "+ iddwm + "<br>X: " + coordX + "<br>Y: " + coordY;
 
     // Positionner la boîte de dialogue à côté du point cliqué
     let originex = 1045; // Origine de la carte en x
@@ -273,17 +276,29 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
 // Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM
+document.addEventListener('click', function (event) {
+    let popup = document.getElementById("popup");
+
+    // Vérifiez si la cible du clic n'est pas à l'intérieur de la boîte de dialogue
+    if (!popup.contains(event.target) && !event.target.classList.contains("point")) {
+        // Masquer la boîte de dialogue
+        popup.style.display = "none";
+        // Réinitialiser la transparence de tous les points
+        resetPointsTransparency();
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    var checkboxes = document.querySelectorAll('.node-container input[type="checkbox"]');
+    var checkboxesNodes = document.querySelectorAll('.node-container input[type="checkbox"]');
 
-   // Tri initial au chargement de la page
+    // Tri initial au chargement de la page
     sortNodesByCheckedStatus();
 
-    checkboxes.forEach(function (checkbox) {
+    checkboxesNodes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
             // Obtenez tous les identifiants des cases à cocher cochées
-            let checkedCheckboxIds = Array.from(checkboxes)
+            let checkedCheckboxIds = Array.from(checkboxesNodes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.getAttribute('data-node-id'));
 
@@ -292,6 +307,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Tri des nœuds après chaque changement de case à cocher
             sortNodesByCheckedStatus();
+        });
+    });
+
+    
+    // Exemple d'utilisation de la fonction changeIdLabelContent après le clic sur une checkbox
+    let checkboxes = document.querySelectorAll(".dropdown-content input[type='checkbox']");
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+            let showID = document.getElementById("selectID").checked;
+            let showUID = document.getElementById("selectUID").checked;
+            let showDWM = document.getElementById("selectDWM").checked;
+
+            // Obtenez tous les points existants
+            let points = document.querySelectorAll(".point");
+
+            console.log("showID: " + showID);
+            console.log("showUID: " + showUID);
+            console.log("showDWM: " + showDWM);
+            points.forEach(function (point) {
+                updateIdLabelContent(point, showID, showUID, showDWM);
+            });
         });
     });
 });

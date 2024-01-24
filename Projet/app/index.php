@@ -58,8 +58,9 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="affPoints">
-            <label><input type="checkbox" id="selectID"> ID</label>
+            <label><input type="checkbox" id="selectID" > ID</label>
             <label><input type="checkbox" id="selectUID"> UID</label>
+            <label><input type="checkbox" id="selectDWM"> DWM</label>
         </div>
     </div>
 
