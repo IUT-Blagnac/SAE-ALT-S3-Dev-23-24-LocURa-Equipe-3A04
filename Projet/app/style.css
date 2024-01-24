@@ -156,7 +156,6 @@ body {
     margin-right: auto;
     margin-left: 125px;
     margin-top: 17px;
-    opacity: 0.5;
 }
 
 .origin {
@@ -261,16 +260,31 @@ body {
 }
 
 .layer1 {
+    width: 1000px;
+    height: 599px;
+    margin-right: auto;
+    margin-left: 125px;
+    margin-top: 17px;
     z-index: 1;
     opacity: 1;
 }
 
 .layer2 {
+    width: 1000px;
+    height: 599px;
+    margin-right: auto;
+    margin-left: 125px;
+    margin-top: 17px;
     z-index: 2;
     opacity: 0.5;
 }
 
 .layer3 {
-    z-index: 3;
+    width: 1000px;
+    height: 599px;
+    margin-right: auto;
+    margin-left: 125px;
+    margin-top: 17px;
+    z-index: 100000000;
     opacity: 0.3;
 }

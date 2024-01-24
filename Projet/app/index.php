@@ -87,9 +87,9 @@
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
 
-<button onclick="changeLayers('premierEtage')">Etage 1</button>
-<button onclick="changeLayers('deuxiemeEtage')">Etage 2</button>
-<button onclick="changeLayers('troisiemeEtage')">Etage 3</button>
+<button id="buttonEtage1">Etage 1</button>
+<button id="buttonEtage2">Etage 2</button>
+<button id="buttonEtage3">Etage 3</button>
 
 <img id="map-image" class="map-image">
 

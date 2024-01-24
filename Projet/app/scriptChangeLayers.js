@@ -11,18 +11,41 @@ function changeLayers(selectedLayer) {
             const element = document.getElementById(layer);
 
             if (layer === selectedLayer) {
-                element.opacity = 0.5;
-                element.zIndex = 10;
+                element.style.opacity = '0.5';
+                element.style.zIndex = '10';
             } else {
-                element.opacity = 1;
-                element.zIndex = 0;
+                element.style.opacity = '1';
+                element.style.zIndex = '0';
             }
         }
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', (event) => {
+    // Fonction pour changer l'opacité et le z-index d'une image
+    function changeImageProperties(selectedImageId, zIndex, opacity) {
+        const images = document.querySelectorAll('.map-container img');
+        images.forEach((image) => {
+            if (image.id === selectedImageId) {
+                image.style.opacity = opacity;
+                image.style.zIndex = zIndex;
+            }
+        });
+    }
+
+    // Ajout des écouteurs d'événements aux boutons
+    document.getElementById('buttonEtage1').onclick = function() {
+        changeImageProperties('imageEtage1', '999', '0.5');
+    };
+
+    document.getElementById('buttonEtage2').onclick = function() {
+        changeImageProperties('imageEtage2', '999', '0.5');
+    };
+
+    document.getElementById('buttonEtage3').onclick = function() {
+        changeImageProperties('imageEtage3', '999', '0.5');
+    };
+
     function changeImage() {
         const container = document.getElementById('map-container');
         container.innerHTML = ''; // Clear the container
