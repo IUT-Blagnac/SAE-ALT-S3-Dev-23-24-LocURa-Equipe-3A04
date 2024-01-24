@@ -72,7 +72,9 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}body {
+}
+
+body {
      font-family: Arial, sans-serif;
      margin: 0;
      padding: 0;
@@ -131,7 +133,7 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} 
 
 .img {
     display: block;
@@ -248,6 +250,13 @@ body {
 
 .node{
     display: none;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
+}
+
+.search{
+    display: block;
+    position: absolute;
     background-color: #d1db16;
     border: 3px solid #ccc;
 }

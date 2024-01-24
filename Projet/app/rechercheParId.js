@@ -30,12 +30,10 @@ function filterNodes() {
     var noResultOption = document.getElementById('noResultOption');
 
     if (anyContainerDisplayed) {
-        dropdown.style.display = 'block';  // Afficher le dropdown
         if (noResultOption) {
             dropdown.removeChild(noResultOption);  // Supprimer l'option "Aucun point avec cette id" si elle existe
         }
     } else {
-        dropdown.style.display = 'block';  // Afficher le dropdown
         if (!noResultOption) {
             // Ajouter l'option "Aucun point avec cette id" si elle n'existe pas encore
             noResultOption = document.createElement('option');

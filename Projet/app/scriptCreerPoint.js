@@ -241,31 +241,57 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
     });
 }
 
+ // Fonction pour trier les nœuds en fonction de leur état de cochage
+ function sortNodesByCheckedStatus() {
+    // Divisez les nœuds en deux tableaux, un pour les cochés et un pour les non cochés
+    var checkedNodes = [];
+    var uncheckedNodes = [];
+
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            checkedNodes.push(checkbox.parentElement);
+        } else {
+            uncheckedNodes.push(checkbox.parentElement);
+        }
+    });
+
+    // Triez les nœuds cochés en premier
+    var sortedNodes = checkedNodes.concat(uncheckedNodes);
+
+    // Supprimez tous les nœuds du conteneur
+    var nodesContainer = document.getElementById('nodes');
+    nodesContainer.innerHTML = '';
+
+    // Ajoutez les nœuds triés au conteneur
+    sortedNodes.forEach(function (node) {
+        nodesContainer.appendChild(node);
+    });
+}
+
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
-// Ajoutez un écouteur d'événements à chaque case à cocher
-checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
-        // Extrait l'ID en utilisant l'attribut de données
-        var checkboxId = checkbox.getAttribute('data-node-id');
+// Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM
 
+document.addEventListener('DOMContentLoaded', function () {
+    var checkboxes = document.querySelectorAll('.node-container input[type="checkbox"]');
 
-        if (this.checked) {
-            // Si la case est cochée, la remonter en haut de la dropdown list
-            console.log("Checkbox checked:", checkboxId);
-            var parent = checkbox.parentNode;
-            parent.prepend(checkbox);
-        }
+   // Tri initial au chargement de la page
+    sortNodesByCheckedStatus();
 
-        // Obtenez tous les identifiants des cases à cocher cochées
-        let checkedCheckboxIds = Array.from(checkboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.getAttribute('data-node-id'));
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            // Obtenez tous les identifiants des cases à cocher cochées
+            let checkedCheckboxIds = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.getAttribute('data-node-id'));
 
-        // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
-        updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
+            // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
+            updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
+
+            // Tri des nœuds après chaque changement de case à cocher
+            sortNodesByCheckedStatus();
+        });
     });
 });
-
