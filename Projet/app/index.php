@@ -24,6 +24,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
+            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
             <label><input type="checkbox" name="premierEtage" id="premierEtage" checked> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
@@ -33,18 +34,18 @@
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
         </button>
+        <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
+
         <div class="dropdown-content" id="nodes">
-            <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
 
             <?php
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
-            echo '<label><input type="checkbox" class="select-all" id="selectAll" checked>Select All</label>';
             foreach ($ids as $id) {
                 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                echo '<input type="checkbox" data-node-id="'.$id.'" checked>' . $id;
+                echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
                 echo '</div>';
             }
             ?>
