@@ -1,10 +1,28 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const images = {
-        'premierEtage': 'Images/map.png',
-        'deuxiemeEtage': 'Images/google.png',
-        'troisiemeEtage': 'Images/google1.png'
-    };
+const images = {
+    'premierEtage': 'Images/map.png',
+    'deuxiemeEtage': 'Images/google.png',
+    'troisiemeEtage': 'Images/google1.png'
+};
 
+// Change le z-index et l'opacité des images des étages qui est par-dessus les autres
+function changeLayers(selectedLayer) {
+    for (let layer in images) {
+        if (document.getElementById(layer) && document.getElementById(layer).checked) {
+            const element = document.getElementById(layer);
+
+            if (layer === selectedLayer) {
+                element.opacity = 0.5;
+                element.zIndex = 10;
+            } else {
+                element.opacity = 1;
+                element.zIndex = 0;
+            }
+        }
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
     function changeImage() {
         const container = document.getElementById('map-container');
         container.innerHTML = ''; // Clear the container

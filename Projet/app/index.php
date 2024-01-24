@@ -86,8 +86,6 @@
 <script src="scriptChangeLayers.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
-<!-- Inclure le script pour les layers opacity -->
-<script src="scriptOpaciteLayers.js"></script>
 
 <button onclick="changeLayers('premierEtage')">Etage 1</button>
 <button onclick="changeLayers('deuxiemeEtage')">Etage 2</button>

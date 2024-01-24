@@ -155,7 +155,8 @@ body {
     height: 599px;
     margin-right: auto;
     margin-left: 125px;
-    margin-top: 22px;
+    margin-top: 17px;
+    opacity: 0.5;
 }
 
 .origin {
