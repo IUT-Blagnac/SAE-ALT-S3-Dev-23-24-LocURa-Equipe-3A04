@@ -94,6 +94,8 @@
 <script src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
+<!-- Inclure le fichier JavaScript pour le Point mobile -->
+<script src="scriptCreerPointMobile.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
 
