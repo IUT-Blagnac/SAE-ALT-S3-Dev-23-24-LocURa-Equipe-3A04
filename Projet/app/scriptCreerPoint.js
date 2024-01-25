@@ -12,7 +12,15 @@ export function createPoints(data) {
     }
 }
 
-// Fonction pour créer un point
+/**
+ * Crée un point sur la carte
+ * @param {Number} coordX 
+ * @param {Number} coordY 
+ * @param {String} couleur 
+ * @param {String} id 
+ * @param {String} iddwm 
+ * @param {String} target 
+ */
 function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     // Création du point
     let point = document.createElement("div");
@@ -41,15 +49,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
 
     let idLabelText; // Variable pour stocker le texte de l'idLabel
 
-    if (id.startsWith("dwm1001-")) {
-        // Si oui, extraire le nombre de l'ID en supprimant le préfixe
-        idLabelText = id.replace("dwm1001-", "");
-    } else {
-        // Si non, utiliser directement l'ID comme le nombre
-        idLabelText = id;
-    }
-
-
     // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
     point.addEventListener("click", function () {
         togglePopup(point, id, coordX, coordY, target);
@@ -68,7 +67,14 @@ function createPoint(coordX, coordY, couleur, id, iddwm, target) {
     document.getElementById("map").appendChild(point);
 }
 
-// Fonction pour afficher ou masquer la boîte de dialogue
+/**
+ * Affiche la boîte de dialogue en fonction du point cliqué
+ * @param {HTMLDivElement} clickedPoint Le point cliqué
+ * @param {String} id L'ID du point cliqué
+ * @param {Number} coordX Les coordonnées X du point cliqué
+ * @param {Number} coordY Les coordonnées Y du point cliqué
+ * @param {String} target ?? AYMEN
+ */
 function togglePopup(clickedPoint, id, coordX, coordY,target) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
@@ -94,6 +100,11 @@ function togglePopup(clickedPoint, id, coordX, coordY,target) {
     }
 }
 
+/**
+ * AYMEN
+ * @param {*} id 
+ * @param {*} target 
+ */
 function toggleSignaling(id,target) {
     let clickedPoint = document.getElementById(id);
 
@@ -106,7 +117,12 @@ function toggleSignaling(id,target) {
     }
 }
 
-// Fonction pour afficher la boîte de dialogue
+/**
+ * Crée une boîte de dialogue avec les informations du point cliqué
+ * @param {String} id L'ID du point cliqué
+ * @param {Number} coordX Les coordonnées X du point cliqué
+ * @param {Number} coordY Les coordonnées Y du point cliqué
+ */
 function showPopup(id, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
@@ -140,7 +156,9 @@ function showPopup(id, coordX, coordY) {
     popup.style.display = "block";
 }
 
-// Fonction pour réinitialiser la transparence de tous les points
+/**
+ * Réinitialise la transparence de tous les points
+ */
 function resetPointsTransparency() {
     let allPoints = document.querySelectorAll(".point");
 
@@ -163,7 +181,10 @@ function resetPointsTransparency() {
     
 }
 
-// Fonction pour mettre à jour les classes des points pour indiquer la sélection
+/**
+ * Permet de mettre à jour la sélection des points
+ * @param {HTMLDivElement} clickedPoint 
+ */
 function updatePointSelection(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -174,7 +195,10 @@ function updatePointSelection(clickedPoint) {
     });
 }
 
-// Fonction pour basculer la transparence des autres points
+/**
+ * 
+ * @param {*} clickedPoint 
+ */
 function toggleOtherPointsTransparency(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -192,7 +216,9 @@ function toggleOtherPointsTransparency(clickedPoint) {
 
 }
 
-
+/**
+ * ?? Alexi
+ */
 function toggleOtherPointsTransparencyTotal(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -212,6 +238,11 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
     });
 }
 
+/**
+ * 
+ * @param {*} checkedCheckboxIds 
+ * @returns 
+ */
 function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 
     let allPoints = document.querySelectorAll(".point");
@@ -237,8 +268,10 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
     });
 }
 
- // Fonction pour trier les nœuds en fonction de leur état de cochage
- function sortNodesByCheckedStatus() {
+/**
+ * ALEXI
+ */
+function sortNodesByCheckedStatus() {
     // Divisez les nœuds en deux tableaux, un pour les cochés et un pour les non cochés
     var checkedNodes = [];
     var uncheckedNodes = [];
@@ -265,11 +298,9 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 }
 
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
-// Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM
-
+// Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM -> ALEXI Explique le script ici
 document.addEventListener('DOMContentLoaded', function () {
     var checkboxes = document.querySelectorAll('.node-container input[type="checkbox"]');
 

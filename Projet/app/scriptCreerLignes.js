@@ -17,39 +17,39 @@ export function GestionDonneesLignes($donnees)
 function DessinerLigne($donnees)
 {
     // let pointInit = document.getElementById($donnees["initiator"]);
-    let pointOrigine = document.getElementById("CapteurOrigine");
+    let pointInit = document.getElementById("CapteurOrigine"); // Pour debug
     let pointTarget = document.getElementById($donnees["target"]);
 
-    console.log($donnees["initiator"] + " " + $donnees["target"]);
-    console.log(pointOrigine + " "+pointTarget);
-    console.log(pointOrigine.style.left + " " + pointOrigine.style.top);
-    console.log(pointTarget.style.left + " " + pointTarget.style.top);
-    console.log(pointOrigine.getBoundingClientRect());
-    console.log(pointTarget.getBoundingClientRect());
-
-    // Calcul des positions des points d'origine et de destination
-    let origineRect = pointOrigine.getBoundingClientRect();
-    let targetRect = pointTarget.getBoundingClientRect();
-
     // Calcul des coordonnées du centre des points d'origine et de destination
-    let origineX = origineRect.left + origineRect.width / 2;
-    let origineY = origineRect.top + origineRect.height / 2;
-    let targetX = targetRect.left + targetRect.width / 2;
-    let targetY = targetRect.top + targetRect.height / 2;
+    let origineX = parseFloat(pointInit.style.left);
+    let origineY = parseFloat(pointInit.style.top);
+    let targetX = parseFloat(pointTarget.style.left);
+    let targetY = parseFloat(pointTarget.style.top);
 
     // Calcul de la longueur et de l'angle de la ligne
     let distance = Math.sqrt((targetX - origineX) ** 2 + (targetY - origineY) ** 2);
-    let angle = Math.atan2(targetY - origineY, targetX - origineX);
+    let angle = Math.atan2(targetY - origineY, targetX - origineX)*180/Math.PI;
 
     // Création de la ligne
     let ligne = document.createElement("div");
     ligne.className = "ligne";
-    ligne.style.position = "absolute";
-    ligne.style.left = origineX + "px";
-    ligne.style.top = origineY + "px";
-    ligne.style.width = distance + "px";
-    ligne.style.transform = "rotate(" + angle + "rad)";
-    ligne.style.borderBottom = "1px solid black";
+    ligne.style.left = (origineX+5)+ "px"; //Pour se placer au milieu du point
+    ligne.style.top = (origineY+5) + "px";
+    ligne.style.width = distance + "px"; // A Changer pr range
+    ligne.style.transform = "rotate(" + angle + "deg)";
+
+    //On fait une deuxieme ligne qui montre le vrai range multiplié par 38
+    let ligne2 = document.createElement("div");
+    ligne2.className = "ligne2";
+    ligne2.style.left = (origineX+5)+ "px"; //Pour se placer au milieu du point
+    ligne2.style.top = (origineY+5) + "px";
+    ligne2.style.width = $donnees['range']*38 + "px"; // A Changer pr range
+    ligne2.style.transform = "rotate(" + angle + "deg)";
+    ligne2.style.backgroundColor = "red";
+    ligne2.style.opacity = "0.5";
+    ligne2.style.zIndex = "1001";
+
 
     document.getElementById("map").appendChild(ligne);
+    document.getElementById("map").appendChild(ligne2);
 }
