@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (document.getElementById(layer) && document.getElementById(layer).checked) {
                 const img = document.createElement('img');
                 img.src = images[layer];
-                img.className = 'map-container';
+                img.className = 'layer1';
                 img.style.position = 'absolute';
                 container.appendChild(img);
             }
