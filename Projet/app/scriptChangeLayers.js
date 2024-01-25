@@ -4,60 +4,22 @@ const images = {
     'troisiemeEtage': 'Images/google1.png'
 };
 
-// Change le z-index et l'opacité des images des étages qui est par-dessus les autres
-function changeLayers(selectedLayer) {
-    for (let layer in images) {
-        if (document.getElementById(layer) && document.getElementById(layer).checked) {
-            const element = document.getElementById(layer);
-
-            if (layer === selectedLayer) {
-                element.style.opacity = '0.5';
-                element.style.zIndex = '10';
-            } else {
-                element.style.opacity = '1';
-                element.style.zIndex = '0';
-            }
-        }
-    }
-}
-
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Fonction pour changer l'opacité et le z-index d'une image
-    function changeImageProperties(selectedImageId, zIndex, opacity) {
-        const images = document.querySelectorAll('.map-container img');
-        images.forEach((image) => {
-            if (image.id === selectedImageId) {
-                image.style.opacity = opacity;
-                image.style.zIndex = zIndex;
-            }
-        });
-    }
-
-    // Ajout des écouteurs d'événements aux boutons
-    document.getElementById('buttonEtage1').onclick = function() {
-        changeImageProperties('imageEtage1', '999', '0.5');
-    };
-
-    document.getElementById('buttonEtage2').onclick = function() {
-        changeImageProperties('imageEtage2', '999', '0.5');
-    };
-
-    document.getElementById('buttonEtage3').onclick = function() {
-        changeImageProperties('imageEtage3', '999', '0.5');
-    };
-
+    const layers = ['layer1', 'layer2', 'layer3'];
     function changeImage() {
         const container = document.getElementById('map-container');
         container.innerHTML = ''; // Clear the container
+        let layerIndex = 0;
 
         // Check each layer and add it to the container if it's selected
         for (let layer in images) {
             if (document.getElementById(layer) && document.getElementById(layer).checked) {
                 const img = document.createElement('img');
                 img.src = images[layer];
-                img.className = 'layer1';
+                img.className = layers[layerIndex];
                 img.style.position = 'absolute';
                 container.appendChild(img);
+                layerIndex++;
             }
         }
     }

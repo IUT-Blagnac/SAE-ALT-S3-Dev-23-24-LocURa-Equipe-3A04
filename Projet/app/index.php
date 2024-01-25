@@ -43,12 +43,13 @@
 
             $ids = afficherIds();
             foreach ($ids as $id) {
-                
+
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
                 echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
                 echo '</div>';
             }
             ?>
+            
         </div>
     </div>
 
@@ -86,10 +87,6 @@
 <script src="scriptChangeLayers.js" ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
-
-<button id="buttonEtage1">Etage 1</button>
-<button id="buttonEtage2">Etage 2</button>
-<button id="buttonEtage3">Etage 3</button>
 
 <img id="map-image" class="map-image">
 
