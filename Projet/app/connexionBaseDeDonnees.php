@@ -41,7 +41,7 @@ function InitBase()
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
-        timestmp TIMESTAMP NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         initiator VARCHAR(50),
         target VARCHAR(50),
         protocol VARCHAR(50),
@@ -56,7 +56,7 @@ function InitBase()
     $requeteCMOBILE = "CREATE TABLE ".NomTableDonnesMobile." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         idCapteur VARCHAR(30) NOT NULL,
-        timestamp TIMESTAMP NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
@@ -69,7 +69,7 @@ function InitBase()
         id INT AUTO_INCREMENT PRIMARY KEY,
         initiator VARCHAR(50) NOT NULL,
         target VARCHAR(50) NOT NULL,
-        timestamp TIMESTAMP NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         `range` FLOAT NOT NULL,
         rangingError FLOAT NOT NULL
     );";
@@ -96,9 +96,6 @@ function ajouterTrigger($nomTable, $nomTrigger,$nbLignes) {
         die("Échec de la connexion : " . $conn ->connect_error);
     }
 
-    // Définir le délimiteur pour permettre l'utilisation de ";" dans le déclencheur
-    $conn ->query("DELIMITER //");
-
     // Définir le code du déclencheur
     $codeTrigger = "
         CREATE TRIGGER $nomTrigger BEFORE INSERT ON $nomTable
@@ -117,14 +114,9 @@ function ajouterTrigger($nomTable, $nomTrigger,$nbLignes) {
     // Exécuter le code du déclencheur
     $conn ->multi_query($codeTrigger);
 
-    // Rétablir le délimiteur par défaut
-    $conn ->query("DELIMITER ;");
-
     // Vérifier les erreurs
     if ($conn ->errno) {
         echo "Erreur lors de l'ajout du déclencheur : " . $conn ->error;
-    } else {
-        echo "Déclencheur ajouté avec succès.";
     }
 
     // Fermer la connexion
@@ -152,14 +144,13 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $y = $data["y"];
     $z = $data["z"];
     $color = $data["color"];
-    $timestamp = $data["timestamp"];
     $uid = $data["UID"];
-    $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur,timestamp, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("sddddss", $idCapteur, $timestamp, $x, $y, $z, $color, $uid);
+    $statement->bind_param("sdddss", $idCapteur, $x, $y, $z, $color, $uid);
 
     // Exécution de la requête
     $resultat = $statement->execute();

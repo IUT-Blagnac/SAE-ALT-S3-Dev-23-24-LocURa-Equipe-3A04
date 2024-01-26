@@ -1,4 +1,5 @@
 <?php
+require_once('connexionBaseDeDonnees.php');
 
 $cpt = 0;
 while (true) {
@@ -32,7 +33,7 @@ function SimulationDonneesNoeudMobile($cpt)
 function SimulationDonneesRangingMobile($cpt)
 {
     $timestamp = 1706223659.6738627 + $cpt;
-    
+
 }
 
 /**
