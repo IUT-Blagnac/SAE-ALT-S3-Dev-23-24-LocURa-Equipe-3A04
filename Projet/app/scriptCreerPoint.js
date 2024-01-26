@@ -21,8 +21,8 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
 
     let originex = 1045; // Origine de la carte en x
     let originey = 250; // Origine de la carte en y
-    let coeffx = -40.5;
-    let coeffy = 37;
+    let coeffx = -38;
+    let coeffy = 38;
 
     // Positionnement du point aux coordonnées spécifiées avec translation
     point.style.left = coordX * coeffx + originex + "px";

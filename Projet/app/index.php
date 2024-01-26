@@ -95,7 +95,10 @@
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
-<script src="scriptCreerPointMobile.js" ></script>
+<!-- <script src="scriptCreerPointMobile.js" ></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+
+<script src = "scriptRecupPoinsMQTT.js"  ></script>
 <!-- Inclure le script select all -->
 <script src="scriptSelectAll.js"></script>
 

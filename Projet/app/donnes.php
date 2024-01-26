@@ -1,6 +1,5 @@
 <?php
 require_once("connexionBaseDeDonnees.php");
-
 if(isset($_POST["request"]))
 {
     if($_POST["request"] == "pointsFixesData")

@@ -66,12 +66,12 @@ function InitBase()
     $conn ->execute_query($requeteCMOBILE);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
+        id INT AUTO_INCREMENT PRIMARY KEY,
         initiator VARCHAR(50) NOT NULL,
         target VARCHAR(50) NOT NULL,
         timestamp DOUBLE NOT NULL,
         `range` FLOAT NOT NULL,
-        rangingError FLOAT NOT NULL,
-        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp)
+        rangingError FLOAT NOT NULL
     );";
     $conn ->execute_query($creationTableRanging);
 
