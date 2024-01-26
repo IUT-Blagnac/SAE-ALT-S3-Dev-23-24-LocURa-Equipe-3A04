@@ -282,7 +282,7 @@ function afficherIds()
 
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
 
-    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
     $resultat = $conn->query($requete);
 
     // Vérifier si la requête a réussi
@@ -291,14 +291,18 @@ function afficherIds()
     }
 
     $ids = array();
+    $uids = array();
+    $iddwms = array();
 
     while ($row = $resultat->fetch_assoc()) {
-        $ids[] = $row['idCapteur'];
+        $ids[] = $row;
     }
     $conn->close();
 
     return $ids;
 }
+
+
 
 #endregion
 
