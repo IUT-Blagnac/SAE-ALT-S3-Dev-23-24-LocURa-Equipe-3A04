@@ -172,6 +172,32 @@ body {
     z-index: 999;
 }
 
+.ligne{
+    position: absolute;
+    z-index: 1000;
+    background-color: #000;
+    transform-origin: top left;
+    height: 1px;
+}
+
+/* Style pour le cercle */
+.cercle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Style pour la bordure du cercle */
+.cercle.bordure {
+    border: 0.5px solid rgba(0, 0, 0, 0.632);
+    border-width: 2px;
+}
+
+/* Style pour la bordure du cercle */
+.cercle.background {
+    background-color : rgba(41, 80, 139, 0.3);
+}
+
+
 .id-label {
     position: relative;
     top: 100%;
@@ -291,4 +317,12 @@ body {
 
 #unselectAll {
     display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: true ;
 }

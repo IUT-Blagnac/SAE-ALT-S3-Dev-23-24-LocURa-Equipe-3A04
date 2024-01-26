@@ -44,10 +44,20 @@
             include 'connexionBaseDeDonnees.php';
 
             $ids = afficherIds();
+            var_dump($ids);
+
             foreach ($ids as $id) {
 
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                echo '<input type="checkbox" data-node-id="'.$id.'">' . $id;
+                if($id['UID'] != null && $id['iddwm'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
+                else if($id['UID'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
+                else if($id['iddwm'] != null)
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
+                else
+                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
+                
                 echo '</div>';
             }
             ?>
@@ -57,12 +67,13 @@
 
     <script src="rechercheParId.js" ></script>
     <div class="dropdown">
-        <button class="dropbtn"> Affichage points
+        <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="affPoints">
-            <label><input type="checkbox" id="selectID"> ID</label>
+            <label><input type="checkbox" id="selectID" > ID</label>
             <label><input type="checkbox" id="selectUID"> UID</label>
+            <label><input type="checkbox" id="selectDWM"> DWM</label>
         </div>
     </div>
 
@@ -70,12 +81,13 @@
         <b>Laboratory Map</b>
     </div>
 
-    <!-- Futur boutons pour range nodes
+     <!-- Futur boutons pour range nodes -->
     <div class="button">
         <button>Activer cercles</button>
-        <button>Activer remplissage</button>
+        <button class="hidden">Activer Remplissage</button>
+        <button>Activer ligne</button>
     </div>
-    -->
+    
 </div>
 
 <a href="debug.php">DEBUG</a>
@@ -83,15 +95,19 @@
 <button id="unselectAll">Désélectionner tout</button>
 
 <!-- Inclure jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Inclure le fichier JavaScript pour AJAX -->
-<script src="scriptRecupererDonnes.js"></script>
+<script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Fichier JavaScript de requete AJAX -->
+<script type="module" src="scriptRecupererDonnes.js"></script>
+<script type="module" src="scriptRecupererDonneesRanging.js"></script>
 <!-- Inclure le fichier JavaScript pour créer les points -->
-<script src="scriptCreerPoint.js" ></script>
+<script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="scriptChangeLayers.js" ></script>
+<script src="ajaxRequestToDataPHP.js" ></script>
+<!-- Inclure le fichier JavaScript pour le Point mobile -->
+<script src="scriptCreerPointMobile.js" ></script>
 <!-- Inclure le script select all -->
-<script src="scriptSelectAll.js"></script>
+<script type="module" src="scriptSelectAll.js"></script>
 
 <img id="map-image" class="map-image">
 
