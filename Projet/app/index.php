@@ -79,6 +79,7 @@
 </div>
 
 <a href="debug.php">DEBUG</a>
+
 <button id="unselectAll">Désélectionner tout</button>
 
 <!-- Inclure jQuery -->
