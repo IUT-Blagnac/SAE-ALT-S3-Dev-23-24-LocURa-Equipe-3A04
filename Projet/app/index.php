@@ -39,7 +39,7 @@
         <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
 
         <div class="dropdown-content" id="nodes">
-            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
+            <button id="unselectAll">Désélectionner tout</button>
 
             <?php
             include 'connexionBaseDeDonnees.php';

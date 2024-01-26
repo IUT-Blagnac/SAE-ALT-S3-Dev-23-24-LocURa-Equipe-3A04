@@ -268,8 +268,7 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
     });
 }
 
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
+// Sélectionner toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
 // Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM
@@ -295,3 +294,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+function checkIfAnyNodeIsChecked() {
+    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
+    var isAnyNodeChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    var unselectAllButton = document.getElementById('unselectAll');
+    if (isAnyNodeChecked) {
+        unselectAllButton.style.display = 'block';
+    } else {
+        unselectAllButton.style.display = 'none';
+    }
+}
+
+document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', checkIfAnyNodeIsChecked);
+});
+
+// Appeler la fonction au chargement de la page pour initialiser l'état du bouton
+checkIfAnyNodeIsChecked();
