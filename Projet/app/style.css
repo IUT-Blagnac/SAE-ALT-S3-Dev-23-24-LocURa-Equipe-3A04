@@ -288,3 +288,7 @@ body {
     z-index: 3;
     opacity: 0.3;
 }
+
+#unselectAll {
+    display: none;
+}

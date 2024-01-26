@@ -39,7 +39,6 @@
         <input type="text" id="searchInput" onkeyup="filterNodes()" placeholder="Rechercher par ID..."><br>
 
         <div class="dropdown-content" id="nodes">
-            <button id="unselectAll">Désélectionner tout</button>
 
             <?php
             include 'connexionBaseDeDonnees.php';
@@ -80,6 +79,8 @@
 </div>
 
 <a href="debug.php">DEBUG</a>
+<button id="unselectAll">Désélectionner tout</button>
+
 <!-- Inclure jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <!-- Inclure le fichier JavaScript pour AJAX -->
