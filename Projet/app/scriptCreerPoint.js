@@ -11,15 +11,14 @@ export function createPoints(data) {
         console.log("Point : " + data[i].idCapteur+" / UID : "+data[i].UID +" / IDDWM : "+data[i].iddwm+ " créé avec succès");
     }
 }
-
 /**
  * Crée un point sur la carte
- * @param {Number} coordX 
- * @param {Number} coordY 
- * @param {String} couleur 
- * @param {String} id 
- * @param {String} iddwm 
- * @param {String} uid 
+ * @param {Number} coordX : correspond à la coordonnée X du point
+ * @param {Number} coordY : correspond à la coordonnée Y du point
+ * @param {String} couleur : correspond à la couleur du point
+ * @param {String} id : correspond à l'ID du point
+ * @param {String} iddwm : correspond à l'ID dwm du point
+ * @param {String} uid : correspond à l'UID du point
  */
 function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Création du point
@@ -30,11 +29,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     point.setAttribute("id", id);
     point.setAttribute("iddwm", iddwm);
     point.setAttribute("uid", uid);
-
-    let originex = 1045; // Origine de la carte en x
-    let originey = 250; // Origine de la carte en y
-    let coeffx = -38;
-    let coeffy = 38;
 
     // Positionnement du point aux coordonnées spécifiées avec translation
     point.style.left = coordX * COEFF_X + X_ORIGINE_C + "px";

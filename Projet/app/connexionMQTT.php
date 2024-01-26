@@ -36,7 +36,7 @@ while (true) {
     $timestamp = 1706223659.6738627 + 1;
     $x = rand(0, 10) + 0.258;
     $y = rand(0, 10) + 0.208;
-    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": 1706223659.6738627, "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "FFFFFF", "UID": "DD94"}');
+    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": 1706223659.6738627, "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "FF0000", "UID": "DD94"}');
     // Ralentir la boucle
     sleep(1);
 }
