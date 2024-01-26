@@ -9,6 +9,7 @@
 
 
 <div class="navbar">
+    <!-- Bouton qui permet d'afficher différents environnements - Non implémenté
     <div class="dropdown">
         <button class="dropbtn"> Environnement
             <i class="fa fa-caret-down"></i>
@@ -18,7 +19,9 @@
             <label><input type="checkbox" name="batC" id="batC"> Bâtiment C </label>
         </div>
     </div>
+    -->
 
+    <!-- Bouton qui permet d'afficher différents étages d'un même environnement -->
     <div class="dropdown">
         <button class="dropbtn"> Etages
             <i class="fa fa-caret-down"></i>
