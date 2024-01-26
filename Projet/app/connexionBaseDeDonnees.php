@@ -41,7 +41,7 @@ function InitBase()
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
-        timestmp DOUBLE NOT NULL,
+        timestmp TIMESTAMP NOT NULL,
         initiator VARCHAR(50),
         target VARCHAR(50),
         protocol VARCHAR(50),
@@ -56,7 +56,7 @@ function InitBase()
     $requeteCMOBILE = "CREATE TABLE ".NomTableDonnesMobile." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         idCapteur VARCHAR(30) NOT NULL,
-        timestamp DOUBLE NOT NULL,
+        timestamp TIMESTAMP NOT NULL,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
@@ -69,7 +69,7 @@ function InitBase()
         id INT AUTO_INCREMENT PRIMARY KEY,
         initiator VARCHAR(50) NOT NULL,
         target VARCHAR(50) NOT NULL,
-        timestamp DOUBLE NOT NULL,
+        timestamp TIMESTAMP NOT NULL,
         `range` FLOAT NOT NULL,
         rangingError FLOAT NOT NULL
     );";
@@ -77,7 +77,58 @@ function InitBase()
 
     $conn->close();
 
-    AjouterPointOrigine();
+    // AjouterPointOrigine();
+
+    ajouterTrigger(NomTableDonnesMobile,"trig_b_i_Mobile",10);
+}
+
+/**
+ * Ajoute un trigger sur une table qui permet de ne sauvegarder que les nbLignes dernières lignes
+ * @param string $nomTable Le nom de la table
+ * @param string $nomTrigger Le nom du trigger
+ * @param int $nbLignes Le nombre de lignes à conserver
+ */
+function ajouterTrigger($nomTable, $nomTrigger,$nbLignes) {
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn ->connect_error) {
+        die("Échec de la connexion : " . $conn ->connect_error);
+    }
+
+    // Définir le délimiteur pour permettre l'utilisation de ";" dans le déclencheur
+    $conn ->query("DELIMITER //");
+
+    // Définir le code du déclencheur
+    $codeTrigger = "
+        CREATE TRIGGER $nomTrigger BEFORE INSERT ON $nomTable
+        FOR EACH ROW
+        BEGIN
+            DECLARE rowCount INT;
+            
+            SELECT COUNT(*) INTO rowCount FROM $nomTable;
+
+            IF rowCount = $nbLignes THEN
+                DELETE FROM $nomTable ORDER BY timestamp LIMIT 1;
+            END IF;
+        END;
+    ";
+
+    // Exécuter le code du déclencheur
+    $conn ->multi_query($codeTrigger);
+
+    // Rétablir le délimiteur par défaut
+    $conn ->query("DELIMITER ;");
+
+    // Vérifier les erreurs
+    if ($conn ->errno) {
+        echo "Erreur lors de l'ajout du déclencheur : " . $conn ->error;
+    } else {
+        echo "Déclencheur ajouté avec succès.";
+    }
+
+    // Fermer la connexion
+    $conn ->close();
 }
 
 #endregion
