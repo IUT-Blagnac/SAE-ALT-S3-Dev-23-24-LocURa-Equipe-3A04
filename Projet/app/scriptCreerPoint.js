@@ -170,8 +170,8 @@ function showPopup(id, uid ,iddwm , coordX, coordY) {
     let originey = 250; // Origine de la carte en y
 
     // Calculer la position de la boîte de dialogue par rapport au point cliqué
-    let popupX = coordX * (-40.5) + originex + 20; // Ajuster la valeur 20 selon votre besoin
-    let popupY = coordY * 37 + originey - 30; // Ajuster la valeur -20 selon votre besoin
+    let popupX = coordX * COEFF_X + originex + 20; // Ajuster la valeur 20 selon votre besoin
+    let popupY = coordY * COEFF_Y + originey - 30; // Ajuster la valeur -20 selon votre besoin
 
     // Positionner la boîte de dialogue à la nouvelle position
     popup.style.left = popupX + "px";
