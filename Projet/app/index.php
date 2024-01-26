@@ -67,12 +67,13 @@
         Laboratory Map
     </div>
 
-    <!-- Futur boutons pour range nodes
+     <!-- Futur boutons pour range nodes -->
     <div class="button">
         <button>Activer cercles</button>
-        <button>Activer remplissage</button>
+        <button class="hidden">Activer Remplissage</button>
+        <button>Activer ligne</button>
     </div>
-    -->
+    
 </div>
 <a href="debug.php">DEBUG</a>
 <!-- Inclure jQuery -->

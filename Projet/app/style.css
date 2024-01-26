@@ -286,3 +286,11 @@ body {
     background-color: #d1db16;
     border: 3px solid #ccc;
 }
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: true ;
+}

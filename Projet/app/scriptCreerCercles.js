@@ -21,7 +21,6 @@ function DessinerCercle($donnees) {
     let cercle = document.createElement("div");
     cercle.classList.add("cercle");
     cercle.classList.add("bordure");
-    cercle.classList.add("background");
     cercle.style.left = (parseFloat(centreCercle.style.left) - rayon + 5) + "px";
     cercle.style.top = (parseFloat(centreCercle.style.top) - rayon + 5) + "px";
     cercle.style.width = cercle.style.height = 2 * rayon + "px";
