@@ -49,6 +49,12 @@ $mqtt->subscribe('ranging/+/+/indication', function ($topic, $message, $retained
 
 }, 0);
 
+$mqtt->subscribe('localisation/+/mobile', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    if(!str_contains($topic,'dwm')){
+        EnvoyerDonneesNoeudMobile($topic,$message);
+    }
+}, 0);
 
 $mqtt->loop(true);
 $mqtt->disconnect();

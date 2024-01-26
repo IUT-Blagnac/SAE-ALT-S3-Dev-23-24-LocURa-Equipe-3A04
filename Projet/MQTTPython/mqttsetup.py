@@ -3,7 +3,7 @@ import json;
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connexion au courtier MQTT réussie")
-        client.subscribe("localisation/+/setup")
+        client.subscribe("localisation/+/mobile")
     else:
         print("Connexion au courtier MQTT échouée")
 
