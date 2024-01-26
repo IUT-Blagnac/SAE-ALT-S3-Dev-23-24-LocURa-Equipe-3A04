@@ -78,26 +78,28 @@
         Laboratory Map
     </div>
 
-    <!-- Futur boutons pour range nodes
+     <!-- Futur boutons pour range nodes -->
     <div class="button">
         <button>Activer cercles</button>
-        <button>Activer remplissage</button>
+        <button class="hidden">Activer Remplissage</button>
+        <button>Activer ligne</button>
     </div>
-    -->
+    
 </div>
 <a href="debug.php">DEBUG</a>
 <!-- Inclure jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Inclure le fichier JavaScript pour AJAX -->
-<script src="scriptRecupererDonnes.js"></script>
+<script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Fichier JavaScript de requete AJAX -->
+<script type="module" src="scriptRecupererDonnes.js"></script>
+<script type="module" src="scriptRecupererDonneesRanging.js"></script>
 <!-- Inclure le fichier JavaScript pour créer les points -->
-<script src="scriptCreerPoint.js" ></script>
+<script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
 <script src="scriptCreerPointMobile.js" ></script>
 <!-- Inclure le script select all -->
-<script src="scriptSelectAll.js"></script>
+<script type="module" src="scriptSelectAll.js"></script>
 
 <img id="map-image" class="map-image">
 
