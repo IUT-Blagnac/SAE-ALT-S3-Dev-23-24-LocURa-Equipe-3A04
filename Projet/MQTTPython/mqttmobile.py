@@ -8,8 +8,8 @@ def on_connect(client, userdata, flags, rc):
         print("Connexion au courtier MQTT échouée")
 
 def on_message(client, userdata, msg):
-    if "mobile" in msg.topic:
-        print(msg.topic, msg.payload)
+    # if "mobile" in msg.topic:
+    print(msg.topic, msg.payload)
 
 client = mqtt.Client()
 client.on_connect = on_connect
