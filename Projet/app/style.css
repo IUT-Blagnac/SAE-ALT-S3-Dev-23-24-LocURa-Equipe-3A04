@@ -285,6 +285,6 @@ body {
     margin-right: auto;
     margin-left: 125px;
     margin-top: 17px;
-    z-index: 100000000;
+    z-index: 3;
     opacity: 0.3;
 }

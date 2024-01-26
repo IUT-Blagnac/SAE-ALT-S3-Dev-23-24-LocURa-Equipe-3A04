@@ -65,7 +65,7 @@
     </div>
 
     <div class="label">
-        Laboratory Map
+        <b>Laboratory Map</b>
     </div>
 
     <!-- Futur boutons pour range nodes
