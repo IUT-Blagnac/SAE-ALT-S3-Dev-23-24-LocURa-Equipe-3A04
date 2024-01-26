@@ -81,7 +81,7 @@
         <b>Laboratory Map</b>
     </div>
 
-     <!-- Futur boutons pour range nodes -->
+    <!-- Range nodes -->
     <div class="button">
         <button>Activer cercles</button>
         <button class="hidden">Activer Remplissage</button>
