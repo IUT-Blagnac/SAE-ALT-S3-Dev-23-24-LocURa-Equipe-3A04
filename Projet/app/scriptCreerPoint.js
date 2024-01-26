@@ -1,6 +1,10 @@
+import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y } from './constantes.js';
 
-// Fonction pour créer les points à partir des données récupérées
-function createPoints(data) {
+/**
+ *  Fonction pour créer les points à partir des données récupérées
+ * @param {Array} data 
+ */
+export function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddwm, data[i].UID);
@@ -8,7 +12,15 @@ function createPoints(data) {
     }
 }
 
-// Fonction pour créer un point
+/**
+ * Crée un point sur la carte
+ * @param {Number} coordX 
+ * @param {Number} coordY 
+ * @param {String} couleur 
+ * @param {String} id 
+ * @param {String} iddwm 
+ * @param {String} uid 
+ */
 function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Création du point
     let point = document.createElement("div");
@@ -25,8 +37,8 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     let coeffy = 38;
 
     // Positionnement du point aux coordonnées spécifiées avec translation
-    point.style.left = coordX * coeffx + originex + "px";
-    point.style.top = coordY * coeffy + originey + "px";
+    point.style.left = coordX * COEFF_X + X_ORIGINE_C + "px";
+    point.style.top = coordY * COEFF_Y + Y_ORIGINE_C + "px";
 
     if (couleur != null && couleur != "") {
         point.style.backgroundColor = "#" + couleur;
@@ -37,17 +49,55 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Ajout de l'id en dessous du point
     let idLabel = createIdLabel(); // Utiliser la fonction pour créer idLabel
 
-    // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
-    point.addEventListener("click", function () {
+    if (id != "CapteurOrigine") {
+        // Ajout de l'événement de clic pour afficher ou masquer la boîte de dialogue
 
-        togglePopup(point, id, uid, iddwm, coordX, coordY);
-    });
+         point.addEventListener("click", function () {
+            togglePopup(point, id, uid, iddwm, coordX, coordY);
+         });
+        
+ 
+    } 
 
     // Ajouter le idLabel au point
     point.appendChild(idLabel);
 
     // Ajout du point à la carte
     document.getElementById("map").appendChild(point);
+    
+}
+
+/**
+ * Affiche la boîte de dialogue en fonction du point cliqué
+ * @param {HTMLDivElement} clickedPoint Le point cliqué
+ * @param {String} id L'ID du point cliqué
+ * @param {Number} coordX Les coordonnées X du point cliqué
+ * @param {Number} coordY Les coordonnées Y du point cliqué
+ * @param {String} target ?? AYMEN
+ */
+function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY,target) {
+    // Récupérer la boîte de dialogue et son contenu
+    let popup = document.getElementById("popup");
+    let popupContent = document.getElementById("popup-content");
+
+    // Vérifier si la boîte de dialogue est déjà affichée pour le même point
+    if (clickedPoint.classList.contains("selected")) {
+        // Cacher la boîte de dialogue
+        popup.style.display = "none";
+        // Réinitialiser la transparence de tous les points
+        resetPointsTransparency();
+    } else {
+        // Sinon, afficher les informations du point dans la boîte de dialogue
+
+        showPopup(id, uid, iddwm, coordX, coordY);
+        // Mettre à jour les classes des points pour indiquer la sélection
+        updatePointSelection(clickedPoint);
+        // Retirer la classe transparent du point sélectionné
+        clickedPoint.classList.remove("transparent");
+        // Ajouter la classe transparent aux autres points
+        toggleOtherPointsTransparency(clickedPoint);
+        toggleSignaling(id,target);
+    }
 }
 
 // Fonction pour créer l'élément idLabel
@@ -81,35 +131,12 @@ function updateIdLabelContent(point, showID, showUID, showDWM) {
         idLabel.textContent = content.trim();
     }
 }
-
-
-
-// Fonction pour afficher ou masquer la boîte de dialogue
-function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY,target) {
-    // Récupérer la boîte de dialogue et son contenu
-    let popup = document.getElementById("popup");
-    let popupContent = document.getElementById("popup-content");
-
-    // Vérifier si la boîte de dialogue est déjà affichée pour le même point
-    if (clickedPoint.classList.contains("selected")) {
-        // Cacher la boîte de dialogue
-        popup.style.display = "none";
-        // Réinitialiser la transparence de tous les points
-        resetPointsTransparency();
-    } else {
-        // Sinon, afficher les informations du point dans la boîte de dialogue
-
-        showPopup(id, uid, iddwm, coordX, coordY);
-        // Mettre à jour les classes des points pour indiquer la sélection
-        updatePointSelection(clickedPoint);
-        // Retirer la classe transparent du point sélectionné
-        clickedPoint.classList.remove("transparent");
-        // Ajouter la classe transparent aux autres points
-        toggleOtherPointsTransparency(clickedPoint);
-        toggleSignaling(id,target);
-    }
-}
-
+  
+/**
+ * AYMEN
+ * @param {*} id 
+ * @param {*} target 
+ */
 function toggleSignaling(id,target) {
     let clickedPoint = document.getElementById(id);
 
@@ -122,7 +149,14 @@ function toggleSignaling(id,target) {
     }
 }
 
-// Fonction pour afficher la boîte de dialogue
+/**
+ * Crée une boîte de dialogue avec les informations du point cliqué
+ * @param {String} id L'ID du point cliqué
+ * @param {String} uid L'UID du point clické
+ * @param {String} iddwm L'id dwm du point
+ * @param {Number} coordX Les coordonnées X du point cliqué
+ * @param {Number} coordY Les coordonnées Y du point cliqué
+ */
 function showPopup(id, uid ,iddwm , coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
@@ -147,7 +181,9 @@ function showPopup(id, uid ,iddwm , coordX, coordY) {
     popup.style.display = "block";
 }
 
-// Fonction pour réinitialiser la transparence de tous les points
+/**
+ * Réinitialise la transparence de tous les points
+ */
 function resetPointsTransparency() {
     let allPoints = document.querySelectorAll(".point");
 
@@ -170,7 +206,10 @@ function resetPointsTransparency() {
     
 }
 
-// Fonction pour mettre à jour les classes des points pour indiquer la sélection
+/**
+ * Permet de mettre à jour la sélection des points
+ * @param {HTMLDivElement} clickedPoint 
+ */
 function updatePointSelection(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -181,7 +220,10 @@ function updatePointSelection(clickedPoint) {
     });
 }
 
-// Fonction pour basculer la transparence des autres points
+/**
+ * 
+ * @param {*} clickedPoint 
+ */
 function toggleOtherPointsTransparency(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -199,7 +241,9 @@ function toggleOtherPointsTransparency(clickedPoint) {
 
 }
 
-
+/**
+ * ?? Alexi
+ */
 function toggleOtherPointsTransparencyTotal(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
@@ -219,6 +263,11 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
     });
 }
 
+/**
+ * 
+ * @param {*} checkedCheckboxIds 
+ * @returns 
+ */
 function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 
     let allPoints = document.querySelectorAll(".point");
@@ -244,8 +293,10 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
     });
 }
 
- // Fonction pour trier les nœuds en fonction de leur état de cochage
- function sortNodesByCheckedStatus() {
+/**
+ * ALEXI
+ */
+function sortNodesByCheckedStatus() {
     // Divisez les nœuds en deux tableaux, un pour les cochés et un pour les non cochés
     var checkedNodes = [];
     var uncheckedNodes = [];
@@ -272,10 +323,9 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 }
 
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
-// Assurez-vous d'inclure ce script après l'ajout des éléments HTML dans le DOM
+// Desactivation de la popup en clickant en dehors de la popup
 document.addEventListener('click', function (event) {
     let popup = document.getElementById("popup");
 
