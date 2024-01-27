@@ -176,7 +176,7 @@ function RecupererDonneesMobile(){
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    $requete = "SELECT * FROM ".NomTableDonnesMobile;
+    $requete = "SELECT * FROM ".NomTableDonnesMobile." WHERE timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
 
     $resultat = $conn->query($requete);
     

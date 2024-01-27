@@ -30,6 +30,8 @@
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
     </div>
+    <div id="status-icon" class="status-icon" <?php include 'connexionMQTT.php';
+    echo $isConnected ? 'green-blink' : 'red'; ?>>
     <div class="dropdown">
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
@@ -39,7 +41,10 @@
         <div class="dropdown-content" id="nodes">
 
             <?php
+            
             include 'connexionBaseDeDonnees.php';
+
+
 
             $ids = afficherIds();
             var_dump($ids);

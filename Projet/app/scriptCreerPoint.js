@@ -62,14 +62,25 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
 }
 
 /**
+ * Fonction pour mettre à jour les coordonnées d'un point existant
+ * @param {HTMLDivElement} point Le point existant à mettre à jour
+ * @param {Number} newCoordX La nouvelle coordonnée X
+ * @param {Number} newCoordY La nouvelle coordonnée Y
+ */0
+export function updatePointCoordinates(point, newCoordX, newCoordY) {
+    // Mettre à jour la position du point avec les nouvelles coordonnées
+    point.style.left = newCoordX * COEFF_X + X_ORIGINE_C + "px";
+    point.style.top = newCoordY * COEFF_Y + Y_ORIGINE_C + "px";
+}
+
+/**
  * Affiche la boîte de dialogue en fonction du point cliqué
  * @param {HTMLDivElement} clickedPoint Le point cliqué
  * @param {String} id L'ID du point cliqué
  * @param {Number} coordX Les coordonnées X du point cliqué
  * @param {Number} coordY Les coordonnées Y du point cliqué
- * @param {String} target ?? AYMEN
  */
-function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY,target) {
+function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
@@ -90,7 +101,6 @@ function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY,target) {
         clickedPoint.classList.remove("transparent");
         // Ajouter la classe transparent aux autres points
         toggleOtherPointsTransparency(clickedPoint);
-        toggleSignaling(id,target);
     }
 }
 
@@ -123,23 +133,6 @@ function updateIdLabelContent(point, showID, showUID, showDWM) {
         }
 
         idLabel.textContent = content.trim();
-    }
-}
-  
-/**
- * AYMEN
- * @param {*} id 
- * @param {*} target 
- */
-function toggleSignaling(id,target) {
-    let clickedPoint = document.getElementById(id);
-
-    // Vérifier si le point cliqué est le point spécifique que vous souhaitez signaler
-    if (id === target) {
-        isSignaling = !isSignaling;
-
-        // Si le signal est activé, ajouter une classe pour indiquer l'état de signalisation
-        clickedPoint.classList.toggle("signaling", isSignaling);
     }
 }
 
