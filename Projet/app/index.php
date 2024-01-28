@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -30,8 +32,7 @@
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
     </div>
-    <div id="status-icon" class="status-icon" <?php require('./connexionMQTT.php');
-    echo $isConnected ? 'green-blink' : 'red'; ?>>
+
     <div class="dropdown">
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
@@ -89,6 +90,11 @@
         <button class="hidden">Activer Remplissage</button>
         <button>Activer ligne</button>
     </div>
+    <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+    </div>  
+    
+
     
 </div>
 <a href="debug.php">DEBUG</a>
@@ -101,6 +107,8 @@
 <script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="ajaxRequestToDataPHP.js" ></script>
+<!-- Inclure le script pour le status MQTT -->
+<script type="module" src="scriptStatusMQTT.js"></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
 <script type ="module" src = "scriptCreerPointMobile.js"  ></script>
 <!-- Inclure le script select all -->

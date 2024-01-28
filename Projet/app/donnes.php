@@ -22,4 +22,9 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesMobile());
     }
+    if($_POST["request"] == "statusMQTT")
+    {
+        header('Content-Type: application/json');
+        echo json_encode(getFromMobileTable());
+    }
 }

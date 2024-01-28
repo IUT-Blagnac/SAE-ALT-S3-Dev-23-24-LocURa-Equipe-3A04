@@ -194,7 +194,7 @@ function resetPointsTransparency() {
 
         if (!point.clickHandler) {
             let clickHandler = function () {
-                togglePopup(point, point.id, point.coordX, coordY);
+                togglePopup(point, point.id, point.coordX, point.coordY);
             };
         point.addEventListener("click", clickHandler);
         point.clickHandler = clickHandler;
