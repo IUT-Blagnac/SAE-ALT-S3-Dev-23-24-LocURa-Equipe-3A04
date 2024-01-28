@@ -5,10 +5,11 @@ import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y } from './constantes.js';
  *  Fonction pour créer les points à partir des données récupérées
  * @param {Array} data 
  */
+export function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddwm, data[i].UID);
-        console.log("Point : " + data[i].idCapteur+" / UID : "+data[i].UID +" / IDDWM : "+data[i].iddwm+ " créé avec succès");
+        console.log("Point : " + data[i].idCapteur + " / UID : " + data[i].UID + " / IDDWM : " + data[i].iddwm + " créé avec succès");
     }
 }
 
@@ -67,14 +68,14 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
  * @param {HTMLDivElement} point Le point existant à mettre à jour
  * @param {Number} newCoordX La nouvelle coordonnée X
  * @param {Number} newCoordY La nouvelle coordonnée Y
- */0
+ */
 export function updatePointCoordinates(point, newCoordX, newCoordY) {
     // Mettre à jour la position du point avec les nouvelles coordonnées
     point.style.left = newCoordX * COEFF_X + X_ORIGINE_C + "px";
     point.style.top = newCoordY * COEFF_Y + Y_ORIGINE_C + "px";
 }
 
- * Affiche la boîte de dialogue en fonction du point cliqué
+/** Affiche la boîte de dialogue en fonction du point cliqué
  * @param {HTMLDivElement} clickedPoint Le point cliqué
  * @param {String} id L'ID du point cliqué
  * @param {Number} coordX Les coordonnées X du point cliqué
