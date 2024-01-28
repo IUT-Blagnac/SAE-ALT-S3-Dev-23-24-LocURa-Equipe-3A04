@@ -1,46 +1,48 @@
 <?php
 require_once('connexionBaseDeDonnees.php');
 
-$cpt = 0;
 while (true) {
     
-    SimulationDonneesNoeudMobile($cpt);
-    SimulationDonneesRangingFixe($cpt);
-    SimulationDonneesRangingMobile($cpt);
+    SimulationDonneesNoeudMobile();
+    SimulationDonneesRangingFixe();
+    SimulationDonneesRangingMobile();
 
-    $cpt++;
     // Ralentir la boucle
     sleep(2);
 }
 
 /**
  * Simule le mouvement du noeud mobile de manière aléatoire
- * @param int $cpt
  * @return void
  */
-function SimulationDonneesNoeudMobile($cpt)
+function SimulationDonneesNoeudMobile()
 {
-    $timestamp = 1706223659.6738627 + $cpt;
     $x = rand(0, 10) + 0.258;
     $y = rand(0, 10) + 0.208;
-    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": '.$timestamp.', "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "FFFFFF", "UID": "DD94"}');
+    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": 0, "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "FFFFFF", "UID": "DD94"}');
 }
 
 /**
  * Simule des données de ranging qui proviennent du noeud mobile
- * @param int $cpt
  */
-function SimulationDonneesRangingMobile($cpt)
+function SimulationDonneesRangingMobile()
 {
-    $timestamp = 1706223659.6738627 + $cpt;
+    $initiator=183; //
+    $target=109; //
+    $fausseDonnesranging = '{"initiator": "183", "target": "177", "range": 3.8443,  "timestamp": 1705656017704, "localisation": {"initiator": {"x": 1.407, "y": 4.078, "z": 2.65}, "target": {"x": 5.057, "y": 2.714, "z": 2.65}}, "distance": 3.897, "rangingError": -0.052}';
 
 }
 
 /**
- * Simule des données de ranging qui proviennent d'un noeud fixe vers un autre noeud fixe
- * @param int $cpt
+ * Simule des données de ranging qui proviennent d"un noeud fixe vers un autre noeud fixe
  */
-function SimulationDonneesRangingFixe($cpt)
+function SimulationDonneesRangingFixe()
 {
+    $initiator=110;
+    $target=109; 
+    $range = 3+rand(-1,1)/10;
+    $rangingError = rand(-1,1)/10;
+    $fausseDonnesranging = '{"initiator":'.$initiator.', "target": '.$target.', "range":'.$range.',  "timestamp": 1705656017704, "rangingError": '.$rangingError.'}';
 
+    EnvoyerDonneesRanging('ranging/'.$initiator.'/'.$target.'/indication', $fausseDonnesranging);
 }

@@ -8,6 +8,7 @@ const NomTableDonneesSetup = "DonneesCapteurs";
 const NomTableDonnesOut = "CommCapteurs";
 const NomTableDonnesRanging = "RangingCapteurs";
 const NomTableDonnesMobile = "MobileCapteurs";
+
 #region Intialisation de la base de données
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
@@ -79,50 +80,7 @@ function InitBase()
 
     // AjouterPointOrigine();
 
-    ajouterTrigger(NomTableDonnesMobile,"trig_b_i_Mobile",10);
 }
-
-/**
- * Ajoute un trigger sur une table qui permet de ne sauvegarder que les nbLignes dernières lignes
- * @param string $nomTable Le nom de la table
- * @param string $nomTrigger Le nom du trigger
- * @param int $nbLignes Le nombre de lignes à conserver
- */
-function ajouterTrigger($nomTable, $nomTrigger,$nbLignes) {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn ->connect_error) {
-        die("Échec de la connexion : " . $conn ->connect_error);
-    }
-
-    // Définir le code du déclencheur
-    $codeTrigger = "
-        CREATE TRIGGER $nomTrigger BEFORE INSERT ON $nomTable
-        FOR EACH ROW
-        BEGIN
-            DECLARE rowCount INT;
-            
-            SELECT COUNT(*) INTO rowCount FROM $nomTable;
-
-            IF rowCount = $nbLignes THEN
-                DELETE FROM $nomTable ORDER BY timestamp LIMIT 1;
-            END IF;
-        END;
-    ";
-
-    // Exécuter le code du déclencheur
-    $conn ->multi_query($codeTrigger);
-
-    // Vérifier les erreurs
-    if ($conn ->errno) {
-        echo "Erreur lors de l'ajout du déclencheur : " . $conn ->error;
-    }
-
-    // Fermer la connexion
-    $conn ->close();
-}
-
 #endregion
 
 #region Fonctions DonneesMobile
@@ -133,7 +91,6 @@ function ajouterTrigger($nomTable, $nomTrigger,$nbLignes) {
 function EnvoyerDonneesNoeudMobile($topic,$message){
     $conn = new mysqli(servername, username, password, dbname);
 
-    // Vérifier la connexion
     if($conn->connect_error){
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
@@ -653,16 +610,14 @@ function EnvoyerDonneesRanging($topic,$message)
     $data = json_decode($message,true);
     $initiator = $data['initiator'];
     $target = $data['target'];
-    $timestamp = $data['timestamp'];
     $range = $data['range'];
     $rangingError = $data['rangingError'];
-    
-    $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `timestamp`, `range`, `rangingError`) VALUES (?, ?, ?, ?, ?)";
+    //On fait un select pour savoir si  les données sont déjà dans la base de données
+    $requete = "SELECT * FROM ".NomTableDonnesRanging." WHERE initiator = ? AND target = ?";
 
-    // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ssddd", $initiator, $target, $timestamp, $range, $rangingError);
+    $statement->bind_param("ss", $initiator, $target);
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -671,9 +626,41 @@ function EnvoyerDonneesRanging($topic,$message)
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $statement->error);
     }
-
-    // Fermer la connexion et le statement
+    
+    $resultat = $statement->get_result();
     $statement->close();
+
+    if($resultat->num_rows == 0)
+    {
+        $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `range`, `rangingError`) VALUES (?, ?, ?, ?)";
+
+        // Préparation de la requête
+        $statement = $conn->prepare($requete);
+
+        $statement->bind_param("ssdd", $initiator, $target, $range, $rangingError);
+
+        // Exécution de la requête
+        $resultat = $statement->execute();
+
+        // Vérifier l'exécution de la requête
+        if ($resultat === false) {
+            die("Erreur d'exécution de la requête : " . $statement->error);
+        }
+        $statement->close();
+    }
+    else
+    {
+        //Update
+        $requete = "UPDATE ".NomTableDonnesRanging." SET `range` = ?, `rangingError` = ? WHERE `initiator` = ? AND `target` = ?";
+        $statement = $conn->prepare($requete);
+        $statement->bind_param("ddss", $range, $rangingError, $initiator, $target);
+        $resultat = $statement->execute();
+        if ($resultat === false) {
+            die("Erreur d'exécution de la requête : " . $statement->error);
+        }
+        $statement->close();
+    }
+
     $conn->close();
 }
 
