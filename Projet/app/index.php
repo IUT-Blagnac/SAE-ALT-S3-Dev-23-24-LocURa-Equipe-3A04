@@ -30,8 +30,8 @@
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
         </div>
     </div>
-    <div id="status-icon" class="status-icon" <?php require('./connexionMQTT.php');
-    echo $isConnected ? 'green-blink' : 'red'; ?>>
+    <!-- <div id="status-icon" class="status-icon" <?php //require('./connexionMQTT.php');
+    //echo $isConnected ? 'green-blink' : 'red'; ?>> -->
     <div class="dropdown">
         <button class="dropbtn"> Noeuds
             <i class="fa fa-caret-down"></i>
