@@ -14,15 +14,14 @@ export function createPoints(data) {
 
 const checkedCheckboxIds = [];
 
-
 /**
  * Crée un point sur la carte
- * @param {Number} coordX 
- * @param {Number} coordY 
- * @param {String} couleur 
- * @param {String} id 
- * @param {String} iddwm 
- * @param {String} uid 
+ * @param {Number} coordX : correspond à la coordonnée X du point
+ * @param {Number} coordY : correspond à la coordonnée Y du point
+ * @param {String} couleur : correspond à la couleur du point
+ * @param {String} id : correspond à l'ID du point
+ * @param {String} iddwm : correspond à l'ID dwm du point
+ * @param {String} uid : correspond à l'UID du point
  */
 function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
     // Création du point
