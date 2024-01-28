@@ -69,12 +69,12 @@ function InitBase()
     $conn ->execute_query($requeteCMOBILE);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
-        id INT AUTO_INCREMENT PRIMARY KEY,
         initiator VARCHAR(50) NOT NULL,
         target VARCHAR(50) NOT NULL,
         timestamp TIMESTAMP default current_timestamp,
         `range` FLOAT NOT NULL,
-        rangingError FLOAT NOT NULL
+        rangingError FLOAT NOT NULL,
+        CONSTRAINT PK_Ranging PRIMARY KEY (initiator, target)
     );";
     $conn ->execute_query($creationTableRanging);
 
@@ -607,12 +607,21 @@ function EnvoyerDonneesRanging($topic,$message)
     $target = $data['target'];
     $range = $data['range'];
     $rangingError = $data['rangingError'];
-    //On fait un select pour savoir si  les données sont déjà dans la base de données
-    $requete = "SELECT * FROM ".NomTableDonnesRanging." WHERE initiator = ? AND target = ?";
 
+    $requete = "
+    INSERT INTO `" . NomTableDonnesRanging . "` (`initiator`, `target`, `range`, `rangingError`)
+        VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE 
+        `range` = ?,
+        `rangingError` = ?,
+        `timestamp` = CURRENT_TIMESTAMP";
+
+
+    // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ss", $initiator, $target);
+    $statement->bind_param('ssdddd', $initiator, $target, $range, $rangingError, $range, $rangingError);
+
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -621,40 +630,7 @@ function EnvoyerDonneesRanging($topic,$message)
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $statement->error);
     }
-    
-    $resultat = $statement->get_result();
     $statement->close();
-
-    if($resultat->num_rows == 0)
-    {
-        $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `range`, `rangingError`) VALUES (?, ?, ?, ?)";
-
-        // Préparation de la requête
-        $statement = $conn->prepare($requete);
-
-        $statement->bind_param("ssdd", $initiator, $target, $range, $rangingError);
-
-        // Exécution de la requête
-        $resultat = $statement->execute();
-
-        // Vérifier l'exécution de la requête
-        if ($resultat === false) {
-            die("Erreur d'exécution de la requête : " . $statement->error);
-        }
-        $statement->close();
-    }
-    else
-    {
-        //Update
-        $requete = "UPDATE ".NomTableDonnesRanging." SET `range` = ?, `rangingError` = ? WHERE `initiator` = ? AND `target` = ?";
-        $statement = $conn->prepare($requete);
-        $statement->bind_param("ddss", $range, $rangingError, $initiator, $target);
-        $resultat = $statement->execute();
-        if ($resultat === false) {
-            die("Erreur d'exécution de la requête : " . $statement->error);
-        }
-        $statement->close();
-    }
 
     $conn->close();
 }
