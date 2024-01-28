@@ -39,6 +39,8 @@ function InitBase()
         color CHAR(6) NULL,
         CONSTRAINT PK_Setup PRIMARY KEY (x,y,z)
     );";
+    //CETTE TABLE EST MODIFIEE DYNAMIQUEMENT EN FONCTION DES DONNEES REÇUES, IL EST INUTILE DE CHANGER LA REQUETE SAUF POUR DES DONNEES IMPORTANTES
+
     $conn ->execute_query($requete);
 
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
@@ -128,25 +130,23 @@ function EnvoyerDonnesNoeudSetup($topic,$message)
     iddwm =".(isset($iddwm) ? $iddwm : "null").
     (isset($data['UID']) ? ", UID = '".$data['UID']."';" : ";");
 
-    echo $requete;
-
     // Préparation de la requête
     $statement = $conn->prepare($requete);
     
     $types = str_repeat('s', count($data)+1);
-    $parameters = array(&$types);
+    $parameters = array(&$types); //On met les types en premier dans le tableau
 
-    // Dynamiquement ajouter les valeurs au tableau des paramètres par référence
     foreach ($data as $key => $value) {
-        ${$key} = $value;
+        ${$key} = $value; //On crée une variable avec le nom de la colonne -> Permet de récupérer une référence à la variable
         $parameters[] = &${$key};
     }
     
     $parameters[] = &$idCapteur;
 
-    // Appeler bind_param avec les paramètres
+    // Fonction magique qui permet de lier les paramètres à la requête
+    // Cette fonction a besoin d'un tableau de références de variables
     call_user_func_array(array($statement, 'bind_param'), $parameters);
-    // Exécution de la requête
+
     $resultat = $statement->execute();
 
     // Vérifier l'exécution de la requête
