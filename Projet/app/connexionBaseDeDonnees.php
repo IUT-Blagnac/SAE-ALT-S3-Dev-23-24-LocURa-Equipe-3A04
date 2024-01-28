@@ -7,6 +7,9 @@ const dbname = "Donnes";
 const NomTableDonneesSetup = "DonneesCapteurs";   
 const NomTableDonnesOut = "CommCapteurs";
 const NomTableDonnesRanging = "RangingCapteurs";
+const NomTableDonnesMobile = "MobileCapteurs";
+
+const nbLignesMobile = 10;
 
 #region Intialisation de la base de données
 /**
@@ -22,7 +25,7 @@ function InitBase()
     }
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
-    $requete = "DROP TABLE IF EXISTS ".NomTableDonnesRanging.",".NomTableDonnesOut. ",".NomTableDonneesSetup.";";
+    $requete = "DROP TABLE IF EXISTS ".NomTableDonnesRanging.",".NomTableDonnesOut. ",".NomTableDonneesSetup.",".NomTableDonnesMobile.";";
     $conn->execute_query($requete);
     
     
@@ -41,7 +44,7 @@ function InitBase()
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
-        timestmp DOUBLE NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         initiator VARCHAR(50),
         target VARCHAR(50),
         protocol VARCHAR(50),
@@ -52,26 +55,210 @@ function InitBase()
         temperature FLOAT
     );";
     $conn ->execute_query($requete);
+    
+    $requeteCMOBILE = "CREATE TABLE ".NomTableDonnesMobile." (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        idCapteur VARCHAR(30) NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
+        x DECIMAL(5,3) NOT NULL,
+        y DECIMAL(5,3) NOT NULL,
+        z DECIMAL(5,3) NOT NULL,
+        color CHAR(6),
+        uid CHAR(4) 
+    );";
+    $conn ->execute_query($requeteCMOBILE);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
-        initiator VARCHAR(50),
-        target VARCHAR(50),
-        timestamp DECIMAL,
-        `range` FLOAT,
-        rangingError FLOAT,
-        CONSTRAINT pk_".NomTableDonnesRanging." PRIMARY KEY (initiator, target, timestamp),
-        CONSTRAINT fk_".NomTableDonnesRanging."_initiator FOREIGN KEY (initiator) REFERENCES ".NomTableDonneesSetup." (idCapteur),
-        CONSTRAINT fk_".NomTableDonnesRanging."_target FOREIGN KEY (target) REFERENCES ".NomTableDonneesSetup." (idCapteur)
+        initiator VARCHAR(50) NOT NULL,
+        target VARCHAR(50) NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
+        `range` FLOAT NOT NULL,
+        rangingError FLOAT NOT NULL,
+        CONSTRAINT PK_Ranging PRIMARY KEY (initiator, target)
     );";
     $conn ->execute_query($creationTableRanging);
 
     $conn->close();
 
-    AjouterPointOrigine();
+    // AjouterPointOrigine();
+
+}
+#endregion
+
+#region Fonctions DonneesMobile
+
+/**
+ * Fonction qui envoie les données du noeud mobile dans la base de données
+ */
+function EnvoyerDonneesNoeudMobile($topic,$message){
+    $conn = new mysqli(servername, username, password, dbname);
+
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $data = json_decode($message,true);
+    $idCapteur = explode("/",$topic)[1];
+    $x = $data["x"];
+    $y = $data["y"];
+    $z = $data["z"];
+    $color = $data["color"];
+    $uid = $data["UID"];
+
+
+
+    $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?)";
+
+    // Préparation de la requête
+    $statement = $conn->prepare($requete);
+
+    $statement->bind_param("sdddss", $idCapteur, $x, $y, $z, $color, $uid);
+
+    // Exécution de la requête
+    $resultat = $statement->execute();
+
+    // Vérifier l'exécution de la requête
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    // Fermer la connexion et le statement
+    $statement->close();
+    $conn->close();
+
+    GestionNbLignesMobile();
+}
+
+/**
+ * Fonction qui récupère les données la position du point mobile
+ * @return array $data Tableau contenant les données
+ */
+function RecupererDonneesMobile(){
+    $conn = new mysqli(servername, username, password, dbname);
+
+    //Vérifier la connexion
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $requete = "SELECT * FROM ".NomTableDonnesMobile." WHERE timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
+
+    $resultat = $conn->query($requete);
+    
+    //Vérifier si la requête a réussi
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $data = array();
+
+    //Parcourir les résultats de la requête
+    while($row = $resultat->fetch_assoc()){
+        //Ajouter chaque ligne au tableau
+        $data[] = array(
+            'idCapteur' => $row['idCapteur'],
+            'x' => $row['x'],
+            'y' => $row['y'],
+            'z' => $row['z'],
+            'color' => $row['color'],
+            'UID' => $row['uid']
+        );
+    }
+    $conn->close();
+    return $data;
+}
+
+function GestionNbLignesMobile()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    //Vérifier la connexion
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $requete = "SELECT COUNT(*) FROM ".NomTableDonnesMobile;
+
+    $resultat = $conn->query($requete);
+    
+    //Vérifier si la requête a réussi
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $row = $resultat->fetch_assoc();
+
+    //Si plus de nbLignesMobiles lignes dans la table, on supprime la première ligne en fonction de son timestamp
+    if($row['COUNT(*)'] > nbLignesMobile)
+    {
+        $requete = "DELETE FROM ".NomTableDonnesMobile." ORDER BY timestamp LIMIT 1";
+        $resultat = $conn->query($requete);
+    }
+    $conn->close();
+}
+
+
+/**
+ * Fonction qui traite des les capteurs dwm
+ * @param string $idDWM L'id du DWM
+ * @param float $x La position x du capteur
+ * @param float $y La position y du capteur
+ * @param float $z La position z du capteur
+ * @param string $UID L'UID du capteur
+ */
+function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup." WHERE x = ? AND y = ? AND z = ? ";
+
+    $statement = $conn->prepare($requete);
+
+
+    if ($statement) {
+        // Liez les paramètres à la requête
+        $statement->bind_param("ddd", $x, $y, $z);
+    
+        // Exécutez la requête
+        $statement->execute();
+    
+        // Récupérez le résultat
+        $result = $statement->get_result();
+    
+        // Vérifiez s'il y a des résultats
+        if ($result->num_rows ==1) {
+            // Récupérez la première ligne
+            $row = $result->fetch_assoc();
+            $idCapteur = $row['idCapteur'];
+
+            $idDWM = explode("-",$idDWM)[1];
+    
+            $requete = "UPDATE ".NomTableDonneesSetup." SET iddwm = ?, UID= ? WHERE idCapteur = ?";
+
+            $statement = $conn->prepare($requete);
+            $statement->bind_param("sss", $idDWM, $UID, $idCapteur);
+
+            $statement->execute();
+
+
+        }
+    
+        // Fermez le statement
+        $statement->close();
+        $conn->close();
+    } else {
+        // La préparation de la requête a échoué
+        echo "Erreur lors de la préparation de la requête.";
+    }
+
 }
 
 #endregion
-
 
 #region Fonctions DonneesSetup
 /**
@@ -271,6 +458,40 @@ function RecupererDonneesSetup()
     return $data;      
 }
 
+/**
+ * Fonction qui récupère les ids des capteurs dans la base de données et les retourne sous forme de tableau
+ */
+function afficherIds()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+
+    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $ids = array();
+
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row;
+    }
+    $conn->close();
+
+    return $ids;
+}
+
+
+
 #endregion
 
 #region Fonctions DonneesComm
@@ -386,16 +607,23 @@ function EnvoyerDonneesRanging($topic,$message)
     $data = json_decode($message,true);
     $initiator = $data['initiator'];
     $target = $data['target'];
-    $timestamp = $data['timestamp'];
     $range = $data['range'];
     $rangingError = $data['rangingError'];
-    
-    $requete = "INSERT INTO ".NomTableDonnesRanging." (initiator,target,timestamp,range,rangingError) VALUES (?, ?, ?, ?, ?)";
+
+    $requete = "
+    INSERT INTO `" . NomTableDonnesRanging . "` (`initiator`, `target`, `range`, `rangingError`)
+        VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE 
+        `range` = ?,
+        `rangingError` = ?,
+        `timestamp` = CURRENT_TIMESTAMP";
+
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ssdff", $initiator, $target, $timestamp, $range, $rangingError);
+    $statement->bind_param('ssdddd', $initiator, $target, $range, $rangingError, $range, $rangingError);
+
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -404,9 +632,8 @@ function EnvoyerDonneesRanging($topic,$message)
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $statement->error);
     }
-
-    // Fermer la connexion et le statement
     $statement->close();
+
     $conn->close();
 }
 
@@ -478,7 +705,7 @@ function afficherDonnees()
 
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>2Id</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th></tr>";
+    echo "<tr><th>idCapteur</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
 
@@ -502,15 +729,10 @@ function afficherDonnees()
     
         }
 
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>A inserer</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td></tr>" ;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
     }
     echo "</table>";
-    echo $resultat->num_rows;
-    // Afficher les résultats
-    while ($row = $resultat->fetch_assoc()) {
-        echo $row["idCapteur"] . " id , ". $row["x"] . " x , ". $row["y"] ." y , ". $row["z"] . "z , " . $row["orientation"] . " ° , ". $row["color"] . "couleur , ". $row['UID']."UID, ".$row['iddwm']." DWM<br>" ;
 
-    }
 
     echo "<h2>Ranging : </h2><br>";
     $requete = "SELECT * FROM ".NomTableDonnesRanging;
@@ -519,53 +741,32 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-    echo $resultat->num_rows;
-    // Afficher les résultats
+    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<tr><th>initiator</th><th>target</th><th>timestamp</th><th>range</th><th>rangingError</th></tr>";
     while ($row = $resultat->fetch_assoc()) {
-        echo $row["initiator"] . " init , ". $row["target"] . " target , ". $row["timestamp"] ." timestamp , ". $row["range"] . "range , " . $row["rangingError"] . " rangingError <br>" ;
+        echo "<tr><td>" . $row['initiator'] . "</td><td>".  $row["target"] . "</td><td>". $row["timestamp"] ."</td><td> ". $row["range"] . "</td><td>" . $row["rangingError"] . "</td></tr>" ;
     }
+    echo "</table>";
 
-    $conn->close();
-}
-
-/**
- * Fonction qui retourne tous les données 
- * 
- */
-function afficherIds()
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-
-    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $requete = "SELECT * FROM ".NomTableDonnesMobile;
     $resultat = $conn->query($requete);
-
     // Vérifier si la requête a réussi
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
-
-    $ids = array();
-    $prefixe = "dwm1001-";
-
+    echo "<h2>Mobile : </h2><br>";
+    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<tr><th>idCapteur</th><th>timestamp</th><th>X</th><th>Y</th><th>Z</th><th>Couleur</th><th>UID</th></tr>";
     while ($row = $resultat->fetch_assoc()) {
-        // Vérifier si la sous-chaîne "dmw1001-" existe dans l'ID
-        $id = (strpos($row["idCapteur"], $prefixe) === 0) ? substr($row["idCapteur"], strlen($prefixe)) : $row["idCapteur"];
-        $ids[] = $id;
+        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["timestamp"] . "</td><td>". $row["x"] ."</td><td> ". $row["y"] . "</td><td>" . $row["z"] . "</td><td>". $row["color"] . "</td><td>". $row["uid"] . "</td></tr>" ;
     }
+    echo "</table>";
+    echo "<br>";
     $conn->close();
-
-    return $ids;
 }
 
 /**
- * Fonction qui vérifie si la table des capteurs existe
+ * Fonction qui vérifie si la table capteurs existe
  */
 function verifier_tablecapteurs(){
         $conn = new mysqli(servername, username, password, dbname);
@@ -590,8 +791,9 @@ function verifier_tablecapteurs(){
         
         return $count == 0;
 }
+
 /**
- * Fonction qui insert le point d'origine dans la table des capteurs existe
+ * Fonction de gogole a enlever
  */
 function AjouterPointOrigine() {
     $conn = new mysqli(servername, username, password, dbname);

@@ -1,6 +1,5 @@
 <?php
 require_once("connexionBaseDeDonnees.php");
-
 if(isset($_POST["request"]))
 {
     if($_POST["request"] == "pointsFixesData")
@@ -8,7 +7,7 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesSetup());
     }
-    if($_POST["request"] == "rangingData")
+    else if($_POST["request"] == "rangingData")
     {
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesRanging());
@@ -19,3 +18,10 @@ if(isset($_POST["request"]))
         echo json_encode(RecupererDonneesComm());
     }
 }
+    if($_POST["request"] == "pointMobile")
+    {
+        header('Content-Type: application/json');
+        echo json_encode(RecupererDonneesMobile());
+    }
+}
+

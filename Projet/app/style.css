@@ -72,7 +72,9 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}body {
+}
+
+body {
      font-family: Arial, sans-serif;
      margin: 0;
      padding: 0;
@@ -131,7 +133,7 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} 
 
 .img {
     display: block;
@@ -171,6 +173,32 @@ body {
     border-radius: 50%;
     z-index: 999;
 }
+
+.ligne{
+    position: absolute;
+    z-index: 1000;
+    background-color: #000;
+    transform-origin: top left;
+    height: 1px;
+}
+
+/* Style pour le cercle */
+.cercle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Style pour la bordure du cercle */
+.cercle.bordure {
+    border: 0.5px solid rgba(0, 0, 0, 0.632);
+    border-width: 2px;
+}
+
+/* Style pour la bordure du cercle */
+.cercle.background {
+    background-color : rgba(41, 80, 139, 0.3);
+}
+
 
 .id-label {
     position: relative;
@@ -239,16 +267,52 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
-.signaling{
+
+.status-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.green-blink {
+    background-color: green;
+    color: white;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.node{
     display: none;
+    background-color: #d1db16;
+    border: 3px solid #ccc;
+}
+
+.search{
+    display: block;
     position: absolute;
     background-color: #d1db16;
     border: 3px solid #ccc;
 }
 
-.node{
+.hidden {
     display: none;
-    position: absolute;
-    background-color: #d1db16;
-    border: 3px solid #ccc;
+}
+
+.active {
+    display: true ;
 }
