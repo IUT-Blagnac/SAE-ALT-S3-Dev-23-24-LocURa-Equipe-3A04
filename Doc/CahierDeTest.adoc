@@ -160,7 +160,22 @@ Pour les données du topic localisation/+/setup :
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| Les donnés du point s'affichent à coté et les autres points deviennent transparent ^| Il y a des données dans la base de données ^|OK
+^|JS_AFF.1 ^| Lancer ou inclure le script scriptCreerPoint.js  ^| Les données du point s'affichent à côté et les autres points deviennent transparent ^| Il y a des données dans la base de données ^|OK
+
+|====
+
+==== 2.5. Affichage des étages :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-04-02
+>|Titre 4+| Affichage des étages
+>|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement, les images de l'étage se superposent de manière lisible et si aucun étage n'est selectionné, rien ne s'affiche ^| Avoir les images dans le répertoire Projet/app/Images ainsi que les avoir dans le dictionnaire images du fichier scriptChangeLayers.js. Si une nouvelle image est ajoutée, ajouter un listener ^|OK
 
 |====
 
@@ -189,7 +204,7 @@ Pour les données du topic localisation/+/setup :
 [.text-justify]
 
 |====
->|Cas de test 4+|Test-01-03-01
+>|Cas de test 4+|Test-01-04-01
 >|Titre 4+| Affichage la page index.html
 >|Objectif 4+| Vérifier si la page index.html s'affiche correctement
 
@@ -199,32 +214,6 @@ Pour les données du topic localisation/+/setup :
 
 |====
 
-==== 4.2. Affichage des environnements :
-[.text-justify]
 
-|====
 
->|Cas de test 4+|Test-01-03-02
->|Titre 4+| Affichage des environnements
->|Objectif 4+| Vérifier si les environnements sélectionnés s'affichent correctement
-
-5+|
-^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|HTML.2 ^| Se rendre sur la page index.html et selectionner un ou plusieurs environnement ^| Les environnements sélectionnés ne s'affichent pas ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
-
-|====
-
-==== 4.3. Affichage des étages :
-[.text-justify]
-
-|====
-
->|Cas de test 4+|Test-01-03-03
->|Titre 4+| Affichage des étages
->|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
-
-5+|
-^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
-
-|====
+==== 4.2. ...

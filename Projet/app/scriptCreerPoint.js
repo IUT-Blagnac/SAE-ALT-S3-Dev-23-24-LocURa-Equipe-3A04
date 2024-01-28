@@ -1,10 +1,10 @@
+
 import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y } from './constantes.js';
 
 /**
  *  Fonction pour créer les points à partir des données récupérées
  * @param {Array} data 
  */
-export function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddwm, data[i].UID);
@@ -74,7 +74,6 @@ export function updatePointCoordinates(point, newCoordX, newCoordY) {
     point.style.top = newCoordY * COEFF_Y + Y_ORIGINE_C + "px";
 }
 
-/**
  * Affiche la boîte de dialogue en fonction du point cliqué
  * @param {HTMLDivElement} clickedPoint Le point cliqué
  * @param {String} id L'ID du point cliqué
@@ -218,8 +217,9 @@ function updatePointSelection(clickedPoint) {
 }
 
 /**
+ * Fonction pour basculer la transparence des autres points
  * 
- * @param {*} clickedPoint 
+ * @param {*} clickedPoint : Le point cliqué
  */
 function toggleOtherPointsTransparency(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
@@ -241,7 +241,9 @@ function toggleOtherPointsTransparency(clickedPoint) {
 }
 
 /**
- * ?? Alexi
+ * Fonction pour basculer la transparence des autres points
+ * 
+ * @param {*} clickedPoint : Le point cliqué
  */
 function toggleOtherPointsTransparencyTotal(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
@@ -264,9 +266,10 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
 }
 
 /**
+ * Fonction pour mettre à jour la transparence des points en fonction des cases à cocher
  * 
- * @param {*} checkedCheckboxIds 
- * @returns 
+ * @param {*} checkedCheckboxIds : Les identifiants des cases cochées
+ *  
  */
 function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 
@@ -328,7 +331,7 @@ function sortNodesByCheckedStatus() {
     
 }
 
-// Sélectionnez toutes les cases à cocher dans le menu déroulant
+// Sélectionner toutes les cases à cocher dans le menu déroulant
 var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
 
 // Desactivation de la popup en clickant en dehors de la popup
@@ -390,4 +393,63 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+});
+
+// Afficher le bouton unselect all si au moins un noeud est sélectionné
+function checkIfAnyNodeIsChecked() {
+    var checkboxes = document.querySelectorAll('#nodes input[type="checkbox"]');
+    var isAnyNodeChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    var unselectAllButton = document.getElementById('unselectAll');
+    if (isAnyNodeChecked) {
+        unselectAllButton.style.display = 'block';
+        unselectAllButton.style.position = 'absolute';
+    } else {
+        unselectAllButton.style.display = 'none';
+    }
+}
+
+// Appeler la fonction chaque fois qu'une case à cocher est cliquée
+document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', checkIfAnyNodeIsChecked);
+});
+
+// Appeler la fonction au chargement de la page pour initialiser l'état du bouton
+checkIfAnyNodeIsChecked();
+
+// Fonction pour désélectionner tous les nœuds et afficher tous les noeuds
+function unselectAllNodes() {
+    // Désélectionner toutes les cases à cocher
+    document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+
+    // Afficher tous les nœuds
+    document.querySelectorAll('.point').forEach(function(point) {
+        point.classList.remove('transparenttotal');
+    });
+
+    // Cacher le bouton unselect all
+    document.getElementById('unselectAll').style.display = 'none';
+}
+
+// Appeler la fonction lorsque le bouton est cliqué
+document.getElementById('unselectAll').addEventListener('click', unselectAllNodes);
+
+function checkIfLayersAreChecked() {
+    var layers = document.querySelectorAll('#layers input[type="checkbox"]');
+    var isAnyLayerChecked = Array.from(layers).some(layer => layer.checked);
+    let points = document.querySelectorAll(".point");
+
+    points.forEach(function (point) {
+        if (!isAnyLayerChecked) {
+            point.classList.add("transparenttotal");
+        } else {
+            point.classList.remove("transparenttotal");
+        }
+    })
+}
+
+// Appeler la fonction chaque fois qu'une case est cochée ou décochée
+document.querySelectorAll('#layers input[type="checkbox"]').forEach(function(layer) {
+    layer.addEventListener('change', checkIfLayersAreChecked);
 });
