@@ -9,6 +9,8 @@ const NomTableDonnesOut = "CommCapteurs";
 const NomTableDonnesRanging = "RangingCapteurs";
 const NomTableDonnesMobile = "MobileCapteurs";
 
+const nbLignesMobile = 10;
+
 #region Intialisation de la base de données
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
@@ -102,6 +104,9 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $z = $data["z"];
     $color = $data["color"];
     $uid = $data["UID"];
+
+
+
     $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?)";
 
     // Préparation de la requête
@@ -121,48 +126,9 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $statement->close();
     $conn->close();
 
+    GestionNbLignesMobile();
 }
-/**
- * Update les données du noeud mobile dans la base de données
- * @param string $topic Le topic du message
- * @param string $message Le message reçu sous format json
- */
-function UpdateDonneesNoeudMobile($topic,$message)
-{
-    $conn = new mysqli(servername, username, password, dbname);
 
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    $data = json_decode($message,true);
-    $idCapteur = explode("/",$topic)[1];
-    $x = $data["x"];
-    $y = $data["y"];
-    $z = $data["z"];
-    $color = $data["color"];
-    $uid = $data["UID"];
-    
-    $requete = "UPDATE ".NomTableDonnesMobile." SET x = ?, y=?, z=?, color=?,UID=? WHERE idCapteur=?";
-
-    // Préparation de la requête
-    $statement = $conn->prepare($requete);
-
-    $statement->bind_param("dddsdss", $x, $y, $z, $color, $uid, $idCapteur);
-
-    // Exécution de la requête
-    $resultat = $statement->execute();
-
-    
-    // Vérifier l'exécution de la requête
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $statement->error);
-    }
-
-    // Fermer la connexion et le statement
-    $statement->close();
-    $conn->close();
-}
 /**
  * Fonction qui récupère les données la position du point mobile
  * @return array $data Tableau contenant les données
@@ -201,6 +167,37 @@ function RecupererDonneesMobile(){
     $conn->close();
     return $data;
 }
+
+function GestionNbLignesMobile()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    //Vérifier la connexion
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $requete = "SELECT COUNT(*) FROM ".NomTableDonnesMobile;
+
+    $resultat = $conn->query($requete);
+    
+    //Vérifier si la requête a réussi
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $row = $resultat->fetch_assoc();
+
+    //Si plus de nbLignesMobiles lignes dans la table, on supprime la première ligne en fonction de son timestamp
+    if($row['COUNT(*)'] > nbLignesMobile)
+    {
+        $requete = "DELETE FROM ".NomTableDonnesMobile." ORDER BY timestamp LIMIT 1";
+        $resultat = $conn->query($requete);
+    }
+    $conn->close();
+}
+
+
 /**
  * Fonction qui traite des les capteurs dwm
  * @param string $idDWM L'id du DWM
@@ -484,8 +481,6 @@ function afficherIds()
     }
 
     $ids = array();
-    $uids = array();
-    $iddwms = array();
 
     while ($row = $resultat->fetch_assoc()) {
         $ids[] = $row;
