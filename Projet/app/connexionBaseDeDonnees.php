@@ -260,6 +260,50 @@ function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 
 #endregion
 
+#region VerifierMQTT
+/**
+ * Fonction qui sélectionne la table "setup" et retourne le nombre de lignes
+ * @return int Le nombre de lignes dans la table "setup"
+ */
+function getFromMobileTable() {
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $query = "SELECT * FROM ".NomTableDonnesMobile." where timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
+    $result = $conn->query($query);
+
+    if($result === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+   
+    
+        while($row = $result->fetch_assoc()){
+            $data[] = array(
+                'id' => $row['id'],
+                'idCapteur' => $row['idCapteur'],
+                'timestamp' => $row['timestamp'],
+                'x' => $row['x'],
+                'y' => $row['y'],
+                'z' => $row['z'],
+                'color' => $row['color'],
+                'UID' => $row['uid']
+            );
+        }
+
+        $conn->close();
+        
+        return $data;
+    
+    
+}
+
+
+#endregion
+
 #region Fonctions DonneesSetup
 /**
  * Fonction qui envoie les données reçues du noeud dans la base de données
