@@ -1,6 +1,7 @@
-import { createPoints } from './scriptCreerPoint.js';
+import { createPoints} from './scriptCreerPoint.js';
+import { updatePointCoordinates } from './scriptCreerPoint.js';
 document.addEventListener("DOMContentLoaded", function () {
-    // Define a function to fetch and process data
+    // Definition de la fonction pour recuperer et traiter les données
     function fetchData() {
         $.ajax({
             url: 'donnes.php',
@@ -8,13 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
             dataType: 'json',
             data: { request: "pointMobile" },
             success: function (data) {
-                console.log('Données récupérées avec succès :', data);
-                if(document.getElementById(data.idCapteur)==null){
-                    createPoints(data);
+                console.log('Données récupérées avec succès :', data[0]);
+                var point = document.getElementById(data[0].idCapteur)
+                if(point==null){
+                    console.log(" Creation de : " + data[0].idCapteur)
+                    createPoints(data)
                 } else {
-                    var point = document.getElementById(data.idCapteur);
-                    point.style.left = data.x * COEFF_X + X_ORIGINE_C + "px";
-                    point.style.top = data.y * COEFF_Y + Y_ORIGINE_C + "px";
+                    console.log("Mise à jour de : " + data[0].idCapteur);
+                    updatePointCoordinates(point,data[0].x,data[0].y);
                 }
                 
             
@@ -25,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Call the function initially
+    // Appel initial de la fonction 
     fetchData();
 
-    // Set up an interval to call the function every, for example, 5 seconds (5000 milliseconds)
-    setInterval(fetchData, 5000);
+    // Mettre un intervale pour appeler la fonction toutes les 2 secondes (2000 millisecondes)
+    setInterval(fetchData, 2000);
 });
