@@ -1,8 +1,8 @@
 <?php
 
-require('vendor/autoload.php');
+require_once('vendor/autoload.php');
 
-include('connexionBaseDeDonnees.php');
+require_once('connexionBaseDeDonnees.php');
 //Logger 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

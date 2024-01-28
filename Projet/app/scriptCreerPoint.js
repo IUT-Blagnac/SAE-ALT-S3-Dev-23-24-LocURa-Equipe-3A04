@@ -11,6 +11,9 @@ export function createPoints(data) {
         console.log("Point : " + data[i].idCapteur+" / UID : "+data[i].UID +" / IDDWM : "+data[i].iddwm+ " créé avec succès");
     }
 }
+
+const checkedCheckboxIds = [];
+
 /**
  * Crée un point sur la carte
  * @param {Number} coordX : correspond à la coordonnée X du point
@@ -49,8 +52,6 @@ function createPoint(coordX, coordY, couleur, id, iddwm, uid) {
          point.addEventListener("click", function () {
             togglePopup(point, id, uid, iddwm, coordX, coordY);
          });
-        
- 
     } 
 
     // Ajouter le idLabel au point
@@ -84,13 +85,17 @@ function togglePopup(clickedPoint, id, uid ,iddwm, coordX, coordY) {
     // Récupérer la boîte de dialogue et son contenu
     let popup = document.getElementById("popup");
     let popupContent = document.getElementById("popup-content");
-
+    
     // Vérifier si la boîte de dialogue est déjà affichée pour le même point
     if (clickedPoint.classList.contains("selected")) {
         // Cacher la boîte de dialogue
         popup.style.display = "none";
+        console.log(popup.style.display);
+
         // Réinitialiser la transparence de tous les points
         resetPointsTransparency();
+        updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
+        console.log("Point : " + id + " masqué avec succès");
     } else {
         // Sinon, afficher les informations du point dans la boîte de dialogue
 
@@ -157,8 +162,8 @@ function showPopup(id, uid ,iddwm , coordX, coordY) {
     let originey = 250; // Origine de la carte en y
 
     // Calculer la position de la boîte de dialogue par rapport au point cliqué
-    let popupX = coordX * (-40.5) + originex + 20; // Ajuster la valeur 20 selon votre besoin
-    let popupY = coordY * 37 + originey - 30; // Ajuster la valeur -20 selon votre besoin
+    let popupX = coordX * COEFF_X + originex + 20; // Ajuster la valeur 20 selon votre besoin
+    let popupY = coordY * COEFF_Y + originey - 30; // Ajuster la valeur -20 selon votre besoin
 
     // Positionner la boîte de dialogue à la nouvelle position
     popup.style.left = popupX + "px";
@@ -172,8 +177,12 @@ function showPopup(id, uid ,iddwm , coordX, coordY) {
  * Réinitialise la transparence de tous les points
  */
 function resetPointsTransparency() {
+    
     let allPoints = document.querySelectorAll(".point");
+    let popup = document.getElementById("popup");
 
+    
+    
     // Parcourir tous les points
     allPoints.forEach(function (point) {
         // Supprimer la classe selected de tous les points
@@ -181,13 +190,14 @@ function resetPointsTransparency() {
         // Supprimer la classe transparent de tous les points
         point.classList.remove("transparent");
         point.classList.remove("transparenttotal");
+        popup.style.display = "none";
 
         if (!point.clickHandler) {
             let clickHandler = function () {
-                togglePopup(point, id, coordX, coordY);
+                togglePopup(point, point.id, point.coordX, coordY);
             };
-            point.addEventListener("click", clickHandler);
-            point.clickHandler = clickHandler;
+        point.addEventListener("click", clickHandler);
+        point.clickHandler = clickHandler;
         }
     });
     
@@ -214,6 +224,7 @@ function updatePointSelection(clickedPoint) {
 function toggleOtherPointsTransparency(clickedPoint) {
     let allPoints = document.querySelectorAll(".point");
 
+
     // Parcourir tous les points
     allPoints.forEach(function (point) {
         
@@ -221,6 +232,7 @@ function toggleOtherPointsTransparency(clickedPoint) {
         if (point !== clickedPoint) {
             point.classList.add("transparent");
             point.classList.remove("opacity");
+            
         } else {
             point.classList.remove("transparent");
         }
@@ -244,6 +256,7 @@ function toggleOtherPointsTransparencyTotal(clickedPoint) {
         if (currentPointID !== clickedPointID) {
             point.classList.add("transparenttotal");
             point.classList.remove("opacity");
+            point.style.pointerEvents = "none"; // Disable pointer events
         } else {
             point.classList.remove("transparenttotal");
         }
@@ -268,6 +281,8 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
     // Parcourir tous les points
     allPoints.forEach(function (point) {
         let pointID = point.id.replace("dwm1001-", "");
+        let popup = document.getElementById("popup");
+
         // Vérifier si le point est associé à une case cochée
         let isAssociated = checkedCheckboxIds.includes(pointID);
         if (isAssociated) {
@@ -276,6 +291,9 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
         } else {
             // Sinon, appliquer la classe transparenttotal
             point.classList.add("transparenttotal");
+            popup.style.display = "none";
+            console.log(popup.style.display);
+
         }
     });
 }
@@ -307,6 +325,7 @@ function sortNodesByCheckedStatus() {
     sortedNodes.forEach(function (node) {
         nodesContainer.appendChild(node);
     });
+    
 }
 
 // Sélectionnez toutes les cases à cocher dans le menu déroulant
@@ -322,6 +341,7 @@ document.addEventListener('click', function (event) {
         popup.style.display = "none";
         // Réinitialiser la transparence de tous les points
         resetPointsTransparency();
+        updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
     }
 });
 
@@ -334,16 +354,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     checkboxesNodes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
-            // Obtenez tous les identifiants des cases à cocher cochées
-            let checkedCheckboxIds = Array.from(checkboxesNodes)
+            // Update the checkedCheckboxIds array based on checkbox changes
+            checkedCheckboxIds.length = 0; // Clear the array
+            checkedCheckboxIds.push(...Array.from(checkboxesNodes)
                 .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.getAttribute('data-node-id'));
-
-            // Appelez updateTransparencyBasedOnCheckboxes avec les identifiants des cases cochées
+                .map(checkbox => checkbox.getAttribute('data-node-id')));
+    
+            // Call updateTransparencyBasedOnCheckboxes with the updated checkedCheckboxIds
             updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
-
-            // Tri des nœuds après chaque changement de case à cocher
+    
+            // Sort the nodes after each checkbox change
             sortNodesByCheckedStatus();
+
+            console.log("checkedCheckboxIds: " + checkedCheckboxIds);
         });
     });
 

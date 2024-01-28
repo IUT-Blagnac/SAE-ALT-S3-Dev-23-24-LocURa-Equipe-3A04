@@ -8,6 +8,9 @@ const NomTableDonneesSetup = "DonneesCapteurs";
 const NomTableDonnesOut = "CommCapteurs";
 const NomTableDonnesRanging = "RangingCapteurs";
 const NomTableDonnesMobile = "MobileCapteurs";
+
+const nbLignesMobile = 10;
+
 #region Intialisation de la base de données
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
@@ -41,7 +44,7 @@ function InitBase()
     $requete = "CREATE TABLE ".NomTableDonnesOut." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         node_id VARCHAR(50) NOT NULL,
-        timestmp DOUBLE NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         initiator VARCHAR(50),
         target VARCHAR(50),
         protocol VARCHAR(50),
@@ -56,7 +59,7 @@ function InitBase()
     $requeteCMOBILE = "CREATE TABLE ".NomTableDonnesMobile." (
         id INT AUTO_INCREMENT PRIMARY KEY,
         idCapteur VARCHAR(30) NOT NULL,
-        timestamp DOUBLE NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
@@ -66,20 +69,20 @@ function InitBase()
     $conn ->execute_query($requeteCMOBILE);
 
     $creationTableRanging = "CREATE TABLE ".NomTableDonnesRanging. " (
-        id INT AUTO_INCREMENT PRIMARY KEY,
         initiator VARCHAR(50) NOT NULL,
         target VARCHAR(50) NOT NULL,
-        timestamp DOUBLE NOT NULL,
+        timestamp TIMESTAMP default current_timestamp,
         `range` FLOAT NOT NULL,
-        rangingError FLOAT NOT NULL
+        rangingError FLOAT NOT NULL,
+        CONSTRAINT PK_Ranging PRIMARY KEY (initiator, target)
     );";
     $conn ->execute_query($creationTableRanging);
 
     $conn->close();
 
-    AjouterPointOrigine();
-}
+    // AjouterPointOrigine();
 
+}
 #endregion
 
 #region Fonctions DonneesMobile
@@ -90,7 +93,6 @@ function InitBase()
 function EnvoyerDonneesNoeudMobile($topic,$message){
     $conn = new mysqli(servername, username, password, dbname);
 
-    // Vérifier la connexion
     if($conn->connect_error){
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
@@ -101,14 +103,16 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $y = $data["y"];
     $z = $data["z"];
     $color = $data["color"];
-    $timestamp = $data["timestamp"];
     $uid = $data["UID"];
-    $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur,timestamp, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+
+
+    $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?)";
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("sddddss", $idCapteur, $timestamp, $x, $y, $z, $color, $uid);
+    $statement->bind_param("sdddss", $idCapteur, $x, $y, $z, $color, $uid);
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -122,48 +126,9 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $statement->close();
     $conn->close();
 
+    GestionNbLignesMobile();
 }
-/**
- * Update les données du noeud mobile dans la base de données
- * @param string $topic Le topic du message
- * @param string $message Le message reçu sous format json
- */
-function UpdateDonneesNoeudMobile($topic,$message)
-{
-    $conn = new mysqli(servername, username, password, dbname);
 
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    $data = json_decode($message,true);
-    $idCapteur = explode("/",$topic)[1];
-    $x = $data["x"];
-    $y = $data["y"];
-    $z = $data["z"];
-    $color = $data["color"];
-    $uid = $data["UID"];
-    
-    $requete = "UPDATE ".NomTableDonnesMobile." SET x = ?, y=?, z=?, color=?,UID=? WHERE idCapteur=?";
-
-    // Préparation de la requête
-    $statement = $conn->prepare($requete);
-
-    $statement->bind_param("dddsdss", $x, $y, $z, $color, $uid, $idCapteur);
-
-    // Exécution de la requête
-    $resultat = $statement->execute();
-
-    
-    // Vérifier l'exécution de la requête
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $statement->error);
-    }
-
-    // Fermer la connexion et le statement
-    $statement->close();
-    $conn->close();
-}
 /**
  * Fonction qui récupère les données la position du point mobile
  * @return array $data Tableau contenant les données
@@ -202,6 +167,37 @@ function RecupererDonneesMobile(){
     $conn->close();
     return $data;
 }
+
+function GestionNbLignesMobile()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    //Vérifier la connexion
+    if($conn->connect_error){
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $requete = "SELECT COUNT(*) FROM ".NomTableDonnesMobile;
+
+    $resultat = $conn->query($requete);
+    
+    //Vérifier si la requête a réussi
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $row = $resultat->fetch_assoc();
+
+    //Si plus de nbLignesMobiles lignes dans la table, on supprime la première ligne en fonction de son timestamp
+    if($row['COUNT(*)'] > nbLignesMobile)
+    {
+        $requete = "DELETE FROM ".NomTableDonnesMobile." ORDER BY timestamp LIMIT 1";
+        $resultat = $conn->query($requete);
+    }
+    $conn->close();
+}
+
+
 /**
  * Fonction qui traite des les capteurs dwm
  * @param string $idDWM L'id du DWM
@@ -485,8 +481,6 @@ function afficherIds()
     }
 
     $ids = array();
-    $uids = array();
-    $iddwms = array();
 
     while ($row = $resultat->fetch_assoc()) {
         $ids[] = $row;
@@ -611,16 +605,23 @@ function EnvoyerDonneesRanging($topic,$message)
     $data = json_decode($message,true);
     $initiator = $data['initiator'];
     $target = $data['target'];
-    $timestamp = $data['timestamp'];
     $range = $data['range'];
     $rangingError = $data['rangingError'];
-    
-    $requete = "INSERT INTO `".NomTableDonnesRanging."` (`initiator`, `target`, `timestamp`, `range`, `rangingError`) VALUES (?, ?, ?, ?, ?)";
+
+    $requete = "
+    INSERT INTO `" . NomTableDonnesRanging . "` (`initiator`, `target`, `range`, `rangingError`)
+        VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE 
+        `range` = ?,
+        `rangingError` = ?,
+        `timestamp` = CURRENT_TIMESTAMP";
+
 
     // Préparation de la requête
     $statement = $conn->prepare($requete);
 
-    $statement->bind_param("ssddd", $initiator, $target, $timestamp, $range, $rangingError);
+    $statement->bind_param('ssdddd', $initiator, $target, $range, $rangingError, $range, $rangingError);
+
 
     // Exécution de la requête
     $resultat = $statement->execute();
@@ -629,9 +630,8 @@ function EnvoyerDonneesRanging($topic,$message)
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $statement->error);
     }
-
-    // Fermer la connexion et le statement
     $statement->close();
+
     $conn->close();
 }
 
