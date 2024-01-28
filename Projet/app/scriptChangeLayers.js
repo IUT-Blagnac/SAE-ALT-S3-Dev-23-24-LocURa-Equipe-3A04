@@ -1,21 +1,25 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const images = {
-        'premierEtage': 'Images/map.png',
-        'deuxiemeEtage': 'Images/google.png',
-        'troisiemeEtage': 'Images/google1.png'
-    };
+const images = {
+    'premierEtage': 'Images/map.png',
+    'deuxiemeEtage': 'Images/google.png',
+    'troisiemeEtage': 'Images/google1.png'
+};
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const layers = ['layer1', 'layer2', 'layer3'];
     function changeImage() {
         const container = document.getElementById('map-container');
         container.innerHTML = ''; // Clear the container
+        let layerIndex = 0;
 
         // Check each layer and add it to the container if it's selected
         for (let layer in images) {
             if (document.getElementById(layer) && document.getElementById(layer).checked) {
                 const img = document.createElement('img');
                 img.src = images[layer];
-                img.className = 'map-container';
+                img.className = layers[layerIndex];
+                img.style.position = 'absolute';
                 container.appendChild(img);
+                layerIndex++;
             }
         }
     }

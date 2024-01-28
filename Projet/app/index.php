@@ -9,6 +9,7 @@
 
 
 <div class="navbar">
+    <!-- Bouton qui permet d'afficher différents environnements - Non implémenté
     <div class="dropdown">
         <button class="dropbtn"> Environnement
             <i class="fa fa-caret-down"></i>
@@ -18,13 +19,14 @@
             <label><input type="checkbox" name="batC" id="batC"> Bâtiment C </label>
         </div>
     </div>
+    -->
 
+    <!-- Bouton qui permet d'afficher différents étages d'un même environnement -->
     <div class="dropdown">
         <button class="dropbtn"> Etages
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="layers">
-            <label><input type="checkbox" class="select-all" id="selectAll">Select All</label>
             <label><input type="checkbox" name="premierEtage" id="premierEtage" checked> Etage 1 </label>
             <label><input type="checkbox" name="deuxiemeEtage" id="deuxiemeEtage"> Etage 2 </label>
             <label><input type="checkbox" name="troisiemeEtage" id="troisiemeEtage"> Etage 3 </label>
@@ -50,7 +52,7 @@
             var_dump($ids);
 
             foreach ($ids as $id) {
-                
+
                 echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
                 if($id['UID'] != null && $id['iddwm'] != null)
                     echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
@@ -64,6 +66,7 @@
                 echo '</div>';
             }
             ?>
+
         </div>
     </div>
 
@@ -80,10 +83,10 @@
     </div>
 
     <div class="label">
-        Laboratory Map
+        <b>Laboratory Map</b>
     </div>
 
-     <!-- Futur boutons pour range nodes -->
+    <!-- Range nodes -->
     <div class="button">
         <button>Activer cercles</button>
         <button class="hidden">Activer Remplissage</button>
@@ -91,7 +94,11 @@
     </div>
     
 </div>
+
 <a href="debug.php">DEBUG</a>
+
+<button id="unselectAll">Désélectionner tout</button>
+
 <!-- Inclure jQuery -->
 <script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <!-- Fichier JavaScript de requete AJAX -->
@@ -100,6 +107,7 @@
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
+<script src="scriptChangeLayers.js" ></script>
 <script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
 <script type ="module" src = "scriptCreerPointMobile.js"  ></script>
