@@ -168,6 +168,10 @@ function RecupererDonneesMobile(){
     return $data;
 }
 
+/**
+ * Permet de gérer le nombre de lignes dans la table DonneesMobile
+ * Si il y a plus de nbLignesMobile lignes dans la table, on supprime la ligne la plus ancienne
+ */
 function GestionNbLignesMobile()
 {
     $conn = new mysqli(servername, username, password, dbname);
@@ -594,6 +598,10 @@ function RecupererDonneesComm()
 
 #region Ranging 
 
+/**
+ * Permet d'insérer les données de ranging dans la base de données
+ * Ne stocke que les données les plus récentes en remplacant les anciennes
+ */
 function EnvoyerDonneesRanging($topic,$message)
 {
     $conn = new mysqli(servername, username, password, dbname);
@@ -679,7 +687,7 @@ function RecupererDonneesRanging()
 #region Debug
 
 /**
- * Fonction qui selectionne toutes les données et les dump dans un echo
+ * Fonction qui selectionne toutes les données des bases et les affiche dans des tableaux
  * Pour debug uniquement
  */
 function afficherDonnees()
@@ -758,74 +766,6 @@ function afficherDonnees()
     }
     echo "</table>";
     echo "<br>";
-    $conn->close();
-}
-
-
-
-/**
- * Fonction qui vérifie si la table capteurs existe
- */
-function verifier_tablecapteurs(){
-        $conn = new mysqli(servername, username, password, dbname);
-
-        // Vérifier la connexion
-        if ($conn->connect_error) {
-            die("La connexion à la base de données a échoué : " . $conn->connect_error);
-        }
-        
-        $requete = "SELECT COUNT(*) FROM ".NomTableDonnesOut;
-        
-        $resultat = $conn->query($requete);
-        // Vérifier si la requête a réussi
-        if ($resultat === false) {
-            die("Erreur d'exécution de la requête : " . $conn->error);
-        }
-        
-        // Récupérer le nombre de lignes
-        $count = $resultat->fetch_row()[0];
-        
-        $conn->close();
-        
-        return $count == 0;
-}
-
-/**
- * Fonction de gogole a enlever
- */
-function AjouterPointOrigine() {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    $idCapteur = "CapteurOrigine";
-    $x = 0;
-    $y = 0;
-    $z = 0;
-    $orientation = 0;
-    $color = "000000"; // noir en hexadécimal
-    $uid = null;
-
-    $requete = "INSERT INTO ".NomTableDonneesSetup." (idCapteur, x, y, z, orientation, color,UID) VALUES (?, ?, ?, ?, ?, ?,?)";
-
-    // Préparation de la requête
-    $statement = $conn->prepare($requete);
-
-    $statement->bind_param("sddddss", $idCapteur, $x, $y, $z, $orientation, $color,$uid);
-
-    // Exécution de la requête
-    $resultat = $statement->execute();
-
-    // Vérifier l'exécution de la requête
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $statement->error);
-    }
-
-    // Fermer la connexion et le statement
-    $statement->close();
     $conn->close();
 }
 

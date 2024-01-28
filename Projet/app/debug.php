@@ -75,11 +75,6 @@
         include("connexionBaseDeDonnees.php");
         afficherDonnees();
         
-        if (verifier_tablecapteurs()) {
-            echo " La table Capteurs existe <br>"; 
-        } else {
-            echo "La table Capteurs n'existe pas <br>";
-        }
         ?>
     </main>
     </center>

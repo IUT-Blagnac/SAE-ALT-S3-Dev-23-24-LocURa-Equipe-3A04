@@ -1,4 +1,7 @@
 <?php
+
+//Ce script permet de simuler une expérience avec des données aléatoires
+
 require_once('connexionBaseDeDonnees.php');
 
 while (true) {
