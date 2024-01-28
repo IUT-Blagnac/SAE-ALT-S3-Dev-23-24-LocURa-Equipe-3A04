@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="Styles/style.css">
 </head>
 <body>
-
-
-
 
 <div class="navbar">
     <div class="dropdown">
@@ -42,12 +39,11 @@
 
             <?php
             
-            include 'connexionBaseDeDonnees.php';
+            require_once 'BaseDeDonnees/connexionBaseDeDonnees.php';
 
 
 
             $ids = afficherIds();
-            var_dump($ids);
 
             foreach ($ids as $id) {
                 
@@ -67,7 +63,7 @@
         </div>
     </div>
 
-    <script src="rechercheParId.js" ></script>
+    <script src="DiversJavaScripts/rechercheParId.js" ></script>
     <div class="dropdown">
         <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
@@ -91,21 +87,19 @@
     </div>
     
 </div>
-<a href="debug.php">DEBUG</a>
-<!-- Inclure jQuery -->
+<a href="Pages/debug.php">DEBUG</a>
+<!-- jQuery -->
 <script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Fichier JavaScript de requete AJAX -->
-<script type="module" src="scriptRecupererDonnes.js"></script>
-<script type="module" src="scriptRecupererDonneesRanging.js"></script>
-<!-- Inclure le fichier JavaScript pour créer les points -->
-<script type="module" src="scriptCreerPoint.js" ></script>
-<!-- Inclure le fichier JavaScript pour les couches -->
-<script src="ajaxRequestToDataPHP.js" ></script>
-<!-- Inclure le fichier JavaScript pour le Point mobile -->
-<script type ="module" src = "scriptCreerPointMobile.js"  ></script>
-<!-- Inclure le script select all -->
-<script type="module" src="scriptSelectAll.js"></script>
 
+<!-- Fichiers JavaScript pour récupération de données -->
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesRanging.js"></script>
+<script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"  ></script>
+
+<!-- Inclure le fichier JavaScript pour créer les points -->
+<script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
+<!-- Inclure le fichier JavaScript pour les couches -->
+<script src="ScriptsAjax/ajaxRequestToDataPHP.js" ></script>
 
 
 <img id="map-image" class="map-image">
@@ -114,7 +108,6 @@
 
 <div id="map"></div>
 
-<!-- Afficher la popup du noeud -->
 <div id="popup" class="popup">
     <div id="popup-content" class="popup-content"></div>
 </div>

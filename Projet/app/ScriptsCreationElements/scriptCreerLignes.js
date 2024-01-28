@@ -1,4 +1,4 @@
-import {COEFF_TT} from "./constantes.js";
+import {COEFF_TT} from "../DiversJavaScripts/constantes.js";
 
 /**
  * Gere le dessins de différentes lignes en prenant en paramètre un tableau qui contient des tableaux de données correspondant a une ligne de données dans la base de données Ranging

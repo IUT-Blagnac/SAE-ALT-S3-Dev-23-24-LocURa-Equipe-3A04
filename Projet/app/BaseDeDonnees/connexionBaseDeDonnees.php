@@ -1,9 +1,4 @@
 <?php
-//On se connecte a la base de données mariaDB
-const servername = "BaseDeDonnes"; 
-const username = "UserBd"; 
-const password = "MotDePasseBD";
-const dbname = "Donnes";
 const NomTableDonneesSetup = "DonneesCapteurs";   
 const NomTableDonnesOut = "CommCapteurs";
 const NomTableDonnesRanging = "RangingCapteurs";
@@ -11,19 +6,15 @@ const NomTableDonnesMobile = "MobileCapteurs";
 
 const nbLignesMobile = 10;
 
+require_once('creationConnexionBD.php');
+
 #region Intialisation de la base de données
 /**
  * Fonction qui intialise la base de données en créant les tables si elle n'existent pas
  */
 function InitBase()
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    
+    $conn = CreerConnection();
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     $requete = "DROP TABLE IF EXISTS ".NomTableDonnesRanging.",".NomTableDonnesOut. ",".NomTableDonneesSetup.",".NomTableDonnesMobile.";";
     $conn->execute_query($requete);
@@ -81,9 +72,6 @@ function InitBase()
     $conn ->execute_query($creationTableRanging);
 
     $conn->close();
-
-    // AjouterPointOrigine();
-
 }
 #endregion
 
@@ -97,13 +85,8 @@ function InitBase()
  */
 function EnvoyerDonnesNoeudSetup($topic,$message)
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
+    $conn = CreerConnection();
+    
     $data = json_decode($message,true);
     $idCapteur = explode("/",$topic)[1];
     $iddwm = null;
@@ -165,14 +148,12 @@ function EnvoyerDonnesNoeudSetup($topic,$message)
  */
 function ModifierTableSetup($nomColonnnes)
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
+    $conn = CreerConnection();
+    
+    
     $requete= "DESCRIBE ".NomTableDonneesSetup;
-    $resultat = $conn->query($requete);
+    $resultat = $conn->execute_query($requete);
 
-    if($resultat === false){
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
     $colonnes = array();
     while($row = $resultat->fetch_assoc())
     {
@@ -186,9 +167,6 @@ function ModifierTableSetup($nomColonnnes)
         {
             $requete = "ALTER TABLE ".NomTableDonneesSetup." ADD ".$nomColonne." VARCHAR(50) NULL";
             $resultat = $conn->query($requete);
-            if($resultat === false){
-                die("Erreur d'exécution de la requête : " . $conn->error);
-            }
         }
     }
     $conn->close();
@@ -199,22 +177,13 @@ function ModifierTableSetup($nomColonnnes)
  * @return array $data Tableau contenant les données
  */
 function RecupererDonneesSetup()
-{    
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+{  
+    $conn = CreerConnection();
+      
     
     $requete = "SELECT * FROM ".NomTableDonneesSetup;
     $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
+
     $data = array();
 
     while ($row = $resultat->fetch_assoc()) {
@@ -229,19 +198,12 @@ function RecupererDonneesSetup()
  */
 function afficherIds()
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    $conn = CreerConnection();
+    
 
     $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
-    $resultat = $conn->query($requete);
 
-    // Vérifier si la requête a réussi
+    $resultat = $conn->query($requete);
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
@@ -251,6 +213,12 @@ function afficherIds()
     while ($row = $resultat->fetch_assoc()) {
         $ids[] = $row;
     }
+
+    //On rajoute les id des noeuds mobiles
+    $requete = "SELECT idCapteur,UID FROM ".NomTableDonnesMobile;
+
+
+
     $conn->close();
 
     return $ids;
@@ -266,11 +234,8 @@ function afficherIds()
  * Fonction qui envoie les données du noeud mobile dans la base de données
  */
 function EnvoyerDonneesNoeudMobile($topic,$message){
-    $conn = new mysqli(servername, username, password, dbname);
-
-    if($conn->connect_error){
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
+    
 
     $data = json_decode($message,true);
     $idCapteur = explode("/",$topic)[1];
@@ -279,8 +244,6 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
     $z = $data["z"];
     $color = $data["color"];
     $uid = $data["UID"];
-
-
 
     $requete = "INSERT INTO ".NomTableDonnesMobile." (idCapteur, x, y, z, color, uid) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -309,12 +272,9 @@ function EnvoyerDonneesNoeudMobile($topic,$message){
  * @return array $data Tableau contenant les données
  */
 function RecupererDonneesMobile(){
-    $conn = new mysqli(servername, username, password, dbname);
 
-    //Vérifier la connexion
-    if($conn->connect_error){
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
+    
 
     $requete = "SELECT * FROM ".NomTableDonnesMobile." WHERE timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
 
@@ -349,12 +309,8 @@ function RecupererDonneesMobile(){
  */
 function GestionNbLignesMobile()
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    //Vérifier la connexion
-    if($conn->connect_error){
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
+    
 
     $requete = "SELECT COUNT(*) FROM ".NomTableDonnesMobile;
 
@@ -387,12 +343,8 @@ function GestionNbLignesMobile()
  */
 function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 {
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
+    
 
     $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup." WHERE x = ? AND y = ? AND z = ? ";
 
@@ -441,11 +393,9 @@ function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 
 #region Fonctions DonneesComm
 function envoyerDonneesComm($topic,$message){
-    $conn = new mysqli(servername, username, password, dbname);
+    $conn = CreerConnection();
+    
 
-    if($conn->connect_error){
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
     $donneespayld = json_decode($message, true);
     $timestamp = $donneespayld['timestamp'];
     $node_id = $donneespayld['node_id'];
@@ -495,14 +445,8 @@ function envoyerDonneesComm($topic,$message){
  */
 function RecupererDonneesComm()
 {    
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
     
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
     $requete = "SELECT * FROM ".NomTableDonneesSetup;
     $resultat = $conn->query($requete);
@@ -560,12 +504,9 @@ function RecupererDonneesComm()
  */
 function EnvoyerDonneesRanging($topic,$message)
 {
-    $conn = new mysqli(servername, username, password, dbname);
+    $conn = CreerConnection();
+    
 
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
     $data = json_decode($message,true);
     $initiator = $data['initiator'];
     $target = $data['target'];
@@ -606,12 +547,8 @@ function EnvoyerDonneesRanging($topic,$message)
  */
 function RecupererDonneesRanging()
 {    
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
+    $conn = CreerConnection();
+    
     
     // Vous pouvez maintenant exécuter vos requêtes SQL ici
     
@@ -648,15 +585,26 @@ function RecupererDonneesRanging()
  */
 function afficherDonnees()
 {
-    
-    $conn = new mysqli(servername, username, password, dbname);
+    AfficherDonneesTable(NomTableDonneesSetup);
+    AfficherDonneesTable(NomTableDonnesOut);
+    AfficherDonneesTable(NomTableDonnesRanging);
+    AfficherDonneesTable(NomTableDonnesMobile);
+}
 
+/**
+ * Fonction qui affiche les données de n'importe quelle table sous forme de tableau
+ */
+function AfficherDonneesTable($nomTable)
+{
+    $conn = CreerConnection();
+    
+    
     // Vérifier la connexion
     if ($conn->connect_error) {
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    $requete = "DESCRIBE ".NomTableDonneesSetup;
+    $requete = "DESCRIBE ".$nomTable;
     $resultat = $conn->query($requete);
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
@@ -668,17 +616,17 @@ function afficherDonnees()
     }
     $resultat->close();
 
-    $requete = "SELECT * FROM ".NomTableDonneesSetup;
+    $requete = "SELECT * FROM ".$nomTable;
     $resultat = $conn->query($requete);
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
 
 
-    echo "<h2>Setup : </h2><br>";
+    echo "<h2>".$nomTable.": </h2><br>";
 
     //Création du tableau 
-    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
+    echo "<table class='table-debug'>";
     //On genere les entetes du tableau
     echo "<tr>";
     foreach($colonnes as $colonne)
@@ -700,34 +648,6 @@ function afficherDonnees()
     }
     echo "</table>";
 
-    echo "<h2>Ranging : </h2><br>";
-    $requete = "SELECT * FROM ".NomTableDonnesRanging;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>initiator</th><th>target</th><th>timestamp</th><th>range</th><th>rangingError</th></tr>";
-    while ($row = $resultat->fetch_assoc()) {
-        echo "<tr><td>" . $row['initiator'] . "</td><td>".  $row["target"] . "</td><td>". $row["timestamp"] ."</td><td> ". $row["range"] . "</td><td>" . $row["rangingError"] . "</td></tr>" ;
-    }
-    echo "</table>";
-
-    $requete = "SELECT * FROM ".NomTableDonnesMobile;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-    echo "<h2>Mobile : </h2><br>";
-    echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>timestamp</th><th>X</th><th>Y</th><th>Z</th><th>Couleur</th><th>UID</th></tr>";
-    while ($row = $resultat->fetch_assoc()) {
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["timestamp"] . "</td><td>". $row["x"] ."</td><td> ". $row["y"] . "</td><td>" . $row["z"] . "</td><td>". $row["color"] . "</td><td>". $row["uid"] . "</td></tr>" ;
-    }
-    echo "</table>";
-    echo "<br>";
     $conn->close();
 }
 

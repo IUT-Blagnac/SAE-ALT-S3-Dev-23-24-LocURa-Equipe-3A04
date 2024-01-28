@@ -1,9 +1,9 @@
-import { GestionDonneesCercles } from "./scriptCreerCercles.js";
-import { GestionDonneesLignes } from "./scriptCreerLignes.js";
+import { GestionDonneesCercles } from "../ScriptsCreationElements/scriptCreerCercles.js";
+import { GestionDonneesLignes } from "../ScriptsCreationElements/scriptCreerLignes.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
-        url: 'donnes.php',
+        url: '../BaseDeDonnees/donnes.php',
         method: 'post',
         dataType: 'json',
         data:{request: "rangingData"},

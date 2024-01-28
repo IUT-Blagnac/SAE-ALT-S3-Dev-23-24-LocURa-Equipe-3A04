@@ -1,4 +1,4 @@
-import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y,POPUP_OFFSET_X,POPUP_OFFSET_Y } from './constantes.js';
+import { X_ORIGINE_C, Y_ORIGINE_C,COEFF_X,COEFF_Y,POPUP_OFFSET_X,POPUP_OFFSET_Y } from '../DiversJavaScripts/constantes.js';
 
 /**
  *  Fonction pour créer les points à partir des données récupérées

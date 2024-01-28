@@ -2,7 +2,7 @@
 
 require_once('vendor/autoload.php');
 
-require_once('connexionBaseDeDonnees.php');
+require_once('BaseDeDonnees/connexionBaseDeDonnees.php');
 //Logger 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -28,16 +28,8 @@ $mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttC
         exit();
     }
 $mqtt->subscribe('localisation/+/setup', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
-    if($retained)
-    {
         $logger->info(sprintf("Received retained message on topic [%s]: %s", $topic, $message));
         EnvoyerDonnesNoeudSetup($topic,$message);
-    }
-    else
-    {
-        $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
-        UpdateDonneesNoeudSetup($topic,$message);
-    }
 }, 0);
 $mqtt->subscribe('testbed/node/+/out', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
     $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
