@@ -30,14 +30,14 @@ function InitBase()
     
     
     $requete = "CREATE TABLE ".NomTableDonneesSetup." (
-        idCapteur VARCHAR(30) PRIMARY KEY,
+        idCapteur VARCHAR(30) NULL,
+        iddwm VARCHAR(30) NULL,
         x DECIMAL(5,3) NOT NULL,
         y DECIMAL(5,3) NOT NULL,
         z DECIMAL(5,3) NOT NULL,
         orientation DECIMAL(4,1) NOT NULL,
         color CHAR(6) NULL,
-        UID CHAR(4) NULL,
-        iddwm VARCHAR(30) NULL
+        CONSTRAINT PK_Setup PRIMARY KEY (x,y,z)
     );";
     $conn ->execute_query($requete);
 
@@ -83,6 +83,181 @@ function InitBase()
     // AjouterPointOrigine();
 
 }
+#endregion
+
+
+#region Fonctions DonneesSetup
+/**
+ * Fonction qui envoie les données reçues du noeud dans la base de données
+ * La fonction parse les données reçues sous format json
+ * @param string $topic Le topic du message
+ * @param string $message Le message reçu sous format json
+ */
+function EnvoyerDonnesNoeudSetup($topic,$message)
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $data = json_decode($message,true);
+    $idCapteur = explode("/",$topic)[1];
+    $iddwm = null;
+
+    $colonnes = array_keys($data);
+
+    ModifierTableSetup($colonnes);
+
+    if(str_contains($idCapteur,"dwm1001-")) //Les dwm rajoutent des infos
+    {
+        $iddwm = explode("-",$idCapteur)[1];
+    }
+
+    //On genere la requete en fonction des colonnes du json
+
+    $colonnes_string = implode(",",$colonnes);
+
+    $interrogations = str_repeat('?,', count($colonnes));
+    //On supprime la dernière virgule
+    $interrogations = substr($interrogations,0,-1);
+
+    $requete = "INSERT INTO ".NomTableDonneesSetup." (".$colonnes_string.",idCapteur) VALUES (".$interrogations.",?)
+    ON DUPLICATE KEY UPDATE
+    iddwm =".(isset($iddwm) ? $iddwm : "null").
+    (isset($data['UID']) ? ", UID = '".$data['UID']."';" : ";");
+
+    echo $requete;
+
+    // Préparation de la requête
+    $statement = $conn->prepare($requete);
+    
+    $types = str_repeat('s', count($data)+1);
+    $parameters = array(&$types);
+
+    // Dynamiquement ajouter les valeurs au tableau des paramètres par référence
+    foreach ($data as $key => $value) {
+        ${$key} = $value;
+        $parameters[] = &${$key};
+    }
+    
+    $parameters[] = &$idCapteur;
+
+    // Appeler bind_param avec les paramètres
+    call_user_func_array(array($statement, 'bind_param'), $parameters);
+    // Exécution de la requête
+    $resultat = $statement->execute();
+
+    // Vérifier l'exécution de la requête
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $statement->error);
+    }
+
+    // Fermer la connexion et le statement
+    $statement->close();
+    $conn->close();
+}
+
+/**
+ * Fonction qui ajoute des colonnes à la table DonneesSetup si elles sont nécessaires
+ * @param array $nomColonnnes Tableau contenant les colonnes du json
+ */
+function ModifierTableSetup($nomColonnnes)
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    $requete= "DESCRIBE ".NomTableDonneesSetup;
+    $resultat = $conn->query($requete);
+
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    $colonnes = array();
+    while($row = $resultat->fetch_assoc())
+    {
+        $colonnes[] = $row['Field'];
+    }
+    
+    //On compare les colonnes de la table avec les colonnes du json
+    foreach($nomColonnnes as $nomColonne)
+    {
+        if(!in_array($nomColonne,$colonnes))
+        {
+            $requete = "ALTER TABLE ".NomTableDonneesSetup." ADD ".$nomColonne." VARCHAR(50) NULL";
+            $resultat = $conn->query($requete);
+            if($resultat === false){
+                die("Erreur d'exécution de la requête : " . $conn->error);
+            }
+        }
+    }
+    $conn->close();
+}
+
+/**
+ * Fonction qui récupère les données de la base de données et les retourne sous forme de tableau
+ * @return array $data Tableau contenant les données
+ */
+function RecupererDonneesSetup()
+{    
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+    
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+    
+    $requete = "SELECT * FROM ".NomTableDonneesSetup;
+    $resultat = $conn->query($requete);
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+    $data = array();
+
+    while ($row = $resultat->fetch_assoc()) {
+        $data[] = $row;
+    }
+    $conn->close();
+    return $data;      
+}
+
+/**
+ * Fonction qui récupère les ids des capteurs dans la base de données et les retourne sous forme de tableau
+ */
+function afficherIds()
+{
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    // Vous pouvez maintenant exécuter vos requêtes SQL ici
+
+    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $ids = array();
+
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row;
+    }
+    $conn->close();
+
+    return $ids;
+}
+
+
+
 #endregion
 
 #region Fonctions DonneesMobile
@@ -264,240 +439,6 @@ function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 
 #endregion
 
-#region Fonctions DonneesSetup
-/**
- * Fonction qui envoie les données reçues du noeud dans la base de données
- * La fonction parse les données reçues sous format json
- * @param string $topic Le topic du message
- * @param string $message Le message reçu sous format json
- */
-function EnvoyerDonnesNoeudSetup($topic,$message)
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    $data = json_decode($message,true);
-    $idCapteur = explode("/",$topic)[1];
-    $x = $data["x"];
-    $y = $data["y"];
-    $z = $data["z"];
-    if(str_contains($idCapteur,"dwm1001-")) //Les dwm rajoutent des infos
-    {
-        $uid = isset($data["UID"]) ? $data["UID"] : null;
-        TraitementDWM($idCapteur,$x,$y,$z,$uid);
-    }
-    else //Les non dwm mettent les infos d'abord
-    {
-        $orientation = $data["orientation"];
-        $color = $data["color"];
-        $requete = "INSERT INTO ".NomTableDonneesSetup." (idCapteur, x, y, z, orientation, color) VALUES (?, ?, ?, ?, ?, ?)";
-
-        // Préparation de la requête
-        $statement = $conn->prepare($requete);
-
-        $statement->bind_param("sdddds", $idCapteur, $x, $y, $z, $orientation, $color);
-
-        // Exécution de la requête
-        $resultat = $statement->execute();
-
-        // Vérifier l'exécution de la requête
-        if ($resultat === false) {
-            die("Erreur d'exécution de la requête : " . $statement->error);
-        }
-
-        // Fermer la connexion et le statement
-        $statement->close();
-        $conn->close();
-    }
-
-    
-    
-}
-
-/**
- * Fonction qui traite des les capteurs dwm
- * @param string $idDWM L'id du DWM
- * @param float $x La position x du capteur
- * @param float $y La position y du capteur
- * @param float $z La position z du capteur
- * @param string $UID L'UID du capteur
- */
-function TraitementDWM($idDWM, $x,$y,$z,$UID)
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    $requete = "SELECT idCapteur FROM ".NomTableDonneesSetup." WHERE x = ? AND y = ? AND z = ? ";
-
-    $statement = $conn->prepare($requete);
-
-
-    if ($statement) {
-        // Liez les paramètres à la requête
-        $statement->bind_param("ddd", $x, $y, $z);
-    
-        // Exécutez la requête
-        $statement->execute();
-    
-        // Récupérez le résultat
-        $result = $statement->get_result();
-    
-        // Vérifiez s'il y a des résultats
-        if ($result->num_rows ==1) {
-            // Récupérez la première ligne
-            $row = $result->fetch_assoc();
-            $idCapteur = $row['idCapteur'];
-
-            $idDWM = explode("-",$idDWM)[1];
-    
-            $requete = "UPDATE ".NomTableDonneesSetup." SET iddwm = ?, UID= ? WHERE idCapteur = ?";
-
-            $statement = $conn->prepare($requete);
-            $statement->bind_param("sss", $idDWM, $UID, $idCapteur);
-
-            $statement->execute();
-
-
-        }
-    
-        // Fermez le statement
-        $statement->close();
-        $conn->close();
-    } else {
-        // La préparation de la requête a échoué
-        echo "Erreur lors de la préparation de la requête.";
-    }
-
-}
-
-/**
- * Update les données des noeuds dans la base de données
- * @param string $topic Le topic du message
- * @param string $message Le message reçu sous format json
- */
-function UpdateDonneesNoeudSetup($topic,$message)
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    $data = json_decode($message,true);
-    $idCapteur = explode("/",$topic)[1];
-    $x = $data["x"];
-    $y = $data["y"];
-    $z = $data["z"];
-    $orientation = $data["orientation"];
-    $color = $data["color"];
-    $uid = isset($data["UID"]) ? $data["UID"] : null;
-    
-    $requete = "UPDATE ".NomTableDonneesSetup." SET x = ?, y=?, z=?, orientation=?, color=?,UID=? WHERE idCapteur=?";
-
-    // Préparation de la requête
-    $statement = $conn->prepare($requete);
-
-    $statement->bind_param("dddsdss", $x, $y, $z, $orientation, $color, $uid, $idCapteur);
-
-    // Exécution de la requête
-    $resultat = $statement->execute();
-
-    
-    // Vérifier l'exécution de la requête
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $statement->error);
-    }
-
-    // Fermer la connexion et le statement
-    $statement->close();
-    $conn->close();
-}
-
-/**
- * Fonction qui récupère les données de la base de données et les retourne sous forme de tableau
- * @return array $data Tableau contenant les données
- */
-function RecupererDonneesSetup()
-{    
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-    
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-    
-    $requete = "SELECT * FROM ".NomTableDonneesSetup;
-    $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-    $data = array();
-
-    // Parcourir les résultats de la requête
-    while ($row = $resultat->fetch_assoc()) {
-        // Ajouter chaque ligne au tableau
-        $data[] = array(
-            'idCapteur' => $row['idCapteur'],
-            'x' => $row['x'],
-            'y' => $row['y'],
-            'z' => $row['z'],
-            'orientation' => $row['orientation'],
-            'color' => $row['color'],
-            'UID' => $row['UID'],
-            'iddwm' => $row['iddwm']
-        );
-    }
-    $conn->close();
-    return $data;      
-}
-
-/**
- * Fonction qui récupère les ids des capteurs dans la base de données et les retourne sous forme de tableau
- */
-function afficherIds()
-{
-    $conn = new mysqli(servername, username, password, dbname);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion à la base de données a échoué : " . $conn->connect_error);
-    }
-
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-
-    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
-    $resultat = $conn->query($requete);
-
-    // Vérifier si la requête a réussi
-    if ($resultat === false) {
-        die("Erreur d'exécution de la requête : " . $conn->error);
-    }
-
-    $ids = array();
-
-    while ($row = $resultat->fetch_assoc()) {
-        $ids[] = $row;
-    }
-    $conn->close();
-
-    return $ids;
-}
-
-
-
-#endregion
-
 #region Fonctions DonneesComm
 function envoyerDonneesComm($topic,$message){
     $conn = new mysqli(servername, username, password, dbname);
@@ -509,14 +450,29 @@ function envoyerDonneesComm($topic,$message){
     $timestamp = $donneespayld['timestamp'];
     $node_id = $donneespayld['node_id'];
     $donnesexplicit = json_decode($donneespayld['payload'], true);
-    $initiator = $donnesexplicit['initiator'];
-    $target = $donnesexplicit['target'];
-    $protocol = $donnesexplicit['protocol'];
-    $tof = $donnesexplicit['tof'];
-    $range = $donnesexplicit['range'];
-    $rssiRequest = $donnesexplicit['rssiRequest'];
-    $rssiData = $donnesexplicit['rssiData'];
-    $temperature = $donnesexplicit['temperature'];
+    if(isset($donnesexplicit))
+    {
+        $initiator = $donnesexplicit['initiator'];
+        $target = $donnesexplicit['target'];
+        $protocol = $donnesexplicit['protocol'];
+        $tof = $donnesexplicit['tof'];
+        $range = $donnesexplicit['range'];
+        $rssiRequest = $donnesexplicit['rssiRequest'];
+        $rssiData = $donnesexplicit['rssiData'];
+        $temperature = $donnesexplicit['temperature'];
+    }
+    else 
+    {
+        $initiator = null;
+        $target = null;
+        $protocol = null;
+        $tof = null;
+        $range = null;
+        $rssiRequest = null;
+        $rssiData = null;
+        $temperature = null;
+    }
+    
 
     $sql = "INSERT INTO ".NomTableDonnesOut." (node_id, timestamp, initiator, target, protocol, tof, range, rssiRequest, rssiData, temperature) VALUES ('?', '?', '?', '?', '?', '?', '?', '?', '?', '?')";
 
@@ -699,42 +655,48 @@ function afficherDonnees()
     if ($conn->connect_error) {
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
-    
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-    
-    $requete = "SELECT * FROM ".NomTableDonneesSetup;
+
+    $requete = "DESCRIBE ".NomTableDonneesSetup;
     $resultat = $conn->query($requete);
-    // Vérifier si la requête a réussi
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+    $colonnes = array();
+    while($row = $resultat->fetch_assoc())
+    {
+        $colonnes[] = $row['Field'];
+    }
+    $resultat->close();
+
+    $requete = "SELECT * FROM ".NomTableDonneesSetup;
+    $resultat = $conn->query($requete);
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+
+    echo "<h2>Setup : </h2><br>";
+
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
-    echo "<tr><th>idCapteur</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
+    //On genere les entetes du tableau
+    echo "<tr>";
+    foreach($colonnes as $colonne)
+    {
+        echo "<th>".$colonne."</th>";
+    }
+    echo "</tr>";
     // Afficher les résultats
     while ($row = $resultat->fetch_assoc()) {
-
-        if($row['color'] == null){
-
-            $color = "null";
-
-        }else{
-                
-                $color = $row['color'];
-    
+        echo "<tr>";
+        foreach($colonnes as $colonne)
+        {
+            if($row[$colonne] == null) //Si la valeur est null, on affiche null
+                echo "<td>null</td>";
+            else
+                echo "<td>".$row[$colonne]."</td>";
         }
-        
-        if($row['UID'] == null){
-
-            $UID = "null";
-
-        }else{
-                
-                $UID = $row['UID'];
-    
-        }
-
-        echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
+        echo "</tr>";
     }
     echo "</table>";
 
