@@ -335,7 +335,9 @@ function RecupererDonneesComm()
     // Parcourir les résultats de la requête
     while ($row = $resultat->fetch_assoc()) {
 
-        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' ORDER BY timestmp DESC LIMIT 1";
+        $currentTime = date('Y-m-d H:i:s');
+
+        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' AND (TIMESTAMPDIFF(SECOND, timestmp, '".$currentTime."') < 5) ORDER BY timestmp DESC LIMIT 1";
         $resultat2 = $conn->query($requete);
         // Vérifier si la requête a réussi
         if ($resultat2 === false) {

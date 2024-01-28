@@ -113,17 +113,6 @@ function togglePopup(clickedPoint, id, coordX, coordY) {
     }
 }
 /**
- * Fonction qui crée l'effet clignotant
- * 
- * @param {*} id L'id du noeud
- */
-function toggleSignaling(id) {
-    let clickedPoint = document.getElementById(id);
-
-        // Si le noeud qui clignotant est visible, le rendre invisible, sinon le rendre visible
-        clickedPoint.style.opacity(clickedPoint.style.opacity === 1 ? 0.25 : 1);
-}
-/**
  * Fonction pour afficher la boîte de dialogue
  * 
  * @param {*} id : l'id du noeud
