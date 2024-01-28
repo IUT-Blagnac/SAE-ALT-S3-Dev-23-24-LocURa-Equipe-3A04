@@ -556,7 +556,9 @@ function RecupererDonneesComm()
     // Parcourir les résultats de la requête
     while ($row = $resultat->fetch_assoc()) {
 
-        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' ORDER BY timestmp DESC LIMIT 1";
+        $currentTime = date('Y-m-d H:i:s');
+
+        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' AND (TIMESTAMPDIFF(SECOND, timestmp, '".$currentTime."') < 5) ORDER BY timestmp DESC LIMIT 1";
         $resultat2 = $conn->query($requete);
         // Vérifier si la requête a réussi
         if ($resultat2 === false) {
@@ -700,6 +702,7 @@ function afficherDonnees()
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+
     //Création du tableau 
     echo "<table border='1' style='text-align: center;border-collapse: collapse; width: 60%;'>";
     echo "<tr><th>idCapteur</th><th>X</th><th>Y</th><th>Z</th><th>Orientation</th><th>Couleur</th><th>UID</th><th>DWM</th></tr>";
@@ -729,6 +732,7 @@ function afficherDonnees()
         echo "<tr><td>" . $row['idCapteur'] . "</td><td>".  $row["x"] . "</td><td>". $row["y"] ."</td><td> ". $row["z"] . "</td><td>" . $row["orientation"] . " ° </td><td>". $color . "</td><td>". $UID."</td><td>".$row['iddwm']."</td></tr>" ;
     }
     echo "</table>";
+
 
     echo "<h2>Ranging : </h2><br>";
     $requete = "SELECT * FROM ".NomTableDonnesRanging;
@@ -760,8 +764,6 @@ function afficherDonnees()
     echo "<br>";
     $conn->close();
 }
-
-
 
 /**
  * Fonction qui vérifie si la table capteurs existe
@@ -829,4 +831,4 @@ function AjouterPointOrigine() {
     $conn->close();
 }
 
-#endregion
+#endregion 

@@ -104,8 +104,10 @@
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
 <script type ="module" src = "scriptCreerPointMobile.js"  ></script>
 <!-- Inclure le script select all -->
+<script src="scriptSelectAll.js"></script>
+<!-- Inclure le script JavaScript pour le clignotement des points -->
+<script src ="scriptClignoterPoints.js"></script>
 <script type="module" src="scriptSelectAll.js"></script>
-
 
 
 <img id="map-image" class="map-image">

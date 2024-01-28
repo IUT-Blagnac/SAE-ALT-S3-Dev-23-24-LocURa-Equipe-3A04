@@ -17,9 +17,11 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesComm());
     }
+}
     if($_POST["request"] == "pointMobile")
     {
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesMobile());
     }
 }
+
