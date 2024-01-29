@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="Styles/style.css">
 </head>
 <body>
-
-
-
 
 <div class="navbar">
     <!-- Bouton qui permet d'afficher différents environnements - Non implémenté
@@ -44,34 +39,39 @@
 
             <?php
 
-            include 'connexionBaseDeDonnees.php';
+            require_once 'BaseDeDonnees/connexionBaseDeDonnees.php';
 
 
 
-            $ids = afficherIds();
-            var_dump($ids);
+            try {
+                $ids = afficherIds();
+                foreach ($ids as $id) {
 
-            foreach ($ids as $id) {
-
-                echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                if($id['UID'] != null && $id['iddwm'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
-                else if($id['UID'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
-                else if($id['iddwm'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
-                else
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
-
-                echo '</div>';
+                    echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
+                    if(isset($id['UID']) && isset($id['iddwm']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
+                    else if(isset($id['UID']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
+                    else if(isset($id['iddwm']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
+                    else
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
+                    
+                    echo '</div>';
+                }
+            }catch (Exception $e){
+                echo "Aucune donné dans la table";
             }
+
+            
             ?>
 
         </div>
     </div>
 
-    <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
-    <script src="rechercheParId.js" ></script>
+    <div class="dropdown"><button class="dropbtn"><a href="Pages/debug.php">DEBUG</a></button></div>
+    
+
     <div class="dropdown">
 
         <button class="dropbtn"> Affichage selon IDs
@@ -94,36 +94,32 @@
         <button class="hidden">Activer Remplissage</button>
         <button>Activer ligne</button>
     </div>
-    <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
-    <span class="sr-only">Loading...</span>
-    </div>
+    
 
 
 
 </div>
 
-
 <button id="unselectAll">Désélectionner tout</button>
 
 <!-- Inclure jQuery -->
 <script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Fichier JavaScript de requete AJAX -->
-<script type="module" src="scriptRecupererDonnes.js"></script>
-<script type="module" src="scriptRecupererDonneesRanging.js"></script>
-<!-- Inclure le fichier JavaScript pour créer les points -->
-<script type="module" src="scriptCreerPoint.js" ></script>
-<!-- Inclure le fichier JavaScript pour les couches -->
-<script src="scriptChangeLayers.js" ></script>
-<!-- Inclure le script pour le status MQTT -->
-<script type="module" src="scriptStatusMQTT.js"></script>
-<!-- Inclure le fichier JavaScript pour le Point mobile -->
-<script type ="module" src = "scriptCreerPointMobile.js"  ></script>
-<!-- Inclure le script select all -->
-<script src="scriptSelectAll.js"></script>
-<!-- Inclure le script JavaScript pour le clignotement des points -->
-<script src ="scriptClignoterPoints.js"></script>
-<script type="module" src="scriptSelectAll.js"></script>
 
+<!-- Inclure le fichier JavaScript pour les couches -->
+<script src="DiversJavaScripts/scriptChangeLayers.js" ></script>
+
+<!-- Script qui permet de gérer la recherche par id des noeuds -->
+<script src="DiversJavaScripts/rechercheParId.js" ></script>
+
+<!-- Fichiers JavaScript et AJAX pour récupération de données -->
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesRanging.js"></script>
+<script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"></script>
+<script type="module" src ="ScriptsAjax/scriptClignoterPoints.js"></script>
+<script type="module" src="ScriptsAjax/scriptStatusMQTT.js"></script>
+
+<!-- Inclure le fichier JavaScript pour créer les points -->
+<script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
 
 <img id="map-image" class="map-image">
 
@@ -131,7 +127,6 @@
 
 <div id="map"></div>
 
-<!-- Afficher la popup du noeud -->
 <div id="popup" class="popup">
     <div id="popup-content" class="popup-content"></div>
 </div>

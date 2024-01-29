@@ -1,0 +1,142 @@
+@startuml Diagramme de classe locur4iot
+
+left to right direction
+
+package php {
+    package BaseDeDonnees {
+        class creationConnexionBD {
+            Script qui gère la création de la connexion à la base de données
+        }
+        class connexionBaseDeDonnees {
+            La classe qui gère la connexion à la base de données MariaDB
+        }
+        class donnees {
+            La classe qui permet de récupérer les données PHP en JavaScript en passant par des requêtes AJAX
+        }
+    }
+    
+    package PagesWeb {
+        class index {
+            La page d'accueil qui permet de visualiser les données
+        }
+        class debug {
+            La page qui permet de visualiser les données contenues dans les bases de données
+        }
+    }
+
+    package Executables {
+        class connexionMQTT {
+            Script PHP qui gère la connexion au broker MQTT
+        }
+        class simulationExperience {
+            Script PHP qui simule une expérience avec des données aléatoires
+        }
+    }
+}
+
+package css {
+    class style {
+        Stocke les styles des différents éléments pour l'index
+    }
+    class debugStyle {
+        Stocke les styles des différents éléments pour la page debug
+    }
+}
+
+package JavaScript {
+    class constantes {
+        Stocke les constantes utilisées dans les scripts
+    }
+    class rechercheParId {
+        Script qui gère la recherche par ID dans la barre de recherche pour nœud
+    }
+    class scriptChangeLayers {
+        Script qui gère le changement de layer
+    }
+
+    package AJAX {
+        class scriptRecupererDonneesSetup {
+            Script qui gère la récupération des données
+        }
+        class scriptClignoterPoint {
+            Script qui gère le clignotement des points qui reçoivent des données
+        }
+        class scriptRecupererDonneesCommCapt {
+            Script qui gère la récupération des données pour les communications des capteurs
+        }
+        class scriptRecupererDonneesMobile {
+            Script qui gère la récupération des données pour les nœuds mobiles
+        }
+        class scriptRecupererDonneesRanging {
+            Script qui gère la récupération des données pour les mesures de distance
+        }
+        class scriptStatusMQTT {
+            Script qui permet d'afficher l'état de la connexion au broker MQTT
+        }
+    }
+
+    package CreationElements {
+        class scriptCreerPoint {
+            Script qui gère les fonctions pour créer les points
+        }
+        class scriptCreerCercles {
+            Script qui gère les fonctions pour créer les cercles qui représentent les mesures de distance
+        }
+        class scriptCreerLignes {
+            Script qui gère les fonctions pour créer les lignes qui représentent les mesures de distance
+        }
+    }
+}
+
+index --> scriptChangeLayers
+index --> style
+index --> scriptCreerPoint
+index --> rechercheParId
+
+debug --> debugStyle
+debug --> connexionBaseDeDonnees
+
+connexionBaseDeDonnees --> creationConnexionBD
+
+donnees --> connexionBaseDeDonnees
+Executables --> connexionBaseDeDonnees
+
+CreationElements -> constantes
+CreationElements -> index
+
+AJAX -> index
+AJAX --> donnees
+
+scriptRecupererDonneesCommCapt --> constantes
+scriptRecupererDonneesRanging --> constantes
+scriptRecupererDonneesMobile --> constantes
+
+scriptRecupererDonneesMobile --> scriptCreerPoint
+scriptRecupererDonneesSetup --> scriptCreerPoint
+scriptRecupererDonneesRanging --> scriptCreerCercles
+scriptRecupererDonneesRanging --> scriptCreerLignes
+
+
+hide members
+show index attributes
+show connexionBaseDeDonnees attributes
+show creationConnexionBD attributes
+show connexionMQTT attributes
+show donnees attributes
+show scriptCreerPoint attributes
+show style attributes
+show debugStyle attributes
+show debug attributes
+show scriptChangeLayers attributes
+show scriptRecupererDonneesSetup attributes
+show scriptClignoterPoint attributes
+show scriptRecupererDonneesCommCapt attributes
+show scriptRecupererDonneesMobile attributes
+show scriptRecupererDonneesRanging attributes
+show scriptStatusMQTT attributes
+show scriptCreerCercles attributes
+show scriptCreerLignes attributes
+show constantes attributes
+show simulationExperience attributes
+show rechercheParId attributes
+@enduml

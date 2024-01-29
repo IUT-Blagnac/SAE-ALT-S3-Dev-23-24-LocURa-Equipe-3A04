@@ -1,3 +1,5 @@
+import { COEFF_TT } from "../DiversJavaScripts/constantes.js";
+
 /**
  * Gère le dessin de différents cercles en prenant en paramètre un tableau contenant des données correspondant à une ligne de données dans la base de données Ranging
  * @param {Array} $donnees 
@@ -14,8 +16,8 @@ export function GestionDonneesCercles($donnees) {
  */
 function DessinerCercle($donnees) {
 
-    let centreCercle = document.getElementById("CapteurOrigine");
-    let rayon = $donnees['range'] * 38; // Ajustez selon votre besoin
+    let centreCercle = document.getElementById($donnees['initiator']);
+    let rayon = $donnees['range'] * COEFF_TT; // Ajustez selon votre besoin
 
     // Création du cercle
     let cercle = document.createElement("div");

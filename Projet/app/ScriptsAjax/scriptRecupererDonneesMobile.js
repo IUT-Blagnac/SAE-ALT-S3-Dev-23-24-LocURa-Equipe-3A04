@@ -1,21 +1,21 @@
-import { createPoints} from './scriptCreerPoint.js';
-import { updatePointCoordinates } from './scriptCreerPoint.js';
+import { createPoints} from '../ScriptsCreationElements/scriptCreerPoint.js';
+import { updatePointCoordinates } from '../ScriptsCreationElements/scriptCreerPoint.js';
+import { INTERVALLE_MAJ_MOBILE } from '../DiversJavaScripts/constantes.js';
 document.addEventListener("DOMContentLoaded", function () {
-    // Definition de la fonction pour recuperer et traiter les données
+    /**
+     * Fonction pour récupérer les données de la base de données
+     */
     function fetchData() {
         $.ajax({
-            url: 'donnes.php',
+            url: '../BaseDeDonnees/donnes.php',
             method: 'post',
             dataType: 'json',
             data: { request: "pointMobile" },
             success: function (data) {
-                console.log('Données récupérées avec succès :', data[0]);
                 var point = document.getElementById(data[0].idCapteur)
                 if(point==null){
-                    console.log(" Creation de : " + data[0].idCapteur)
                     createPoints(data)
                 } else {
-                    console.log("Mise à jour de : " + data[0].idCapteur);
                     updatePointCoordinates(point,data[0].x,data[0].y);
                 }
                 
@@ -30,6 +30,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Appel initial de la fonction 
     fetchData();
 
-    // Mettre un intervale pour appeler la fonction toutes les 2 secondes (2000 millisecondes)
-    setInterval(fetchData, 2000);
+    setInterval(fetchData, INTERVALLE_MAJ_MOBILE);
 });

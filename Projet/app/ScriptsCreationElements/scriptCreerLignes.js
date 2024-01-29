@@ -1,4 +1,4 @@
-import {COEFF_TT} from "./constantes.js";
+import {COEFF_TT} from "../DiversJavaScripts/constantes.js";
 
 /**
  * Gere le dessins de différentes lignes en prenant en paramètre un tableau qui contient des tableaux de données correspondant a une ligne de données dans la base de données Ranging
@@ -18,8 +18,7 @@ export function GestionDonneesLignes($donnees)
  */
 function DessinerLigne($donnees)
 {
-    // let pointInit = document.getElementById($donnees["initiator"]);
-    let pointInit = document.getElementById("CapteurOrigine"); // Pour debug
+    let pointInit = document.getElementById($donnees["initiator"]);
     let pointTarget = document.getElementById($donnees["target"]);
 
     // Calcul des coordonnées du centre des points d'origine et de destination

@@ -1,0 +1,55 @@
+<?php
+
+require_once('vendor/autoload.php');
+
+require_once('BaseDeDonnees/connexionBaseDeDonnees.php');
+//Logger 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+//Logger pr voir les messages reçus
+$logger = new Logger('mqtt');
+$logger->pushHandler(new StreamHandler('log.txt', Logger::INFO));
+
+$server   = 'lab.iut-blagnac.fr';
+$port     = 1883;
+
+InitBase();
+envoyerDonneesComm("testbed/node/+/out",' {"timestamp": 1706553354.1091936, "node_id": "279", "payload": "128,900258,16197,############################################################################################################,05"}');
+
+$mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttClient::MQTT_3_1,null,$logger);
+    try{
+        $mqtt->connect();
+        $isConnected = true;
+    }
+    catch(Exception $e){
+        $logger->info(sprintf("Erreur de connexion au broker MQTT"));
+        $isConnected = false;
+        exit();
+    }
+$mqtt->subscribe('localisation/+/setup', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+        $logger->info(sprintf("Received retained message on topic [%s]: %s", $topic, $message));
+        EnvoyerDonnesNoeudSetup($topic,$message);
+}, 0);
+$mqtt->subscribe('testbed/node/+/out', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    envoyerDonneesComm($topic,$message);
+
+}, 0);
+
+$mqtt->subscribe('ranging/+/+/indication', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    EnvoyerDonneesRanging($topic,$message);
+
+}, 0);
+
+$mqtt->subscribe('localisation/+/mobile', function ($topic, $message, $retained, $matchedWildcards) use ($logger) {
+    $logger->info(sprintf("Received message on topic [%s]: %s", $topic, $message));
+    if(!str_contains($topic,'dwm')){
+        EnvoyerDonneesNoeudMobile($topic,$message);
+    }
+}, 0);
+
+$mqtt->loop(true);
+$mqtt->disconnect();
+
