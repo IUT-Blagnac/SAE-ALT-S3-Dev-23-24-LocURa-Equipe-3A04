@@ -43,8 +43,9 @@
         <div class="dropdown-content" id="nodes">
 
             <?php
-            
+
             include 'connexionBaseDeDonnees.php';
+
 
 
             try {
@@ -73,8 +74,10 @@
         </div>
     </div>
 
+    <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
     <script src="rechercheParId.js" ></script>
     <div class="dropdown">
+
         <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
         </button>
@@ -97,13 +100,12 @@
     </div>
     <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
     <span class="sr-only">Loading...</span>
-    </div>  
-    
+    </div>
 
-    
+
+
 </div>
 
-<a href="debug.php">DEBUG</a>
 
 <button id="unselectAll">Désélectionner tout</button>
 
@@ -116,7 +118,6 @@
 <script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="scriptChangeLayers.js" ></script>
-<script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le script pour le status MQTT -->
 <script type="module" src="scriptStatusMQTT.js"></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->

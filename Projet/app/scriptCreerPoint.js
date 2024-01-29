@@ -9,7 +9,7 @@ export function createPoints(data) {
     // Ajouter les points à la carte en utilisant les coordonnées du serveur
     for (var i = 0; i < data.length; i++) {
         createPoint(data[i].x, data[i].y, data[i].color, data[i].idCapteur, data[i].iddwm, data[i].UID);
-        console.log("Point : " + data[i].idCapteur+" / UID : "+data[i].UID +" / IDDWM : "+data[i].iddwm+ " créé avec succès");
+        console.log("Point : " + data[i].idCapteur + " / UID : " + data[i].UID + " / IDDWM : " + data[i].iddwm + " créé avec succès");
     }
 }
 
@@ -74,8 +74,8 @@ export function updatePointCoordinates(point, newCoordX, newCoordY) {
     point.style.left = newCoordX * COEFF_X + X_ORIGINE_C + "px";
     point.style.top = newCoordY * COEFF_Y + Y_ORIGINE_C + "px";
 }
-/** 
- * Affiche la boîte de dialogue en fonction du point cliqué
+
+/** Affiche la boîte de dialogue en fonction du point cliqué
  * @param {HTMLDivElement} clickedPoint Le point cliqué
  * @param {String} id L'ID du point cliqué
  * @param {Number} coordX Les coordonnées X du point cliqué
