@@ -123,8 +123,6 @@
 
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
-<!-- Inclure le fichier JavaScript pour clignoter les points -->
-<script type="module" src="ScriptsCreationElements/scriptClignoterPoint.js" ></script>
 <img id="map-image" class="map-image">
 
 <!-- Ligne du noeud mobile -->
