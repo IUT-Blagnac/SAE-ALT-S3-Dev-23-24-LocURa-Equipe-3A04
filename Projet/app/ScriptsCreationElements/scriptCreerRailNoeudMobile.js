@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Coordonnées des points de début et de fin
-    var startX = document.getElementById("184").getAttribute("coordx");
+    let pointInit = document.getElementById("184");
+
+
+
+    var startX = pointInit.style.left;
     console.log(startX);
-    var startY = document.getElementById("184").getAttribute("coordy");
+    var startY = pointInit.style.top;
     console.log(startY);
     var endX = 1100;
     var endY = 570;

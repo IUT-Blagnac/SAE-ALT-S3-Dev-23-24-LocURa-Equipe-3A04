@@ -129,7 +129,7 @@
 <img id="map-image" class="map-image">
 
 <!-- Ligne du noeud mobile -->
-<div class="ligneMobile"></div>
+<div class="ligneMobile" id="ligneMobile"></div>
 <script type="module" src="ScriptsCreationElements/scriptCreerLigneMobile.js" ></script>
 
 <div id="map-container" class="map-container"></div>
