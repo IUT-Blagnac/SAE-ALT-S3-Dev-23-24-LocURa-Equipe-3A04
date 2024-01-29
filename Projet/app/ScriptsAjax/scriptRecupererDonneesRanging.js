@@ -1,5 +1,10 @@
 import { GestionDonneesCercles } from "../ScriptsCreationElements/scriptCreerCercles.js";
 import { GestionDonneesLignes } from "../ScriptsCreationElements/scriptCreerLignes.js";
+import { INTERVALLE_MAJ_RANGING } from "../DiversJavaScripts/constantes.js";
+
+let cerclesActifs = false;
+let lignesActives = false;
+let remplissageActif = true;
 
 document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
@@ -8,21 +13,35 @@ document.addEventListener("DOMContentLoaded", function() {
         dataType: 'json',
         data:{request: "rangingData"},
         success: function (data) {
-            console.log('Données récupérées avec succès :', data);
-            // Variables de statut pour les cercles et les lignes
-            let cerclesActifs = false;
-            let lignesActives = false;
-            let remplissageActif = true;
+            $('.button button:nth-child(1)').text(cerclesActifs ? 'Désactiver Cercles' : 'Activer Cercles');
+            $('.button button:nth-child(2)').text(remplissageActif ? 'Désactiver Remplissage' : 'Activer Remplissage');
+            $('.button button:nth-child(3)').text(lignesActives ? 'Désactiver Lignes' : 'Activer Lignes');
 
+            $('.button button:nth-child(1)').on('click', toggleCercles);
+            $('.button button:nth-child(2)').on('click', toggleRemplissage);
+            $('.button button:nth-child(3)').on('click', toggleLignes);
 
-             // Fonction pour activer/désactiver les cercles
-            function toggleCercles() {
-                cerclesActifs = !cerclesActifs;
-                // Mettez à jour le texte du bouton en conséquence
-                $('.button button:nth-child(1)').text(cerclesActifs ? 'Désactiver Cercles' : 'Activer Cercles');
-                const cercles = $('.cercle');
+            /**
+             * Recupère les données de la base de données et les affiche si nécessaire
+             */
+            function fetchData()
+            {
+                console.log('Données récupérées avec succès :', data);
 
-                if (!cerclesActifs) {
+                if(cerclesActifs){
+                    GestionDonneesCercles(data);
+                    $('.button button:nth-child(2)').addClass("active");
+                    $('.button button:nth-child(2)').removeClass("hidden");
+
+                    if (!remplissageActif) {
+                        cercles.removeClass("background");
+                    } else {
+                        cercles.addClass("background");
+                        console.log(cercles);
+                    }
+                }
+                else 
+                {
                     $('.cercle').remove();
                     $('.button button:nth-child(2)').removeClass("active");
                     $('.button button:nth-child(2)').addClass("hidden");
@@ -31,22 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         toggleRemplissage();
                     }
                 }
-                else {
-                    GestionDonneesCercles(data);
-                    $('.button button:nth-child(2)').addClass("active");
-                    $('.button button:nth-child(2)').removeClass("hidden");
-                }
 
-            }
-
-            // Fonction pour activer/désactiver les lignes
-            function toggleLignes() {
-                lignesActives = !lignesActives;
-                // Mettez à jour le texte du bouton en conséquence
-                $('.button button:nth-child(3)').text(lignesActives ? 'Désactiver Lignes' : 'Activer Lignes');
-
-                // Ciblez les éléments de lignes par leur classe CSS et ajoutez ou supprimez les éléments
-                // Ajoutez le sélecteur approprié pour vos lignes
                 if (!lignesActives) {
                     $('.ligne').remove();
                 }else{
@@ -54,30 +58,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
 
-            function toggleRemplissage() {
-                // Mettez à jour le texte du bouton en conséquence
-                $('.button button:nth-child(2)').text(remplissageActif ? 'Désactiver Remplissage' : 'Activer Remplissage');
-
-                const cercles = $('.cercle');
-
-                // Ciblez les éléments de remplissage par leur classe CSS et ajoutez ou supprimez les éléments
-                // Ajoutez le sélecteur approprié pour vos lignes
-                if (!remplissageActif) {
-                    cercles.removeClass("background");
-                } else {
-                    cercles.addClass("background");
-                    console.log(cercles);
-                }
-                remplissageActif = !remplissageActif;
-
+            /**
+             *  Fonction pour activer/désactiver les cercles
+             */ 
+            function toggleCercles() {
+                cerclesActifs = !cerclesActifs;
             }
 
-            // Ajoutez des écouteurs d'événements aux boutons
-            $('.button button:nth-child(1)').on('click', toggleCercles);
+            /**
+             * Fonction pour activer/désactiver les lignes
+             */
+            function toggleLignes() {
+                lignesActives = !lignesActives;                
+            }
 
-            $('.button button:nth-child(2)').on('click', toggleRemplissage);
+            /**
+             * Fonction pour activer/désactiver le remplissage des cercles
+             */
+            function toggleRemplissage() {
+                remplissageActif = !remplissageActif;
+            }
 
-            $('.button button:nth-child(3)').on('click', toggleLignes);
+
+            fetchData();
+
+            setInterval(fetchData, INTERVALLE_MAJ_RANGING);
         },
         error: function(error) {
             console.error('Erreur lors de la récupération des données de ranging :', error);
