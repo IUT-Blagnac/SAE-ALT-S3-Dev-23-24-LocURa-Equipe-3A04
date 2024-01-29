@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <a href="index.php"><button>Retourner à l'accueil</button></a>
+        <a href="../index.php"><button>Retourner à l'accueil</button></a>
         <h1>Bases de données</h1>
     </header>
     <center>
