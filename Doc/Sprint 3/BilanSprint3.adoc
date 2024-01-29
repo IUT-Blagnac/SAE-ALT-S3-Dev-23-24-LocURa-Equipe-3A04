@@ -54,11 +54,13 @@ Groupe 4 :
 
 === Leçons apprises
 
+- Maitrise de la documentation.
+- L'esprit SCRUM
 - Définir des problémes et les résoudre.
 - Choix des Technologies. 
 - Maitrise de Docker.
 - Maitrise d'AJAX.
-- Maitrise du jAVASCRIPT
+- Maitrise du JAVASCRIPT
 
 === Résumé du sprint
 
