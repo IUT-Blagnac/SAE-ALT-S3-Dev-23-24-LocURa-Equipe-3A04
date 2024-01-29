@@ -72,8 +72,10 @@
 
 
     <script src="rechercheParId.js" ></script>
+
+    <div class="dropdown"><a href="debug.php">DEBUG</a></div>
+
     <div class="dropdown">
-        <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
         <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
         </button>
@@ -82,10 +84,6 @@
             <label><input type="checkbox" id="selectUID"> UID</label>
             <label><input type="checkbox" id="selectDWM"> DWM</label>
         </div>
-    </div>
-
-    <div class="label">
-        <b>Laboratory Map</b>
     </div>
 
     <!-- Range nodes -->
@@ -97,9 +95,6 @@
     <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
     <span class="sr-only">Loading...</span>
     </div>
-
-
-
 </div>
 
 

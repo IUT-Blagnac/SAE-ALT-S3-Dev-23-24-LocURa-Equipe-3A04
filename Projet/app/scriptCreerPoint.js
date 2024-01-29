@@ -192,7 +192,7 @@ function resetPointsTransparency() {
         point.classList.remove("transparenttotal");
         popup.style.display = "none";
 
-        if (!point.clickHandler) {
+        if (point.clickHandler) {
             let clickHandler = function () {
                 togglePopup(point, point.id, point.coordX, point.coordY);
             };
