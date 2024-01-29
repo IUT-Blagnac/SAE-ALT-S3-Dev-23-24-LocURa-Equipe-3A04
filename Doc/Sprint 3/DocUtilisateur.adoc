@@ -67,3 +67,17 @@ Pour que le serveur puisse correctement récupérer les données MQTT il faut s'
 L'application représente une maquette simpliste de test qui permet de vérifier la connexion au brocker MQTT, le placement de points sur une carte.
 
 Il n'y a pas encore de fonctionnalités réellement disponibles pour l'utilisateur.
+
+=== Fonctionnalité de l'application - Sprint 2
+
+Ajouts :
+
+L'application permet de visualiser les capteurs sur une carte dès le lancement de la page. Chaque point est cliquable et une pop-up s'ouvre affichant les informations du noeud cliqué. Dans le header, il est possible de choisir les points à afficher selon son ID. Un historique des positions des capteurs est également disponible.
+
+=== Fonctionnalité de l'application - Sprint 3
+
+Ajouts :
+
+Ajout des scripts launch.sh (Linux) et launch.bat (Windows) pour lancer le serveur Web et le base de données.
+Au lancement de la page, l'étage 1 est affiché avec les points de l'étage 1. Il est possible de changer d'étage grâce à un menu déroulant: les étages se superposent de manière lisible et si aucun étage est selectionné, aucun noeud est affiché. La fonctionnalité étage n'est pas complètement implémentée. En effet, actuellement il existe aucun cas réel d'utilisation donc il n'est pas vraiment possible d'implémenter la fonctionnalité mais un exemple est fourni et il sera possible à l'avenir de modifier ces exemples à la guise. Il est également possible de choisir les points à afficher selon leur ID, leur UID le DWM ou grâce à la recherche de l'ID. Un historique des positions des capteurs est également disponible. Le contenu de la base de données est accessible grâce au bouton DEBUG dans le header. Une lumière clignotant indique l'état de la connexion au broker MQTT: si la lumière est rouge la connexion est perdue, si la lumière est verte la connexion est établie. Il est également possible de visualiser le ranging des capteurs grâce au bouton "Activer cercles" dans le header, choisir de remplir les cercles et activer les lignes représentant la vision des capteurs.
+Parfois, il est impossible de savoir s'il y a une erreur avec les scripts en arrière-plan (comme connexionMQTT.php) il faut donc exécuter la commande ps -ef dans le serveur pour voir si les scripts sont bien lancés et fonctionnels.

@@ -12,7 +12,7 @@ if(isset($_POST["request"]))
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesRanging());
     }
-    if($_POST["request"] == "clignoterPoints")
+    if($_POST["request"] == "ClignoterPoints")
     {
         header('Content-Type: application/json');
         echo json_encode(RecupererDonneesComm());
@@ -26,7 +26,7 @@ if(isset($_POST["request"]))
     if($_POST["request"] == "statusMQTT")
     {
         header('Content-Type: application/json');
-        echo json_encode(getFromMobileTable());
+        echo json_encode(getFromCommTable());
     }
 }
 

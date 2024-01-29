@@ -94,9 +94,7 @@
         <button class="hidden">Activer Remplissage</button>
         <button>Activer ligne</button>
     </div>
-    <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
-    <span class="sr-only">Loading...</span>
-    </div>
+    
 
 
 
@@ -125,7 +123,8 @@
 
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
-
+<!-- Inclure le fichier JavaScript pour clignoter les points -->
+<script type="module" src="ScriptsCreationElements/scriptClignoterPoint.js" ></script>
 <img id="map-image" class="map-image">
 
 <!-- Ligne du noeud mobile -->

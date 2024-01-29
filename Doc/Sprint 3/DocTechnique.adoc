@@ -15,8 +15,6 @@ Groupe 4 :
 - PAGNUCCO Nathan
 - PICUIRA Tanguy
 
-
-
 == Présentation du projet
 
 ===  *Contexte Générale*
@@ -27,7 +25,7 @@ La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise
 L'objectif principal de ce projet est d'améliorer l'interface actuelle en ajoutant des fonctionnalités cruciales pour une expérience utilisateur plus avancée. Ces fonctionnalités comprennent la possibilité d'activer/désactiver certains éléments à afficher, la sélection d'éléments avec des options de filtrage, et l'affichage de la trace des mobiles, incluant les mouvements et l'historique des positions.
 
 === Technologies Utilisées 
-Les technologies au cœur de ce projet sont le web, JavaScript (JS), Scalable Vector Graphics (SVG), MQTT (Message Queuing Telemetry Transport), et les WebSockets. Ces technologies offrent une base solide pour la création d'une interface interactive et en temps réel.
+Les technologies au cœur de ce projet sont le PHP, HTML, CSS, JavaScript (JS), Scalable Vector Graphics (SVG), MQTT (Message Queuing Telemetry Transport), MariaDB SQL (Base de donnees), Docker. Ces technologies offrent une base solide pour la création d'une interface interactive et en temps réel.
 
 ==  Cas d'Utilisation Global
 
@@ -36,8 +34,8 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 * Consulter les Mesures de Distance
 ** Consulter les mesures de distance sur le site web pour visualiser les distances entre les points dans le laboratoire.
 
-* Accéder à l'Historique des Points
-** Accéder à la base de données pour consulter l'historique de chaque point. Analyser les données passées pour obtenir un aperçu temporel.
+* Accéder à l'Historique des Points Mobiles
+** Accéder à la base de données pour consulter l'historique de chaque point mobile. Analyser les données passées pour obtenir un aperçu temporel.
 
 * Visualiser les Mesures de Distance
 ** Visualiser les mesures de distance sur le site web pour une représentation graphique claire des distances entre les points dans le laboratoire.
@@ -73,41 +71,133 @@ Comme vous pouvez voir sur le diagramme des cas d'utilisation, nous avons 7 cas 
 Ces cas d'utilisation sont tous liés à la classe *index* qui représente la page d'acceuil.
 
 == Diagrammes des classes 
-Celui-ci présente le diagramme des classes de notre projet :
 
-image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/diagrammeDeClasses.png[]
+Voici le diagramme des classes complet de notre projet :
 
-Comme vous pouvez voir sur le diagramme des classes, nous utilisons 3 langage de programmation différents : PHP, JavaScript et CSS. La classe *index* représente la page d'acceuil et accède à la classe *style* où il y a les styles CSS. La classe *index* accède aussi à la classe *scriptRecupererDonnes* qui permet de récupérer les données des capteurs. La classe *scriptRecupererDonnes* accède à la classe *donnes* qui stocke temporairement des donnés au format JSON. La classe *index* accède aussi à la classe *scriptCreerPoint* qui permet de créer les points sur la page web. La classe *scriptCreerPoint* accède à la classe *donnees* qui permet de stocker temporairement les données. La classe *index* accède aussi à la classe *connexionMQTT* qui permet de se connecter au broker MQTT. Et enfin la classe *connexionMQTT* accède à la classe *connexionBaseDeDonnees* qui permet de se connecter à la base de données pour pouvoir stocké les donnés récupérés dans la base de données.
+image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/Diagramme%20de%20classe%20locur4iot%20Complet.png[]
+
+Ainsi qu'une version simplifiée plus lisible :
+
+image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/Diagramme%20de%20classe%20locur4iot.png[]
+
+Comme vous pouvez voir sur le diagramme des classes, nous utilisons 3 langage de programmation différents : PHP, JavaScript et CSS. 
+
+Explication des classes :
+
+Les PageWeb *index* et *debug* sont les deux pages de notre application elle permettent de visualiser les données est son accéssible aux utilisateurs.
+
+Les fichiers *css* stockent les styles des pagesWeb.
+
+Les classes BaseDeDonnees *connexionBaseDeDonnees*, *creationConnexionBD* et *donnees* permettent de se connecter à la base de données pour lire et écrire des données.
+
+Les classes Executables comme *connexionMQTT* et *simulationExperience* sont des scripts à executer pour récupérer des données, pour les executer il faut les lancer avec la commande suivante dans le terminal :
+[source,bash]
+php -f nomDuFichier.php
+
+Les scripts AJAX rècupèrent les données en base de données à l'aide de requêtes AJAX qui passent par le fichier *donnees*
+
+Le fichier *constantes* stocke les constantes utilisées dans le projet.
+
+Les scripts de CreationElements permettent de créer les éléments graphiques sur la page web comme les noeuds, les lignes et les cercles.
+
+Les scripts *rechercheParId* et *scriptChangeLayers* permettent de filtrer les données affichées sur la page web.
 
 == Fonctionnalités
 
 === Utilisation de Docker
+
 Cette application est conçue pour fonctionner dans un environnement Dockerisé, garantissant une gestion efficace des dépendances et une portabilité accrue entre différentes configurations. Docker simplifie le déploiement de l'application en encapsulant tous les composants nécessaires dans des conteneurs isolés, assurant ainsi une cohérence et une facilité de gestion pour les chercheurs du laboratoire.
 
+Pour cette application notre docker contient deux containeurs reliés entre eux : 
+
+- Le premier conteneur est un conteneur MariaDB qui contient la base de données.
+- Le second conteneur est un conteneur php8.2-Apache qui contient le serveur du site web
+
 === Présentation des Fichiers Clés
+
+==== Fichiers de lancement
+
 * docker-compose.yml
-** Le fichier docker-compose.yml configure les services et les dépendances nécessaires à l'exécution de l'application dans un environnement Docker. Il définit les conteneurs, les réseaux, et d'autres paramètres essentiels.
+** Le fichier docker-compose.yml configure les services et les dépendances nécessaires à l'exécution de l'application dans un environnement Docker. Il définit les conteneurs, les réseaux, et les volumes utilisés.
+
+* Dockerfile
+** Le fichier Dockerfile définit l'image du serveur Apache utilisée pour l'application. Il comprend la configuration du serveur Apache, l'installation des dépendances PHP, et la copie des fichiers de l'application dans le conteneur.
+
+* create.bat et create.sh
+** Fichiers qui créent les conteneurs, ne consistent que d'une ligne de commande mais permettent la création sans avoir besoin de connaitre la syntaxe de docker.
+
+* launch.bat et launch.sh
+** Fichiers qui lancent les conteneurs, ainsi que les scripts de connexion au broker MQTT. Leur problème principal est que le lancement du script est en arrière plan et donc ne permet pas de voir les erreurs. Relancer le script permet de réinitialiser les conteneurs.
+
+==== Scripts Executables
 
 * connexionMQTT.php
 ** Le fichier connexionMQTT.php gère la connexion à un broker MQTT, permettant la communication entre les capteurs et l'application. Il établit les paramètres de connexion et détaille les topics MQTT utilisés.
 
-* connexionBaseDeDonnees.php
-** Le fichier database.php gère l'interaction avec la base de données MariaDB. Il comprend la configuration des paramètres de base de données ainsi que les requêtes SQL nécessaires pour interagir avec la base de données.
+* simulationExperience.php
+** Le fichier simulationExperience.php gère la simulation d'une expérience de localisation. Il génère des données de localisation aléatoires et les publie sur le broker MQTT. Utile uniquement pour les tests.
+
+==== Scripts AJAX
+
+* scriptClignoterPoints.js
+** Le script scriptClignoterPoints.js permet de faire clignoter les points qui reçoivent des données sur le topic testbed/node/+/out. Il permet de voir en temps réel les données qui arrivent sur le broker MQTT.
+
+* scriptRecupererDonneesMobile.js
+** Le script scriptRecupererDonneesMobile.js permet de récupérer les données des mobiles sur le topic localisation/+/mobile. Il permet de voir les noeuds mobiles se déplacer en temps réel sur le site web.
+
+* scriptRecupererDonneesRanging.js
+** Le script scriptRecupererDonneesRanging.js permet de récupérer les données de ranging sur le topic ranging/+/+/indication. Il permet d'afficher si demandé les cercles et les lignes de ranging en temps réel sur le site web.
+
+* scriptRecupererDonneesSetup.js
+** Le script scriptRecupererDonneesSetup.js permet de récupérer les données de setup sur le topic localisation/+/setup. Il permet d'afficher si demandé les cercles et les lignes de setup en temps réel sur le site web.
+
+==== Pages Web
 
 * index.php
 ** Le fichier index.php représente la page d'accueil de l'application. Il est lié à tous les autres fichiers pour récupérer et afficher les données. La structure de la page est 
 détaillée, mettant en évidence les éléments clés.
 
+* debug.php
+** Le page debug.php représente la page de débogage de l'application. Elle est liée au contenu des différentes bases de données qui affiche les contenus des bases sous forme de tableau. La page étant en php elle ne se met pas à jour automatiquement, il faut donc la rafraichir pour voir les changements, mais cela permet de voir les données sur un moment précis. 
+
+==== Scripts de Création d'Eléments
+
+* creationCercle.js
+** Le script creationCercle.js est chargé de créer des cercles graphiques sur la page web, offrant une représentation visuelle des données des mesures de distance.
+
+* creationLigne.js
+** Le script creationLigne.js est chargé de créer des lignes graphiques sur la page web, offrant une représentation visuelle des données des mesures de distance.
+
+* creationNoeud.js
+** Le script creationNoeud.js est chargé de créer des noeuds graphiques sur la page web, offrant une représentation visuelle des données des capteurs.
+
+==== Classes BaseDeDonnees
+
+* connexionBaseDeDonnees.php
+** Le fichier database.php gère l'interaction avec la base de données MariaDB. Il comprend la configuration des paramètres de base de données ainsi que les requêtes SQL nécessaires pour interagir avec la base de données.
+
+* creationConnexionBD.php
+** Le fichier creationConnexionBD.php gère la création de la connexion à la base de données MariaDB. Il comprend les identifiants de connexion à la base de données que l'on peut également retrouver dans le docker-compose.yml.
+
 * donnees.php
-** Le fichier donnees.php contient une classe utilisée pour le stockage temporaire de données. 
+** Le fichier donnees.php permet de récupérer les données de la base de données MariaDB. Il envoie au format json différentes données en fonction de la requête en $_GET['requete'] qu'il reçoit.
 
-* scriptRecupererDonnes.js
-** Le script scriptRecupererDonnes.js est responsable de la récupération des données côté client. Il assure la communication avec le backend.
+==== Divers JavaScript
 
-* scriptCreerPoint.js
-** Le script scriptCreerPoint.js est chargé de créer des points graphiques sur la page web, offrant une représentation visuelle des données récupérées. Il peut utiliser des bibliothèques ou frameworks pour la visualisation.
+* constantes.js
+** Le fichier constantes.js contient les constantes utilisées dans le projet, ce qui permet de customiser le site web plus facilement.
 
-* styles.css
-** Le fichier styles.css contient les styles CSS utilisés pour la mise en page et la présentation graphique des éléments sur la page web.
+* rechercheParId.js
+** Le script rechercheParId.js permet de filtrer les données affichées sur la page web en fonction de l'ID des objets. Il permet de sélectionner les objets à afficher et ceux à cacher.
 
-Ces fichiers essentiels, associés à la configuration Docker, forment la base de l'application, permettant aux chercheurs d'interagir efficacement avec les données de localisation dans le laboratoire.
+* scriptChangeLayers.js
+** Le script scriptChangeLayers.js permet de filtrer les données affichées sur la page web en fonction des layers. Il permet de sélectionner les layers à afficher et ceux à cacher.
+
+==== Styles
+
+* style.css
+** Le fichier style.css contient les styles CSS utilisés pour la mise en page et la présentation graphique des éléments sur l'index uniquement.
+
+* debugStyle.css
+** Le fichier debugStyle.css contient les styles CSS utilisés pour la mise en page et la présentation graphique des éléments sur le debug uniquement.
+

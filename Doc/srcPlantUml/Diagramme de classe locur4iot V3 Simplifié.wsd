@@ -1,0 +1,66 @@
+@startuml Diagramme de classe locur4iot
+
+left to right direction
+
+package php {
+    package BaseDeDonnees {
+        class creationConnexionBD
+        class connexionBaseDeDonnees 
+        class donnees
+    }
+    
+    package PagesWeb {
+        class index
+        class debug
+    }
+
+    package Executables {
+        class connexionMQTT 
+        class simulationExperience 
+    }
+}
+
+package css {
+    class style 
+    class debugStyle
+}
+
+package JavaScript {
+    class constantes 
+    class rechercheParId 
+    class scriptChangeLayers 
+
+    package AJAX {
+        class scriptRecupererDonneesSetup 
+        class scriptRecupererDonneesCommCapt
+        class scriptRecupererDonneesMobile 
+        class scriptRecupererDonneesRanging 
+        class scriptStatusMQTT
+    }
+
+    package CreationElements {
+        class scriptCreerPoint 
+        class scriptCreerCercles 
+        class scriptCreerLignes 
+    }
+}
+
+PagesWeb --> css
+PagesWeb --> JavaScript
+PagesWeb --> BaseDeDonnees
+
+connexionBaseDeDonnees --> creationConnexionBD
+donnees --> connexionBaseDeDonnees
+
+Executables --> BaseDeDonnees
+
+CreationElements -> constantes
+CreationElements -> PagesWeb
+
+AJAX -> index
+AJAX -> BaseDeDonnees
+AJAX --> constantes
+AJAX -> CreationElements
+
+hide members
+@enduml

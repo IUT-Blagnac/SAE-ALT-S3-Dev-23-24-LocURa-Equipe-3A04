@@ -79,4 +79,6 @@ Bien que nous n'ayons pas pu accomplir notre dernier objectif en raison du temps
 
 En prévision du prochain sprint, nous sommes optimistes quant aux possibilités d'amélioration. Notre objectif n'est pas seulement de livrer un produit fonctionnel, mais de l'élever à un niveau supérieur. Nous avons l'intention d'incorporer de nouvelles fonctionnalités et des améliorations au-delà de nos objectifs initiaux. Cette approche aboutira non seulement à un produit entièrement opérationnel, mais aussi à un produit plus sophistiqué, offrant des fonctionnalités supplémentaires que nous pensons amélioreront l'expérience globale des utilisateurs.
 
+Pendant ce troisième sprint, nous avons continué à travailler sur les bases établies lors des sprints précédents et nous avons cherché à améliorer notre compréhension des langages de programmation choisis afin de progresser dans notre projet. Bien que tous les objectifs initiaux n'aient pas été atteints, nous avons consacré un temps significatif à la résolution de problèmes et à la compréhension des subtilités des langages que nous utilisons, ainsi qu'à la familiarisation avec l'outil Docker. Cet effort contribuera sans aucun doute à notre efficacité future.
+
 Date de fin de sprint : 30/01/2024

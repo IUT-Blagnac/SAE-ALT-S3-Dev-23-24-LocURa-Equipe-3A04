@@ -16,7 +16,6 @@ $port     = 1883;
 
 InitBase();
 
-
 $mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttClient::MQTT_3_1,null,$logger);
     try{
         $mqtt->connect();

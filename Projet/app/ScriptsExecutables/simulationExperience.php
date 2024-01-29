@@ -2,7 +2,7 @@
 
 //Ce script permet de simuler une expérience avec des données aléatoires
 
-require_once('../BaseDeDonnees/connexionBaseDeDonnees.php');
+require_once('BaseDeDonnees/connexionBaseDeDonnees.php');
 
 while (true) {
     
