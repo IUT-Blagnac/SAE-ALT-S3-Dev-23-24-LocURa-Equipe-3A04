@@ -39,11 +39,11 @@ Pour réaliser les tests, il faut avoir accès à ce dépôt et à la release.
 >|Titre 4+| Connexion au broker MQTT
 >|Objectif 4+| Vérifier qu'il est possible de recevoir des messages du broker MQTT
 
-5+|
-^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|PHP_MQTT.1 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| Le script écoute les données importantes et les écrit en base de données et dans les logs ^| Abonnement a un topic d'un broker valide ^|OK
-^|PHP_MQTT.2 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| Le script différencie les données du retain des autres ^| Abonnement à un topic d'un broker valide ^|OK
-^|PHP_MQTT.4 ^|Lancer le script connexionMQTT.php puis voir la page DEBUG.php ^| Le script écoute les données concernant la communication entre capteurs ^| Abonnement à un topic d'un broker valide ^| OK
+6+|
+^|ID ^|Action ^|Version ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|PHP_MQTT.1 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| 1er Sprint ^| Le script écoute les données importantes et les écrit en base de données et dans les logs ^| Abonnement a un topic d'un broker valide ^|OK
+^|PHP_MQTT.2 ^|Lancer le script connexionMQTT.php puis lire le contenu du fichier log.txt ^| 2ème Sprint ^| Le script différencie les données du retain des autres ^| Abonnement à un topic d'un broker valide ^|OK
+^|PHP_MQTT.4 ^|Lancer le script connexionMQTT.php puis voir la page DEBUG.php ^| 2ème Sprint ^| Le script écoute les données concernant la communication entre capteurs ^| Abonnement à un topic d'un broker valide ^| OK
 |====
 
 |====
