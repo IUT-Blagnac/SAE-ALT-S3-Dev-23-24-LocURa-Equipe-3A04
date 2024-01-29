@@ -130,7 +130,7 @@
 
 <!-- Ligne du noeud mobile -->
 <div class="ligneMobile" id="ligneMobile"></div>
-<script type="module" src="ScriptsCreationElements/scriptCreerLigneMobile.js" ></script>
+<script type="module" src="ScriptsCreationElements/scriptCreerRailNoeudMobile.js" ></script>
 
 <div id="map-container" class="map-container"></div>
 
