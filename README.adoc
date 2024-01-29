@@ -43,10 +43,10 @@ toc::[]
 
 Projet est réalisé par::
 
-- https://github.com/AymenCharouki[Aymen Charouki] GitMaster
-- https://github.com/AlexiFon[Alexi Fontanilles] ScrumMaster
-- https://github.com/November304[Nathan Pagnucco] Chef de projet
-- https://github.com/tanguypcr[Tanguy Picuira] Product owner
+- https://github.com/AymenCharouki[Aymen Charouki] : GitMaster - Développeur
+- https://github.com/AlexiFon[Alexi Fontanilles] : ScrumMaster - Développeur JavaScript
+- https://github.com/November304[Nathan Pagnucco] : Chef de projet - Développeur
+- https://github.com/tanguypcr[Tanguy Picuira] : Product owner - Développeur Web
 
 
 [[ContexteGénéral]]
