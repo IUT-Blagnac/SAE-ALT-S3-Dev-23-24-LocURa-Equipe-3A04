@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         point.style.opacity = 1;
                 }
             },
-            error: function (error) {
-                console.error(error);
-            }
         });
     }
 
