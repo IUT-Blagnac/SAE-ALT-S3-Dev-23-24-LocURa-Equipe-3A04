@@ -514,9 +514,8 @@ function afficherIds()
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-
-    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    // Ajout des ids de la table Setup dans le tableau $ids
+    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup;
     $resultat = $conn->query($requete);
 
     // Vérifier si la requête a réussi
@@ -529,6 +528,20 @@ function afficherIds()
     while ($row = $resultat->fetch_assoc()) {
         $ids[] = $row;
     }
+
+    // Ajout des donnes de la table Mobile
+    $requete = "SELECT idCapteur, UID FROM ".NomTableDonnesMobile;
+    $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row;
+    }
+
     $conn->close();
 
     return $ids;

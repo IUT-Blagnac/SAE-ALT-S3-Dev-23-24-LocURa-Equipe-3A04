@@ -192,7 +192,7 @@ function resetPointsTransparency() {
         point.classList.remove("transparenttotal");
         popup.style.display = "none";
 
-        if (!point.clickHandler) {
+        if (point.clickHandler) {
             let clickHandler = function () {
                 togglePopup(point, point.id, point.coordX, point.coordY);
             };
@@ -242,31 +242,6 @@ function toggleOtherPointsTransparency(clickedPoint) {
 }
 
 /**
- * Fonction pour basculer la transparence des autres points
- * 
- * @param {*} clickedPoint : Le point cliqué
- */
-function toggleOtherPointsTransparencyTotal(clickedPoint) {
-    let allPoints = document.querySelectorAll(".point");
-
-    var clickedPointID = clickedPoint.replace("node", "");
-
-    // Parcourir tous les points
-    allPoints.forEach(function (point) {
-        // Récupérer l'ID du point en cours
-        let currentPointID = point.id;
-        // Ajouter ou supprimer la classe transparent en fonction du clic
-        if (currentPointID !== clickedPointID) {
-            point.classList.add("transparenttotal");
-            point.classList.remove("opacity");
-            point.style.pointerEvents = "none"; // Disable pointer events
-        } else {
-            point.classList.remove("transparenttotal");
-        }
-    });
-}
-
-/**
  * Fonction pour mettre à jour la transparence des points en fonction des cases à cocher
  * 
  * @param {*} checkedCheckboxIds : Les identifiants des cases cochées
@@ -303,9 +278,9 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 }
 
 /**
- * ALEXI
+ * 
  */
-function sortNodesByCheckedStatus() {
+function trierNoeudSiCoche() {
     // Divisez les nœuds en deux tableaux, un pour les cochés et un pour les non cochés
     var checkedNodes = [];
     var uncheckedNodes = [];
@@ -354,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var checkboxesNodes = document.querySelectorAll('.node-container input[type="checkbox"]');
 
     // Tri initial au chargement de la page
-    sortNodesByCheckedStatus();
+    trierNoeudSiCoche();
 
     checkboxesNodes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
@@ -368,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
     
             // Sort the nodes after each checkbox change
-            sortNodesByCheckedStatus();
+            trierNoeudSiCoche();
 
             console.log("checkedCheckboxIds: " + checkedCheckboxIds);
         });
@@ -417,17 +392,16 @@ document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(chec
 // Appeler la fonction au chargement de la page pour initialiser l'état du bouton
 checkIfAnyNodeIsChecked();
 
-// Fonction pour désélectionner tous les nœuds et afficher tous les noeuds
+/**
+ * Fonction pour désélectionner tous les nœuds et afficher tous les noeuds
+ */
 function unselectAllNodes() {
     // Désélectionner toutes les cases à cocher
     document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(checkbox) {
         checkbox.checked = false;
+        checkedCheckboxIds.length = 0;
     });
-
-    // Afficher tous les nœuds
-    document.querySelectorAll('.point').forEach(function(point) {
-        point.classList.remove('transparenttotal');
-    });
+    updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
 
     // Cacher le bouton unselect all
     document.getElementById('unselectAll').style.display = 'none';
