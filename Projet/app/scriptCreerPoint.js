@@ -392,17 +392,16 @@ document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(chec
 // Appeler la fonction au chargement de la page pour initialiser l'état du bouton
 checkIfAnyNodeIsChecked();
 
-// Fonction pour désélectionner tous les nœuds et afficher tous les noeuds
+/**
+ * Fonction pour désélectionner tous les nœuds et afficher tous les noeuds
+ */
 function unselectAllNodes() {
     // Désélectionner toutes les cases à cocher
     document.querySelectorAll('#nodes input[type="checkbox"]').forEach(function(checkbox) {
         checkbox.checked = false;
+        checkedCheckboxIds.length = 0;
     });
-
-    // Afficher tous les nœuds
-    document.querySelectorAll('.point').forEach(function(point) {
-        point.classList.remove('transparenttotal');
-    });
+    updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
 
     // Cacher le bouton unselect all
     document.getElementById('unselectAll').style.display = 'none';

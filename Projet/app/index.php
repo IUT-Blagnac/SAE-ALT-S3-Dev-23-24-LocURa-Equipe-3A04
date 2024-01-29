@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
@@ -47,23 +47,27 @@
             include 'connexionBaseDeDonnees.php';
 
 
+            try {
+                $ids = afficherIds();
+                foreach ($ids as $id) {
 
-            $ids = afficherIds();
-
-            foreach ($ids as $id) {
-
-                echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
-                if($id['UID'] != null && $id['iddwm'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
-                else if($id['UID'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
-                else if($id['iddwm'] != null)
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
-                else
-                    echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
-                
-                echo '</div>';
+                    echo '<div class="node-container" id="node' . $id . '">'; // Ajout d'un conteneur pour chaque nœud
+                    if(isset($id['UID']) && isset($id['iddwm']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'] ." - "  . $id['iddwm'];
+                    else if(isset($id['UID']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - " . $id['UID'];
+                    else if(isset($id['iddwm']))
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
+                    else
+                        echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
+                    
+                    echo '</div>';
+                }
+            }catch (Exception $e){
+                echo "Aucune donné dans la table";
             }
+
+            
             ?>
 
         </div>
