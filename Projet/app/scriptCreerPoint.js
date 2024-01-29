@@ -303,9 +303,9 @@ function updateTransparencyBasedOnCheckboxes(checkedCheckboxIds) {
 }
 
 /**
- * ALEXI
+ * 
  */
-function sortNodesByCheckedStatus() {
+function trierNoeudSiCoche() {
     // Divisez les nœuds en deux tableaux, un pour les cochés et un pour les non cochés
     var checkedNodes = [];
     var uncheckedNodes = [];
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var checkboxesNodes = document.querySelectorAll('.node-container input[type="checkbox"]');
 
     // Tri initial au chargement de la page
-    sortNodesByCheckedStatus();
+    trierNoeudSiCoche();
 
     checkboxesNodes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTransparencyBasedOnCheckboxes(checkedCheckboxIds);
     
             // Sort the nodes after each checkbox change
-            sortNodesByCheckedStatus();
+            trierNoeudSiCoche();
 
             console.log("checkedCheckboxIds: " + checkedCheckboxIds);
         });
