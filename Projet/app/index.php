@@ -43,7 +43,7 @@
         <div class="dropdown-content" id="nodes">
 
             <?php
-            
+
             include 'connexionBaseDeDonnees.php';
 
 
@@ -62,7 +62,7 @@
                     echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'] ." - "  . $id['iddwm'];
                 else
                     echo '<input type="checkbox" data-node-id="'.$id['idCapteur'].'">' . $id['idCapteur'];
-                
+
                 echo '</div>';
             }
             ?>
@@ -70,8 +70,10 @@
         </div>
     </div>
 
+    <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
     <script src="rechercheParId.js" ></script>
     <div class="dropdown">
+
         <button class="dropbtn"> Affichage selon IDs
             <i class="fa fa-caret-down"></i>
         </button>
@@ -94,13 +96,12 @@
     </div>
     <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
     <span class="sr-only">Loading...</span>
-    </div>  
-    
+    </div>
 
-    
+
+
 </div>
 
-<a href="debug.php">DEBUG</a>
 
 <button id="unselectAll">Désélectionner tout</button>
 
