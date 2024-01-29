@@ -39,7 +39,7 @@
 
             <?php
 
-            require_once 'connexionBaseDeDonnees.php';
+            require_once 'BaseDeDonnees/connexionBaseDeDonnees.php';
 
 
 
