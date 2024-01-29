@@ -192,7 +192,7 @@ function resetPointsTransparency() {
         point.classList.remove("transparenttotal");
         popup.style.display = "none";
 
-        if (!point.clickHandler) {
+        if (point.clickHandler) {
             let clickHandler = function () {
                 togglePopup(point, point.id, point.coordX, point.coordY);
             };
@@ -239,31 +239,6 @@ function toggleOtherPointsTransparency(clickedPoint) {
         }
     });
 
-}
-
-/**
- * Fonction pour basculer la transparence des autres points
- * 
- * @param {*} clickedPoint : Le point cliqué
- */
-function toggleOtherPointsTransparencyTotal(clickedPoint) {
-    let allPoints = document.querySelectorAll(".point");
-
-    var clickedPointID = clickedPoint.replace("node", "");
-
-    // Parcourir tous les points
-    allPoints.forEach(function (point) {
-        // Récupérer l'ID du point en cours
-        let currentPointID = point.id;
-        // Ajouter ou supprimer la classe transparent en fonction du clic
-        if (currentPointID !== clickedPointID) {
-            point.classList.add("transparenttotal");
-            point.classList.remove("opacity");
-            point.style.pointerEvents = "none"; // Disable pointer events
-        } else {
-            point.classList.remove("transparenttotal");
-        }
-    });
 }
 
 /**
