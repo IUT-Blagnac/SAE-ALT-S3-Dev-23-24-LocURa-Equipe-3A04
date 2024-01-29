@@ -79,4 +79,4 @@ Bien que nous n'ayons pas pu accomplir notre dernier objectif en raison du temps
 
 En prévision du prochain sprint, nous sommes optimistes quant aux possibilités d'amélioration. Notre objectif n'est pas seulement de livrer un produit fonctionnel, mais de l'élever à un niveau supérieur. Nous avons l'intention d'incorporer de nouvelles fonctionnalités et des améliorations au-delà de nos objectifs initiaux. Cette approche aboutira non seulement à un produit entièrement opérationnel, mais aussi à un produit plus sophistiqué, offrant des fonctionnalités supplémentaires que nous pensons amélioreront l'expérience globale des utilisateurs.
 
-Date de fin de sprint : 21/01/2024
+Date de fin de sprint : 30/01/2024
