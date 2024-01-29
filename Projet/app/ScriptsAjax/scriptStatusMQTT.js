@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dataType: 'json',
             data: { request: "statusMQTT" },
             success: function (data) {
+                console.log(data);
                 var currentdate = new Date();
                 var timestampexp = data[0].timestamp.split(":");
                 var currentminsec = currentdate.getMinutes() + currentdate.getSeconds();

@@ -94,9 +94,7 @@
         <button class="hidden">Activer Remplissage</button>
         <button>Activer ligne</button>
     </div>
-    <div id="mqtt_spinner" class="spinner-grow text-danger" role="status">
-    <span class="sr-only">Loading...</span>
-    </div>
+    
 
 
 

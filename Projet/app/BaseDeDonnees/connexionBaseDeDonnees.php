@@ -5,6 +5,7 @@ const NomTableDonnesRanging = "RangingCapteurs";
 const NomTableDonnesMobile = "MobileCapteurs";
 
 const nbLignesMobile = 10;
+const nbLignesOut = 10;
 
 require_once('creationConnexionBD.php');
 
@@ -406,10 +407,9 @@ function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 
 #region VerifierMQTT
 /**
- * Fonction qui sélectionne la table "setup" et retourne le nombre de lignes
- * @return int Le nombre de lignes dans la table "setup"
+ * Fonction qui sélectionne la table "Comm"
  */
-function getFromMobileTable() {
+function getFromCommTable() {
     $conn = new mysqli(servername, username, password, dbname);
 
     // Vérifier la connexion
@@ -417,7 +417,7 @@ function getFromMobileTable() {
         die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    $query = "SELECT * FROM ".NomTableDonnesMobile." where timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
+    $query = "SELECT * FROM ".NomTableDonnesOut." where timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesOut.")";
     $result = $conn->query($query);
 
     if($result === false){
@@ -427,14 +427,7 @@ function getFromMobileTable() {
     
         while($row = $result->fetch_assoc()){
             $data[] = array(
-                'id' => $row['id'],
-                'idCapteur' => $row['idCapteur'],
-                'timestamp' => $row['timestamp'],
-                'x' => $row['x'],
-                'y' => $row['y'],
-                'z' => $row['z'],
-                'color' => $row['color'],
-                'UID' => $row['uid']
+                'timestamp' => $row['timestamp']
             );
         }
 
@@ -454,7 +447,6 @@ function envoyerDonneesComm($topic,$message){
     
 
     $donneespayld = json_decode($message, true);
-    $timestamp = $donneespayld['timestamp'];
     $node_id = $donneespayld['node_id'];
     $donnesexplicit = json_decode($donneespayld['payload'], true);
     if(isset($donnesexplicit))
@@ -481,10 +473,10 @@ function envoyerDonneesComm($topic,$message){
     }
     
 
-    $sql = "INSERT INTO ".NomTableDonnesOut." (node_id, timestamp, initiator, target, protocol, tof, range, rssiRequest, rssiData, temperature) VALUES ('?', '?', '?', '?', '?', '?', '?', '?', '?', '?')";
+    $sql = "INSERT INTO ".NomTableDonnesOut." (node_id, initiator, target, protocol, tof, `range`, rssiRequest, rssiData, temperature) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?)";
 
     $statement = $conn->prepare($sql);
-    $statement -> bind_param("sdsdddddd", $node_id, $timestamp, $initiator, $target, $protocol, $tof, $range, $rssiRequest, $rssiData, $temperature);
+    $statement -> bind_param("ssssddddd", $node_id, $initiator, $target, $protocol, $tof, $range, $rssiRequest, $rssiData, $temperature);
     
     $resultat = $statement->execute();
 
@@ -493,6 +485,37 @@ function envoyerDonneesComm($topic,$message){
     }
 
     $statement->close();
+    $conn->close();
+
+    GestionNbLignesOut();
+}
+
+/**
+ * Permet de gérer le nombre de lignes dans la table DonneesOut
+ * Si il y a plus de nbLignesOut lignes dans la table, on supprime les 5 lignes les plus anciennes
+ */
+function GestionNbLignesOut()
+{
+    $conn = CreerConnection();
+    
+
+    $requete = "SELECT COUNT(*) FROM ".NomTableDonnesOut;
+
+    $resultat = $conn->query($requete);
+    
+    //Vérifier si la requête a réussi
+    if($resultat === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+
+    $row = $resultat->fetch_assoc();
+
+    //Si plus de nbLignesOut lignes dans la table, on supprime les 5 anciennes en fonction de son timestamp
+    if($row['COUNT(*)'] > nbLignesOut)
+    {
+        $requete = "DELETE FROM ".NomTableDonnesOut." ORDER BY timestamp LIMIT 5";
+        $resultat = $conn->query($requete);
+    }
     $conn->close();
 }
 
@@ -519,7 +542,7 @@ function RecupererDonneesComm()
 
         $currentTime = date('Y-m-d H:i:s');
 
-        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' AND (TIMESTAMPDIFF(SECOND, timestmp, '".$currentTime."') < 5) ORDER BY timestmp DESC LIMIT 1";
+        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']." and timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."')";
         $resultat2 = $conn->query($requete);
         // Vérifier si la requête a réussi
         if ($resultat2 === false) {
@@ -528,10 +551,7 @@ function RecupererDonneesComm()
 
         $row2 = $resultat2->fetch_assoc();
         $data[] = array(
-            'idCapteur' => $row['idCapteur'],
-            'x' => $row['x'],
-            'y' => $row['y'],
-            'z' => $row['z'],
+            'idCapteur' => $row['node_id'],
             'orientation' => $row['orientation'],
             'color' => $row['color'],
             'timestamp' => $row2['timestmp'],
@@ -542,8 +562,7 @@ function RecupererDonneesComm()
             'range' => $row2['range'],
             'rssiRequest' => $row2['rssiRequest'],
             'rssiData' => $row2['rssiData'],
-            'temperature' => $row2['temperature'],
-            'UID' => $row['UID']   
+            'temperature' => $row2['temperature']   
         );
     }
 
