@@ -221,6 +221,23 @@ Pour les données du topic localisation/+/setup :
 
 |====
 
+=== 4. Tests HTML :
+[.text-justify]
+
+==== 4.1. Affichage de la page index.html :
+[.text-justify]
+
+|====
+>|Cas de test 4+|Test-01-04-01
+>|Titre 4+| Affichage la page index.html
+>|Objectif 4+| Vérifier si la page index.html s'affiche correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.1 (Sprint 1) ^| Se rendre sur la page index.html ^| La page ainsi que le header s'affichent ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
+
+|====
+
 
 
 ==== 4.2. Application style CSS :
