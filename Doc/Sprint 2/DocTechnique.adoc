@@ -92,7 +92,7 @@ Ces cas d'utilisation sont tous liés à la classe *index* qui représente la pa
 == Diagrammes des classes 
 Celui-ci présente le diagramme des classes de notre projet :
 
-image::img/diagrammeDeClasses.png[]
+image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/diagrammeDeClasses.png[]
 
 Comme vous pouvez voir sur le diagramme des classes, nous utilisons 3 langage de programmation différents : PHP, JavaScript et CSS. La classe *index* représente la page d'acceuil et accède à la classe *style* où il y a les styles CSS. La classe *index* accède aussi à la classe *scriptRecupererDonnes* qui permet de récupérer les données des capteurs. La classe *scriptRecupererDonnes* accède à la classe *donnes* qui stocke temporairement des donnés au format JSON. La classe *index* accède aussi à la classe *scriptCreerPoint* qui permet de créer les points sur la page web. La classe *scriptCreerPoint* accède à la classe *donnees* qui permet de stocker temporairement les données. La classe *index* accède aussi à la classe *connexionMQTT* qui permet de se connecter au broker MQTT. Et enfin la classe *connexionMQTT* accède à la classe *connexionBaseDeDonnees* qui permet de se connecter à la base de données pour pouvoir stocké les donnés récupérés dans la base de données.
 
