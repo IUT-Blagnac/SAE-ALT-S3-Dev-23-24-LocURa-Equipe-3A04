@@ -158,7 +158,7 @@ Pour les données du topic localisation/+/setup :
 |====
 
 ==== 2.4. Voir les donnés des points et transparence des autres points :
-
+[text-justify]
 
 |====
 >|Cas de test 4+|Test-01-02-03
@@ -183,6 +183,32 @@ Pour les données du topic localisation/+/setup :
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|HTML.3 ^| Se rendre sur la page index.html et sélectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement, les images de l'étage se superposent de manière lisible et si aucun étage n'est sélectionné, rien ne s'affiche ^| Avoir les images dans le répertoire Projet/app/Images ainsi que les avoir dans le dictionnaire images du fichier scriptChangeLayers.js. Si une nouvelle image est ajoutée, ajouter un listener ^|OK
+
+|====
+
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+| Remplissage des cercles
+>|Objectif 4+| Vérifier si les cercles se remplissent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Cliquer sur le bouton activer remplissage lorsque un cercle est activer ^| Le remplissage du cercle s'affichenet correctement et le bouton se change en Desactiver Remplissage ^| Avoir activer un cercle au préalable ^|OK
+
+|====
+
+==== 2.8. Création du trait représentant le rail :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+| Création du trait représentant le rail
+>|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Cliquer sur le bouton activer cercle lorsqu'une experience est en cours ^| Les cercles s'affichent correctement, le bouton change de nom pour devenir "Desactiver Cercles" ^| Avoir lancé une simulation ou une experience pour pouvoir recuperer des donnés de ranging et initiator ^|OK
 
 |====
 
