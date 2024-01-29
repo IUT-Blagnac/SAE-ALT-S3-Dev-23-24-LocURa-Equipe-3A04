@@ -74,7 +74,7 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 == Diagrammes des cas d'utilisation
 Celui-ci présente le diagramme des cas d'utilisation de notre projet :
 
-image::img/DiagrammeUseCase.png[]
+image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/DiagrammeUseCase.png[]
 
 Comme vous pouvez voir sur le diagramme des cas d'utilisation, nous avons 7 cas d'utilisation différents : 
 
