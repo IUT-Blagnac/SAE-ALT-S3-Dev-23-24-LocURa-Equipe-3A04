@@ -179,6 +179,51 @@ Pour les données du topic localisation/+/setup :
 
 |====
 
+==== 2.6. Création des cercles :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+| Création des cercles
+>|Objectif 4+| Vérifier si les bordures du cercles s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Cliquer sur le bouton activer cercle lorsqu'une experience est en cours ^| Les cercles s'affichent correctement, le bouton change de nom pour devenir "Desactiver Cercles" ^| Avoir lancé une simulation ou une experience pour pouvoir recuperer des donnés de ranging et initiator ^|OK
+
+|====
+
+==== 2.7. Remplissage des cercles :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+| Remplissage des cercles
+>|Objectif 4+| Vérifier si les cercles se remplissent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Cliquer sur le bouton activer remplissage lorsque un cercle est activer ^| Le remplissage du cercle s'affichenet correctement et le bouton se change en Desactiver Remplissage ^| Avoir activer un cercle au préalable ^|OK
+
+|====
+
+==== 2.8. Création du trait représentant le rail :
+[.text-justify]
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+| Création du trait représentant le rail
+>|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.3 ^| Cliquer sur le bouton activer cercle lorsqu'une experience est en cours ^| Les cercles s'affichent correctement, le bouton change de nom pour devenir "Desactiver Cercles" ^| Avoir lancé une simulation ou une experience pour pouvoir recuperer des donnés de ranging et initiator ^|OK
+
+|====
+
 === 3. Tests python :
 [.text-justify]
 

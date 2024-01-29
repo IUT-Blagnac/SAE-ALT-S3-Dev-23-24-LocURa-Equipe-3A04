@@ -19,14 +19,16 @@ function DessinerCercle($donnees) {
 
     let centreCercle = document.getElementById($donnees['initiator']);
     let rayon = $donnees['range'] * COEFF_TT; // Ajustez selon votre besoin
+    let couleur = centreCercle.style.backgroundColor;
 
     // Création du cercle
     let cercle = document.createElement("div");
     cercle.classList.add("cercle");
     cercle.classList.add("bordure");
-    cercle.style.left = (parseFloat(centreCercle.style.left) - rayon + 5) + "px";
-    cercle.style.top = (parseFloat(centreCercle.style.top) - rayon + 5) + "px";
+    cercle.style.left = (parseFloat(centreCercle.style.left) - rayon + 4) + "px";
+    cercle.style.top = (parseFloat(centreCercle.style.top) - rayon + 4) + "px";
     cercle.style.width = cercle.style.height = 2 * rayon + "px";
+    cercle.style.backgroundColor = couleur;
     
 
     document.getElementById("map").appendChild(cercle);

@@ -35,8 +35,8 @@ function DessinerLigne($donnees)
     //On fait une deuxieme ligne qui montre le vrai range multiplié par 38
     let ligne = document.createElement("div");
     ligne.className = "ligne";
-    ligne.style.left = (origineX+5)+ "px"; //Pour se placer au milieu du point
-    ligne.style.top = (origineY+5) + "px";
+    ligne.style.left = (origineX+4)+ "px"; //Pour se placer au milieu du point
+    ligne.style.top = (origineY+4) + "px";
     ligne.style.width = $donnees['range']*COEFF_TT + "px"; // A Changer pr range
     ligne.style.transform = "rotate(" + angle + "deg)";
     ligne.style.backgroundColor = "black";
@@ -44,8 +44,8 @@ function DessinerLigne($donnees)
     // On rajoute une ligne a la suite de la ligne2 pour affiicher la ranging error $donnees['rangeError']
     let ligne3 = document.createElement("div");
     ligne3.className = "ligne3";
-    ligne3.style.left = (origineX + 5) + "px";
-    ligne3.style.top = (origineY + 5 + parseInt(ligne.style.top) + parseInt(ligne.style.height)) + "px";
+    ligne3.style.left = (origineX +4) + "px";
+    ligne3.style.top = (origineY +4 + parseInt(ligne.style.top) + parseInt(ligne.style.height)) + "px";
     ligne3.style.width = $donnees['rangingError'] * COEFF_TT + "px";
     ligne3.style.transform = "rotate(" + angle + "deg)";
     if($donnees['rangingError'] > 0)
