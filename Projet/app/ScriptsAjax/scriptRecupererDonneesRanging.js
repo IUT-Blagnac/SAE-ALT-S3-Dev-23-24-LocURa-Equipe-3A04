@@ -27,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
             dataType: 'json',
             data:{request: "rangingData"},
             success: function (data) {
-                console.log('Données récupérées avec succès :', data);
-
                 if(cerclesActifs){
                     GestionDonneesCercles(data);
                     $('.button button:nth-child(2)').addClass("active");
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         $('.cercle').removeClass("background");
                     } else { 
                         $('.cercle').addClass("background");
-                        console.log($('.cercle'));
                     }
                 }
                 else 
