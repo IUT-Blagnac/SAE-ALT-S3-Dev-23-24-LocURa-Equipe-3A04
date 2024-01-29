@@ -74,4 +74,6 @@ Bien que des défis subsistent, notamment l'automatisation des scripts Docker, l
 
 Nous sommes heureux de livrer un produit répondant aux exigences initiales, assurant ainsi une expérience d'apprentissage enrichissante et positive pour notre projet.
 
+
+
 Date de fin de sprint : 29/01/2024
