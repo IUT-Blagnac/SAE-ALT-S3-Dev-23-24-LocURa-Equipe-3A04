@@ -627,9 +627,6 @@ function RecupererDonneesRanging()
 {    
     $conn = CreerConnection();
     
-    
-    // Vous pouvez maintenant exécuter vos requêtes SQL ici
-    
     $requete = "SELECT * FROM ".NomTableDonnesRanging;
     $resultat = $conn->query($requete);
     // Vérifier si la requête a réussi

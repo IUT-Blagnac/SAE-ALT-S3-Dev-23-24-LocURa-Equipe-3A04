@@ -43,7 +43,7 @@ function SimulationDonneesRangingFixe()
 {
     $initiator=110;
     $target=109; 
-    $range = rand(0,1);
+    $range = rand(0,10)/10 + rand(0,2)/5;
     $rangingError = rand(-1,1)/10;
     $fausseDonnesranging = '{"initiator":'.$initiator.', "target": '.$target.', "range":'.$range.',  "timestamp": 1705656017704, "rangingError": '.$rangingError.'}';
 

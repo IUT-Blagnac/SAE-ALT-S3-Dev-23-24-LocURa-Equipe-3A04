@@ -174,7 +174,7 @@ body {
 
 .ligne{
     position: absolute;
-    z-index: 1000;
+    z-index: 997;
     background-color: #000;
     transform-origin: top left;
     height: 1px;

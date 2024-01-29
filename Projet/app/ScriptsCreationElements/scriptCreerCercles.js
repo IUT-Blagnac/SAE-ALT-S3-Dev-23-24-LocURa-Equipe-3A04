@@ -5,6 +5,7 @@ import { COEFF_TT } from "../DiversJavaScripts/constantes.js";
  * @param {Array} $donnees 
  */
 export function GestionDonneesCercles($donnees) {
+    SupprimerCercles();
     for (let i = 0; i < $donnees.length; i++) {
         DessinerCercle($donnees[i]);
     }
@@ -29,5 +30,15 @@ function DessinerCercle($donnees) {
     
 
     document.getElementById("map").appendChild(cercle);
+}
+
+/**
+ * Supprime tous les cercles de la carte
+ */
+function SupprimerCercles() {
+    let cercles = document.getElementsByClassName("cercle");
+    while (cercles.length > 0) {
+        cercles[0].parentNode.removeChild(cercles[0]);
+    }
 }
 
