@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 var currentminsec = currentdate.getMinutes() + currentdate.getSeconds();
                 var minsec = parseInt(timestampexp[1]) + parseInt(timestampexp[2]);
                 var diff = currentminsec - minsec;
-                if (diff < 5) {
+                if (diff < 2) {
                     $('#mqtt_spinner').removeClass('text-danger').addClass('text-success');
                 } else {
                     $('#mqtt_spinner').removeClass('text-success').addClass('text-danger');
