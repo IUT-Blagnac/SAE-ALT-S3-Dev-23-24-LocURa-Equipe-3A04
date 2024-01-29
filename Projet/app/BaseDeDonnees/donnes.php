@@ -26,7 +26,7 @@ if(isset($_POST["request"]))
     if($_POST["request"] == "statusMQTT")
     {
         header('Content-Type: application/json');
-        echo json_encode(getFromMobileTable());
+        echo json_encode(getFromCommTable());
     }
 }
 

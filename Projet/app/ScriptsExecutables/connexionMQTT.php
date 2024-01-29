@@ -15,7 +15,7 @@ $server   = 'lab.iut-blagnac.fr';
 $port     = 1883;
 
 InitBase();
-
+envoyerDonneesComm("testbed/node/+/out",' {"timestamp": 1706553354.1091936, "node_id": "279", "payload": "128,900258,16197,############################################################################################################,05"}');
 
 $mqtt = new \PhpMqtt\Client\MqttClient($server, $port,null,\PhpMqtt\Client\MqttClient::MQTT_3_1,null,$logger);
     try{
