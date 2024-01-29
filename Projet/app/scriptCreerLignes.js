@@ -18,8 +18,7 @@ export function GestionDonneesLignes($donnees)
  */
 function DessinerLigne($donnees)
 {
-    // let pointInit = document.getElementById($donnees["initiator"]);
-    let pointInit = document.getElementById("CapteurOrigine"); // Pour debug
+    let pointInit = document.getElementById($donnees["initiator"]);
     let pointTarget = document.getElementById($donnees["target"]);
 
     // Calcul des coordonnées du centre des points d'origine et de destination

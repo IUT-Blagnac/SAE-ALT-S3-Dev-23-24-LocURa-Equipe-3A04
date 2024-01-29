@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
                 else {
+                    console.log("cerclesActifs");
                     GestionDonneesCercles(data);
                     $('.button button:nth-child(2)').addClass("active");
                     $('.button button:nth-child(2)').removeClass("hidden");

@@ -9,13 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
             dataType: 'json',
             data: { request: "pointMobile" },
             success: function (data) {
-                console.log('Données récupérées avec succès :', data[0]);
                 var point = document.getElementById(data[0].idCapteur)
                 if(point==null){
-                    console.log(" Creation de : " + data[0].idCapteur)
                     createPoints(data)
                 } else {
-                    console.log("Mise à jour de : " + data[0].idCapteur);
                     updatePointCoordinates(point,data[0].x,data[0].y);
                 }
                 

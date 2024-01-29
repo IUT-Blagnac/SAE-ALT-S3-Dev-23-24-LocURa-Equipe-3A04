@@ -190,11 +190,13 @@ body {
 .cercle.bordure {
     border: 0.5px solid rgba(0, 0, 0, 0.632);
     border-width: 2px;
+    z-index: 10;
 }
 
 /* Style pour la bordure du cercle */
 .cercle.background {
     background-color : rgba(41, 80, 139, 0.3);
+    z-index: 10;
 }
 
 

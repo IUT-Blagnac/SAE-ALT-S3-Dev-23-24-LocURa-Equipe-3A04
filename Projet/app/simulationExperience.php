@@ -19,7 +19,7 @@ function SimulationDonneesNoeudMobile()
 {
     $x = rand(0, 10) + 0.258;
     $y = rand(0, 10) + 0.208;
-    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": 0, "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "FFFFFF", "UID": "DD94"}');
+    EnvoyerDonneesNoeudMobile('localisation/183/mobile', '{"timestamp": 0, "x":'.$x.', "y": '.$y.', "z": 2.65, "type": "mobile", "color": "000000", "UID": "DD94"}');
 }
 
 /**
@@ -40,7 +40,7 @@ function SimulationDonneesRangingFixe()
 {
     $initiator=110;
     $target=109; 
-    $range = 3+rand(-1,1)/10;
+    $range = rand(0,1);
     $rangingError = rand(-1,1)/10;
     $fausseDonnesranging = '{"initiator":'.$initiator.', "target": '.$target.', "range":'.$range.',  "timestamp": 1705656017704, "rangingError": '.$rangingError.'}';
 
