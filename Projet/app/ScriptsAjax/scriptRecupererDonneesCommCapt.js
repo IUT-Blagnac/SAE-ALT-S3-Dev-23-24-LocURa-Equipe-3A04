@@ -1,3 +1,4 @@
+import { INTERVALLE_MAJ_COMM_CAPT,CLIGNOTEMENT_DUREE,CLIGNOTEMENT_INTERVALLE } from "../DiversJavaScripts/constantes";
 document.addEventListener("DOMContentLoaded", function () {
     // Definition de la fonction pour recuperer et traiter les données
     function fetchData() {
@@ -19,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Clignoter le point
                     var interval = setInterval(function () {
                         point.style.opacity = (point.style.opacity == 0.25) ? 1 : 0.25;
-                    }, 200); // Clignoter toutes les 0.2 secondes
+                    }, CLIGNOTEMENT_INTERVALLE); // Clignoter toutes les cliognotementIntervalles millisecondes
 
-                    // Arret de clignotement après 0.8 secondes
+                    // Arret de clignotement après l'intervalle de temps défini
                     setTimeout(function () {
                         clearInterval(interval);
                         point.style.opacity = 1;
-                    },800); 
+                    },CLIGNOTEMENT_DUREE); 
                 }
             },
             error: function (error) {
@@ -38,5 +39,5 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchData();
 
     // Mettre un intervale pour appeler la fonction toutes les 2 secondes (2000 millisecondes)
-    setInterval(fetchData, 1000);
+    setInterval(fetchData, INTERVALLE_MAJ_COMM_CAPT);
 });

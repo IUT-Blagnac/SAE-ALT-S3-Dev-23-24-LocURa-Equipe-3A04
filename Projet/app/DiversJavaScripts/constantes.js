@@ -9,3 +9,7 @@ export const POPUP_OFFSET_Y = -100; // Décalage en y de la popup
 export const INTERVALLE_MAJ_MOBILE = 2000; // Intervalle de mise à jour des données mobiles en ms
 export const INTERVALLE_MAJ_SETUP = 2000; // Intervalle de mise à jour des données setup en ms
 export const INTERVALLE_MAJ_RANGING = 2000; // Intervalle de mise à jour des données ranging en ms
+export const INTERVALLE_MAJ_COMM_CAPT = 100; // Intervalle de mise à jour des données de communication des capteurs en ms
+
+export const CLIGNOTEMENT_INTERVALLE = 200; // Intervalle de clignotement des points en ms
+export const CLIGNOTEMENT_DUREE = 800; // Durée du clignotement des points en ms

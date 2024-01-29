@@ -106,30 +106,19 @@
 
 <!-- Inclure jQuery -->
 <script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Fichier JavaScript de requete AJAX -->
-<script type="module" src="scriptRecupererDonnes.js"></script>
-<script type="module" src="scriptRecupererDonneesRanging.js"></script>
-<!-- Inclure le fichier JavaScript pour créer les points -->
-<script type="module" src="scriptCreerPoint.js" ></script>
-<!-- Inclure le fichier JavaScript pour les couches -->
-<script src="scriptChangeLayers.js" ></script>
-<!-- Inclure le script pour le status MQTT -->
-<script type="module" src="scriptStatusMQTT.js"></script>
-<!-- Inclure le fichier JavaScript pour le Point mobile -->
-<script type ="module" src = "scriptCreerPointMobile.js"  ></script>
-<!-- Inclure le script JavaScript pour le clignotement des points -->
-<script src ="scriptClignoterPoints.js"></script>
-<script type="module" src="scriptSelectAll.js"></script>
 
-<!-- Fichiers JavaScript pour récupération de données -->
+<!-- Inclure le fichier JavaScript pour les couches -->
+<script src="DiversJavaScripts/scriptChangeLayers.js" ></script>
+
+<!-- Fichiers JavaScript et AJAX pour récupération de données -->
 <script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
 <script type="module" src="ScriptsAjax/scriptRecupererDonneesRanging.js"></script>
-<script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"  ></script>
+<script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"></script>
+<script type="module" src ="ScriptsAjax/scriptClignoterPoints.js"></script>
+<script type="module" src="ScriptsAjax/scriptStatusMQTT.js"></script>
 
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
-<!-- Inclure le fichier JavaScript pour les couches -->
-<script src="ScriptsAjax/ajaxRequestToDataPHP.js" ></script>
 
 <img id="map-image" class="map-image">
 
