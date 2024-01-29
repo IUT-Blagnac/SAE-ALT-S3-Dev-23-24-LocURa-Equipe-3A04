@@ -29,7 +29,7 @@ Groupe 4 :
 - [x] Base de données : Avoir une page qui affiche tout le contenu.
 - [x] [Bug]: Rechercher un noeud par son ID.
 - [x] Unselect All : Ajouter une fonctionnalité de Unselect All qui permet de désélectionner tous les nœuds sélectionnés.
-- [] Scripts : Automatiser les scripts avec Docker.
+- [ ] Scripts : Automatiser les scripts avec Docker.
 - [x] Status de connexion : Ajouter une petite icône qui vérifie la connexion MQTT.
 - [x] DevWeb : Améliorer la page debug.php.
 - [x] Mesures : Ajouter les mesures au formats traits et cercles.
