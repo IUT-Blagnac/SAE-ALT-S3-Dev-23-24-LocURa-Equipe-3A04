@@ -1,4 +1,4 @@
-import { COEFF_TT } from "./constantes.js";
+import { COEFF_TT } from "../DiversJavaScripts/constantes.js";
 
 /**
  * Gère le dessin de différents cercles en prenant en paramètre un tableau contenant des données correspondant à une ligne de données dans la base de données Ranging

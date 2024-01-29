@@ -13,7 +13,7 @@ function checkContinu(pointId) {
     setInterval(function () {
         // Use AJAX to fetch data from the server
         $.ajax({
-            url: 'donnes.php',
+            url: '../BaseDeDonnees/donnes.php',
             method: 'POST',
             dataType: 'json',
             data:{request: "clignoterPoints"},

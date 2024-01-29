@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     function fetchStatus() {
         $.ajax({
-            url: 'donnes.php',
+            url: '../BaseDeDonnees/donnes.php',
             method: 'post',
             dataType: 'json',
             data: { request: "statusMQTT" },

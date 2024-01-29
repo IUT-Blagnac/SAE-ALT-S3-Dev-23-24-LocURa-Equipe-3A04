@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Definition de la fonction pour recuperer et traiter les données
     function fetchData() {
         $.ajax({
-            url: 'donnes.php',
+            url: '../BaseDeDonnees/donnes.php',
             method: 'post',
             dataType: 'json',
             data: { request: "ClignoterPoints" },

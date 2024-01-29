@@ -69,8 +69,8 @@
         </div>
     </div>
 
-    <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
-    <script src="rechercheParId.js" ></script>
+    <div class="dropdown"><button class="dropbtn"><a href="Pages/debug.php">DEBUG</a></button></div>
+    
 
     <div class="dropdown">
 
@@ -109,6 +109,9 @@
 
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="DiversJavaScripts/scriptChangeLayers.js" ></script>
+
+<!-- Script qui permet de gérer la recherche par id des noeuds -->
+<script src="DiversJavaScripts/rechercheParId.js" ></script>
 
 <!-- Fichiers JavaScript et AJAX pour récupération de données -->
 <script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
