@@ -61,9 +61,6 @@ package JavaScript {
         class scriptClignoterPoint {
             Script qui gère le clignotement des points qui reçoivent des données
         }
-        class scriptRecupererDonneesCommCapt {
-            Script qui gère la récupération des données pour les communications des capteurs
-        }
         class scriptRecupererDonneesMobile {
             Script qui gère la récupération des données pour les nœuds mobiles
         }
@@ -107,7 +104,6 @@ CreationElements -> index
 AJAX -> index
 AJAX --> donnees
 
-scriptRecupererDonneesCommCapt --> constantes
 scriptRecupererDonneesRanging --> constantes
 scriptRecupererDonneesMobile --> constantes
 
@@ -130,7 +126,6 @@ show debug attributes
 show scriptChangeLayers attributes
 show scriptRecupererDonneesSetup attributes
 show scriptClignoterPoint attributes
-show scriptRecupererDonneesCommCapt attributes
 show scriptRecupererDonneesMobile attributes
 show scriptRecupererDonneesRanging attributes
 show scriptStatusMQTT attributes

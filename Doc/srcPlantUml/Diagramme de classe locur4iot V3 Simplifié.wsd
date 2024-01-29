@@ -32,7 +32,6 @@ package JavaScript {
 
     package AJAX {
         class scriptRecupererDonneesSetup 
-        class scriptClignoterPoint 
         class scriptRecupererDonneesCommCapt
         class scriptRecupererDonneesMobile 
         class scriptRecupererDonneesRanging 
