@@ -123,6 +123,7 @@ Pour les données du topic localisation/+/setup :
 ^|JS_RECUP.6 (Sprint 3) ^| Lancer ou inclure le script scriptRecupererDonneesRanging.js  ^| La phrase 'Erreur de requête AJAX :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
 ^|JS_RECUP.7 (Sprint 3) ^| Lancer ou inclure le script scriptStatusMQTT.js  ^| La phrase 'Données récupérées avec succès :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
 ^|JS_RECUP.8 (Sprint 3) ^| Lancer ou inclure le script scriptStatusMQTT.js  ^| La phrase 'Erreur de requête AJAX :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
+
 |====
 
 ==== 2.2. Affichage des données du serveur :
