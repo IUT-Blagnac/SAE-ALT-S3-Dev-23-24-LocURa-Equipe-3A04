@@ -71,11 +71,11 @@ La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise
 |         | 2ème Sprint | Sprint 2 | https://github.com/orgs/IUT-Blagnac/projects/173[Sprint 2] | La colonne User Stories représente les User stories à développer durant le sprint
 |         | 2ème Sprint | Bilan Sprint 2 | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/Sprint%202/BilanSprint2.adoc[Bilan Sprint 2] | Le bilan du deuxième Sprint
 |        | 2ème Sprint | Prévision Sprint 3 | https://github.com/orgs/IUT-Blagnac/projects/174[Prévision Sprint 3] | Prévision du prochain Sprint (3) 
-| Sem.4 (22/01 - 29/01       | 3ème Sprint | Sprint 3 |  [Sprint 3] | La colonne User Stories représente les User stories à développer durant le sprint
-|                            | 3ème Sprint | Sprint 3 |  Cahier de tests |  [Cahier de tests] | Donne les différents tests que l'on a pu effectuer
-|                            | 3ème Sprint | Sprint 3 | Documentation Utilisateur |  [Documentation Utilisateur] |  Montre comment installer l'application et la présente avec ses fonctionnalités
-|       | 3ème Sprint | Sprint 3 | Documentation Technique | [Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
-| | 3ème Sprint | Sprint 3 | Bilan Sprint 3 | Le bilan du troisième Sprint
+| Sem.4 (22/01 - 29/01       | 3ème Sprint | Sprint 3 |  https://github.com/orgs/IUT-Blagnac/projects/174[Sprint 3] | La colonne User Stories représente les User stories à développer durant le sprint
+|                            | 3ème Sprint |  Cahier de tests |  https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/Sprint%203/CahierDeTest.adoc[Cahier de tests] | Donne les différents tests que l'on a pu effectuer
+|                            | 3ème Sprint | Documentation Utilisateur |  https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/Sprint%203/DocUtilisateur.adoc[Documentation Utilisateur] |  Montre comment installer l'application et la présente avec ses fonctionnalités
+|       | 3ème Sprint  | Documentation Technique | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/Sprint%203/DocTechnique.adoc[Documentation Technique] | Montre le fonctionnement et les fichiers clés de l'application
+| | 3ème Sprint | Bilan Sprint 3 | https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/Sprint%203/BilanSprint3.adoc[Bilan Sprint 3] | Le bilan du troisième Sprint
 |===
 
 == Réalisations 
