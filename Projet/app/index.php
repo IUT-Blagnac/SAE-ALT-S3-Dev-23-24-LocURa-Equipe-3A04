@@ -114,7 +114,6 @@
 <script type="module" src="scriptCreerPoint.js" ></script>
 <!-- Inclure le fichier JavaScript pour les couches -->
 <script src="scriptChangeLayers.js" ></script>
-<script src="ajaxRequestToDataPHP.js" ></script>
 <!-- Inclure le script pour le status MQTT -->
 <script type="module" src="scriptStatusMQTT.js"></script>
 <!-- Inclure le fichier JavaScript pour le Point mobile -->
