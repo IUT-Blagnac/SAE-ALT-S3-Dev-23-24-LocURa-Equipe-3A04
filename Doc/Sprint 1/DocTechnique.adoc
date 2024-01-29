@@ -74,7 +74,7 @@ Cette application, conçue exclusivement pour les chercheurs du laboratoire, pro
 == Diagrammes des classes 
 Celui-ci présente le diagramme des classes de notre projet :
 
-image::../img/diagrammeClasse.png[]
+image::https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/blob/master/Doc/img/diagrammeDeClasses.png[]
 
 == Fonctionnalités
 
