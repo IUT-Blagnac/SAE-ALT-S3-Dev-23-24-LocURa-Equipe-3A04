@@ -80,7 +80,7 @@ La plateforme de recherche LocURa4IoT, hébergée à l’IUT de Blagnac, utilise
 
 == Réalisations 
 
-Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V1.0[1.0]
+Version actuelle : https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/releases/tag/V1.1[1.1]
 
 == Evaluation hebdo
 
