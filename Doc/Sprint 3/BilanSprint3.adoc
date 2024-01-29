@@ -70,6 +70,8 @@ Nous avons également réussi à implémenter des simulations pour les environne
 
 D'autres améliorations notables incluent l'ajout de fonctionnalités visuelles, telles que le clignotement des points qui reçoivent un message dans les 5 secondes et l'intégration d'une barre de recherche pour les nœuds, renforçant ainsi la convivialité de l'application.
 
+Cependant, nous avons rencontré des difficultés lors de la fusion des branches à la fin du sprint, ce qui a entraîné des difficultés sur le site, notamment la navbar et la fonctionnalité et l'affichage des noeuds. La plupart de ces problèmes ont été réglés au dernier moment.
+
 Bien que des défis subsistent, notamment l'automatisation des scripts Docker, le troisième sprint a été caractérisé par des avancées significatives, la résolution de problèmes complexes et l'enrichissement continu de notre compréhension des technologies utilisées.
 
 Nous sommes heureux de livrer un produit répondant aux exigences initiales, assurant ainsi une expérience d'apprentissage enrichissante et positive pour notre projet.
