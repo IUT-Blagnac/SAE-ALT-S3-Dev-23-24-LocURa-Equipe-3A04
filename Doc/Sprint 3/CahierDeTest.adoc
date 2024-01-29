@@ -171,11 +171,11 @@ Pour les données du topic localisation/+/setup :
 
 >|Cas de test 4+|Test-01-04-02
 >|Titre 4+| Affichage des étages
->|Objectif 4+| Vérifier si les étages selectionnés s'affichent correctement
+>|Objectif 4+| Vérifier si les étages sélectionnés s'affichent correctement
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|HTML.3 ^| Se rendre sur la page index.html et selectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement, les images de l'étage se superposent de manière lisible et si aucun étage n'est selectionné, rien ne s'affiche ^| Avoir les images dans le répertoire Projet/app/Images ainsi que les avoir dans le dictionnaire images du fichier scriptChangeLayers.js. Si une nouvelle image est ajoutée, ajouter un listener ^|OK
+^|HTML.3 ^| Se rendre sur la page index.html et sélectionner un ou plusieurs étages ^| Les étages sélectionnés s'affichent correctement, les images de l'étage se superposent de manière lisible et si aucun étage n'est sélectionné, rien ne s'affiche ^| Avoir les images dans le répertoire Projet/app/Images ainsi que les avoir dans le dictionnaire images du fichier scriptChangeLayers.js. Si une nouvelle image est ajoutée, ajouter un listener ^|OK
 
 |====
 
