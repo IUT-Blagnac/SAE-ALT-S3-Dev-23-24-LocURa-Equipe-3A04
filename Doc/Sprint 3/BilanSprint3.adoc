@@ -48,7 +48,6 @@ Groupe 4 :
 - Les layers des étages ne sont pas entierement implementés (Manque des exemples).
 - Problèmes lors des merges à la fin du sprint.
 - Hésitation entre AJAX et JAVASCRIPT pour la mise à jour de la page web en fonction des données récupérées.
-- Scripts de lancement automatique ne marchent pas.
 - La gestion du temps a été impactée par Docker, bien que moins qu'au début.
 - Nous n'avons pas pu automatiser le lancement des scripts avec le docker.
 - Problèmes liées au css.
@@ -65,7 +64,7 @@ Groupe 4 :
 
 Au cours du troisième sprint, notre équipe a consolidé les succès précédents et s'est concentrée sur l'atteinte de nouveaux objectifs ambitieux. Nous avons réussi à intégrer de manière efficace la communication AJAX pour le transfert de données, offrant une amélioration significative par rapport à notre approche précédente basée sur JavaScript. La transition vers cette méthode a renforcé la réactivité de l'application et contribué à une expérience utilisateur plus fluide.
 
-Nous avons également réussi à implémenter des simulations pour les environnements mobiles et le Ranging, ajoutant une nouvelle table à la base de données pour soutenir ces développements. Malgré quelques difficultés liées à la connexion MQTT lors de l'interaction avec les graphiques en temps réel, notre équipe a résolu ces problèmes avec succès grâce à une collaboration efficace et une persévérance remarquable.
+Nous avons également réussi à implémenter des simulations pour les environnements mobiles et le Ranging, ajoutant des nouvelles tables à la base de données pour soutenir ces développements. Malgré quelques difficultés liées à la connexion MQTT lors de l'interaction avec les graphiques en temps réel, notre équipe a résolu ces problèmes avec succès grâce à une collaboration efficace et une persévérance remarquable.
 
 D'autres améliorations notables incluent l'ajout de fonctionnalités visuelles, telles que le clignotement des points qui reçoivent un message dans les 5 secondes et l'intégration d'une barre de recherche pour les nœuds, renforçant ainsi la convivialité de l'application.
 
