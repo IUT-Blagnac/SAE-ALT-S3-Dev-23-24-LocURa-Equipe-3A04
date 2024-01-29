@@ -96,6 +96,7 @@ Pour les données du topic localisation/+/setup :
 ^|PHP_SQL.3 (Sprint 2) ^|Appeler la fonction  EnvoyerDonnesNoeud($topic,$message) de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "Erreur d'exécution de la requête : " s'affiche ^| On a intialisé la base de données et on modifie la requete pour qu'elle soit incorrecte ^|OK
 ^|PHP_SQL.4 (Sprint 3) ^|Appeler la fonction afficherDonnees() de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| On voit alors un print simpliste du contenu de la table ^| On a intialisé la base de données et la table DonneesCapteurs contient des données ^|OK
 ^|PHP_SQL.5 (Sprint 3)  ^|Appeler la fonction UpdateDonneesNoeud($topic,$message) de connexionBaseDeDonnees.php depuis un script .php et se rendre sur la page du script ^| La phrase "La connexion à la base de données a échoué :" ne s'affiche pas", et la phrase "Erreur d'exécution de la requête : " ne s'affiche pas non plus ^| On a intialisé la base de données et on envoie un dans $topic un string comme : "localisation/112/setup " et dans $message un json conforme au type de données reçus ^|OK
+^|PHP_SQL.6 ^|Envoyer un message json avec plus de colonnes que la base ^| La base s'agrandit en rajoutant une colonne ^| On a intialisé la base de données et on envoie un dans $topic un string comme : "localisation/112/setup " et dans $message un json conforme au type de données reçus ^|OK
 
 
 |====
@@ -139,6 +140,7 @@ Pour les données du topic localisation/+/setup :
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|JS_AFF.1 (Sprint 3) ^| Lancer la fonction afficherDonnees() ^| L'affichage des contenus de toutes les tables de la base de données ^| Il y a des données dans la base de données ^|OK
 
+|====
 
 ==== 2.3. Création des points :
 [.text-justify]
