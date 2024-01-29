@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     if (!remplissageActif) {
                         cercles.removeClass("background");
-                    } else {
+                    } else { 
                         cercles.addClass("background");
                         console.log(cercles);
                     }
