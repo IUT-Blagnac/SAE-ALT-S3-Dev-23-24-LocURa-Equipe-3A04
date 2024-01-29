@@ -118,11 +118,13 @@
 <script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
 <script type="module" src="ScriptsAjax/scriptRecupererDonneesRanging.js"></script>
 <script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"></script>
-<script type="module" src ="ScriptsAjax/scriptClignoterPoints.js"></script>
 <script type="module" src="ScriptsAjax/scriptStatusMQTT.js"></script>
 
 <!-- Inclure le fichier JavaScript pour créer les points -->
 <script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
+<!-- Inclure le fichier JavaScript pour clignoter les points -->
+<script type="module" src="ScriptsAjax/scriptClignoterPoint.js" ></script>
+
 <img id="map-image" class="map-image">
 
 <!-- Ligne du noeud mobile -->
