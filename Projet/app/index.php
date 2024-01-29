@@ -102,6 +102,9 @@
 
 <button id="unselectAll">Désélectionner tout</button>
 
+
+
+
 <!-- Inclure jQuery -->
 <script type="module" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -122,6 +125,10 @@
 <script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
 
 <img id="map-image" class="map-image">
+
+<!-- Ligne du noeud mobile -->
+<div class="ligneMobile" id="ligneMobile"></div>
+<script type="module" src="ScriptsCreationElements/scriptCreerRailNoeudMobile.js" ></script>
 
 <div id="map-container" class="map-container"></div>
 
