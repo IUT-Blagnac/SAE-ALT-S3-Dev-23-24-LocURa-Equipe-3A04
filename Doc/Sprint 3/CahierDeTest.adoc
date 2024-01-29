@@ -189,6 +189,8 @@ Pour les données du topic localisation/+/setup :
 
 |====
 
+|====
+
 
 >|Cas de test 4+|Test-01-04-03
 >|Titre 4+| Remplissage des cercles
