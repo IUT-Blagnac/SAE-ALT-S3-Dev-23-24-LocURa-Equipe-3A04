@@ -74,4 +74,8 @@ L'application permet de visualiser les capteurs sur une carte dès le lancement 
 
 === Fonctionnalité de l'application - Sprint 3
 
-Au lancement de la page, l'étage 1 est affiché avec les points de l'étage 1. Il est possible de changer d'étage grâce à un menu déroulant: les étages se superposent de manière lisible et si aucun étage est selecionné, aucun noeud est affiché. Il est également possible de choisir les points à afficher selon leur ID, leur UID le DWM ou grâce à la recherche de l'ID. Un historique des positions des capteurs est également disponible. Le contenu de la base de données est accessible grâce au bouton DEBUG dans le header. Une lumière clignotant indique l'état de la connexion au broker MQTT: si la lumière est rouge la connexion est perdue, si la lumière est verte la connexion est établie. Il est également possible de visualiser le ranging des capteurs grâce au bouton "Activer cercles" dans le header, choisir de remplir les cercles et activer les lignes.
+Même fonctionnalités.
+
+Ajout:
+
+Au lancement de la page, l'étage 1 est affiché avec les points de l'étage 1. Il est possible de changer d'étage grâce à un menu déroulant: les étages se superposent de manière lisible et si aucun étage est selecionné, aucun noeud est affiché. Il est également possible de choisir les points à afficher selon leur ID, leur UID le DWM ou grâce à la recherche de l'ID. Un historique des positions des capteurs est également disponible. Le contenu de la base de données est accessible grâce au bouton DEBUG dans le header. Une lumière clignotant indique l'état de la connexion au broker MQTT: si la lumière est rouge la connexion est perdue, si la lumière est verte la connexion est établie. Il est également possible de visualiser le ranging des capteurs grâce au bouton "Activer cercles" dans le header, choisir de remplir les cercles et activer les lignes représentant la vision des capteurs.
