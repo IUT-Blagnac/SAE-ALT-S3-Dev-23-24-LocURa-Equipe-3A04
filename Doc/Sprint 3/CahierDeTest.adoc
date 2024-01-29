@@ -123,6 +123,7 @@ Pour les données du topic localisation/+/setup :
 ^|JS_RECUP.6 (Sprint 3) ^| Lancer ou inclure le script scriptRecupererDonneesRanging.js  ^| La phrase 'Erreur de requête AJAX :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
 ^|JS_RECUP.7 (Sprint 3) ^| Lancer ou inclure le script scriptStatusMQTT.js  ^| La phrase 'Données récupérées avec succès :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
 ^|JS_RECUP.8 (Sprint 3) ^| Lancer ou inclure le script scriptStatusMQTT.js  ^| La phrase 'Erreur de requête AJAX :' s'écrit dans la console du navigateur  ^|  Supprimer ou tronquer les données de donnees.php ^|OK
+
 |====
 
 ==== 2.2. Affichage des données du serveur :
@@ -227,6 +228,23 @@ Pour les données du topic localisation/+/setup :
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|PY_AFF.1 (Sprint 2) ^| Lancer le script mqtttest.py  ^| Dans le fichier log.txt il y a bien toutes les donnés des points et si il s'affiche bien dans la console ^|Avoir python sur sa machine et ne pas bloquer le port 1883 ^|OK
+
+|====
+
+=== 4. Tests HTML :
+[.text-justify]
+
+==== 4.1. Affichage de la page index.html :
+[.text-justify]
+
+|====
+>|Cas de test 4+|Test-01-04-01
+>|Titre 4+| Affichage la page index.html
+>|Objectif 4+| Vérifier si la page index.html s'affiche correctement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.1 (Sprint 1) ^| Se rendre sur la page index.html ^| La page ainsi que le header s'affichent ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|OK
 
 |====
 
