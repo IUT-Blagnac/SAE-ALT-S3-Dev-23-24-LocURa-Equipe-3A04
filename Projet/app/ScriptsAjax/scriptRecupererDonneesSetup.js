@@ -1,5 +1,4 @@
 import { createPoints } from '../ScriptsCreationElements/scriptCreerPoint.js';
-import { INTERVALLE_MAJ_SETUP } from '../DiversJavaScripts/constantes.js';
 document.addEventListener("DOMContentLoaded", function() {
     /**
      * Fonction pour récupérer les données de la base de données
@@ -23,6 +22,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     fetchData();
-
-    setInterval(fetchData, INTERVALLE_MAJ_SETUP);
 });
