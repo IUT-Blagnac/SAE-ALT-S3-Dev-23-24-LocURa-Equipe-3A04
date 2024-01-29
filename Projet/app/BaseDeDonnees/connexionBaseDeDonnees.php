@@ -198,12 +198,18 @@ function RecupererDonneesSetup()
  */
 function afficherIds()
 {
-    $conn = CreerConnection();
-    
+    $conn = new mysqli(servername, username, password, dbname);
 
-    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup; // Modifier la requête pour récupérer seulement l'ID
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
 
+    // Ajout des ids de la table Setup dans le tableau $ids
+    $requete = "SELECT idCapteur,UID,iddwm FROM ".NomTableDonneesSetup;
     $resultat = $conn->query($requete);
+
+    // Vérifier si la requête a réussi
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
@@ -214,16 +220,23 @@ function afficherIds()
         $ids[] = $row;
     }
 
-    //On rajoute les id des noeuds mobiles
-    $requete = "SELECT idCapteur,UID FROM ".NomTableDonnesMobile;
+    // Ajout des donnes de la table Mobile
+    $requete = "SELECT idCapteur, UID FROM ".NomTableDonnesMobile;
+    $resultat = $conn->query($requete);
 
+    // Vérifier si la requête a réussi
+    if ($resultat === false) {
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
 
+    while ($row = $resultat->fetch_assoc()) {
+        $ids[] = $row;
+    }
 
     $conn->close();
 
     return $ids;
 }
-
 
 
 #endregion
@@ -391,6 +404,50 @@ function TraitementDWMMobile($idDWM, $x,$y,$z,$UID)
 
 #endregion
 
+#region VerifierMQTT
+/**
+ * Fonction qui sélectionne la table "setup" et retourne le nombre de lignes
+ * @return int Le nombre de lignes dans la table "setup"
+ */
+function getFromMobileTable() {
+    $conn = new mysqli(servername, username, password, dbname);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    }
+
+    $query = "SELECT * FROM ".NomTableDonnesMobile." where timestamp = (SELECT MAX(timestamp) FROM ".NomTableDonnesMobile.")";
+    $result = $conn->query($query);
+
+    if($result === false){
+        die("Erreur d'exécution de la requête : " . $conn->error);
+    }
+   
+    
+        while($row = $result->fetch_assoc()){
+            $data[] = array(
+                'id' => $row['id'],
+                'idCapteur' => $row['idCapteur'],
+                'timestamp' => $row['timestamp'],
+                'x' => $row['x'],
+                'y' => $row['y'],
+                'z' => $row['z'],
+                'color' => $row['color'],
+                'UID' => $row['uid']
+            );
+        }
+
+        $conn->close();
+        
+        return $data;
+    
+    
+}
+
+
+#endregion
+
 #region Fonctions DonneesComm
 function envoyerDonneesComm($topic,$message){
     $conn = CreerConnection();
@@ -460,7 +517,9 @@ function RecupererDonneesComm()
     // Parcourir les résultats de la requête
     while ($row = $resultat->fetch_assoc()) {
 
-        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' ORDER BY timestmp DESC LIMIT 1";
+        $currentTime = date('Y-m-d H:i:s');
+
+        $requete = "SELECT * FROM ".NomTableDonnesOut." WHERE target = '".$row['idCapteur']."' AND (TIMESTAMPDIFF(SECOND, timestmp, '".$currentTime."') < 5) ORDER BY timestmp DESC LIMIT 1";
         $resultat2 = $conn->query($requete);
         // Vérifier si la requête a réussi
         if ($resultat2 === false) {
@@ -609,6 +668,7 @@ function AfficherDonneesTable($nomTable)
     if ($resultat === false) {
         die("Erreur d'exécution de la requête : " . $conn->error);
     }
+    
     $colonnes = array();
     while($row = $resultat->fetch_assoc())
     {
@@ -651,4 +711,4 @@ function AfficherDonneesTable($nomTable)
     $conn->close();
 }
 
-#endregion
+#endregion 
