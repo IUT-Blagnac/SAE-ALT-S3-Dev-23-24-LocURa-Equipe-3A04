@@ -214,7 +214,6 @@ body {
     display: none;
 }
 
-/* Ajoutez ces styles pour la boîte de dialogue */
 .popup {
     display: none;
     position: absolute;
@@ -224,17 +223,16 @@ body {
     z-index: 10000;
 }
 
-/* Styles pour les points transparents */
 .transparent {
-    opacity: 0.1; /* Opacité des points transparents */
+    opacity: 0.1;
 }
 
 .transparenttotal {
-    opacity: 0; /* Opacité des points transparents */
+    opacity: 0;
 }
 
 .opacity {
-    opacity: 1; /* Opacité des points transparents */
+    opacity: 1;
 }
 
 .navbar .node {

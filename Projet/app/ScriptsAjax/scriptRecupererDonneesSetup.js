@@ -1,15 +1,17 @@
-import { createPoints } from './scriptCreerPoint.js';
+import { createPoints } from '../ScriptsCreationElements/scriptCreerPoint.js';
 document.addEventListener("DOMContentLoaded", function() {
+    /**
+     * Fonction pour récupérer les données de la base de données
+     */
+    function fetchData() {
     $.ajax({
-        url: 'donnes.php',
+        url: '../BaseDeDonnees/donnes.php',
         method: 'post',
         dataType: 'json',
         data:{request: "pointsFixesData"},
         success: function (data) {
             
             console.log('Données récupérées avec succès :', data);
-            // Les données sont récupérées avec succès
-            // Appeler une fonction pour créer les points avec les données
             createPoints(data);
             
         },
@@ -17,4 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error(error);
         }
     });
+    }
+
+    fetchData();
 });

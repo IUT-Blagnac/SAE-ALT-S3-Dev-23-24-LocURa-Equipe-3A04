@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1em;
+}
+
+button {
+    background-color: darkslategray; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center; 
+    flex-grow: 0.9;
+    margin: 0;
+    position: center;
+}
+
+main {
+    padding-top: 10px;
+    padding-bottom: 70px;
+}
+
+.table-debug{
+    border: 1px solid #000;
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.table-debug th, .table-debug td {
+    border: 1px solid #000;
+}

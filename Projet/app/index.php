@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-
+    <link rel="stylesheet" type="text/css" href="Styles/style.css">
 </head>
 <body>
-
-
-
 
 <div class="navbar">
     <!-- Bouton qui permet d'afficher différents environnements - Non implémenté
@@ -44,7 +39,7 @@
 
             <?php
 
-            include 'connexionBaseDeDonnees.php';
+            require_once 'connexionBaseDeDonnees.php';
 
 
 
@@ -76,6 +71,7 @@
 
     <div class="dropdown"><button class="dropbtn"><a href="debug.php">DEBUG</a></button></div>
     <script src="rechercheParId.js" ></script>
+
     <div class="dropdown">
 
         <button class="dropbtn"> Affichage selon IDs
@@ -106,7 +102,6 @@
 
 </div>
 
-
 <button id="unselectAll">Désélectionner tout</button>
 
 <!-- Inclure jQuery -->
@@ -126,6 +121,15 @@
 <script src ="scriptClignoterPoints.js"></script>
 <script type="module" src="scriptSelectAll.js"></script>
 
+<!-- Fichiers JavaScript pour récupération de données -->
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesSetup.js"></script>
+<script type="module" src="ScriptsAjax/scriptRecupererDonneesRanging.js"></script>
+<script type ="module" src = "ScriptsAjax/scriptRecupererDonneesMobile.js"  ></script>
+
+<!-- Inclure le fichier JavaScript pour créer les points -->
+<script type="module" src="ScriptsCreationElements/scriptCreerPoint.js" ></script>
+<!-- Inclure le fichier JavaScript pour les couches -->
+<script src="ScriptsAjax/ajaxRequestToDataPHP.js" ></script>
 
 <img id="map-image" class="map-image">
 
@@ -133,7 +137,6 @@
 
 <div id="map"></div>
 
-<!-- Afficher la popup du noeud -->
 <div id="popup" class="popup">
     <div id="popup-content" class="popup-content"></div>
 </div>
