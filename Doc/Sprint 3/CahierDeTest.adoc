@@ -261,4 +261,14 @@ Pour les données du topic localisation/+/setup :
 
 
 
-==== 4.2. ...
+==== 4.2. Application style CSS :
+[.text-justify]
+
+|====
+>|Cas de test 4+|Test-01-04-02
+>|Titre 4+| Application du style CSS
+>|Objectif 4+| Vérifier si le style CSS est bien appliqué à la page index.html
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|HTML.2 ^| Se rendre sur la page index.html ^| La page s'affiche avec le style CSS sur tous les éléments ^| Avoir une connexion internet et avoir Docker pour se connecter à la base de données ^|NOK
