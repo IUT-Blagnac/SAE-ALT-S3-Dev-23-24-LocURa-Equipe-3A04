@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="dropdown"><button class="dropbtn"><a href="Pages/debug.php">DEBUG</a></button></div>
+    <div class="dropdown"><button class="dropbtn"><a href="Pages/debug.php">Bases</a></button></div>
     
 
     <div class="dropdown">

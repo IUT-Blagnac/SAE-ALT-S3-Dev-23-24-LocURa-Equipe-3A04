@@ -47,37 +47,40 @@ Dans ce contexte, nous avons pour mission de créer une application web permetta
 Pré-requis : 
 
 * Docker sur le serveur
-* La release situé https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/tree/master/Projet/app[ici]
+* La release située https://github.com/IUT-Blagnac/SAE-ALT-S3-Dev-23-24-LocURa-Equipe-3A04/tree/master/Projet/app[ici]
 
 Pour installer le docker sur un serveur il faut
 
 - Lancer le create.bat si on est dans un serveur windows
 - Lancer le create.sh si on est dans un serveur unix
 
+Pour lancer le docker il faut utiliser :
+
+- Le script launch.bat sur windows
+- Le script launch.sh sur linux 
+
+Ce script permet de lancer le script PHP qui récupère les données MQTT et écrit les données en base.
+
 ⚠️ ATTENTION ⚠️
 
-Pour que le serveur puisse correctement récupérer les données MQTT il faut s'assurer que le port 1883 est ouvert sur le pare feu de la connexion
+Pour que le serveur puisse correctement récupérer les données MQTT il faut s'assurer que le port 1883 est ouvert sur le pare feu de la connexion, si le site ne fonctionne pas bien il est utile de vérifier si le script connexionMQTT.php est bien en état de marche
+
+Pour se connecter au site il suffit d'aller sur le port 8080 de l'ip de la machine qui le host
 
 ****
 
 == Fonctionnalités
 
-=== Fonctionnalité de l'application - Sprint 1
+Le site permet de visualiser facilement la carte d'un étage et les capteurs qui y sont présents. Dans le header du site on peut : 
 
-L'application représente une maquette simpliste de test qui permet de vérifier la connexion au brocker MQTT, le placement de points sur une carte.
+- Voir et selectionner les différents étages (non implémenté)
+- Selectionner les capteurs à afficher en fonction de leur ID, leur UID le DWM ou grâce à la recherche de l'ID, avec la barre de recherche ou dans le dropdown
+- Accéder à la page de DEBUG qui permet de voir le contenu des bases de données
+- Choisir l'id affichée sur chaque capteur entre les trois différentes
+- Activer ou désactiver les cercles représentant les données de ranging des capteurs
+- Activer ou désactiver les lignes représentant la vision des capteurs
+- Acviter ou désactiver le remplissage des cercles
 
-Il n'y a pas encore de fonctionnalités réellement disponibles pour l'utilisateur.
+Dans la carte on peut voir les capteurs et leur positions, ainsi qu'intéragir avec eux pour voir toutes les informations stockées dans leur Setup.
 
-=== Fonctionnalité de l'application - Sprint 2
-
-Ajouts :
-
-L'application permet de visualiser les capteurs sur une carte dès le lancement de la page. Chaque point est cliquable et une pop-up s'ouvre affichant les informations du noeud cliqué. Dans le header, il est possible de choisir les points à afficher selon son ID. Un historique des positions des capteurs est également disponible.
-
-=== Fonctionnalité de l'application - Sprint 3
-
-Ajouts :
-
-Ajout des scripts launch.sh (Linux) et launch.bat (Windows) pour lancer le serveur Web et le base de données.
-Au lancement de la page, l'étage 1 est affiché avec les points de l'étage 1. Il est possible de changer d'étage grâce à un menu déroulant: les étages se superposent de manière lisible et si aucun étage est selectionné, aucun noeud est affiché. La fonctionnalité étage n'est pas complètement implémentée. En effet, actuellement il existe aucun cas réel d'utilisation donc il n'est pas vraiment possible d'implémenter la fonctionnalité mais un exemple est fourni et il sera possible à l'avenir de modifier ces exemples à la guise. Il est également possible de choisir les points à afficher selon leur ID, leur UID le DWM ou grâce à la recherche de l'ID. Un historique des positions des capteurs est également disponible. Le contenu de la base de données est accessible grâce au bouton DEBUG dans le header. Une lumière clignotant indique l'état de la connexion au broker MQTT: si la lumière est rouge la connexion est perdue, si la lumière est verte la connexion est établie. Il est également possible de visualiser le ranging des capteurs grâce au bouton "Activer cercles" dans le header, choisir de remplir les cercles et activer les lignes représentant la vision des capteurs.
-Parfois, il est impossible de savoir s'il y a une erreur avec les scripts en arrière-plan (comme connexionMQTT.php) il faut donc exécuter la commande ps -ef dans le serveur pour voir si les scripts sont bien lancés et fonctionnels.
+Dans la page de debug on peut voir le contenu des bases de données à un instant fixé, ce qui permet de voir un historique des données actuelles.
