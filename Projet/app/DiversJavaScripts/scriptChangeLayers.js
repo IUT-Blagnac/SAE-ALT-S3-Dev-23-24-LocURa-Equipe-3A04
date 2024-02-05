@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Call the function to check checkboxes at startup
     checkCheckboxesAtStartup();
 
     // Set the checkbox with id="premierEtage" to checked by default

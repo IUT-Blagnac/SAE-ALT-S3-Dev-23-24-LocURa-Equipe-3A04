@@ -17,9 +17,8 @@ export function GestionDonneesCercles($donnees) {
  */
 function DessinerCercle($donnees) {
 
-    let centreCercle = document.getElementById($donnees['initiator']);
-    let rayon = $donnees['range'] * COEFF_TT; // Ajustez selon votre besoin
-    let couleur = centreCercle.style.backgroundColor;
+    let centreCercle = document.getElementById($donnees['target']);
+    let rayon = $donnees['range'] * COEFF_TT;
 
     // Création du cercle
     let cercle = document.createElement("div");
@@ -28,9 +27,7 @@ function DessinerCercle($donnees) {
     cercle.style.left = (parseFloat(centreCercle.style.left) - rayon + 4) + "px";
     cercle.style.top = (parseFloat(centreCercle.style.top) - rayon + 4) + "px";
     cercle.style.width = cercle.style.height = 2 * rayon + "px";
-    // cercle.style.backgroundColor = couleur;
     
-
     document.getElementById("map").appendChild(cercle);
 }
 
