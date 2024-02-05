@@ -28,7 +28,7 @@ function DessinerCercle($donnees) {
     cercle.style.left = (parseFloat(centreCercle.style.left) - rayon + 4) + "px";
     cercle.style.top = (parseFloat(centreCercle.style.top) - rayon + 4) + "px";
     cercle.style.width = cercle.style.height = 2 * rayon + "px";
-    cercle.style.backgroundColor = couleur;
+    // cercle.style.backgroundColor = couleur;
     
 
     document.getElementById("map").appendChild(cercle);
